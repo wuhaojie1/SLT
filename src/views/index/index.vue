@@ -2,10 +2,7 @@
     <div class="index">
         <TopBar></TopBar>
         <transition name="slide-fade-Y">
-            <ThemeStickyHeader v-if="showSticky"
-                               class="ThemeStickyHeader">
-
-            </ThemeStickyHeader>
+            <ThemeStickyHeader v-if="showSticky" class="ThemeStickyHeader"></ThemeStickyHeader>
         </transition>
         <div class="index-content">
             <div class="index-content-wrap">
@@ -114,7 +111,71 @@
                     </div>
                 </div>
                 <div class="section3" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
-
+                    <div class="section3-list">
+                        <div class="section3-item">
+                            <div class="section3-item-left">
+                                <div class="section3-item-box">
+                                    <div class="img">
+                                        <img src="" alt="" class="section3-item-box-img">
+                                    </div>
+                                    <div class="text">
+                                        <div class="title">
+                                            생태계
+                                        </div>
+                                        <div class="content">
+                                            독서데이터로 유아 및 아동 개개인의 교육, 취향, 수준 데이터를 확보하고, 이를 통해 키즈산업 생태계를 구축하여 SLTcoin을 기본 생태토큰으로 블록체인 플랫폼에 고객, 교육기업, 작가, 교육광고자 모두에게 혜택을 제공하는 생태계를 구축하여, 코인판매 이외에도 상품유통, 광고, 펀딩 서비스를 통한 자체 수익원을 확보.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section3-item-box">
+                                    <div class="img">
+                                        <img src="" alt="" class="section3-item-box-img">
+                                    </div>
+                                    <div class="text">
+                                        <div class="title">
+                                            활용 분야
+                                        </div>
+                                        <div class="content">
+                                            교육컨텐츠 구입 맻 대여, 키즈카페 결재, 북트리 판매수익 배분, 기프트 카드, 시각장애인 컨텐츠 개발, VIP 컨텐츠, SLTcoin 채굴, 광고청취
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section3-item">
+                            <img :src="section3ItemImg" alt="" class="section3ItemImg">
+                        </div>
+                        <div class="section3-item">
+                            <div class="section3-item-right">
+                                <div class="section3-item-box">
+                                    <div class="img">
+                                        <img src="" alt="" class="section3-item-box-img">
+                                    </div>
+                                    <div class="text">
+                                        <div class="title">
+                                            블록체인 기술
+                                        </div>
+                                        <div class="content">
+                                            암호화폐의 근간인 블록체인 기술은 4차 산업혁명 시대를 이끌어갈 핵실 기술중의 하나로 거래 내역 데이터를 모두 블록에 저장하고 연결하여 데이터를 기록하 저장된 블록들이 모여 만들어진 블록체인은 모든 네트워크 참여자들에게 공개되어 신뢰를 보장.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section3-item-box">
+                                    <div class="img">
+                                        <img src="" alt="" class="section3-item-box-img">
+                                    </div>
+                                    <div class="text">
+                                        <div class="title">
+                                            투명성과 공정성을 보증
+                                        </div>
+                                        <div class="content">
+                                            SLTcoin은 TRON기반의 TRC20토큰을 표준으로 한 코인으로 이미 많은 이용자들에 의하여 성공적인 표준기술로 인정받고 있습니다. 트론스캔 시스템을 통하여 모든 내용이 공개되기 때문에 투명성을 보증 할 수 있으며 투자자들에게 신뢰를 줄 수 있습니다.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -137,6 +198,7 @@
                 visa: `${require('../../static/img/index/logo-visa.png')}`,
                 bit: `${require('../../static/img/index/logo-bitcoin.png')}`,
                 master: `${require('../../static/img/index/logo-mastercard.png')}`,
+                section3ItemImg: `${require('../../static/img/index/middle-1.png')}`,
                 sectionImgs: [
                     `${require('../../static/img/index/booktree_white.png')}`,
                     `${require('../../static/img/index/SLT_white.png')}`,
@@ -151,8 +213,8 @@
             }
         },
         watch: {
-            scrollTop(v){
-                if (v>240){
+            scrollTop(v) {
+                if (v > 240) {
                     this.showSticky = true;
                 } else {
                     this.showSticky = false;
@@ -162,7 +224,7 @@
         mounted() {
             window.addEventListener('scroll', this.handleScroll, true);
         },
-        methods:{
+        methods: {
             //监听滚动条事件
             handleScroll() {
                 //获取设备高度
@@ -177,9 +239,8 @@
 </script>
 
 <style scoped lang="less">
-    @keyframes ThemeStickyHeadertranslateYin
-    {
-        0%   {
+    @keyframes ThemeStickyHeadertranslateYin {
+        0% {
             transform: translateY(-100%);
         }
         50% {
@@ -193,6 +254,7 @@
     .slide-fade-Y-enter-active {
         animation: ThemeStickyHeadertranslateYin 0.5s ease-in-out 0s;
     }
+
     .slide-fade-Y-leave-active {
         animation: ThemeStickyHeadertranslateYin 0.5s ease-in-out 0s reverse;
     }
@@ -202,6 +264,7 @@
         .ThemeStickyHeader {
             /*animation: ThemeStickyHeadertranslateYin 0.5s ease-in-out 0s;*/
         }
+
         .index-content {
             width: 100%;
             /*height: 1000rem;*/
@@ -495,11 +558,13 @@
                         .section2-item {
                             opacity: 0.6;
                             transition: all 0.3s;
+
                             img {
                                 width: 114rem;
                                 height: 54rem;
                             }
                         }
+
                         .section2-item:hover {
                             opacity: 1;
                         }
@@ -513,6 +578,75 @@
                     background-position: center !important;
                     background-repeat: no-repeat !important;
                     background-size: cover !important;
+
+                    .section3-list {
+                        width: 1170rem;
+                        margin: 0 auto;
+                        display: flex;
+                        /*align-items: center;*/
+                        height: 100%;
+
+                        .section3-item {
+                            width: 380rem;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+
+                            .section3ItemImg {
+                                width: 350rem;
+                                height: 277rem;
+                            }
+
+                            .section3-item-box {
+                                width: 350rem;
+                                box-sizing: border-box;
+                                padding: 0 15rem;
+                                display: flex;
+                                justify-content: space-between;
+                                margin-bottom: 60rem;
+
+                                .img {
+                                    .section3-item-box-img {
+                                        width: 64rem;
+                                        height: 64rem;
+                                    }
+                                }
+                                .text {
+                                    width: 186rem;
+                                    text-align: left;
+                                    .title {
+                                        color: #fff;
+                                        font-size: 23rem;
+                                    }
+                                    .content {
+                                        color: #89c1f9;
+                                        font-size: 16rem;
+                                        line-height: 1.6em;
+                                        box-sizing: border-box;
+                                        display: block;
+                                        margin-block-start: 1em;
+                                        margin-block-end: 1em;
+                                        margin-inline-start: 0;
+                                        margin-inline-end: 0;
+                                        font-weight: 400;
+                                        font-style: normal;
+                                        opacity: 1;
+                                        visibility: visible;
+                                    }
+                                }
+
+                            }
+
+                            .section3-item-left {
+
+                            }
+
+                            .section3-item-right {
+
+                            }
+                        }
+
+                    }
                 }
             }
         }
