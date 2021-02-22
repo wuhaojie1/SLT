@@ -1,7 +1,12 @@
 <template>
     <div class="index">
         <TopBar></TopBar>
-        <ThemeStickyHeader></ThemeStickyHeader>
+        <transition name="slide-fade-Y">
+            <ThemeStickyHeader v-if="showSticky"
+                               class="ThemeStickyHeader">
+
+            </ThemeStickyHeader>
+        </transition>
         <div class="index-content">
             <div class="index-content-wrap">
                 <div class="section1" :style="{ 'backgroundImage':'url('+ urlIcon +')' }">
@@ -108,6 +113,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="section3" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
+
+                </div>
             </div>
         </div>
     </div>
@@ -125,6 +133,7 @@
             return {
                 SLT_white: `${require('../../static/img/index/SLT_white.png')}`,
                 urlIcon: `${require('../../static/img/index/ico-landing1-banner_02.jpg')}`,
+                section3Bg: `${require('../../static/img/index/ico_bg_dark_03.png')}`,
                 visa: `${require('../../static/img/index/logo-visa.png')}`,
                 bit: `${require('../../static/img/index/logo-bitcoin.png')}`,
                 master: `${require('../../static/img/index/logo-mastercard.png')}`,
@@ -136,15 +145,63 @@
                     `${require('../../static/img/index/booktree_white.png')}`,
                     `${require('../../static/img/index/SLT_white.png')}`,
                 ],
+
+                showSticky: false,
+                scrollTop: 0,
             }
+        },
+        watch: {
+            scrollTop(v){
+                if (v>240){
+                    this.showSticky = true;
+                } else {
+                    this.showSticky = false;
+                }
+            }
+        },
+        mounted() {
+            window.addEventListener('scroll', this.handleScroll, true);
+        },
+        methods:{
+            //监听滚动条事件
+            handleScroll() {
+                //获取设备高度
+                // let clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+                //滚动的高度
+                let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                this.scrollTop = scrollTop;
+                // console.log(scrollTop)
+            },
         }
     }
 </script>
 
 <style scoped lang="less">
+    @keyframes ThemeStickyHeadertranslateYin
+    {
+        0%   {
+            transform: translateY(-100%);
+        }
+        50% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .slide-fade-Y-enter-active {
+        animation: ThemeStickyHeadertranslateYin 0.5s ease-in-out 0s;
+    }
+    .slide-fade-Y-leave-active {
+        animation: ThemeStickyHeadertranslateYin 0.5s ease-in-out 0s reverse;
+    }
 
     .index {
 
+        .ThemeStickyHeader {
+            /*animation: ThemeStickyHeadertranslateYin 0.5s ease-in-out 0s;*/
+        }
         .index-content {
             width: 100%;
             /*height: 1000rem;*/
@@ -447,6 +504,15 @@
                             opacity: 1;
                         }
                     }
+                }
+
+                .section3 {
+                    height: 860rem;
+                    width: 100%;
+                    background-color: #041b63;
+                    background-position: center !important;
+                    background-repeat: no-repeat !important;
+                    background-size: cover !important;
                 }
             }
         }
