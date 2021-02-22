@@ -26,7 +26,7 @@
         z-index: 5;
         width: 624rem;
         height: 127rem;
-        font-size: 75rem;
+        font-size: 150rem;
         font-family: Source Han Sans CN;
         font-weight: 800;
         color: #0D2541;
