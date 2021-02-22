@@ -1,10 +1,12 @@
 <template>
     <div class="index">
         <TopBar></TopBar>
-        <ThemeStickyHeader v-if="showSticky"
-                           class="ThemeStickyHeader">
+        <transition name="slide-fade-Y">
+            <ThemeStickyHeader v-if="showSticky"
+                               class="ThemeStickyHeader">
 
-        </ThemeStickyHeader>
+            </ThemeStickyHeader>
+        </transition>
         <div class="index-content">
             <div class="index-content-wrap">
                 <div class="section1" :style="{ 'backgroundImage':'url('+ urlIcon +')' }">
@@ -188,11 +190,17 @@
         }
     }
 
+    .slide-fade-Y-enter-active {
+        animation: ThemeStickyHeadertranslateYin 0.5s ease-in-out 0s;
+    }
+    .slide-fade-Y-leave-active {
+        animation: ThemeStickyHeadertranslateYin 0.5s ease-in-out 0s reverse;
+    }
+
     .index {
 
         .ThemeStickyHeader {
-            animation: ThemeStickyHeadertranslateYin 0.5s ease-in-out 0s;
-            transition: all 0.3s;
+            /*animation: ThemeStickyHeadertranslateYin 0.5s ease-in-out 0s;*/
         }
         .index-content {
             width: 100%;
