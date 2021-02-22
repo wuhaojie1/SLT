@@ -97,90 +97,95 @@
                 }
             }
             .loginbox-right{
-                margin-top: 100rem;
+                /*margin-top: 100rem;*/
                 position: absolute;
-                right: 60rem;
+                right: 0rem;
                 top: 100rem;
-                width: 228rem;
-                height: 230rem;
+                width: 456rem;
+                height: 460rem;
                 background: rgba(0, 183, 252, 0.33);
                 border: 0rem solid #012162;
                 top: 150rem;
                 .user{
-                    font-size: 20rem;
+                    font-size: 40rem;
                     font-family: Microsoft YaHei;
                     font-weight: 400;
                     color: #FFFFFF;
-                    padding-top: 25rem;
+                    padding-top: 50rem;
                 }
                 .username{
-                    margin-top: 23rem;
-                    margin-bottom: 10.5rem;
-                    margin-left: 22.5rem;
-                    width: 184rem;
-                    height: 29rem;
+                    margin-top: 46rem;
+                    margin-bottom: 21rem;
+                    margin-left: 45rem;
+                    width: 368rem;
+                    height: 58rem;
                     background: #002E73;
                     border: 0px solid #00B7FC;
                     opacity: 0.5;
-                    border-radius: 4rem;
+                    border-radius: 8rem;
                     color: #FFFFFF;
                     .username-input{
-                        line-height: 29rem;
+                        width: 100%;
+                        line-height: 58rem;
                         color: #FFFFFF;
                     }
                 }
                 .password{
-                    margin-left: 22.5rem;
-                    width: 184rem;
-                    height: 29rem;
+                    margin-left: 45rem;
+                    width: 368rem;
+                    height: 58rem;
                     background: #002E73;
                     border: 0px solid #00B7FC;
                     opacity: 0.5;
-                    border-radius: 4rem;
+                    border-radius: 8rem;
                     color: #FFFFFF;
                     .password-input{
-                        line-height: 29rem;
+                        width: 100%;
+                        line-height: 58rem;
                         color: #FFFFFF;
                     }
                 }
                 .userchoice{
-                    padding-top: 12rem;
-                    padding-bottom: 28rem;
+                    padding-top: 24rem;
+                    padding-bottom: 56rem;
                     .remberpsw{
+                        height: 20rem;
+                        line-height: 20rem;
                         float: left;
-                        font-size: 7rem;
+                        font-size: 14rem;
                         font-family: Microsoft YaHei;
                         font-weight: 400;
                         color: #E6E6E6;
-                        margin-left: 26.5rem;
+                        margin-left: 53rem;
                         .checkbox{
-                            width:9rem;
-                            height: 9rem;
+                            width:18rem;
+                            height: 18rem;
                             background: #002E73;
                             background: #002E73;
-                            border: 1rem solid #00B7FC;
+                            border: 2rem solid #00B7FC;
                             opacity: 0.5;
-                            border-radius: 2.5rem;
+                            border-radius: 5rem;
                         }
                     }
                     .regiest{
                         float: right;
-                        font-size: 7rem;
+                        font-size: 14rem;
                         font-family: Microsoft YaHei;
                         font-weight: 400;
                         color: #00B7FC;
-                        margin-right: 26.5rem;
+                        margin-right: 53rem;
+                        padding-top: 8rem;
                     }
                 }
                 .loginbutton{
                     clear: both;
-                    width: 184rem;
-                    height:29rem;
+                    width: 368rem;
+                    height:58rem;
                     background: linear-gradient(0deg, #0063FE 0%, #00B9FE 100%);
-                    border-radius: 4rem;
+                    border-radius: 8rem;
                     text-align: center;
-                    line-height: 29rem;
-                    margin-left: 22.5rem;
+                    line-height: 58rem;
+                    margin-left: 45rem;
                 }
             }
         }
