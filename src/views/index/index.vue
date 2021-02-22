@@ -1,9 +1,10 @@
 <template>
     <div class="index">
         <TopBar></TopBar>
+        <ThemeStickyHeader></ThemeStickyHeader>
         <div class="index-content">
             <div class="index-content-wrap">
-                <div class="section1">
+                <div class="section1" :style="{ 'backgroundImage':'url('+ urlIcon +')' }">
                     <div class="site-header">
                         <div class="site-header-list">
                             <div class="site-header-item-img">
@@ -14,13 +15,13 @@
                                     <div class="text">INTRO</div>
                                 </div>
                                 <div class="site-header-item">
-                                    <div class="text">About</div>
+                                    <div class="text">ABOUT</div>
                                 </div>
                                 <div class="site-header-item">
                                     <div class="text">SLT BENEFITS</div>
                                 </div>
                                 <div class="site-header-item">
-                                    <div class="text">ICO  FACTS</div>
+                                    <div class="text">ICO FACTS</div>
                                 </div>
                                 <div class="site-header-item">
                                     <div class="text">TEAM</div>
@@ -70,7 +71,40 @@
                                 <div class="ico-content-btn">
                                     BUY SLT COINS
                                 </div>
+                                <div class="money">
+                                    <div class="text">
+                                        10,000,000,000
+                                    </div>
+                                    <div class="tip">
+                                        Collected for now
+                                    </div>
+                                </div>
+                                <div class="progressBar">
+                                    <div class="text">
+                                        <div>1M</div>
+                                        <div>10B</div>
+                                    </div>
+                                    <!--<div class="box"></div>-->
+                                    <div class="bar">
+                                        <div class="rate"></div>
+                                        <div class="text">
+                                            SLT coins
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="payImgList">
+                                    <img :src="visa" alt="">
+                                    <img :src="bit" alt="">
+                                    <img :src="master" alt="">
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section2">
+                    <div class="section2-list">
+                        <div class="section2-item" v-for="(item,index) in sectionImgs" :key="index">
+                            <img :src="item" alt="">
                         </div>
                     </div>
                 </div>
@@ -82,13 +116,26 @@
 <script>
     import TopBar from "../../components/header/topBar";
     import TimeCard from "../../components/index/timeCard";
+    import ThemeStickyHeader from "../../components/header/themeStickyHeader";
 
     export default {
         name: "index",
-        components: {TimeCard, TopBar},
+        components: {ThemeStickyHeader, TimeCard, TopBar},
         data() {
             return {
                 SLT_white: `${require('../../static/img/index/SLT_white.png')}`,
+                urlIcon: `${require('../../static/img/index/ico-landing1-banner_02.jpg')}`,
+                visa: `${require('../../static/img/index/logo-visa.png')}`,
+                bit: `${require('../../static/img/index/logo-bitcoin.png')}`,
+                master: `${require('../../static/img/index/logo-mastercard.png')}`,
+                sectionImgs: [
+                    `${require('../../static/img/index/booktree_white.png')}`,
+                    `${require('../../static/img/index/SLT_white.png')}`,
+                    `${require('../../static/img/index/booktree_white.png')}`,
+                    `${require('../../static/img/index/SLT_white.png')}`,
+                    `${require('../../static/img/index/booktree_white.png')}`,
+                    `${require('../../static/img/index/SLT_white.png')}`,
+                ],
             }
         }
     }
@@ -110,9 +157,13 @@
 
                 .section1 {
                     background-color: #061649;
-                    height: 1000rem;
+                    height: 850rem;
                     /*width: 1170rem;*/
                     position: relative;
+
+                    background-position: center !important;
+                    background-repeat: no-repeat !important;
+                    background-size: cover !important;
 
                     .site-header {
                         width: 1170rem;
@@ -239,7 +290,7 @@
                             box-sizing: border-box;
                             width: 380rem;
                             height: 565rem;
-                            background-color: rgba(1,1,25,0.55);
+                            background-color: rgba(1, 1, 25, 0.55);
                             right: 50rem;
                             top: -120rem;
                             padding: 35rem;
@@ -269,7 +320,7 @@
 
                                 .ico-content-text {
                                     font-size: 12rem;
-                                    color: rgba(255,255,255,0.75);
+                                    color: rgba(255, 255, 255, 0.75);
                                     text-align: center;
                                     margin-top: 25rem;
                                     margin-bottom: 30rem;
@@ -282,10 +333,118 @@
                                     color: #fff;
                                     background: #00B4FC;
                                     line-height: 48rem;
+                                    margin-bottom: 21rem;
+                                }
+
+                                .money {
+                                    .text {
+                                        font-size: 32rem;
+                                        color: #fff;
+                                    }
+
+                                    .tip {
+                                        font-size: 13rem;
+                                        color: rgba(255, 255, 255, 0.75);
+                                        text-align: center;
+                                        margin-top: 10rem;
+                                    }
+                                }
+
+                                .progressBar {
+                                    position: relative;
+                                    width: 100%;
+                                    /*height: 85rem;*/
+
+                                    .text {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        font-size: 23rem;
+                                        color: #fff;
+
+                                        div {
+
+                                        }
+                                    }
+
+                                    /*.box {
+                                        height: 24rem;
+                                        width: 100%;
+                                        margin-top: 3rem;
+                                    }*/
+
+                                    .bar {
+                                        /*top: 26rem;*/
+                                        position: relative;
+                                        height: 24rem;
+                                        width: 100%;
+                                        background: #fff;
+                                        margin-top: 3rem;
+                                        border-radius: 2rem;
+
+                                        .rate {
+                                            position: absolute;
+                                            background: orange;
+                                            width: 100rem;
+                                            height: 100%;
+                                            top: 0;
+                                            left: 0;
+                                        }
+
+                                        .text {
+                                            position: absolute;
+                                            color: #fff;
+                                            line-height: 24rem;
+                                            top: 0;
+                                            left: 12rem;
+                                            font-size: 12rem;
+
+                                        }
+                                    }
+                                }
+
+                                .payImgList {
+                                    margin-top: 30rem;
+                                    /*width: 52rem;*/
+                                    /*height: 30rem;*/
+
+                                    display: flex;
+                                    justify-content: space-around;
+
+                                    img {
+                                        background: rgb(130, 133, 157);
+                                        border-radius: 3rem;
+                                        width: 52rem;
+                                        height: 30rem;
+                                    }
                                 }
 
                             }
 
+                        }
+                    }
+                }
+
+                .section2 {
+                    background-color: #061649;
+                    height: 150rem;
+
+                    .section2-list {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                        width: 1170rem;
+                        margin: 0 auto;
+
+                        .section2-item {
+                            opacity: 0.6;
+                            transition: all 0.3s;
+                            img {
+                                width: 114rem;
+                                height: 54rem;
+                            }
+                        }
+                        .section2-item:hover {
+                            opacity: 1;
                         }
                     }
                 }
