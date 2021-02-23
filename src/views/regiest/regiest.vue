@@ -7,7 +7,7 @@
                     <div class="left-text-down">SLTcoin 团队欢迎任何代购币购买或者业务查询。</div>
                 </div>
                 <div class="loginbox-right" :style="{ 'backgroundImage':'url('+ loginbgc +')' }">
-                    <div class="user">用户登录</div>
+                    <div class="user">用户注册</div>
                     <div class="username">
                         <image class="username-img"></image>
                         <input class="username-input" type="text" placeholder="请输入您的用户名">
@@ -16,20 +16,15 @@
                         <image class="password-img"></image>
                         <input class="password-input" type="password" placeholder="请输入您的密码">
                     </div>
-                    <div class="userchoice">
-                        <div class="remberpsw">
-<!--                            <input type="checkbox" class="checkbox">-->
-                            忘记密码?
-                        </div>
-                        <router-link to="regiest">
-                            <div class="regiest">立即注册?</div>
-                        </router-link>
+                    <div class="getcodes">
+                        <input type="number" class="numcontent">
+                        <div class="getbutton">获取验证码</div>
                     </div>
-                    <div class="loginbutton">登录</div>
+                    <div class="loginbutton">注册</div>
                 </div>
             </div>
         </div>
-<!--        </div>-->
+        <!--        </div>-->
     </div>
 </template>
 
@@ -146,29 +141,57 @@
                             color: #FFFFFF;
                         }
                     }
-                    .userchoice{
-                        padding-top: 24rem;
-                        padding-bottom: 37rem;
-                        .remberpsw{
-                            height: 20rem;
-                            line-height: 20rem;
-                            float: left;
-                            font-size: 14rem;
-                            font-family: Microsoft YaHei;
-                            font-weight: 400;
-                            color: #E6E6E6;
+                    .getcodes{
+                        .numcontent{
+                            width: 190rem;
+                            height: 58rem;
+                            background: #002E73;
+                            border: 3px solid #00B7FC;
+                            opacity: 0.5;
+                            border-radius: 10rem;
                             margin-left: 86rem;
+                            float: left;
+                            margin-top: 20rem;
+                            margin-bottom: 35rem;
                         }
-                        .regiest{
+                        .getbutton{
+                            width: 190rem;
+                            height: 58rem;
+                            background: #333333;
+                            border-radius: 10px;
                             float: right;
-                            font-size: 14rem;
-                            font-family: Microsoft YaHei;
-                            font-weight: 400;
-                            color: #00B7FC;
                             margin-right: 86rem;
-                            padding-top: 8rem;
+                            font-size: 20rem;
+                            color: #E6E6E6;
+                            line-height: 58rem;
+                            text-align: center;
+                            margin-top: 20rem;
+                            margin-bottom: 35rem;
                         }
                     }
+                    /*.userchoice{*/
+                    /*    padding-top: 24rem;*/
+                    /*    padding-bottom: 37rem;*/
+                    /*    .remberpsw{*/
+                    /*        height: 20rem;*/
+                    /*        line-height: 20rem;*/
+                    /*        float: left;*/
+                    /*        font-size: 14rem;*/
+                    /*        font-family: Microsoft YaHei;*/
+                    /*        font-weight: 400;*/
+                    /*        color: #E6E6E6;*/
+                    /*        margin-left: 86rem;*/
+                    /*    }*/
+                    /*    .regiest{*/
+                    /*        float: right;*/
+                    /*        font-size: 14rem;*/
+                    /*        font-family: Microsoft YaHei;*/
+                    /*        font-weight: 400;*/
+                    /*        color: #00B7FC;*/
+                    /*        margin-right: 86rem;*/
+                    /*        padding-top: 8rem;*/
+                    /*    }*/
+                    /*}*/
                     .loginbutton{
                         clear: both;
                         width: 400rem;
@@ -180,6 +203,7 @@
                         text-align: center;
                         line-height: 58rem;
                         margin-left: 86rem;
+                        margin-bottom: 68rem;
                     }
                 }
             }
