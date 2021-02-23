@@ -74,7 +74,7 @@
                 position: relative;
                 .loginbox-left{
                     position: absolute;
-                    top: 60rem;
+                    top: 150rem;
                     left: 60rem;
                     color: #FFFFFF;
                     .left-text-top{
@@ -94,12 +94,12 @@
                     /*margin-top: 100rem;*/
                     position: absolute;
                     right: 0rem;
-                    top: 100rem;
+                    /*top: 100rem;*/
                     width: 570rem;
                     height: 486rem;
                     /*background: rgba(0, 183, 252, 0.33);*/
                     border: 0rem solid #012162;
-                    top: 150rem;
+                    top: 290rem;
                     background-repeat: no-repeat !important;
                     background-size: cover !important;
                     .user{

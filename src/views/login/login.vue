@@ -69,7 +69,7 @@
         /*    z-index: -10;*/
         /*}*/
         .centercon{
-            width: 80%;
+            width: 1446rem;
             height: 100%;
             margin: 0 auto;
             .loginbox{
@@ -79,8 +79,8 @@
                 position: relative;
                 .loginbox-left{
                     position: absolute;
-                    top: 60rem;
-                    left: 60rem;
+                    top: 150rem;
+                    left: 30rem;
                     color: #FFFFFF;
                     .left-text-top{
                         font-size: 60rem;
@@ -99,12 +99,12 @@
                     /*margin-top: 100rem;*/
                     position: absolute;
                     right: 0rem;
-                    top: 100rem;
+                    /*top: 100rem;*/
                     width: 570rem;
                     height: 486rem;
                     /*background: rgba(0, 183, 252, 0.33);*/
                     border: 0rem solid #012162;
-                    top: 150rem;
+                    top: 290rem;
                     background-repeat: no-repeat !important;
                     background-size: cover !important;
                     .user{
@@ -125,10 +125,13 @@
                         opacity: 0.5;
                         border-radius: 8rem;
                         color: #FFFFFF;
+                        box-sizing: border-box;
                         .username-input{
                             width: 100%;
                             line-height: 58rem;
                             color: #FFFFFF;
+                            padding-left: 62rem;
+                            box-sizing: border-box;
                         }
                     }
                     .password{
@@ -144,6 +147,8 @@
                             width: 100%;
                             line-height: 58rem;
                             color: #FFFFFF;
+                            padding-left: 62rem;
+                            box-sizing: border-box;
                         }
                     }
                     .userchoice{
