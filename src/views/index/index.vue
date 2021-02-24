@@ -344,7 +344,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="section7"></div>
+                <div class="section7">
+                    <div class="section7-content1-wrap" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
+                        <div class="section7-content1">
+                            <div class="section7-content1-text1">ICO FACTS</div>
+                            <div class="section7-content1-text2">Everything to get you started</div>
+                            <div class="section7-content1-cards">
+                                <div class="section7-content1-cards-item"></div>
+                                <div class="section7-content1-cards-item"></div>
+                                <div class="section7-content1-cards-item"></div>
+                                <div class="section7-content1-cards-item"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section7-content2-wrap">
+                        <div class="section7-content2"></div>
+                    </div>
+                </div>
                 <div class="section8"></div>
                 <div class="section9"></div>
                 <div class="section10"></div>
@@ -1403,7 +1419,51 @@
                 }
 
                 .section7 {
-
+                    width: 100%;
+                    height: 1629rem;
+                    margin: 0 auto;
+                    box-sizing: border-box;
+                    .section7-content1-wrap{
+                        width: 100%;
+                        height: 596rem;
+                        background-color: #041b63;
+                        background-position: center !important;
+                        background-repeat: no-repeat !important;
+                        background-size: cover !important;
+                        box-sizing: border-box;
+                        .section7-content1{
+                            width: 1140rem;
+                            height: 436rem;
+                            padding-top: 80rem;
+                            margin: 0 auto;
+                            box-sizing: border-box;
+                            .section7-content1-text1{
+                                width: 100%;
+                                font-size: 14rem;
+                                text-align: center;
+                                color: #02B4E3;
+                                padding-bottom: 10rem;
+                            }
+                            .section7-content1-text2{
+                                width: 100%;
+                                font-size: 40rem;
+                                text-align: center;
+                                color: #FFFFFF;
+                                padding-bottom: 70rem;
+                            }
+                            .section7-content1-cards{
+                                display: flex;
+                                justify-content: space-between;
+                                .section7-content1-cards-item{
+                                    width: 255rem;
+                                    height: 248rem;
+                                    background-color: #fff;
+                                    box-shadow: 0 10rem 30rem rgb(1 1 25 / 10%);
+                                    opacity: 0.1;
+                                }
+                            }
+                        }
+                    }
                 }
 
                 .section8 {
