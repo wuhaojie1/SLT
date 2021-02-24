@@ -431,25 +431,41 @@
                     },
                     legend: {
                         orient: 'vertical',
-                        left: 'left',
+                        left: '270rem',
+                        top:'center',
+                        textStyle:{
+                            color:'#ffffff',
+                        }
                     },
                     series: [
                         {
-                            name: '访问来源',
+                            // name: '访问来源',
                             type: 'pie',
-                            radius: '50%',
+                            radius: '90%',
+                            center: ['35%', '50%'], //图的位置，距离左跟上的位置
                             data: [
-                                {value: 1048, name: '搜索引擎'},
-                                {value: 735, name: '直接访问'},
-                                {value: 580, name: '邮件营销'},
-                                {value: 484, name: '联盟广告'},
-                                {value: 300, name: '视频广告'}
+                                {value: 30, name: '생태기금'},
+                                {value: 20, name: '비축기금'},
+                                {value: 15, name: '마케팅'},
+                                {value: 15, name: '고문&개발팀'},
+                                {value: 10, name: '엔젤투자'},
+                                {value: 10, name: 'IEO&사모펀드'}
                             ],
                             emphasis: {
                                 itemStyle: {
                                     shadowBlur: 10,
                                     shadowOffsetX: 0,
-                                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                }
+                            },
+                            itemStyle: {
+                                normal:{
+                                    label:{
+                                        show:false   //隐藏标示文字
+                                    },
+                                    labelLine:{
+                                        show:true   //隐藏标示线
+                                    }
                                 }
                             }
                         }
@@ -677,6 +693,7 @@
 
                                         .TimeCard {
                                             border-radius: 5rem;
+                                            /*background-color: #fff;*/
                                         }
                                     }
                                 }
@@ -1013,6 +1030,11 @@
                                         margin-block-end: 1em;
                                         margin-inline-start: 0;
                                         margin-inline-end: 0;
+                                    }
+                                    .content-img{
+                                        /*width: 100%;*/
+                                        /*height: 100%;*/
+                                        /*background-size: cover;*/
                                     }
 
                                 }

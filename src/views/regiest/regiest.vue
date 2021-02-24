@@ -64,7 +64,7 @@
         /*    z-index: -10;*/
         /*}*/
         .centercon{
-            width: 80%;
+            width: 1446rem;
             height: 100%;
             margin: 0 auto;
             .loginbox{
@@ -74,8 +74,8 @@
                 position: relative;
                 .loginbox-left{
                     position: absolute;
-                    top: 150rem;
-                    left: 60rem;
+                    top: 100rem;
+                    left: 40rem;
                     color: #FFFFFF;
                     .left-text-top{
                         font-size: 60rem;
@@ -96,12 +96,12 @@
                     right: 0rem;
                     /*top: 100rem;*/
                     width: 570rem;
-                    height: 486rem;
+                    height: 524rem;
                     /*background: rgba(0, 183, 252, 0.33);*/
                     border: 0rem solid #012162;
                     top: 290rem;
                     background-repeat: no-repeat !important;
-                    background-size: cover !important;
+                    background-size: 100%;
                     .user{
                         font-size: 30rem;
                         font-family: Microsoft YaHei;
@@ -121,9 +121,10 @@
                         border-radius: 8rem;
                         color: #FFFFFF;
                         .username-input{
-                            width: 100%;
+                            width: 350rem;
                             line-height: 58rem;
                             color: #FFFFFF;
+                            padding-left: 50rem;
                         }
                     }
                     .password{
@@ -136,9 +137,10 @@
                         border-radius: 8rem;
                         color: #FFFFFF;
                         .password-input{
-                            width: 100%;
+                            width: 350rem;
                             line-height: 58rem;
                             color: #FFFFFF;
+                            padding-left: 50rem;
                         }
                     }
                     .getcodes{
@@ -157,6 +159,7 @@
                         .getbutton{
                             width: 190rem;
                             height: 58rem;
+                            padding-top: 3rem;
                             background: #333333;
                             border-radius: 10px;
                             float: right;

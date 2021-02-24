@@ -79,8 +79,8 @@
                 position: relative;
                 .loginbox-left{
                     position: absolute;
-                    top: 150rem;
-                    left: 30rem;
+                    top: 100rem;
+                    left: 40rem;
                     color: #FFFFFF;
                     .left-text-top{
                         font-size: 60rem;
