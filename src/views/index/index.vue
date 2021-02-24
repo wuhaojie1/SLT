@@ -272,6 +272,83 @@
                         </div>
                     </div>
                 </div>
+                <div class="section5" :style="{ 'backgroundImage':'url('+ connected +')' }">
+                    <div class="section5-wrap">
+                        <div class="left">
+                            <div class="left-wrap">
+                                <div class="left-wrap-item1">북트리 소개</div>
+                                <div class="left-wrap-item2">키즈산업 생태계를 위한 완벽한 블록체인</div>
+                                <div class="left-wrap-item3">북트리란 엄마에게는 자유시간을 아이에게는 독서습관을 만들어주는 유아동(1~7세) 눈높이의 책을 읽어주는
+                                    교육 제품입니다. RFID 기술을 활용하여 아기가 책을 읽고 싶을때, 혼자서도 활용이 쉽고, 언제든지 재미있게 읽어 줍니다.
+                                </div>
+                                <div class="buySellBox">
+                                    <div class="buy">
+                                        <div class="title">부모(구매고객)</div>
+                                        <div class="content">
+                                            <div class="content-list">
+                                                <div class="content-item">부모를 대신하여 통화책을 읽어 줌</div>
+                                                <div class="content-item">영어책도 원어민 발음으로 읽어 줌</div>
+                                                <div class="content-item">자연스러운 독서환경 조성</div>
+                                                <div class="content-item">아이의 연령, 수준을 고여한 독서 가이드 제공</div>
+                                                <div class="content-item">1만여권 이상의 도서, 클래식, 동요, 컨텐츠 제공</div>
+                                                <div class="content-item">빅데이터 시스템을 통한 맞춤형 독서정보 제공</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sell">
+                                        <div class="title">유아/어린이(타깃고객)</div>
+                                        <div class="content">
+                                            <div class="content-list">
+                                                <div class="content-item">아이가 원할때 언제든지 책을 읽어 줌</div>
+                                                <div class="content-item">아이들 눈높이에 맞춘 편리한 기술</div>
+                                                <div class="content-item">언제든 아이의 활동 공간에서 보여지며, 독서환경 제공</div>
+                                                <div class="content-item">동요, 클래식 등 다양하고 재미있는 컨텐츠 제공</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <img :src="booktree" alt="" class="right-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="section6">
+                    <div class="section6-wrap">
+                        <div class="left">
+                            <img :src="life" alt="" class="left-img">
+                        </div>
+                        <div class="right">
+                            <div class="right-wrap">
+                                <div class="tip">
+                                    SLT생태계 안에서 SLTcoin은 생태토큰으로 사용
+                                </div>
+                                <div class="title">
+                                    SLTcoin 생태계 활용 계획
+                                </div>
+                                <ul class="plan-list">
+                                    <li class="plan-item">교육컨텐츠 구입 및 대여</li>
+                                    <li class="plan-item">키즈카페 결재</li>
+                                    <li class="plan-item">북트리 판매수익 배분</li>
+                                    <li class="plan-item">기프트 카드</li>
+                                    <li class="plan-item">시각장애인 컨텐츠 개발</li>
+                                    <li class="plan-item">VIP 컨텐츠</li>
+                                    <li class="plan-item">SLTcoin 채굴</li>
+                                    <li class="plan-item">광고청취</li>
+                                </ul>
+                                <div class="btn">
+                                    문의하기
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section7"></div>
+                <div class="section8"></div>
+                <div class="section9"></div>
+                <div class="section10"></div>
+                <div class="section11"></div>
             </div>
         </div>
     </div>
@@ -290,11 +367,14 @@
                 SLT_white: `${require('../../static/img/index/SLT_white.png')}`,
                 urlIcon: `${require('../../static/img/index/ico-landing1-banner_02.jpg')}`,
                 section3Bg: `${require('../../static/img/index/ico_bg_dark_03.png')}`,
+                connected: `${require('../../static/img/index/bg_connected.png')}`,
                 visa: `${require('../../static/img/index/logo-visa.png')}`,
                 bit: `${require('../../static/img/index/logo-bitcoin.png')}`,
                 master: `${require('../../static/img/index/logo-mastercard.png')}`,
                 section3ItemImg: `${require('../../static/img/index/middle-1.png')}`,
+                booktree: `${require('../../static/img/index/booktree-1.png')}`,
                 ALPNG: `${require('../../static/img/index/AI.png')}`,
+                life: `${require('../../static/img/index/life.png')}`,
                 sectionImgs: [
                     `${require('../../static/img/index/booktree_white.png')}`,
                     `${require('../../static/img/index/SLT_white.png')}`,
@@ -336,7 +416,7 @@
             openBox(name) {
                 this[name] = !this[name];
             },
-            myEcharts(){
+            myEcharts() {
                 let echartsBox = this.$refs.echartsBox;
                 // 基于准备好的dom，初始化echarts实例
                 var myChart = this.$echarts.init(echartsBox);
@@ -528,7 +608,7 @@
                                 font-size: 16rem;
                                 opacity: 1;
                                 visibility: visible;
-                                margin-bottom: 40px !important;
+                                margin-bottom: 40rem !important;
 
                             }
 
@@ -1028,6 +1108,7 @@
                                             }
                                         }
                                     }
+
                                     .quesgtionBox-item2 {
                                         /*display: flex;*/
                                         width: 540rem;
@@ -1091,7 +1172,7 @@
                                     color: #89c1f9;
                                     font-weight: 400;
                                     font-style: normal;
-                                    font-size: 16px;
+                                    font-size: 16rem;
                                     opacity: 1;
                                     visibility: visible;
                                     margin-bottom: 35rem;
@@ -1100,6 +1181,7 @@
                                 .echarts-box {
                                     width: 540rem;
                                     height: 335rem;
+
                                     #echartsBox {
                                         width: 100%;
                                         height: 100%;
@@ -1108,6 +1190,214 @@
                             }
                         }
                     }
+                }
+
+                .section5 {
+                    background: #061649;
+                    width: 100%;
+                    height: 721rem;
+                    background-position: 0 0 !important;
+                    background-repeat: repeat !important;
+
+                    .section5-wrap {
+                        width: 1140rem;
+                        height: 100%;
+                        margin: 0 auto;
+                        display: flex;
+                        padding: 100rem 0;
+                        box-sizing: border-box;
+
+                        .left {
+                            width: 760rem;
+                            height: 100%;
+
+                            .left-wrap {
+                                padding: 0 15rem;
+                                text-align: left;
+
+                                .left-wrap-item1 {
+                                    font-size: 14rem;
+                                    color: #00B4FC;
+                                    margin-bottom: 10rem;
+                                }
+
+                                .left-wrap-item2 {
+                                    font-weight: 400;
+                                    font-style: normal;
+                                    color: #fff;
+                                    font-size: 36rem;
+                                    line-height: 1.3em;
+                                    margin-bottom: 15rem;
+                                }
+
+                                .left-wrap-item3 {
+                                    line-height: 1.6em;
+                                    display: block;
+                                    margin-block-start: 1em;
+                                    margin-block-end: 1em;
+                                    margin-inline-start: 0;
+                                    margin-inline-end: 0;
+                                    font-weight: 400;
+                                    font-style: normal;
+                                    color: #89c1f9;
+                                    font-size: 16rem;
+                                }
+
+                                .buySellBox {
+                                    display: flex;
+
+                                    .buy, .sell {
+                                        width: 380rem;
+                                        box-sizing: border-box;
+                                        /*padding: 0 15rem;*/
+
+                                        .title {
+                                            margin-bottom: 35rem;
+                                            line-height: 32rem;
+                                            font-weight: 400;
+                                            font-style: normal;
+                                            color: #89c1f9;
+                                            font-size: 16rem;
+                                        }
+
+                                        .content {
+
+                                            .content-list {
+                                                padding: 0 15rem;
+
+                                                .content-item {
+                                                    margin: 5rem 0;
+                                                    color: #ffffff;
+                                                    line-height: 32rem;
+                                                    font-weight: 400;
+                                                    font-style: normal;
+                                                    font-size: 16rem;
+                                                    opacity: 1;
+                                                    visibility: visible;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .sell {
+
+                                        margin-left: 15rem;
+                                    }
+                                }
+
+                            }
+                        }
+
+                        .right {
+                            height: 100%;
+                            width: 380rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            .right-img {
+                                width: 289rem;
+                                height: 482rem;
+                            }
+                        }
+                    }
+                }
+
+                .section6 {
+                    background: #061649;
+                    width: 100%;
+                    height: 717rem;
+
+                    .section6-wrap {
+                        height: 567rem;
+                        margin: 0 auto;
+                        width: 1140rem;
+                        box-sizing: border-box;
+                        display: flex;
+
+                        .left {
+                            margin-right: 15rem;
+
+                            .left-img {
+                                width: 640rem;
+                                height: 568rem;
+                            }
+                        }
+
+                        .right {
+                            text-align: left;
+                            width: 570rem;
+                            height: 100%;
+                            padding: 0 15rem;
+                            box-sizing: border-box;
+                            display: flex;
+                            align-items: center;
+
+                            .right-wrap {
+                                .tip {
+                                    font-size: 14rem;
+                                    color: #00B4FC;
+                                    margin-bottom: 10rem;
+                                }
+
+                                .title {
+                                    color: #ffffff;
+                                    font-size: 36rem;
+                                    margin-bottom: 15rem;
+                                }
+
+                                .plan-list {
+                                    margin-left: 15rem;
+                                    margin-bottom: 35rem;
+
+                                    .plan-item {
+                                        line-height: 32rem;
+                                        font-weight: 400;
+                                        font-style: normal;
+                                        color: #89c1f9;
+                                        font-size: 16rem;
+                                        opacity: 1;
+                                        visibility: visible;
+                                    }
+                                }
+
+                                .btn {
+                                    line-height: 48rem;
+                                    width: 102rem;
+                                    height: 48rem;
+                                    color: #fff;
+                                    font-size: 14rem;
+                                    border-radius: 2em;
+                                    background-color: #00B4FC;
+                                    text-align: center;
+                                }
+
+                                .btn:hover {
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .section7 {
+
+                }
+
+                .section8 {
+
+                }
+
+                .section9 {
+
+                }
+
+                .section10 {
+
+                }
+
+                .section11 {
+
                 }
             }
         }

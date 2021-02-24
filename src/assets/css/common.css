@@ -16,7 +16,7 @@ b,th{
   font-weight:normal;
 }
 ol, ul, li {
-  list-style: none;
+  /*list-style: none;*/
 }
 table {
   border-collapse: collapse;
