@@ -38,7 +38,7 @@ const setHtmlFontSize = () => {
   if (htmlWidth <= 320) {
     htmlWidth = 320;
   }
-  //1rem = 10px
+  //1rem = 1px
   htmlDom.style.fontSize = `${(htmlWidth / 1920)}px`;
 };
 window.onresize = setHtmlFontSize;
