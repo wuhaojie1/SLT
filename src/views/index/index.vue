@@ -230,28 +230,33 @@
                                 <div class="text1">HELP TO GET STARTED</div>
                                 <div class="text2">Frequently Asked Questions</div>
                                 <div class="quesgtionBox">
-                                    <div class="quesgtionBox-item">
+                                    <div class="quesgtionBox-item1">
                                         <div class="quesgtionBox-item-top" @click="openBox('box1')">
                                             <img class="quesgtionBox-item-img" src="" alt="">
                                             <div class="quesgtionBox-item-text">
                                                 기술 지원이 가능한가요?
                                             </div>
                                         </div>
-                                        <div class="hidden-box" v-show="box1">
-                                            <div class="hidden-box-item">SLTcoin 팀은 어떠한 문의라도 환영 합니다.</div>
-                                        </div>
+                                        <transition name="hidden-box1">
+                                            <div class="hidden-box" v-show="box1">
+                                                <div class="hidden-box-item">SLTcoin 팀은 어떠한 문의라도 환영 합니다.</div>
+                                            </div>
+                                        </transition>
+
                                     </div>
-                                    <div class="quesgtionBox-item">
+                                    <div class="quesgtionBox-item2">
                                         <div class="quesgtionBox-item-top" @click="openBox('box2')">
                                             <img class="quesgtionBox-item-img" src="" alt="">
                                             <div class="quesgtionBox-item-text">
                                                 기술 지원이 가능한가요?
                                             </div>
                                         </div>
-                                        <div class="hidden-box" v-show="box2">
-                                            <div class="hidden-box-item">마케팅팀에 문의 바랍니다.</div>
-                                            <div class="hidden-box-item">마케팅팀 sltglobalcoin@gmail.com</div>
-                                        </div>
+                                        <transition name="hidden-box2">
+                                            <div class="hidden-box" v-show="box2">
+                                                <div class="hidden-box-item">마케팅팀에 문의 바랍니다.</div>
+                                                <div class="hidden-box-item">마케팅팀 sltglobalcoin@gmail.com</div>
+                                            </div>
+                                        </transition>
                                     </div>
                                 </div>
                             </div>
@@ -397,6 +402,24 @@
 
     .slide-fade-Y-leave-active {
         animation: ThemeStickyHeadertranslateYin 0.5s ease-in-out 0s reverse;
+    }
+
+    @keyframes fold {
+        0% {
+            height: 0;
+        }
+        100% {
+            height: 40rem;
+        }
+    }
+
+    .hidden-box1-enter-active {
+
+        animation: fold 1s ease-in-out 0s;
+    }
+
+    .hidden-box1-leave-active {
+        animation: fold 1s ease-in-out 0s reverse;
     }
 
     .index {
@@ -958,7 +981,7 @@
                                 }
 
                                 .quesgtionBox {
-                                    .quesgtionBox-item {
+                                    .quesgtionBox-item1 {
                                         /*display: flex;*/
                                         width: 540rem;
                                         min-height: 82rem;
@@ -993,12 +1016,62 @@
                                             width: 100%;
                                             padding-left: 42rem;
                                             margin: 16rem 0 21rem 0;
+                                            box-sizing: border-box;
+                                            overflow: hidden;
 
                                             .hidden-box-item {
                                                 line-height: 1.6em;
                                                 color: #89c1f9;
                                                 margin-bottom: 15rem;
                                                 font-size: 16rem;
+                                                box-sizing: border-box;
+                                            }
+                                        }
+                                    }
+                                    .quesgtionBox-item2 {
+                                        /*display: flex;*/
+                                        width: 540rem;
+                                        min-height: 82rem;
+                                        box-sizing: border-box;
+                                        background-color: #fff;
+                                        border-radius: 5rem;
+                                        /*align-items: center;*/
+                                        padding: 25rem;
+                                        position: relative;
+                                        margin-bottom: 21rem;
+
+                                        .quesgtionBox-item-top {
+                                            display: flex;
+                                            align-items: center;
+                                            height: 32rem;
+                                            cursor: pointer;
+
+                                            .quesgtionBox-item-img {
+                                                width: 28rem;
+                                                height: 28rem;
+                                                position: absolute;
+                                            }
+
+                                            .quesgtionBox-item-text {
+                                                font-size: 15rem;
+                                                color: #010119;
+                                                padding-left: 42rem;
+                                            }
+                                        }
+
+                                        .hidden-box {
+                                            width: 100%;
+                                            padding-left: 42rem;
+                                            margin: 16rem 0 21rem 0;
+                                            box-sizing: border-box;
+                                            overflow: hidden;
+
+                                            .hidden-box-item {
+                                                line-height: 1.6em;
+                                                color: #89c1f9;
+                                                margin-bottom: 15rem;
+                                                font-size: 16rem;
+                                                box-sizing: border-box;
                                             }
                                         }
                                     }
