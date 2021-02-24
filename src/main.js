@@ -32,14 +32,14 @@ const setHtmlFontSize = () => {
   // console.log(document.documentElement.clientWidth)
   // console.log(document.body.clientWidth)
 
-  if (htmlWidth >= 750) {
-    htmlWidth = 750;
+  if (htmlWidth >= 1920) {
+    htmlWidth = 1920;
   }
   if (htmlWidth <= 320) {
     htmlWidth = 320;
   }
   //1rem = 10px
-  htmlDom.style.fontSize = `${(htmlWidth / 750)}px`;
+  htmlDom.style.fontSize = `${(htmlWidth / 1920)}px`;
 };
 window.onresize = setHtmlFontSize;
 setHtmlFontSize();
