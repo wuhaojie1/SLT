@@ -350,10 +350,33 @@
                             <div class="section7-content1-text1">ICO FACTS</div>
                             <div class="section7-content1-text2">Everything to get you started</div>
                             <div class="section7-content1-cards">
-                                <div class="section7-content1-cards-item"></div>
-                                <div class="section7-content1-cards-item"></div>
-                                <div class="section7-content1-cards-item"></div>
-                                <div class="section7-content1-cards-item"></div>
+                                <div class="section7-content1-cards-item whit">
+                                    <div class="title">Buyback</div>
+                                    <div class="content">Buyback 및 소객을 통해 코인의 가격 안정을 도모하는것을 목적으로 하는 Buyback제공</div>
+                                </div>
+                                <div class="section7-content1-cards-item black">
+                                    <div class="imgBox">
+                                        <img src="" alt="">
+                                    </div>
+                                    <div class="rate">50%</div>
+                                    <div class="date">1년차 Buyback</div>
+                                </div>
+                                <div class="section7-content1-cards-item blue">
+                                    <div class="imgBox">
+                                        <img src="" alt="">
+                                    </div>
+                                    <div class="rate">40%</div>
+                                    <div class="date">2년차 Buyback</div>
+                                </div>
+                                <div class="section7-content1-cards-item green">
+                                    <div class="imgBox">
+                                        <img src="" alt="">
+                                    </div>
+                                    <div class="rate">30%</div>
+                                    <div class="date">3년차 Buyback</div>
+
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -361,10 +384,62 @@
                         <div class="section7-content2"></div>
                     </div>
                 </div>
-                <div class="section8"></div>
-                <div class="section9"></div>
-                <div class="section10"></div>
-                <div class="section11"></div>
+                <div class="section8">
+                    <div class="section8-wrap">
+                        <div class="top">
+                            <div class="left">
+                                <div class="left-box">
+
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="right-content">
+                                    <div class="title">How to buy SLT coin</div>
+                                    <div class="content">전체 코인의 10%에 해당하는 10억개는 IEO및 사모펀드 방식으로 판매되며, 안정적인 SLTcoin의 운영을
+                                        위하여 초기 엔젤투자자가 10%, 마케팅 15%, 생태기금으로 30%, 비축기금으로 20%, 개발팀과 고문이 15%의 SLTcoin을 보유하게
+                                        됩니다.
+                                    </div>
+                                </div>
+                                <div class="right-table">
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td>SLT coin</td>
+                                            <td><strong>TRON TRC20</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>ICO Price</td>
+                                            <td><strong>1 SLT coin = 10KRW</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>ICO Date</td>
+                                            <td>March 31 – May 31 (23:59 UTA+9)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Exchange Listing</td>
+                                            <td><strong>Main Exchanges by 15 September</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Token Distribution</td>
+                                            <td><strong>Right after the ICO</strong></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="down"></div>
+                    </div>
+                </div>
+                <div class="section9" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
+                    <div class="section9-wrap"></div>
+                </div>
+                <div class="section10">
+                    <div class="section10-wrap"></div>
+                </div>
+                <div class="section11" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
+                    <div class="section11-wrap"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -447,10 +522,10 @@
                     },
                     legend: {
                         orient: 'vertical',
-                        left: '270rem',
-                        top:'center',
-                        textStyle:{
-                            color:'#ffffff',
+                        left: '450rem',
+                        top: 'center',
+                        textStyle: {
+                            color: '#ffffff',
                         }
                     },
                     series: [
@@ -475,12 +550,12 @@
                                 }
                             },
                             itemStyle: {
-                                normal:{
-                                    label:{
-                                        show:false   //隐藏标示文字
+                                normal: {
+                                    label: {
+                                        show: false   //隐藏标示文字
                                     },
-                                    labelLine:{
-                                        show:true   //隐藏标示线
+                                    labelLine: {
+                                        show: true   //隐藏标示线
                                     }
                                 }
                             }
@@ -556,9 +631,9 @@
                     /*width: 1170rem;*/
                     position: relative;
 
-                    background-position: center !important;
-                    background-repeat: no-repeat !important;
-                    background-size: cover !important;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
 
                     .site-header {
                         width: 1170rem;
@@ -615,7 +690,7 @@
 
                             .title1 {
                                 font-size: 14rem;
-                                color: #00B4FC !important;
+                                color: #00B4FC;
                                 line-height: 1.6em;
                                 box-sizing: border-box;
                                 margin-bottom: 10rem;
@@ -623,7 +698,7 @@
 
                             .title2 {
                                 color: #fff;
-                                margin-bottom: 40rem !important;
+                                margin-bottom: 40rem;
                                 font-weight: 400;
                                 font-style: normal;
                                 visibility: visible;
@@ -640,7 +715,7 @@
                                 font-size: 16rem;
                                 opacity: 1;
                                 visibility: visible;
-                                margin-bottom: 40rem !important;
+                                margin-bottom: 40rem;
 
                             }
 
@@ -851,9 +926,9 @@
                     height: 860rem;
                     width: 100%;
                     background-color: #041b63;
-                    background-position: center !important;
-                    background-repeat: no-repeat !important;
-                    background-size: cover !important;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
 
                     .section3-list {
                         width: 1170rem;
@@ -1047,7 +1122,8 @@
                                         margin-inline-start: 0;
                                         margin-inline-end: 0;
                                     }
-                                    .content-img{
+
+                                    .content-img {
                                         /*width: 100%;*/
                                         /*height: 100%;*/
                                         /*background-size: cover;*/
@@ -1064,9 +1140,9 @@
                         height: 680rem;
                         width: 100%;
                         background-color: #041b63;
-                        background-position: center !important;
-                        background-repeat: no-repeat !important;
-                        background-size: cover !important;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
                         box-sizing: border-box;
                         padding: 100rem 0;
                         display: flex;
@@ -1234,8 +1310,8 @@
                     background: #061649;
                     width: 100%;
                     height: 721rem;
-                    background-position: 0 0 !important;
-                    background-repeat: repeat !important;
+                    background-position: 0 0;
+                    background-repeat: repeat;
 
                     .section5-wrap {
                         width: 1140rem;
@@ -1420,66 +1496,277 @@
 
                 .section7 {
                     width: 100%;
-                    height: 1629rem;
+                    /*height: 1629rem;*/
                     margin: 0 auto;
                     box-sizing: border-box;
-                    .section7-content1-wrap{
+
+                    .section7-content1-wrap {
                         width: 100%;
                         height: 596rem;
                         background-color: #041b63;
-                        background-position: center !important;
-                        background-repeat: no-repeat !important;
-                        background-size: cover !important;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
                         box-sizing: border-box;
-                        .section7-content1{
+
+                        .section7-content1 {
                             width: 1140rem;
                             height: 436rem;
                             padding-top: 80rem;
                             margin: 0 auto;
                             box-sizing: border-box;
-                            .section7-content1-text1{
+
+                            .section7-content1-text1 {
                                 width: 100%;
                                 font-size: 14rem;
                                 text-align: center;
                                 color: #02B4E3;
                                 padding-bottom: 10rem;
                             }
-                            .section7-content1-text2{
+
+                            .section7-content1-text2 {
                                 width: 100%;
                                 font-size: 40rem;
                                 text-align: center;
                                 color: #FFFFFF;
                                 padding-bottom: 70rem;
                             }
-                            .section7-content1-cards{
+
+                            .section7-content1-cards {
                                 display: flex;
                                 justify-content: space-between;
-                                .section7-content1-cards-item{
+
+                                .section7-content1-cards-item {
                                     width: 255rem;
                                     height: 248rem;
-                                    background-color: #fff;
+                                    /*background-color: #fff;*/
                                     box-shadow: 0 10rem 30rem rgb(1 1 25 / 10%);
-                                    opacity: 0.1;
+                                    /*opacity: 0.1;*/
+                                    border-radius: 5rem;
+                                    box-sizing: border-box;
+                                    padding: 55rem 40rem;
+
+
+                                    .title {
+                                        line-height: 23rem;
+                                        font-weight: 400;
+                                        font-style: normal;
+                                        font-size: 23rem;
+                                        color: #003366;
+                                        text-align: left;
+                                        margin-bottom: 15rem;
+                                    }
+
+                                    .content {
+                                        line-height: 1.6em;
+                                        color: #003366;
+                                        text-align: left;
+                                        font-weight: 400;
+                                        font-style: normal;
+                                        font-size: 16rem;
+
+                                    }
+
+                                    .imgBox {
+                                        img {
+                                            width: 95rem;
+                                            height: 97rem;
+                                            margin-bottom: 2rem;
+                                        }
+                                    }
+
+                                    .rate {
+                                        font-size: 30rem;
+                                        color: #ffffff;
+                                        font-weight: 700;
+                                        line-height: 150%;
+                                        text-align: center;
+                                    }
+
+                                    .date {
+                                        font-size: 15rem;
+                                        color: #eaf2f5;
+                                    }
                                 }
+                            }
+
+                            .whit {
+                                background-color: #fff;
+                            }
+
+                            .black {
+                                background-color: #010119;
+                            }
+
+                            .blue {
+                                background-color: #1622a7;
+                            }
+
+                            .green {
+                                background-color: #00B4FC;
                             }
                         }
                     }
                 }
 
                 .section8 {
+                    background: #061649;
+                    width: 100%;
+                    height: 1033rem;
+                    box-sizing: border-box;
 
+                    .section8-wrap {
+                        width: 1140rem;
+                        margin: 0 auto;
+                        height: 100%;
+                        box-sizing: border-box;
+
+                        .top {
+                            height: 644rem;
+                            width: 100%;
+                            box-sizing: border-box;
+                            padding: 100rem 0 60rem 0;
+                            display: flex;
+
+                            .left {
+                                height: 100%;
+                                width: 570rem;
+
+                                .left-box {
+                                    height: 417rem;
+                                    width: 100%;
+                                    box-sizing: border-box;
+                                    margin-bottom: 40rem;
+                                    padding: 35rem;
+                                    background-color: rgba(1, 1, 25, 0.55);
+                                    /**background-color: rgb(1,1,25) ;*/
+                                    border-radius: 5rem;
+                                }
+                            }
+
+                            .right {
+                                height: 100%;
+                                width: 475rem;
+                                margin-left: 95rem;
+
+                                .right-content {
+                                    text-align: left;
+
+                                    .title {
+                                        color: #fff;
+                                        font-size: 24rem;
+                                        margin-bottom: 15rem;
+                                        font-weight: 400;
+                                        font-style: normal;
+                                        line-height: 1.3em;
+                                    }
+
+                                    .content {
+                                        margin-bottom: 50rem;
+                                        box-sizing: border-box;
+                                        font-size: 20rem;
+                                        font-weight: 400;
+                                        font-style: normal;
+                                        color: #89c1f9;
+                                        line-height: 1.68421053em;
+                                    }
+                                }
+
+                                .right-table {
+                                    table {
+                                        color: #fff;
+                                        margin: 20rem 0;
+                                        width: 100%;
+                                        border: 1rem solid rgba(255, 255, 255, .2);
+                                        border-collapse: separate;
+                                        border-radius: 4rem;
+                                        box-sizing: border-box;
+                                        text-indent: initial;
+                                        border-spacing: 2rem;
+                                        line-height: 32rem;
+                                        font-weight: 400;
+                                        font-style: normal;
+                                        text-align: left;
+                                        font-size: 16rem;
+                                        
+                                        tbody {
+                                            tr {
+                                                td {
+                                                    padding: 8rem;
+                                                    vertical-align: top;
+                                                    text-align: left;
+                                                    line-height: 18rem;
+                                                    border: 1rem solid rgba(255, 255, 255, .2);
+                                                }
+
+                                                td:first-child {
+                                                    border-left: 0;
+                                                    border-top: 0;
+                                                }
+                                                td:last-child {
+                                                    border-left: 0;
+                                                    border-top: 0;
+                                                    border-right: 0;
+                                                }
+                                            }
+                                            tr:last-child {
+                                                td {
+                                                    border-bottom: 0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .down {
+                            height: 389rem;
+                            width: 100%;
+                            box-sizing: border-box;
+                            padding: 45rem 0 60rem 0;
+                        }
+                    }
                 }
 
                 .section9 {
+                    height: 2743rem;
+                    background-color: #041b63;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
 
+                    .section9-wrap {
+                        width: 1140rem;
+                        margin: 0 auto;
+                        height: 100%;
+                    }
                 }
 
                 .section10 {
+                    background: #061649;
+                    width: 100%;
+                    height: 1159rem;
 
+                    .section10-wrap {
+                        width: 1140rem;
+                        margin: 0 auto;
+                        height: 100%;
+                    }
                 }
 
                 .section11 {
+                    height: 764rem;
+                    background-color: #041b63;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
 
+                    .section11-wrap {
+                        width: 1140rem;
+                        margin: 0 auto;
+                        height: 100%;
+                    }
                 }
             }
         }
