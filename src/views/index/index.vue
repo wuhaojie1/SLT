@@ -577,6 +577,54 @@
                                 SLT coin and where we are going further
                             </div>
                         </div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-badge "
+                                     style="background-color:#1e73be">Mar<span>2021</span>
+                                    <div class=" " style="background-color:#1e73be"></div>
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="description">
+                                        <span style="color: #ffffff">초기 엔젤투자 판매</span></div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-badge " style="background-color:#81d742">May<span>2021</span>
+                                    <div class=" " style="background-color:#81d742"></div>
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="description">
+                                        <span style="color: #ffffff">사모펀드 진행</span></div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-badge " style="background-color:#eeee22">Jun<span>2021</span>
+                                    <div class=" " style="background-color:#eeee22"></div>
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="description">
+                                        <span style="color: #ffffff">첫번째 거래소 상장</span></div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-badge " style="background-color:#8224e3">Aug<span>2021</span>
+                                    <div class=" " style="background-color:#8224e3"></div>
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="description">
+                                        <span style="color: #ffffff">대형 거래소 상장</span></div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-badge " style="background-color:#faa732">Mar<span>2022</span>
+                                    <div class=" " style="background-color:#faa732"></div>
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="description">
+                                        <span style="color: #ffffff">첫번째 바이백 진행</span></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="section11" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
@@ -2132,7 +2180,7 @@
                                 font-weight: 400;
                                 font-style: normal;
                                 text-align: left;
-                                margin: 0 0 15px 0;
+                                margin: 0 0 15rem 0;
                                 line-height: 1.3em;
                                 font-size: 36rem;
                                 padding-left: 30rem;
@@ -2199,6 +2247,136 @@
                                 color: #89c1f9;
                                 margin: 0 auto;
                             }
+                        }
+
+                        .timeline {
+                            width: 1095rem;
+                            height: 710rem;
+                            box-sizing: border-box;
+                            padding: 20rem 0 20rem;
+                            position: relative;
+                            margin: 0 auto 20rem;
+
+                            .timeline-item {
+                                margin-bottom: 40rem;
+                                width: 100%;
+                                height: 94rem;
+                                box-sizing: border-box;
+                                position: relative;
+
+                                .timeline-badge {
+                                    color: #fff;
+                                    width: 70rem;
+                                    height: 70rem;
+                                    padding-top: 22rem;
+                                    font-size: 12rem;
+                                    line-height: 12rem;
+                                    text-align: center;
+                                    position: absolute;
+                                    left: 50%;
+                                    margin-left: -35rem;
+                                    z-index: 100;
+                                    border-radius: 50%;
+                                    top: 10rem;
+                                    text-transform: uppercase;
+                                    box-sizing: border-box;
+
+                                    span {
+                                        font-size: 14rem;
+                                        display: block;
+                                        line-height: 16rem;
+                                    }
+
+                                    div {
+                                        content: "";
+                                        position: absolute;
+                                        z-index: -1;
+                                        width: 110%;
+                                        height: 110%;
+                                        border-radius: 50%;
+                                        top: -5%;
+                                        left: -5%;
+                                        opacity: .4;
+                                    }
+                                }
+
+                                .timeline-panel {
+                                    height: 94rem;
+                                    background: #1e73be;
+                                    width: 481rem;
+                                    line-height: 32rem;
+                                    float: left;
+                                    border-radius: 5rem;
+                                    padding: 30rem;
+                                    position: relative;
+                                    border: 1rem solid #eee;
+                                    box-shadow: 0 10rem 30rem rgb(1 1 25 / 10%);
+                                    box-sizing: border-box;
+
+                                    .description {
+                                        span {
+
+                                        }
+                                    }
+                                }
+
+                                .timeline-panel:before {
+                                    position: absolute;
+                                    top: 29rem;
+                                    right: -15rem;
+                                    display: inline-block;
+                                    border-top: 15rem solid transparent;
+                                    border-left: 15rem solid #eee;
+                                    border-right: 0 solid #eee;
+                                    border-bottom: 15rem solid transparent;
+                                    content: " ";
+                                }
+
+                                .timeline-panel:after {
+                                    position: absolute;
+                                    top: 30rem;
+                                    right: -14rem;
+                                    display: inline-block;
+                                    border-top: 14rem solid transparent;
+                                    border-left: 14rem solid #fff;
+                                    border-right: 0 solid #fff;
+                                    border-bottom: 14rem solid transparent;
+                                    content: " ";
+                                }
+                            }
+
+                            .timeline-item:nth-child(2n) {
+
+                                .timeline-panel:before {
+                                    border-left-width: 0;
+                                    border-right-width: 15px;
+                                    left: -15px;
+                                    right: auto;
+                                }
+
+                                .timeline-panel:after {
+                                    border-left-width: 0;
+                                    border-right-width: 14px;
+                                    left: -14px;
+                                    right: auto;
+                                }
+
+                                .timeline-panel {
+                                    float: right;
+                                }
+
+                            }
+                        }
+
+                        .timeline:before {
+                            top: 0;
+                            bottom: 0;
+                            position: absolute;
+                            content: " ";
+                            width: 3rem;
+                            background-color: #ddd;
+                            left: 50%;
+                            margin-left: -1.5rem;
                         }
                     }
                 }
