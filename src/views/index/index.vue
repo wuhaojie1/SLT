@@ -1077,6 +1077,7 @@
                                     background: #00B4FC;
                                     line-height: 48rem;
                                     margin-bottom: 21rem;
+                                    cursor: pointer;
                                 }
 
                                 .money {
