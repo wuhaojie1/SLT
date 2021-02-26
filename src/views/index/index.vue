@@ -63,10 +63,18 @@
                                 </div>
                                 <div class="ico-content-date">
                                     <div class="ico-content-date-list">
-                                        <TimeCard class="TimeCard"></TimeCard>
-                                        <TimeCard class="TimeCard"></TimeCard>
-                                        <TimeCard class="TimeCard"></TimeCard>
-                                        <TimeCard class="TimeCard"></TimeCard>
+                                        <TimeCard class="TimeCard"
+                                                  :date="'DAY'"
+                                                  :number="'09'"></TimeCard>
+                                        <TimeCard class="TimeCard"
+                                                  :date="'HR'"
+                                                  :number="'09'"></TimeCard>
+                                        <TimeCard class="TimeCard"
+                                                  :date="'MIN'"
+                                                  :number="'09'"></TimeCard>
+                                        <TimeCard class="TimeCard"
+                                                  :date="'SEC'"
+                                                  :number="'09'"></TimeCard>
                                     </div>
                                 </div>
                                 <div class="ico-content-text">Token sales ends on 31st May, 2021</div>
@@ -389,7 +397,46 @@
                         <div class="top">
                             <div class="left">
                                 <div class="left-box">
-
+                                    <div class="time-box">
+                                        <TimeCard class="TimeCard"
+                                                  :dateStyle="dateStyle"
+                                                  :numberStyle="numberStyle"
+                                                  :date="'DAY'"
+                                                  :number="'09'">
+                                        </TimeCard>
+                                        <TimeCard class="TimeCard"
+                                                  :dateStyle="dateStyle"
+                                                  :numberStyle="numberStyle"
+                                                  :date="'HR'"
+                                                  :number="'09'">
+                                        </TimeCard>
+                                        <TimeCard class="TimeCard"
+                                                  :dateStyle="dateStyle"
+                                                  :numberStyle="numberStyle"
+                                                  :date="'MIN'"
+                                                  :number="'09'">
+                                        </TimeCard>
+                                        <TimeCard class="TimeCard"
+                                                  :dateStyle="dateStyle"
+                                                  :numberStyle="numberStyle"
+                                                  :date="'SEC'"
+                                                  :number="'09'">
+                                        </TimeCard>
+                                    </div>
+                                    <div class="tip">
+                                        Coin sales ends on 31st May, 2021
+                                    </div>
+                                    <div class="money">10,000,000,000원</div>
+                                    <div class="CollectTip">Collected for now</div>
+                                    <div class="bar">
+                                        <div class="rate"></div>
+                                        <div class="text">
+                                            SLT coins
+                                        </div>
+                                    </div>
+                                    <div class="btnBox">
+                                        <div class="btn">SLT 코인 구매하기</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="right">
@@ -428,14 +475,109 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="down"></div>
+                        <div class="down">
+                            <div class="recommend-list">
+                                <div class="recommend-item">
+                                    <div class="imgBox">
+                                        <img src="" alt="" class="img">
+                                    </div>
+                                    <div class="recommend-item-top">
+                                        <div class="title">Whitepaper</div>
+                                        <div class="text"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="content-list">
+                                            <div class="content-item">Korean(한글)</div>
+                                            <div class="content-item">English(영어)</div>
+                                            <div class="content-item">Chinese(중국어)</div>
+                                            <div class="content-item">Japanese(일본어)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recommend-item">
+                                    <div class="imgBox">
+                                        <img src="" alt="" class="img">
+                                    </div>
+                                    <div class="recommend-item-top">
+                                        <div class="title">Notifications</div>
+                                        <div class="text">성장시장인 교육산업을 블록체인/빅데이터/AI등을 이용하여 지속적인 수익 창출</div>
+                                    </div>
+                                </div>
+                                <div class="recommend-item">
+                                    <div class="imgBox">
+                                        <img src="" alt="" class="img">
+                                    </div>
+                                    <div class="recommend-item-top">
+                                        <div class="title">Payment Options</div>
+                                        <div class="text">학부모, 학생, 플랫폼고객, 교육기업, 작가, 교육광고자</div>
+                                    </div>
+                                </div>
+                                <div class="recommend-item">
+                                    <div class="imgBox">
+                                        <img src="" alt="" class="img">
+                                    </div>
+                                    <div class="recommend-item-top">
+                                        <div class="title">Referral & Bounty</div>
+                                        <div class="text">상품유통, 광고, 펀딩 서비스를 통한 다양한 수익원</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="section9" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
-                    <div class="section9-wrap"></div>
+                    <div class="section9-wrap">
+                        <div class="section9-wrap-title">
+                            <div class="team">TEAM</div>
+                            <div class="text">Who We Are</div>
+                            <div class="text2">Get to know the team of enthusiasts who are working hard
+                                and passionately behind this project
+                            </div>
+                        </div>
+                        <div class="Team-card">
+                            <h2 class="Team-card-title">Member</h2>
+                            <div class="Team-card-content">
+                                <div class="Team-card-content-list">
+                                    <div class="Team-card-content-item"
+                                         v-for="(item, index) in members"
+                                         :key="index">
+                                        <MemberCard :name="item.name"
+                                                    :position="item.position"
+                                                    :img="item.img"
+                                        ></MemberCard>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Team-card">
+                            <h2 class="Team-card-title">Advisor</h2>
+                            <div class="Team-card-content">
+                                <div class="Team-card-content-list">
+                                    <div class="Team-card-content-item"
+                                         v-for="(item, index) in members"
+                                         :key="index">
+                                        <MemberCard :name="item.name"
+                                                    :position="item.position"
+                                                    :img="item.img"
+                                        ></MemberCard>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="section10">
-                    <div class="section10-wrap"></div>
+                    <div class="section10-wrap">
+                        <div class="section9-wrap-title">
+                            <div class="team">SLTcoin 로드맵</div>
+                            <div class="text">How it was implemented</div>
+                            <div class="text2">Here is a timeline of how we get started with the
+                                SLT coin and where we are going further
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="section11" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
                     <div class="section11-wrap"></div>
@@ -449,10 +591,11 @@
     import TopBar from "../../components/header/topBar";
     import TimeCard from "../../components/index/timeCard";
     import ThemeStickyHeader from "../../components/header/themeStickyHeader";
+    import MemberCard from "../../components/index/memberCard";
 
     export default {
         name: "index",
-        components: {ThemeStickyHeader, TimeCard, TopBar},
+        components: {MemberCard, ThemeStickyHeader, TimeCard, TopBar},
         data() {
             return {
                 SLT_white: `${require('../../static/img/index/SLT_white.png')}`,
@@ -474,11 +617,66 @@
                     `${require('../../static/img/index/booktree_white.png')}`,
                     `${require('../../static/img/index/SLT_white.png')}`,
                 ],
+                members: [
+                    {
+                        name: "Bae Seunghwan",
+                        position: "CEO",
+                        img: `${require('../../static/img/index/baesh-400x400.png')}`,
+                    },
+                    {
+                        name: "Choi sungmin",
+                        position: "Planning, CEO of CRADLEKOREA",
+                        img: `${require('../../static/img/index/team_choism-400x400.png')}`,
+                    },
+                    {
+                        name: "Choi kyoungyong",
+                        position: "Marketing, Former Director of Altwell",
+                        img: `${require('../../static/img/index/team_choikg-400x400.png')}`,
+                    },
+                    {
+                        name: "You hwanho",
+                        position: "Web Development",
+                        img: `${require('../../static/img/index/team_youhwanho-400x400.png')}`,
+                    },
+                    {
+                        name: "Bae Seunghwan",
+                        position: "CEO",
+                        img: `${require('../../static/img/index/baesh-400x400.png')}`,
+                    },
+                    {
+                        name: "Choi sungmin",
+                        position: "Planning, CEO of CRADLEKOREA",
+                        img: `${require('../../static/img/index/team_choism-400x400.png')}`,
+                    },
+                    {
+                        name: "Choi kyoungyong",
+                        position: "Marketing, Former Director of Altwell",
+                        img: `${require('../../static/img/index/team_choikg-400x400.png')}`,
+                    },
+                    {
+                        name: "You hwanho",
+                        position: "Web Development",
+                        img: `${require('../../static/img/index/team_youhwanho-400x400.png')}`,
+                    },
+                    {
+                        name: "You hwanho",
+                        position: "Web Development",
+                        img: `${require('../../static/img/index/team_youhwanho-400x400.png')}`,
+                    },
+                ],
 
                 showSticky: false,
                 scrollTop: 0,
                 box1: false,
                 box2: false,
+                dateStyle: {
+                    width: '80rem',
+                    height: '20rem',
+                },
+                numberStyle: {
+                    width: '80rem',
+                    height: '60rem',
+                },
             }
         },
         watch: {
@@ -1641,6 +1839,89 @@
                                     background-color: rgba(1, 1, 25, 0.55);
                                     /**background-color: rgb(1,1,25) ;*/
                                     border-radius: 5rem;
+
+                                    .time-box {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: space-around;
+
+                                        .TimeCard {
+
+                                        }
+                                    }
+
+                                    .tip {
+                                        margin-top: 20rem;
+                                        font-size: 12rem;
+                                        margin-bottom: 30rem;
+                                        font-weight: 400;
+                                        font-style: normal;
+                                        color: #89c1f9;
+                                    }
+
+                                    .money {
+                                        font-size: 32rem;
+                                        color: #ffffff;
+                                        line-height: 1.3em;
+                                        /*margin-bottom: 15rem;*/
+                                    }
+
+                                    .CollectTip {
+                                        font-size: 13rem;
+                                        font-weight: 400;
+                                        font-style: normal;
+                                        color: #89c1f9;
+                                        margin-bottom: 30rem;
+                                    }
+
+                                    .bar {
+                                        /*top: 26rem;*/
+                                        position: relative;
+                                        height: 24rem;
+                                        width: 100%;
+                                        background: #fff;
+                                        margin-top: 3rem;
+                                        border-radius: 2rem;
+                                        margin-bottom: 35rem;
+
+
+                                        .rate {
+                                            position: absolute;
+                                            background: orange;
+                                            width: 100rem;
+                                            height: 100%;
+                                            top: 0;
+                                            left: 0;
+                                        }
+
+                                        .text {
+                                            position: absolute;
+                                            color: #fff;
+                                            line-height: 24rem;
+                                            top: 0;
+                                            left: 12rem;
+                                            font-size: 12rem;
+
+                                        }
+                                    }
+
+                                    .btnBox {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+
+                                        .btn {
+                                            width: 168rem;
+                                            height: 48rem;
+                                            background-color: #00b4fc;
+                                            font-size: 14rem;
+                                            border-radius: 2em;
+                                            color: #fff;
+                                            line-height: 48rem;
+                                            cursor: pointer;
+                                        }
+
+                                    }
                                 }
                             }
 
@@ -1688,7 +1969,7 @@
                                         font-style: normal;
                                         text-align: left;
                                         font-size: 16rem;
-                                        
+
                                         tbody {
                                             tr {
                                                 td {
@@ -1703,12 +1984,14 @@
                                                     border-left: 0;
                                                     border-top: 0;
                                                 }
+
                                                 td:last-child {
                                                     border-left: 0;
                                                     border-top: 0;
                                                     border-right: 0;
                                                 }
                                             }
+
                                             tr:last-child {
                                                 td {
                                                     border-bottom: 0;
@@ -1725,6 +2008,73 @@
                             width: 100%;
                             box-sizing: border-box;
                             padding: 45rem 0 60rem 0;
+
+                            .recommend-list {
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                box-sizing: border-box;
+
+                                .recommend-item {
+                                    box-sizing: border-box;
+                                    position: relative;
+                                    width: 285rem;
+                                    padding: 0 15rem;
+
+                                    .imgBox {
+                                        position: absolute;
+
+                                        .img {
+                                            width: 32rem;
+                                            height: 32rem;
+                                        }
+                                    }
+
+                                    .recommend-item-top {
+                                        min-height: 64rem;
+                                        margin-bottom: 40rem;
+                                        padding-left: 52rem;
+                                        box-sizing: border-box;
+
+                                        .title {
+                                            color: #00b4fc;
+                                            line-height: 23rem;
+                                            font-weight: 400;
+                                            font-style: normal;
+                                            font-size: 23rem;
+                                            margin-bottom: 15rem;
+                                            text-align: left;
+                                        }
+
+                                        .text {
+                                            /*margin-left: 32rem;*/
+                                            width: 200rem;
+                                            text-align: left;
+                                            /*padding-left: 54rem;*/
+                                            box-sizing: border-box;
+                                            color: #c2d9e2;
+                                            line-height: 1.6em;
+                                            font-size: 16rem;
+
+                                        }
+                                    }
+
+                                    .content {
+                                        width: 255rem;
+
+                                        .content-list {
+                                            .content-item {
+                                                cursor: pointer;
+                                                color: #fff;
+                                                font-size: 16rem;
+                                                margin-bottom: 15rem;
+                                                line-height: 1.6em;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -1740,6 +2090,71 @@
                         width: 1140rem;
                         margin: 0 auto;
                         height: 100%;
+                        padding: 100rem 0 60rem 0;
+
+                        .section9-wrap-title {
+                            margin-bottom: 70rem;
+
+                            .team {
+                                font-size: 14rem;
+                                text-align: center;
+                                margin-bottom: 10rem;
+                                color: #00b4fc;
+                                line-height: 1.6em;
+                                font-weight: 400;
+                                font-style: normal;
+                            }
+
+                            .text {
+
+                                color: #fff;
+                                font-size: 36rem;
+                                margin-bottom: 15rem;
+                            }
+
+                            .text2 {
+                                font-size: 20rem;
+                                line-height: 1.68421053em;
+                                max-width: 550rem;
+                                font-weight: 400;
+                                font-style: normal;
+                                color: #89c1f9;
+                                margin: 0 auto;
+                            }
+                        }
+
+                        .Team-card {
+                            width: 100%;
+                            height: auto;
+
+                            .Team-card-title {
+                                color: #ffffff;
+                                font-weight: 400;
+                                font-style: normal;
+                                text-align: left;
+                                margin: 0 0 15px 0;
+                                line-height: 1.3em;
+                                font-size: 36rem;
+                                padding-left: 30rem;
+                            }
+
+                            .Team-card-content {
+                                box-sizing: border-box;
+
+                                .Team-card-content-list {
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    box-sizing: border-box;
+
+                                    .Team-card-content-item {
+                                        margin-bottom: 30rem;
+                                        width: 285rem;
+                                        box-sizing: border-box;
+                                    }
+
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -1752,6 +2167,39 @@
                         width: 1140rem;
                         margin: 0 auto;
                         height: 100%;
+                        padding: 100rem 0;
+                        box-sizing: border-box;
+
+                        .section9-wrap-title {
+                            margin-bottom: 70rem;
+
+                            .team {
+                                font-size: 14rem;
+                                text-align: center;
+                                margin-bottom: 10rem;
+                                color: #00b4fc;
+                                line-height: 1.6em;
+                                font-weight: 400;
+                                font-style: normal;
+                            }
+
+                            .text {
+
+                                color: #fff;
+                                font-size: 36rem;
+                                margin-bottom: 15rem;
+                            }
+
+                            .text2 {
+                                font-size: 20rem;
+                                line-height: 1.68421053em;
+                                max-width: 550rem;
+                                font-weight: 400;
+                                font-style: normal;
+                                color: #89c1f9;
+                                margin: 0 auto;
+                            }
+                        }
                     }
                 }
 
