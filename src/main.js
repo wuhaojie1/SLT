@@ -5,13 +5,15 @@ import VueI18n from 'vue-i18n'
 import lang from './static/lang/index.js';
 import datastorage from './static/js/datastorage.js';
 import './assets/css/common.css';
-import echarts from 'echarts'
+import echarts from 'echarts';
+import ElementUI from 'element-ui';
 
 
 Vue.use(VueI18n);
 Vue.config.productionTip = false
 Vue.prototype._i18n = i18n
 Vue.prototype.$echarts = echarts
+Vue.use(ElementUI)
 
 const i18n = new VueI18n({
     locale: datastorage.getSync({key: 'langMsg'}) ? datastorage.getSync({key: 'langMsg'}).name : 'en-US',
