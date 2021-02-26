@@ -628,7 +628,32 @@
                     </div>
                 </div>
                 <div class="section11" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
-                    <div class="section11-wrap"></div>
+                    <div class="section11-wrap">
+                        <div class="section11-wrap-title">SLTcoin과 함께 하세요!</div>
+                        <div class="section11-wrap-tip">SLTcoin 팀은 코인 구매나 사업관련 어떠한 문의든지 환영 합니다.</div>
+                        <div class="section11-wrap-btnBox">
+                            <div class="input-item">
+                                <input type="text" placeholder="Name">
+                            </div>
+                            <div class="input-item">
+                                <input type="email" placeholder="Email">
+                            </div>
+                            <div class="btn">
+                                Submit
+                            </div>
+                        </div>
+                        <div class="url">
+                            <div class="url-content">☉ SLT Global<span>http://sltglobal.net</span></div>
+                            <div class="url-content">☉ 북트리<span>http://ubooktree.com</span></div>
+                            <div class="url-content email">☉ 문의 e-Mail : sltglobalcoin@gmail.com</div>
+                        </div>
+                        <div class="logo-icon">
+                            <img :src="logoIcon" alt="" class="icon-img">
+                        </div>
+                        <div class="foot-text">© <strong>S</strong>mart <strong>L</strong>earning
+                            <strong>T</strong>echnology <strong>Global</strong> <strong>2020. All rights
+                                reserved.</strong></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -657,6 +682,7 @@
                 booktree: `${require('../../static/img/index/booktree-1.png')}`,
                 ALPNG: `${require('../../static/img/index/AI.png')}`,
                 life: `${require('../../static/img/index/life.png')}`,
+                logoIcon: `${require('../../static/img/index/sltlogo_60x120_white.png')}`,
                 sectionImgs: [
                     `${require('../../static/img/index/booktree_white.png')}`,
                     `${require('../../static/img/index/SLT_white.png')}`,
@@ -2349,15 +2375,15 @@
 
                                 .timeline-panel:before {
                                     border-left-width: 0;
-                                    border-right-width: 15px;
-                                    left: -15px;
+                                    border-right-width: 15rem;
+                                    left: -15rem;
                                     right: auto;
                                 }
 
                                 .timeline-panel:after {
                                     border-left-width: 0;
-                                    border-right-width: 14px;
-                                    left: -14px;
+                                    border-right-width: 14rem;
+                                    left: -14rem;
                                     right: auto;
                                 }
 
@@ -2392,6 +2418,118 @@
                         width: 1140rem;
                         margin: 0 auto;
                         height: 100%;
+                        padding: 80rem 0 60rem 0;
+                        box-sizing: border-box;
+
+                        .section11-wrap-title {
+
+                            color: #fff;
+                            font-weight: 400;
+                            font-style: normal;
+                            opacity: 1;
+                            visibility: visible;
+                            margin-bottom: 15rem;
+                            line-height: 1.3em;
+                            font-size: 36rem;
+                        }
+
+                        .section11-wrap-tip {
+                            font-size: 20rem;
+                            line-height: 1.68421053em;
+                            font-weight: 400;
+                            font-style: normal;
+                            color: #89c1f9;
+                            margin-bottom: 40rem;
+                        }
+
+                        .section11-wrap-btnBox {
+                            width: 798rem;
+                            height: auto;
+                            box-sizing: border-box;
+                            margin: 0 auto;
+                            display: flex;
+                            margin-bottom: 60rem;
+
+                            .input-item {
+                                padding: 0 15rem;
+                                box-sizing: border-box;
+
+                                input {
+                                    padding: 0 20rem;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    font-size: 16rem;
+                                    display: block;
+                                    border: 0;
+                                    border-bottom: 1rem solid #d0d0d0;
+                                    background: #fff;
+                                    color: #010119;
+                                    line-height: 1;
+                                    box-sizing: border-box;
+                                    min-height: 46.5rem;
+                                    transition: border .25s;
+                                    width: 246rem;
+                                    height: 46.5rem;
+                                    border-radius: 999rem;
+                                }
+                            }
+
+                            .btn {
+                                width: 246rem;
+                                height: 46.5rem;
+                                background: #1622a7;
+                                line-height: 46.5rem;
+                                color: #fff;
+                                position: relative;
+                                border-radius: 999rem;
+                                font-size: 12rem;
+                                cursor: pointer;
+                            }
+
+                        }
+
+                        .url {
+                            color: #fff;
+                            font-size: 16rem;
+                            line-height: 1.6em;
+                            margin-bottom: 35rem;
+
+                            .url-content {
+                                font-weight: 700;
+
+                                span {
+                                    font-weight: 400;
+                                    font-style: normal;
+                                    margin-left: 15rem;
+                                    cursor: pointer;
+                                }
+                            }
+
+                            .email {
+                                margin-top: 35rem;
+                                color: #ffff00;
+                            }
+                        }
+
+                        .logo-icon {
+                            margin-bottom: 35rem;
+
+                            .icon-img {
+                                width: 120rem;
+                                height: 60rem;
+                            }
+                        }
+
+                        .foot-text {
+                            font-weight: 400;
+                            font-style: normal;
+                            color: #89c1f9;
+                            font-size: 16rem;
+                            opacity: 1;
+                            visibility: visible;
+                            line-height: 1.6em;
+                        }
+
                     }
                 }
             }
