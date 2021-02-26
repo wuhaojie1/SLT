@@ -18,6 +18,11 @@ const routes = [
     path: '/regiest',
     name: 'regiest',
     component: () => import('../views/regiest/regiest.vue')
+  },
+  {
+    path: '/personasset',
+    name: 'personasset',
+    component: () => import('../views/personasset/personasset.vue')
   }
 ]
 
