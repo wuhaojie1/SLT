@@ -1,13 +1,317 @@
 <template>
-    <div></div>
+    <div class="freetrade">
+        <div class="freetrade-wrap">
+            <div class="freetrade-wrap-title">
+                <div class="buy" :class="active?'active':''" @click="changeactive(true)">购买</div>
+                <div class="rightafter"></div>
+                <div class="sell" :class="!active?'redActive ':''" @click="changeactive(false)">出售</div>
+            </div>
+            <div class="freetrade-wrap-buy" v-if="active">
+                <div class="buy-title">
+                    <div class="left">
+                        <div class="text">自选交易</div>
+                        <div class="tip">更多选择，自由交易</div>
+                    </div>
+                    <div class="right">
+                        <div class="searchBox">
+                            <input type="text" placeholder="请输入购买总金额" class="inputBox">
+                            <div class="line"></div>
+                            <div class="btn">确定</div>
+                            <div class="text">ETH</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="freetrade-wrap-sell" v-if="!active">
+                <div class="chooseType">
+                    <div class="coinType-list">
+                        <div class="coinType-item"
+                             v-for="(item, index) in coinList"
+                             :class="coinListChoose === index ? 'coinChoose' : ''"
+                             @click="chooseCoin(index)"
+                             :key="index">
+                            {{item.text}}
+                        </div>
+                        <!--<div class="coinType-item">TRX</div>
+                        <div class="coinType-item">ETH</div>-->
+                    </div>
+                </div>
+                <div class="sell-title">
+                    <div class="left">
+                        <div class="text">自选交易</div>
+                        <div class="tip">更多选择，自由交易</div>
+                    </div>
+                    <div class="right">
+                        <div class="searchBox">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "freetrade"
+        name: "freetrade",
+        data() {
+            return {
+                active: true,
+                coinList: [
+                    {
+                        text: "SLT",
+                    },
+                    {
+                        text: "TRX",
+                    },
+                    {
+                        text: "ETH",
+                    },
+                ],
+                coinListChoose: 1,
+            }
+        },
+        methods: {
+            changeactive(B) {
+                this.active = B;
+            },
+            chooseCoin(index) {
+                this.coinListChoose = index;
+            }
+        }
     }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+    .freetrade {
+        margin-top: 40rem;
+        width: 100%;
 
+        .freetrade-wrap {
+            width: 1168rem;
+            margin: 0 auto;
+
+            .freetrade-wrap-title {
+                width: 100%;
+                text-align: left;
+                height: 56rem;
+                margin-bottom: 30rem;
+                line-height: 56rem;
+                display: flex;
+                align-items: center;
+                font-size: 16rem;
+                position: relative;
+
+                .buy {
+                    text-align: left;
+                    /*width: 60rem;*/
+                    position: relative;
+                    cursor: pointer;
+                    margin-right: 14rem;
+                }
+
+                .sell {
+                    text-align: left;
+                    /*width: 60rem;*/
+                    position: relative;
+                    cursor: pointer;
+                    margin-left: 16rem;
+                }
+
+                .rightafter {
+                    width: 2rem;
+                    height: 16rem;
+                    background: #E4E7ED;
+                    border-radius: 1rem;
+                }
+
+                .active {
+                    font-size: 16rem;
+                    font-weight: 400;
+                    color: #00B4FC;
+                }
+
+                .active:after {
+                    position: absolute;
+                    bottom: 10rem;
+                    right: 10rem;
+                    content: " ";
+                    width: 12rem;
+                    height: 4rem;
+                    background: #00B9FE;
+                    border-radius: 2rem;
+                }
+
+                .redActive {
+                    font-size: 16rem;
+                    font-weight: 400;
+                    color: #EF5656;
+                }
+
+                .redActive:after {
+                    position: absolute;
+                    bottom: 10rem;
+                    right: 10rem;
+                    content: " ";
+                    width: 12rem;
+                    height: 4rem;
+                    background: #EF5656;
+                    border-radius: 2rem;
+                }
+            }
+
+            .freetrade-wrap-buy {
+                .buy-title {
+                    text-align: left;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .left {
+                        display: flex;
+                        align-items: flex-end;
+                        .text {
+                            font-size: 22rem;
+                            font-weight: 400;
+                            color: #111111;
+                        }
+
+                        .tip {
+                            margin-left: 19rem;
+                            font-size: 12rem;
+                            font-weight: 400;
+                            color: #9AA5B5;
+                        }
+                    }
+
+                    .right {
+                        .searchBox {
+                            width: 218rem;
+                            height: 30rem;
+                            background: #FFFFFF;
+                            border: 1rem solid #E4E7ED;
+                            border-radius: 2rem;
+                            box-sizing: border-box;
+                            display: flex;
+                            position: relative;
+                            
+                            .inputBox {
+                                width: 168rem;
+                                height: 100%;
+                                padding-left: 10rem;
+                                box-sizing: border-box;
+                            }
+                            .line {
+                                width: 1rem;
+                                height: 27rem;
+                                background: #FFFFFF;
+                                border: 1rem solid #E4E7ED;
+                                border-radius: 1rem;
+                            }
+                            .btn {
+                                cursor: pointer;
+                                width: 50rem;
+                                font-size: 12rem;
+                                font-weight: 400;
+                                color: #00B4FC;
+                                line-height: 30rem;
+                                text-align: center;
+                                box-sizing: border-box;
+                            }
+                            .text {
+                                left: 133rem;
+                                top: 8rem;
+                                font-size: 12rem;
+                                font-weight: 400;
+                                color: #9AA5B5;
+                                position: absolute;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+
+            .freetrade-wrap-sell {
+                .chooseType {
+                    margin-bottom: 40rem;
+
+                    .coinType-list {
+                        display: flex;
+                        position: relative;
+
+                        .coinType-item {
+                            font-size: 16rem;
+                            font-weight: 400;
+                            color: #444444;
+                            /*width: 80rem;*/
+                            position: relative;
+                            cursor: pointer;
+                            text-align: left;
+                            margin-left: 41rem;
+                        }
+
+                        .coinType-item:first-child {
+                            margin-left: 0;
+                        }
+
+                        .coinChoose {
+                            font-size: 16rem;
+                            font-weight: 400;
+                            color: #EF5656;
+                        }
+
+                        .coinChoose:after {
+                            position: absolute;
+                            bottom: -6rem;
+                            right: 7rem;
+                            content: " ";
+                            width: 12rem;
+                            height: 4rem;
+                            background: #EF5656;
+                            border-radius: 2rem;
+                        }
+
+                        /*.coinType-item:first-child {
+                            text-align: left;
+                        }
+
+                        .coinType-item:last-child {
+                            text-align: right;
+                        }*/
+                    }
+                }
+
+                .sell-title {
+                    text-align: left;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .left {
+                        display: flex;
+                        align-items: flex-end;
+                        .text {
+                            font-size: 22rem;
+                            font-weight: 400;
+                            color: #111111;
+                        }
+
+                        .tip {
+                            margin-left: 19rem;
+                            font-size: 12rem;
+                            font-weight: 400;
+                            color: #9AA5B5;
+                        }
+                    }
+
+                    .right {
+                        .searchBox {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
 </style>
