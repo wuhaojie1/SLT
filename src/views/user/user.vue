@@ -25,6 +25,11 @@
         data() {
             return {}
         },
+        created() {
+            this.$router.push({
+                name: 'userInfo'
+            })
+        },
         methods: {},
     }
 </script>

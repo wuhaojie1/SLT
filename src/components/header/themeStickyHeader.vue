@@ -24,7 +24,7 @@
                     <div class="site-header-item">
                         <div class="text">ROADMAP</div>
                     </div>
-                    <div class="site-header-item" @click="topage('user')">
+                    <div class="site-header-item" @click="topage('userInfo')">
                         <img :src="userIcon" alt="" class="userIcon">
                     </div>
                 </div>
