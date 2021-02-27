@@ -206,7 +206,7 @@
                                 height: 27rem;
                                 background: #FFFFFF;
                                 border: 1rem solid #E4E7ED;
-                                border-radius: 1rem;
+                                /*border-radius: 1rem;*/
                             }
                             .btn {
                                 cursor: pointer;
@@ -283,4 +283,35 @@
                     }
                 }
 
+                .sell-title {
+                    text-align: left;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .left {
+                        display: flex;
+                        align-items: flex-end;
+                        .text {
+                            font-size: 22rem;
+                            font-weight: 400;
+                            color: #111111;
+                        }
+
+                        .tip {
+                            margin-left: 19rem;
+                            font-size: 12rem;
+                            font-weight: 400;
+                            color: #9AA5B5;
+                        }
+                    }
+
+                    .right {
+                        .searchBox {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
 </style>
