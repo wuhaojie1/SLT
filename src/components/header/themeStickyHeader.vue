@@ -24,6 +24,9 @@
                     <div class="site-header-item">
                         <div class="text">ROADMAP</div>
                     </div>
+                    <div class="site-header-item" @click="topage('user')">
+                        <img :src="userIcon" alt="" class="userIcon">
+                    </div>
                 </div>
                 <div class="right-icon-list">
 
@@ -39,6 +42,14 @@
         data() {
             return {
                 sltlogo: `${require('../../static/img/index/sltlogo_60x120_white.png')}`,
+                userIcon: `${require('../../static/img/index/userIcon.png')}`,
+            }
+        },
+        methods:{
+            topage(name) {
+                this.$router.push({
+                         name: name
+                })
             }
         }
     }
@@ -83,6 +94,13 @@
                         transition: all 0.3s;
                         line-height: 75rem;
                         font-size: 15rem;
+                        display: flex;
+                        align-items: center;
+
+                        .userIcon {
+                            width: 18rem;
+                            height: 20rem;
+                        }
                     }
 
                     .site-header-item:hover {
