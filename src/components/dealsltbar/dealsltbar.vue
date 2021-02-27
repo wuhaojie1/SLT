@@ -1,9 +1,6 @@
 <template>
     <div>
-        <div class="con-head">
-            <div class="buyslt" @click="gobuy('buycoin')">购买</div>
-            <div class="saleslt" @click="gosale('salecoin')">出售</div>
-        </div>
+
     </div>
 </template>
 
