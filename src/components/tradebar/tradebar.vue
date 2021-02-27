@@ -2,10 +2,10 @@
     <div>
         <div class="selectbar">
             <div class="selectbar-con">
-                <div class="selectbar-item" @click="gocurrency1" :style="this.currency1?{color:'#FFFFFF'}:''">自选交易
+                <div class="selectbar-item" @click="gocurrency1('freeTrade')" :style="this.currency1?{color:'#FFFFFF'}:''">自选交易
                     <div class="active-item" v-if="this.currency1"></div>
                 </div>
-                <div class="selectbar-item" @click="gocurrency2" :style="this.currency2?{color:'#FFFFFF'}:''">一键买卖
+                <div class="selectbar-item" @click="gocurrency2('deal')" :style="this.currency2?{color:'#FFFFFF'}:''">一键买卖
                     <div class="active-item" v-if="this.currency2"></div>
                 </div>
             </div>
@@ -23,13 +23,20 @@
             }
         },
         methods:{
-            gocurrency1(){
-                this.currency1 = true,
-                this.currency2 = false
+            gocurrency1(name){
+                this.currency1 = true;
+                this.currency2 = false;
+                this.toppage(name)
             },
-            gocurrency2(){
-                this.currency1 = false,
-                this.currency2 = true
+            gocurrency2(name){
+                this.currency1 = false;
+                this.currency2 = true;
+                this.toppage(name)
+            },
+            toppage(name) {
+                this.$router.push({
+                    name: name
+                })
             }
         }
     }
@@ -54,6 +61,7 @@
                 float: left;
                 margin-right: 39rem;
                 margin-top: 60rem;
+                cursor: pointer;
                 .active-item{
                     width: 12rem;
                     height: 4rem;

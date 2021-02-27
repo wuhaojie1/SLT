@@ -27,13 +27,28 @@ const routes = [
     {
         path: '/buy',
         name: 'buy',
-        component: () => import('../views/buy/buy.vue')
+        component: () => import('../views/buy/buy.vue'),
+        children: [
+            //自选交易
+            {
+                path: 'freetrade',
+                name: 'freeTrade',
+                component: () => import('../views/buy/freetrade.vue')
+            },
+            //一键买卖
+            {
+                path: 'deal',
+                name: 'deal',
+                component: () => import('../views/buy/deal.vue')
+            },
+        ]
     },
+
     {
         path: '/user',
         name: 'user',
         component: () => import('../views/user/user.vue'),
-        children:[
+        children: [
             //个人信息
             {
                 path: 'userInfo',
@@ -67,36 +82,6 @@ const routes = [
         ]
 
     }
-    // {
-    //   path: '/tradetype',
-    //   name: 'tradetype',
-    //   children: [
-    //     {
-    //       path: '/trade',
-    //       name: 'trade',
-    //       component: () => import('../views/personasset/personasset.vue')
-    //     },
-    //     {
-    //       path: '/buyorsale',
-    //       name: 'buyorsale',
-    //       component: () => import('../views/personasset/personasset.vue'),
-    //       children:[
-    //         {
-    //           path: '/buy',
-    //           name: 'buy',
-    //           component: () => import('../views/buy/buy.vue'),
-    //         },
-    //         {
-    //           path: '/sale',
-    //           name: 'sale',
-    //           component: () => import('../views/sale/sale.vue'),
-    //         }
-    //       ]
-    //     }
-    //   ],
-    //   redirect: '/tradetype/trade',
-    // }
-
 ]
 
 const router = new VueRouter({
