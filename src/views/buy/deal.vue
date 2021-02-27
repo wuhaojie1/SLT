@@ -1,14 +1,13 @@
 <template>
     <div id="deal">
-        <tradebar></tradebar>
             <div v-if="buyit">
                 <div class="center-contens">
                     <div class="con-head">
-                        <div class="buyslt" @click="gobuy()">购买</div>
-                        <div class="saleslt" @click="gosale()">出售</div>
+                        <div class="buyslt" @click="gobuy()" :style="buyit?{color:'#00B4FC'}:''">购买</div>
+                        <div class="saleslt" @click="gosale()" :style="saleit?{color:'#00B4FC'}:''">出售</div>
                     </div>
                     <div class="wellcome">SLT团队欢迎您</div>
-                    <div class="slt-text">任何代币购买出售</div>
+                    <div class="slt-text">任何代币购买</div>
                     <div class="tradecon">
                         <div class="trade-left">
                             <div class="letf-head">
@@ -72,8 +71,8 @@
             <div v-if="saleit">
                 <div class="center-contens">
                     <div class="con-head">
-                        <div class="buyslt" @click="gobuy()">购买</div>
-                        <div class="saleslt" @click="gosale()">出售</div>
+                        <div class="buyslt" @click="gobuy()" :style="buyit?{color:'#00B4FC'}:''">购买</div>
+                        <div class="saleslt" @click="gosale()" :style="saleit?{color:'#00B4FC'}:''">出售</div>
                     </div>
                     <div class="wellcome">SLT团队欢迎您</div>
                     <div class="slt-text">任何代币购买出售</div>
@@ -84,7 +83,7 @@
                                     <img :src="ethicon" class="ethicon" alt="">
                                 </div>
                                 <div class="text-con">
-                                    <div class="pay-text">我将支付</div>
+                                    <div class="pay-text">我将出售</div>
                                     <div class="pay-mtype">ETH</div>
                                 </div>
                             </div>
@@ -95,8 +94,8 @@
                             <div class="bottom-line"></div>
                         </div>
                         <div class="trade-center">
-                            <div class="trade-center-text">暂无报价，您可前往自选区
-                                <div class="lookcharge">查看报价</div>
+                            <div class="trade-center-text">可用余额
+                                <div class="lookcharge">0.0000000</div>
                             </div>
                             <div></div>
                         </div>
@@ -141,7 +140,6 @@
 </template>
 
 <script>
-    import tradebar from "../../components/tradebar/tradebar";
     export default {
         name: "deal",
         data(){
@@ -152,16 +150,17 @@
             }
         },
         components:{
-            tradebar,
         },
         methods:{
             gobuy(){
                 this.buyit = true;
-                this.saleit = false
+                this.saleit = false;
+                console.log(this.buyit,this.saleit)
             },
             gosale(){
                 this.buyit = false;
-                this.saleit = true
+                this.saleit = true;
+                console.log(this.buyit,this.saleit)
             }
         }
     }
