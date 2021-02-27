@@ -2,71 +2,71 @@
     <div id="buy">
         <tradebar></tradebar>
         <div :style="{marginTop:'20rem'}">
-        <dealsltbar></dealsltbar>
-<!--        <router-view>-->
-        <div class="center-contens">
-            <div class="wellcome">SLT团队欢迎您</div>
-            <div class="slt-text">任何代币购买出售</div>
-            <div class="tradecon">
-                <div class="trade-left">
-                    <div class="letf-head">
-                        <div class="img-con">
-                            <img :src="ethicon" class="ethicon" alt="">
+            <dealsltbar></dealsltbar>
+<!--            <router-view>-->
+            <div class="center-contens">
+                <div class="wellcome">SLT团队欢迎您</div>
+                <div class="slt-text">任何代币购买出售</div>
+                <div class="tradecon">
+                    <div class="trade-left">
+                        <div class="letf-head">
+                            <div class="img-con">
+                                <img :src="ethicon" class="ethicon" alt="">
+                            </div>
+                            <div class="text-con">
+                                <div class="pay-text">我将支付</div>
+                                <div class="pay-mtype">ETH</div>
+                            </div>
                         </div>
-                        <div class="text-con">
-                            <div class="pay-text">我将支付</div>
-                            <div class="pay-mtype">ETH</div>
+                        <div class="center-con">
+                            <div class="pay-num">0.00</div>
+                            <div class="pay-eth">ETH</div>
                         </div>
+                        <div class="bottom-line"></div>
                     </div>
-                    <div class="center-con">
-                        <div class="pay-num">0.00</div>
-                        <div class="pay-eth">ETH</div>
+                    <div class="trade-center">
+                        <div class="trade-center-text">暂无报价，您可前往自选区
+                            <div class="lookcharge">查看报价</div>
+                        </div>
+                        <div></div>
                     </div>
-                    <div class="bottom-line"></div>
+                    <div class="trade-left">
+                        <div class="letf-head">
+                            <div class="img-con">
+                                <img :src="ethicon" class="ethicon" alt="">
+                            </div>
+                            <div class="text-con">
+                                <div class="pay-text">我将获得</div>
+                                <div class="pay-mtype">SLTcoin</div>
+                            </div>
+                        </div>
+                        <div class="center-con">
+                            <div class="pay-num">≈
+                                <input type="text" placeholder="请输入购买总数量" class="inputcon">
+                            </div>
+                            <div class="pay-eth">SLTcoin</div>
+                        </div>
+                        <div class="bottom-line"></div>
+                    </div>
                 </div>
-                <div class="trade-center">
-                    <div class="trade-center-text">暂无报价，您可前往自选区
-                        <div class="lookcharge">查看报价</div>
+                <div class="contents-bottom">
+                    <div class="bottom-text">支付方式</div>
+                    <div class="bottom-coin">
+                        <div class="bottom-coin-left">
+                            <img :src="ethicon" alt="" :style="{width:'12rem',height:'20rem'}">
+                            <div class="coin-name">ETH</div>
+                        </div>
+                        <div class="bottom-coin-right">
+                            <img :src="ethicon" alt="" :style="{width:'12rem',height:'20rem'}">
+                            <div class="coin-name">SLT</div>
+                        </div>
                     </div>
-                    <div></div>
                 </div>
-                <div class="trade-left">
-                    <div class="letf-head">
-                        <div class="img-con">
-                            <img :src="ethicon" class="ethicon" alt="">
-                        </div>
-                        <div class="text-con">
-                            <div class="pay-text">我将获得</div>
-                            <div class="pay-mtype">SLTcoin</div>
-                        </div>
-                    </div>
-                    <div class="center-con">
-                        <div class="pay-num">≈
-                            <input type="text" placeholder="请输入购买总数量" class="inputcon">
-                        </div>
-                        <div class="pay-eth">SLTcoin</div>
-                    </div>
-                    <div class="bottom-line"></div>
+                <div class="buy-button-con">
+                    <div class="buy-button">购买SLT</div>
                 </div>
             </div>
-            <div class="contents-bottom">
-                <div class="bottom-text">支付方式</div>
-                <div class="bottom-coin">
-                    <div class="bottom-coin-left">
-                        <img :src="ethicon" alt="" :style="{width:'12rem',height:'20rem'}">
-                        <div class="coin-name">ETH</div>
-                    </div>
-                    <div class="bottom-coin-right">
-                        <img :src="ethicon" alt="" :style="{width:'12rem',height:'20rem'}">
-                        <div class="coin-name">SLT</div>
-                    </div>
-                </div>
-            </div>
-            <div class="buy-button-con">
-                <div class="buy-button">购买SLT</div>
-            </div>
-        </div>
-<!--        </router-view>-->
+<!--            </router-view>-->
         </div>
     </div>
 </template>
@@ -75,11 +75,11 @@
     import tradebar from "../../components/tradebar/tradebar";
     import dealsltbar from "../../components/dealsltbar/dealsltbar"
     export default {
-        name: "buy",
+        name: "sale",
         data(){
-          return{
-              ethicon:`${require('../../static/img/trade/moneycoin.png')}`
-          }
+            return{
+                ethicon:`${require('../../static/img/trade/moneycoin.png')}`
+            }
         },
         components:{
             tradebar,
