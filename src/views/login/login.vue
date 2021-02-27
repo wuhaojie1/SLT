@@ -171,7 +171,7 @@
                             font-weight: 400;
                             color: #00B7FC;
                             margin-right: 86rem;
-                            padding-top: 8rem;
+                            /*padding-top: 8rem;*/
                         }
                     }
                     .loginbutton{

@@ -194,7 +194,7 @@
                             box-sizing: border-box;
                             display: flex;
                             position: relative;
-                            
+
                             .inputBox {
                                 width: 168rem;
                                 height: 100%;
@@ -283,35 +283,4 @@
                     }
                 }
 
-                .sell-title {
-                    text-align: left;
-                    display: flex;
-                    justify-content: space-between;
-
-                    .left {
-                        display: flex;
-                        align-items: flex-end;
-                        .text {
-                            font-size: 22rem;
-                            font-weight: 400;
-                            color: #111111;
-                        }
-
-                        .tip {
-                            margin-left: 19rem;
-                            font-size: 12rem;
-                            font-weight: 400;
-                            color: #9AA5B5;
-                        }
-                    }
-
-                    .right {
-                        .searchBox {
-
-                        }
-                    }
-                }
-            }
-        }
-    }
 </style>
