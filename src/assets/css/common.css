@@ -2,7 +2,7 @@ html, body, img, dl, dt, dd,ol, ul, li, form, table, tbody, tr, th, td,p ,button
   margin: 0;
   padding: 0;
   border: 0;
-  vertical-align: baseline;
+  /*vertical-align: baseline;*/
   /* -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

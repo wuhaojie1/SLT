@@ -21,6 +21,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="table">
+                    <Table :businessType="active"
+                           :dataList="dataList"
+                           :auth="true"></Table>
+                </div>
             </div>
             <div class="freetrade-wrap-sell" v-if="!active">
                 <div class="chooseType">
@@ -43,9 +48,17 @@
                     </div>
                     <div class="right">
                         <div class="searchBox">
-
+                            <input type="text" placeholder="请输入购买总金额" class="inputBox">
+                            <div class="line"></div>
+                            <div class="btn">确定</div>
+                            <div class="text">ETH</div>
                         </div>
                     </div>
+                </div>
+                <div class="table">
+                    <Table :businessType="active"
+                           :dataList="dataList"
+                           :auth="true"></Table>
                 </div>
             </div>
         </div>
@@ -53,8 +66,11 @@
 </template>
 
 <script>
+    import Table from "../../components/table/table";
+
     export default {
         name: "freetrade",
+        components: {Table},
         data() {
             return {
                 active: true,
@@ -70,6 +86,23 @@
                     },
                 ],
                 coinListChoose: 1,
+
+                dataList: [
+                    {
+                        name: '大信交易所（1329|99%）',
+                        number: '1.159935 SLT',
+                        quota: '40,000.00-387,481.00 ETH',
+                        price: '334,260.75 ETH',
+                        payment: ['SLT', 'ETH'],
+                    },
+                    {
+                        name: '大信交易所（1329|99%）',
+                        number: '1.159935 SLT',
+                        quota: '40,000.00-387,481.00 ETH',
+                        price: '334,260.75 ETH',
+                        payment: ['SLT'],
+                    },
+                ],
             }
         },
         methods: {
@@ -170,6 +203,7 @@
                     .left {
                         display: flex;
                         align-items: flex-end;
+
                         .text {
                             font-size: 22rem;
                             font-weight: 400;
@@ -201,6 +235,7 @@
                                 padding-left: 10rem;
                                 box-sizing: border-box;
                             }
+
                             .line {
                                 width: 1rem;
                                 height: 27rem;
@@ -208,6 +243,7 @@
                                 border: 1rem solid #E4E7ED;
                                 /*border-radius: 1rem;*/
                             }
+
                             .btn {
                                 cursor: pointer;
                                 width: 50rem;
@@ -218,6 +254,7 @@
                                 text-align: center;
                                 box-sizing: border-box;
                             }
+
                             .text {
                                 left: 133rem;
                                 top: 8rem;
@@ -230,6 +267,10 @@
                     }
 
 
+                }
+
+                .table {
+                    margin-top: 35rem;
                 }
             }
 
@@ -291,6 +332,7 @@
                     .left {
                         display: flex;
                         align-items: flex-end;
+
                         .text {
                             font-size: 22rem;
                             font-weight: 400;
@@ -307,9 +349,55 @@
 
                     .right {
                         .searchBox {
+                            width: 218rem;
+                            height: 30rem;
+                            background: #FFFFFF;
+                            border: 1rem solid #E4E7ED;
+                            border-radius: 2rem;
+                            box-sizing: border-box;
+                            display: flex;
+                            position: relative;
 
+                            .inputBox {
+                                width: 168rem;
+                                height: 100%;
+                                padding-left: 10rem;
+                                box-sizing: border-box;
+                            }
+
+                            .line {
+                                width: 1rem;
+                                height: 27rem;
+                                background: #FFFFFF;
+                                border: 1rem solid #E4E7ED;
+                                /*border-radius: 1rem;*/
+                            }
+
+                            .btn {
+                                cursor: pointer;
+                                width: 50rem;
+                                font-size: 12rem;
+                                font-weight: 400;
+                                color: #00B4FC;
+                                line-height: 30rem;
+                                text-align: center;
+                                box-sizing: border-box;
+                            }
+
+                            .text {
+                                left: 133rem;
+                                top: 8rem;
+                                font-size: 12rem;
+                                font-weight: 400;
+                                color: #9AA5B5;
+                                position: absolute;
+                            }
                         }
                     }
+                }
+
+                .table {
+                    margin-top: 35rem;
                 }
             }
         }

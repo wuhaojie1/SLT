@@ -4,7 +4,8 @@
                 <div class="center-contens">
                     <div class="con-head">
                         <div class="buyslt" @click="gobuy()" :style="buyit?{color:'#00B4FC'}:''">购买</div>
-                        <div class="saleslt" @click="gosale()" :style="saleit?{color:'#00B4FC'}:''">出售</div>
+                        <div class="saleslt" @click="gosale()" :style="
+                        saleit?{color:'#00B4FC'}:''">出售</div>
                     </div>
                     <div class="wellcome">SLT团队欢迎您</div>
                     <div class="slt-text">任何代币购买</div>
