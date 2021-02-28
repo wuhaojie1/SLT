@@ -9,8 +9,8 @@
                 <div class="assets-log">收益记录</div>
             </div>
             <div class="assets-right">
-                <div class="reduce">提币</div>
-                <div class="adds">充币</div>
+                <div class="reduce" @click="topage('topUp')">提币</div>
+                <div class="adds" @click="topage('withdraw')">充币</div>
             </div>
         </div>
         <div class="assets-center-bar">
@@ -32,6 +32,18 @@
     export default {
         name: "personasset",
         components:{ThemeStickyHeader,bottom},
+        data() {
+            return {
+
+            }
+        },
+        methods: {
+            topage(name){
+                this.$router.push({
+                    name: name
+                })
+            }
+        }
 
     }
 </script>
@@ -98,10 +110,12 @@
                     .reduce {
                         width: 66rem;
                         height: 46rem;
+                        color: #fff;
                         background: #041037;
                         border: 1rem solid #00B4FC;
                         border-radius: 4rem;
                         line-height: 46rem;
+                        cursor: pointer;
                     }
 
                     .adds {
@@ -111,6 +125,7 @@
                         border-radius: 4rem;
                         line-height: 46rem;
                         border: 1rem solid #FFFFFF;
+                        cursor: pointer;
                     }
                 }
             }

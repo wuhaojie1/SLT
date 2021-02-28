@@ -98,17 +98,34 @@ const routes = [{
             },
         ]
     },
+    //消息
     {
         path: '/message',
         name: 'message',
         component: () =>
             import ('../views/message/message.vue')
     },
+    //订单
     {
         path: '/order',
         name: 'order',
         component: () =>
             import ('../views/order/order.vue')
+
+    },
+    //充值
+    {
+        path: '/topUp',
+        name: 'topUp',
+        component: () =>
+            import ('../views/wallet/topUp.vue')
+    },
+    //提现
+    {
+        path: '/withdraw',
+        name: 'withdraw',
+        component: () =>
+            import ('../views/wallet/withdraw.vue')
     },
 ]
 

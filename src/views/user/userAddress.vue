@@ -32,19 +32,17 @@
             <div class="imgcon"></div>
             <div class="num-text">已保存两个地址</div>
         </div>
-        <div class="table-con">
-            <table>
-                <tr class="tr-head">
-                    <td class="head-item"></td>
-                </tr>
-            </table>
+        <div class="adress-num-con">
+            <address-table></address-table>
         </div>
     </div>
 </template>
 
 <script>
+    import addressTable from '../../components/AddressTable/AddressTable'
     export default {
-        name: "userAddress"
+        name: "userAddress",
+        components:{addressTable}
     }
 </script>
 
@@ -188,10 +186,10 @@
             text-align: left;
         }
     }
-    .table-con{
+    .adress-num-con{
         width: 990rem;
-        height: auto;
         margin-left: 40rem;
+        margin-top: 25rem;
     }
 }
 </style>

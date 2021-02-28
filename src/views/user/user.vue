@@ -42,7 +42,7 @@
 
         .user-wrap {
             width: 100%;
-            margin: 75rem 0 200rem 0;
+            margin: 75rem 0 0 0;
             /*min-height: calc(100vh - 75rem - 200rem);*/
             box-sizing: border-box;
 
