@@ -86,7 +86,19 @@ const routes = [
             },
         ]
 
-    }
+    },
+    //充值
+    {
+        path: '/topUp',
+        name: 'topUp',
+        component: () => import('../views/wallet/topUp.vue')
+    },
+    //提现
+    {
+        path: '/withdraw',
+        name: 'withdraw',
+        component: () => import('../views/wallet/withdraw.vue')
+    },
 ]
 
 const router = new VueRouter({
