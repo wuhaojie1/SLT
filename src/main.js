@@ -7,6 +7,7 @@ import datastorage from './static/js/datastorage.js';
 import './assets/css/common.css';
 import echarts from 'echarts';
 import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
 
 Vue.use(VueI18n);
@@ -16,7 +17,7 @@ Vue.prototype.$echarts = echarts
 Vue.use(ElementUI)
 
 const i18n = new VueI18n({
-    locale: datastorage.getSync({key: 'langMsg'}) ? datastorage.getSync({key: 'langMsg'}).name : 'en-US',
+    locale: datastorage.getSync({ key: 'langMsg' }) ? datastorage.getSync({ key: 'langMsg' }).name : 'en-US',
     messages: {
         'en-US': lang.en,
         'zh-CN': lang.cn,
