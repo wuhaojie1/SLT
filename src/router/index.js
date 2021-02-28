@@ -43,7 +43,12 @@ const routes = [
             },
         ]
     },
-
+    
+    {
+        path: '/shoppingCart',
+        name: 'shoppingCart',
+        component: () => import('../views/shop/shoppingCart.vue')
+    },
     {
         path: '/user',
         name: 'user',
