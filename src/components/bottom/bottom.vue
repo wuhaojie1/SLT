@@ -44,9 +44,9 @@
 
 <style scoped lang="less">
 #bottom{
-    position: fixed;
-    bottom: 0;
-    z-index: 20;
+    // position: fixed;
+    // bottom: 0;
+    // z-index: 20;
     .bottom{
         width: 1920rem;
         height: 200rem;

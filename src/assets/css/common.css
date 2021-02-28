@@ -8,6 +8,12 @@ html, body, img, dl, dt, dd,ol, ul, li, form, table, tbody, tr, th, td,p ,button
   -ms-user-select: none;
   user-select: none; */
 }
+#app{
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  /* background: darkblue; */
+}
 i,del,s,u,em{
   font-style:normal;
   text-decoration: none;
