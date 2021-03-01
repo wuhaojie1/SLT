@@ -35,35 +35,49 @@
                         </div>
                         <div class="goods-attr-item2-text">环保</div>
                     </div>
-                    <div class="goods-theme">
-                        <div class="goods-color"></div>
-                        <div class="goods-color-text">雾霾蓝</div>
+                </div>
+                <div class="goods-theme">
+                    <div class="goods-color"></div>
+                    <div class="goods-color-text">雾霾蓝</div>
+                </div>
+                <div class="choose-type-con">
+                    <div class="choose-type">
+                        <select name="" id="">
+                            <option class="choose-type-text" value="">选择合适的尺码</option>
+                            <option class="choose-type-text" value="S">S</option>
+                            <option class="choose-type-text" value="M">M</option>
+                            <option class="choose-type-text" value="L">L</option>
+                            <option class="choose-type-text" value="XL">XL</option>
+                            <option class="choose-type-text" value="XXL">XXL</option>
+                        </select>
                     </div>
-                    <div class="choose-type-con">
-                        <div class="choose-type">
-                            <select name="" id="">
-                                <option class="choose-type-text" value="">选择合适的尺码</option>
-                                <option class="choose-type-text" value="S">S</option>
-                                <option class="choose-type-text" value="M">M</option>
-                                <option class="choose-type-text" value="L">L</option>
-                                <option class="choose-type-text" value="XL">XL</option>
-                                <option class="choose-type-text" value="XXL">XXL</option>
-                            </select>
-                        </div>
-                        <div class="look-all-type">尺码表</div>
+                    <div class="look-all-type">尺码表</div>
+                </div>
+                <div class="shopcar">加入购物车</div>
+                <div class="question">
+                    <div class="online">
+                        <img style="{width: 12rem;height: 12rem}" src="" alt="">
+                        <div class="online-text">在线顾问</div>
                     </div>
-                    <div class="shopcar">加入购物车</div>
-                    <div class="question">
-                        <div class="online">
-                            <img style="{width: 12rem;height: 12rem}" src="" alt="">
-                            <div>在线顾问</div>
-                        </div>
-                        <div class="line"></div>
-                        <div class="phone">
-                            <img style="{width: 9rem;height: 12rem}" src="" alt="">
-                            <div>选购咨询 400.8210.582</div>
-                        </div>
+                    <div class="line"></div>
+                    <div class="phone">
+                        <img style="{width: 9rem;height: 12rem}" src="" alt="">
+                        <div class="online-text">选购咨询 400.8210.582</div>
                     </div>
+                </div>
+                <div class="share">
+                    <div class="share-text">分享:</div>
+                    <img class="wechat" src="" alt="">
+                    <img class="weibo" src="" alt="">
+                </div>
+                <div class="goods-detail">
+                    <div class="goods-detail-text">产品细节</div>
+                    <img class="arr" src="" alt="">
+                </div>
+                <div class="setaddress">
+                    <img src="location" alt="">
+                    <div class="setaddress-text">查找有货直营店</div>
+                    <div class="free-text">选择标准配送，免运费</div>
                 </div>
             </div>
         </div>
@@ -88,11 +102,12 @@
 <style scoped lang="less">
 #goodsdetails{
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 75rem);
     background-color: #F3F5F7;
     .goodsmsg{
         margin-top: 75rem;
         padding-top: 229rem;
+        height: 100%;
         .goodsmsg-scoll{
             width: 660rem;
             height: auto;
@@ -117,6 +132,8 @@
             float: right;
             margin-right: 360rem;
             text-align: left;
+            height: auto;
+            width: 330rem;
             .goods-name{
                 padding-bottom: 11rem;
                 font-size: 24rem;
@@ -147,7 +164,7 @@
             }
             .goods-attr{
                 margin-top: 20rem;
-                height: 85rem;
+                height: 75rem;
                 width: 100%;
                 float: left;
                 box-sizing: border-box;
@@ -195,7 +212,6 @@
                 }
             }
             .goods-theme{
-                clear: both;
                 width: 330rem;
                 height: 42rem;
                 background: #F3F5F7;
@@ -223,7 +239,6 @@
             .choose-type-con{
                 height: 42rem;
                 width: 330rem;
-                clear: both;
                 float: left;
                 margin-top: 12rem;
                 .choose-type{
@@ -251,7 +266,7 @@
                 }
             }
             .shopcar{
-                clear: both;
+                /*clear: both;*/
                 float: left;
                 margin-top: 21rem;
                 width: 330rem;
@@ -266,29 +281,103 @@
             }
             .question{
                 width: 100%;
-                height: 12rem;
-                clear: both;
+                height: 30rem;
                 float: left;
                 margin-top: 18rem;
+                display: flex;
+                justify-content: left;
+                border-bottom:1rem #DBDEE4 solid;
+                padding-bottom: 12rem;
                 .online{
-                    float: left;
-                    font-size: 12rem;
-                    font-family: Source Han Sans CN;
-                    font-weight: 400;
-                    color: #444444;
+                    .online-text{
+                        float: left;
+                        font-size: 12rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #444444;
+                        margin-right: 19rem;
+                        line-height: 30rem;
+                    }
                 }
                 .line{
-                    float: left;
+                    /*float: left;*/
                     width: 1rem;
                     height: 16rem;
                     background: #DBDEE4;
+                    margin-right: 20rem;
+                    margin-top: 7rem;
                 }
                 .phone{
-                    float: left;
+                    .online-text{
+                        float: left;
+                        font-size: 12rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #444444;
+                        line-height: 30rem;
+                    }
+                }
+            }
+            .share{
+                height: 43rem;
+                width: 100%;
+                float: left;
+                margin-left: 20rem;
+                margin-right: 20rem;
+                .share-text{
+                    line-height: 43rem;
                     font-size: 12rem;
                     font-family: Source Han Sans CN;
                     font-weight: 400;
                     color: #444444;
+                }
+                .wechat{
+                    width: 14rem;
+                    height: 12rem;
+                    margin-right: 20rem;
+                }
+                .weibo{
+                    width: 14rem;
+                    height: 12rem;
+                }
+            }
+            .goods-detail{
+                height: 43rem;
+                width: 100%;
+                float: left;
+                margin-left: 20rem;
+                .goods-detail-text{
+                    font-size: 12rem;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #444444;
+                }
+                .arr{
+                    float: right;
+                    margin-right: 20rem;
+                    width: 6rem;
+                    height: 10rem;
+                }
+            }
+            .setaddress{
+                .location{
+                    float: left;
+                    margin-left: 20rem;
+                    margin-right: 10rem;
+                }
+                .setaddress-text{
+                    float: left;
+                    font-size: 12rem;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #999999;
+                }
+                .free-text{
+                    float: right;
+                    font-size: 12rem;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #999999;
                 }
             }
         }
