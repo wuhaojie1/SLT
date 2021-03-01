@@ -94,35 +94,35 @@
                     .man{
                         margin-left: 20rem;
                         line-height: 42rem;
-                        width: 83rem;
+                        /*width: 83rem;*/
                     }
                     .local{
                         margin-left: 20rem;
                         line-height: 42rem;
-                        width: 135rem;
+                        /*width: 135rem;*/
                     }
                     .adress{
                         margin-left: 20rem;
                         line-height: 42rem;
-                        width: 228rem;
+                        /*width: 228rem;*/
                     }
                     .price{
                         margin-left: 20rem;
                         line-height: 42rem;
-                        width: 117rem;
+                        /*width: 117rem;*/
                     }
                     .phone{
                         margin-left: 20rem;
                         line-height: 42rem;
-                        width: 160rem;
+                        /*width: 160rem;*/
                     }
                     .oprate{
                         margin-left: 20rem;
                         line-height: 42rem;
-                        width: 129rem;
+                        /*width: 129rem;*/
                     }
                     .setadress{
-                        width: 132rem;
+                        /*width: 132rem;*/
                     }
                 }
             }
@@ -137,7 +137,7 @@
                     .man-con{
                         margin-left: 20rem;
                         line-height: 42rem;
-                        width: 83rem;
+                        /*width: 83rem;*/
                     }
                     .local-con{
                         margin-left: 20rem;
@@ -145,7 +145,7 @@
                         width: 135rem;
                         text-align: left;
                         .address-text{
-                            width: 90rem;
+                            /*width: 90rem;*/
                             height: auto;
                             /*margin-left: 20rem;*/
                         }
@@ -153,32 +153,32 @@
                     .adress-con{
                         margin-left: 20rem;
                         /*line-height: 42rem;*/
-                        width: 228rem;
+                        /*width: 228rem;*/
                     }
                     .price-con{
                         margin-left: 20rem;
                         line-height: 42rem;
-                        width: 117rem;
+                        /*width: 117rem;*/
                     }
                     .phone-con{
                         margin-left: 20rem;
                         line-height: 42rem;
-                        width: 160rem;
+                        /*width: 160rem;*/
                     }
                     .oprate-con{
                         margin-left: 20rem;
                         line-height: 42rem;
-                        width: 129rem;
+                        /*width: 129rem;*/
                     }
                     .setadress-con{
-                        width: 132rem;
+                        /*width: 132rem;*/
                     }
                     .set-adress{
                         margin-left: 20rem;
 
                     }
                     .active{
-                        margin-left: 20rem;
+                        /*margin-left: 20rem;*/
                         width: 92rem;
                         height: 30rem;
                         background: #FBD7D7;
@@ -187,6 +187,7 @@
                         text-align: center;
                         line-height: 30rem;
                         color: #EF5656;
+                        box-sizing: border-box;
                     }
                 }
             }
