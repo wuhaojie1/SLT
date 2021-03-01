@@ -238,6 +238,7 @@
                             margin-left: 9rem;
                             position: relative;
                             line-height: 38rem;
+                            cursor: pointer;
 
                         }
 
