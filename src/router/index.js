@@ -127,6 +127,13 @@ const routes = [{
         component: () =>
             import ('../views/wallet/withdraw.vue')
     },
+    //商品详情
+    {
+        path:'/goodsdetails',
+        name:'goodsdetails',
+        component:()=>
+            import ('../views/goodsdetails/goodsdetails.vue')
+    }
 ]
 
 const router = new VueRouter({

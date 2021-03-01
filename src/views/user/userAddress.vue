@@ -33,7 +33,7 @@
             <div class="num-text">已保存两个地址</div>
         </div>
         <div class="adress-num-con">
-            <address-table></address-table>
+            <address-table :dataList="dataList"></address-table>
         </div>
     </div>
 </template>
@@ -42,7 +42,30 @@
     import addressTable from '../../components/AddressTable/AddressTable'
     export default {
         name: "userAddress",
-        components:{addressTable}
+        components:{addressTable},
+        data(){
+            return{
+                dataList:[
+                    {
+                        name:'王**',
+                        address:'成都市 郫都区 中心大道二段',
+                        daddress:'致远居8号楼8243',
+                        code:'000000',
+                        phone:'17824561783',
+                        useaddress:true
+                    },
+                    {
+                        name:'李**',
+                        address:'成都市 郫都区 中心大道二段',
+                        daddress:'致远居8号楼8247',
+                        code:'000001',
+                        phone:'17824561783',
+                        useaddress:false
+                    }
+                ]
+            }
+        }
+
     }
 </script>
 

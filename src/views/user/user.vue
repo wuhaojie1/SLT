@@ -7,7 +7,6 @@
                 <div class="routerBox">
                     <router-view></router-view>
                 </div>
-                
             </div>
         </div>
         <Bottom></Bottom>

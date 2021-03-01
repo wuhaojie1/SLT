@@ -27,26 +27,29 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr v-for="item in dataList" :key="item.index">
                 <th>
-                    <div class="man-con">李歪歪</div>
+                    <div class="man-con">{{item.name}}</div>
                 </th>
                 <th>
                     <div class="local-con">
-                        <div class="address-text">四川省 成都市 双流区 华阳镇街道</div>
+                        <div class="address-text">{{item.address}}</div>
                     </div>
                 </th>
                 <th>
-                    <div class="adress-con">瑞升 橡树林华府五单元1401</div>
+                    <div class="adress-con">{{item.daddress}}</div>
                 </th>
                 <th>
-                    <div class="price-con">000000</div>
+                    <div class="price-con">{{item.code}}</div>
                 </th>
                 <th>
-                    <div class="phone-con">86-13528143556</div>
+                    <div class="phone-con">{{item.phone}}</div>
                 </th>
                 <th>
-                    <div class="oprate-con">修改|删除</div>
+                    <div class="oprate-con"> <span>修改</span> | <span>删除</span> </div>
+                </th>
+                <th>
+                    <div :class="item.useaddress?'active':'set-adress'">默认地址</div>
                 </th>
             </tr>
             </tbody>
@@ -56,7 +59,13 @@
 
 <script>
     export default {
-        name: "AddressTable"
+        name: "AddressTable",
+        props:{
+            dataList: {
+                type: Array,
+                default: () => [],
+            }
+        }
     }
 </script>
 
@@ -73,12 +82,13 @@
         font-weight: 400;
         color: #444444;
         thead {
-            border-bottom: 1rem solid #E4E7ED;
+            border: 1rem solid #E4E7ED;
             background: #EBECF0;
             height: 42rem;
             tr {
                 border: 1rem solid #E4E7ED;
                 th {
+                    border: 1rem solid #E4E7ED;
                     text-align: left;
                     height: 42rem;
                     .man{
@@ -121,8 +131,9 @@
             tr{
                 text-align: left;
                 height: 74rem;
-                border-bottom: 1rem solid #E4E7ED;
+                border: 1rem solid #E4E7ED;
                 th{
+                    border: 1rem solid #E4E7ED;
                     .man-con{
                         margin-left: 20rem;
                         line-height: 42rem;
@@ -130,18 +141,19 @@
                     }
                     .local-con{
                         margin-left: 20rem;
-                        line-height: 42rem;
+                        /*line-height: 42rem;*/
                         width: 135rem;
+                        text-align: left;
+                        .address-text{
+                            width: 90rem;
+                            height: auto;
+                            /*margin-left: 20rem;*/
+                        }
                     }
                     .adress-con{
                         margin-left: 20rem;
                         /*line-height: 42rem;*/
                         width: 228rem;
-                        .address-text{
-                            width: 90rem;
-                            height: auto;
-                            margin: 0 auto;
-                        }
                     }
                     .price-con{
                         margin-left: 20rem;
@@ -160,6 +172,21 @@
                     }
                     .setadress-con{
                         width: 132rem;
+                    }
+                    .set-adress{
+                        margin-left: 20rem;
+
+                    }
+                    .active{
+                        margin-left: 20rem;
+                        width: 92rem;
+                        height: 30rem;
+                        background: #FBD7D7;
+                        border: 1rem solid #EF5656;
+                        border-radius: 4rem;
+                        text-align: center;
+                        line-height: 30rem;
+                        color: #EF5656;
                     }
                 }
             }
