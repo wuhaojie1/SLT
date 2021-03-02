@@ -12,11 +12,11 @@
             </div>
             <div class="face-text">上传正面身份证照片</div>
             <div class="foce-con">
-                
+                <img style="{width: 314rem;height: 219rem;}" src="../../static/img/user/idcardup.png" alt="">
             </div>
             <div class="back-text">上传反面身份证照片</div>
             <div class="back-con">
-
+                <img style="{width: 314rem;height: 219rem;}" src="../../static/img/user/idcardup.png" alt="">
             </div>
             <div class="auth-button-con">
                 <div class="auth-button">认证</div>
@@ -107,7 +107,7 @@
         .foce-con{
             width: 314rem;
             height: 219rem;
-            background: #000;
+            /*background: #000;*/
             margin-top: 24rem;
             margin-left: 88rem;
         }
@@ -123,7 +123,7 @@
         .back-con{
             width: 314rem;
             height: 219rem;
-            background: #000;
+            /*background: #000;*/
             margin-top: 24rem;
             margin-left: 88rem;
         }

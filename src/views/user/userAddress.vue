@@ -29,7 +29,9 @@
             <div class="save-button">保存</div>
         </div>
         <div class="adress-num-text">
-            <div class="imgcon"></div>
+            <div class="imgcon">
+                <img style="{width: 18rem;height: 18rem;}" src="../../static/img/user/addressimg.png" alt="">
+            </div>
             <div class="num-text">已保存两个地址</div>
         </div>
         <div class="adress-num-con">
@@ -197,9 +199,9 @@
             width: 18rem;
             height: 18rem;
             border-radius: 18rem;
-            background: #000;
+            /*background: #000;*/
             float: left;
-            margin-top: 7rem;
+            margin-top: 2rem;
         }
         .num-text{
             font-size: 14rem;
