@@ -13,7 +13,7 @@
                         <div class="trade-left">
                             <div class="letf-head">
                                 <div class="img-con">
-                                    <img :src="ethicon" class="ethicon" alt="">
+                                    <img :src="SLT" class="ethicon" alt="">
                                 </div>
                                 <div class="text-con">
                                     <div class="pay-text">我将支付</div>
@@ -30,12 +30,14 @@
                             <div class="trade-center-text">暂无报价，您可前往自选区
                                 <div class="lookcharge">查看报价</div>
                             </div>
-                            <div></div>
+                            <div class="exchange-con">
+                                <img :src="exchange" alt="">
+                            </div>
                         </div>
                         <div class="trade-left">
                             <div class="letf-head">
                                 <div class="img-con">
-                                    <img :src="ethicon" class="ethicon" alt="">
+                                    <img :src="ETH" class="ethicon" alt="">
                                 </div>
                                 <div class="text-con">
                                     <div class="pay-text">我将获得</div>
@@ -55,11 +57,11 @@
                         <div class="bottom-text">支付方式</div>
                         <div class="bottom-coin">
                             <div class="bottom-coin-left">
-                                <img :src="ethicon" alt="" :style="{width:'12rem',height:'20rem'}">
+                                <img :src="ETHcoin" alt="" :style="{width:'12rem',height:'20rem'}">
                                 <div class="coin-name">ETH</div>
                             </div>
                             <div class="bottom-coin-right">
-                                <img :src="ethicon" alt="" :style="{width:'12rem',height:'20rem'}">
+                                <img :src="SLTcoin" alt="" :style="{width:'12rem',height:'20rem'}">
                                 <div class="coin-name">SLT</div>
                             </div>
                         </div>
@@ -81,7 +83,7 @@
                         <div class="trade-left">
                             <div class="letf-head">
                                 <div class="img-con">
-                                    <img :src="ethicon" class="ethicon" alt="">
+                                    <img :src="ETH" class="ethicon" alt="">
                                 </div>
                                 <div class="text-con">
                                     <div class="pay-text">我将出售</div>
@@ -98,12 +100,14 @@
                             <div class="trade-center-text">可用余额
                                 <div class="lookcharge">0.0000000</div>
                             </div>
-                            <div></div>
+                            <div class="exchange-con">
+                                <img :src="exchange" alt="">
+                            </div>
                         </div>
                         <div class="trade-left">
                             <div class="letf-head">
                                 <div class="img-con">
-                                    <img :src="ethicon" class="ethicon" alt="">
+                                    <img :src="SLT" class="ethicon" alt="">
                                 </div>
                                 <div class="text-con">
                                     <div class="pay-text">我将获得</div>
@@ -123,11 +127,11 @@
                         <div class="bottom-text">支付方式</div>
                         <div class="bottom-coin">
                             <div class="bottom-coin-left">
-                                <img :src="ethicon" alt="" :style="{width:'12rem',height:'20rem'}">
+                                <img :src="ETHcoin" alt="" :style="{width:'12rem',height:'20rem'}">
                                 <div class="coin-name">ETH</div>
                             </div>
                             <div class="bottom-coin-right">
-                                <img :src="ethicon" alt="" :style="{width:'12rem',height:'20rem'}">
+                                <img :src="SLTcoin" alt="" :style="{width:'12rem',height:'20rem'}">
                                 <div class="coin-name">SLT</div>
                             </div>
                         </div>
@@ -145,7 +149,11 @@
         name: "deal",
         data(){
             return{
-                ethicon:`${require('../../static/img/trade/moneycoin.png')}`,
+                ETH:`${require('../../static/img/buy/ETH.png')}`,
+                ETHcoin:`${require('../../static/img/buy/ETHcoin.png')}`,
+                SLT:`${require('../../static/img/buy/SLT.png')}`,
+                SLTcoin:`${require('../../static/img/buy/SLTcoin.png')}`,
+                exchange:`${require('../../static/img/buy/exchange.png')}`,
                 buyit:true,
                 saleit:false
             }
@@ -306,6 +314,15 @@
                 .trade-center{
                     width: 240rem;
                     height: 200rem;
+                    .exchange-con{
+                        padding-top: 26rem;
+                        width: 100%;
+                        margin: 0 auto;
+                        img{
+                            width: 30rem;
+                            height: 29rem;
+                        }
+                    }
                     .trade-center-text{
                         width: 100%;
                         text-align: center;

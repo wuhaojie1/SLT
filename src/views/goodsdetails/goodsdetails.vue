@@ -25,13 +25,13 @@
                 <div class="goods-attr">
                     <div class="goods-attr-item1">
                         <div class="goods-attr-img-con">
-                            <img src="" alt="">
+                            <img class="quality-img" src="../../static/img/goodsdetails/quality.png" alt="">
                         </div>
                         <div class="goods-attr-item1-text">责任</div>
                     </div>
                     <div class="goods-attr-item2">
                         <div class="goods-attr-img-con">
-                            <img src="" alt="">
+                            <img class="pro-img" src="../../static/img/goodsdetails/pro-envir.png" alt="">
                         </div>
                         <div class="goods-attr-item2-text">环保</div>
                     </div>
@@ -56,26 +56,28 @@
                 <div class="shopcar">加入购物车</div>
                 <div class="question">
                     <div class="online">
-                        <img style="{width: 12rem;height: 12rem}" src="" alt="">
+                        <img class="online-img" src="../../static/img/goodsdetails/local.png" alt="">
                         <div class="online-text">在线顾问</div>
                     </div>
                     <div class="line"></div>
                     <div class="phone">
-                        <img style="{width: 9rem;height: 12rem}" src="" alt="">
+                        <img class="phone-img" src="../../static/img/goodsdetails/phone.png" alt="">
                         <div class="online-text">选购咨询 400.8210.582</div>
                     </div>
                 </div>
                 <div class="share">
-                    <div class="share-text">分享:</div>
-                    <img class="wechat" src="" alt="">
-                    <img class="weibo" src="" alt="">
+                    <div class="share-text">分享:
+                        <img class="wechat" src="../../static/img/goodsdetails/wechat.png" alt="">
+                        <img class="weibo" src="../../static/img/goodsdetails/weibo.png" alt="">
+                    </div>
                 </div>
                 <div class="goods-detail">
-                    <div class="goods-detail-text">产品细节</div>
-                    <img class="arr" src="" alt="">
+                    <div class="goods-detail-text">产品细节
+                        <img class="arr" style="" src="../../static/img/goodsdetails/arrow.png" alt="">
+                    </div>
                 </div>
                 <div class="setaddress">
-                    <img src="location" alt="">
+                    <img class="location" style="width: 9rem;height: 12rem;" src="../../static/img/goodsdetails/local.png" alt="">
                     <div class="setaddress-text">查找有货直营店</div>
                     <div class="free-text">选择标准配送，免运费</div>
                 </div>
@@ -179,6 +181,14 @@
                         background: #FFFFFF;
                         margin-right: 24rem;
                         margin-bottom: 10rem;
+                        position: relative;
+                        .quality-img{
+                            width: 20rem;
+                            height: 20rem;
+                            position: absolute;
+                            top: 11rem;
+                            left: 11rem;
+                        }
                     }
                     .goods-attr-item1-text{
                         width: 42rem;
@@ -200,6 +210,14 @@
                         background: #FFFFFF;
                         margin-bottom: 10rem;
                         box-shadow: 0rem 0rem 20rem 0px rgba(153, 153, 153, 0.35);
+                        position: relative;
+                        .pro-img{
+                            width: 15rem;
+                            height: 18rem;
+                            position: absolute;
+                            top: 13rem;
+                            left: 14rem;
+                        }
                     }
                     .goods-attr-item2-text{
                         width: 42rem;
@@ -298,6 +316,13 @@
                         margin-right: 19rem;
                         line-height: 30rem;
                     }
+                    .online-img{
+                        float: left;
+                        width: 12rem;
+                        height: 12rem;
+                        margin-top: 8rem;
+                        margin-right: 8rem;
+                    }
                 }
                 .line{
                     /*float: left;*/
@@ -316,14 +341,22 @@
                         color: #444444;
                         line-height: 30rem;
                     }
+                    .phone-img{
+                        float: left;
+                        width: 9rem;
+                        height: 12rem;
+                        margin-top: 8rem;
+                        margin-right: 2rem;
+                    }
                 }
             }
             .share{
                 height: 43rem;
-                width: 100%;
+                width: calc(100% - 20rem);
                 float: left;
-                margin-left: 20rem;
+                padding-left: 20rem;
                 margin-right: 20rem;
+                border-bottom: 1rem #DBDEE4 solid;
                 .share-text{
                     line-height: 43rem;
                     font-size: 12rem;
@@ -332,38 +365,47 @@
                     color: #444444;
                 }
                 .wechat{
+                    /*float: left;*/
                     width: 14rem;
                     height: 12rem;
                     margin-right: 20rem;
+                    margin-left: 20rem;
                 }
                 .weibo{
+                    /*float: left;*/
                     width: 14rem;
                     height: 12rem;
                 }
             }
             .goods-detail{
                 height: 43rem;
-                width: 100%;
+                width: calc(100% - 20rem);
                 float: left;
-                margin-left: 20rem;
+                padding-left: 20rem;
+                border-bottom: 1rem #DBDEE4 solid;
                 .goods-detail-text{
                     font-size: 12rem;
                     font-family: Source Han Sans CN;
                     font-weight: 400;
                     color: #444444;
+                    line-height: 43rem;
                 }
                 .arr{
                     float: right;
-                    margin-right: 20rem;
+                    margin-right: 40rem;
                     width: 6rem;
                     height: 10rem;
+                    margin-top: 18rem;
                 }
             }
             .setaddress{
+                float: left;
+                margin-top: 15rem;
                 .location{
                     float: left;
                     margin-left: 20rem;
                     margin-right: 10rem;
+                    margin-top: 3rem;
                 }
                 .setaddress-text{
                     float: left;
