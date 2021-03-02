@@ -35,16 +35,18 @@ const setHtmlFontSize = () => {
     // console.log(document.documentElement.clientWidth)
     // console.log(document.body.clientWidth)
 
-    if (htmlWidth >= 1920) {
-        htmlWidth = 1920;
-        // htmlDom.style.fontSize = `${(htmlWidth / 1920)}px`;
-    }
+    // if (htmlWidth >= 1920) {
+    //     // htmlWidth = 1920;
+    //     htmlDom.style.fontSize = `${(htmlWidth / 1920)}px`;
+    // }
     if (htmlWidth <= 750) {
-        htmlWidth = 750;
-        // htmlDom.style.fontSize = `${(htmlWidth / 750)}px`;
+        // htmlWidth = 750;
+        htmlDom.style.fontSize = `${(htmlWidth / 750)}px`;
+    }else{
+        htmlDom.style.fontSize = `${(htmlWidth / 1920)}px`;
     }
     //1rem = 1px
-    htmlDom.style.fontSize = `${(htmlWidth / 1920)}px`;
+    // htmlDom.style.fontSize = `${(htmlWidth / 1920)}px`;
 };
 window.onresize = setHtmlFontSize;
 setHtmlFontSize();
