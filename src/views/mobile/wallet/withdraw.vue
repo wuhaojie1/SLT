@@ -120,17 +120,17 @@
                 </div>
             </div>
         </div>
-        <Bottom></Bottom>
+<!--        <Bottom></Bottom>-->
     </div>
 </template>
 
 <script>
     // import ThemeStickyHeader from "../../components/header/themeStickyHeader";
-    import Bottom from "../../components/bottom/bottom";
+    // import Bottom from "../../components/bottom/bottom";
 
     export default {
         name: "topUp",
-        components: {Bottom, /*ThemeStickyHeader*/},
+        // components: {Bottom, /*ThemeStickyHeader*/},
         data() {
             return {
                 coinIndex: 0,
