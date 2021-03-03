@@ -43,11 +43,11 @@
         data() {
             return {
                 yearsModel:null,
-                years:[],
+                years:['请选择'],
                 monthsModel:null,
-                months:[],
+                months:['请选择'],
                 daysModel:null,
-                days:[],
+                days:['请选择'],
             }
         },
         mounted() {

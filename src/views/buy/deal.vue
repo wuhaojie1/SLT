@@ -8,7 +8,7 @@
                         saleit?{color:'#00B4FC'}:''">出售</div>
                     </div>
                     <div class="wellcome">SLT团队欢迎您</div>
-                    <div class="slt-text">任何代币购买</div>
+                    <div class="slt-text">任何代币购买出售</div>
                     <div class="tradecon">
                         <div class="trade-left">
                             <div class="letf-head">

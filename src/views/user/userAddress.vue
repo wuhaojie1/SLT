@@ -85,7 +85,7 @@
         text-align: left;
     }
     .msgcon{
-        width: 450rem;
+        width: 402rem;
         height: auto;
         margin-left: 69rem;
         margin-top: 28rem;
@@ -166,7 +166,8 @@
             font-family: Source Han Sans CN;
             font-weight: 400;
             color: #9AA5B5;
-            width: 428rem;
+            width: 140rem;
+            margin-left: 100rem;
             .check{
                 margin-right: 10rem;
                 background: #FFFFFF;
@@ -183,10 +184,12 @@
             line-height: 46rem;
             margin-top: 26rem;
             margin-bottom: 25rem;
-            margin-left: 144rem;
+            margin-left: 100rem;
+            float: left;
         }
     }
     .adress-num-text{
+        clear: both;
         width: 990rem;
         height: 32rem;
         background: #F2F6FA;

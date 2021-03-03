@@ -3,21 +3,23 @@
         <themeStickyHeader></themeStickyHeader>
         <div class="goodsmsg">
             <div class="goodsmsg-scoll">
-                <el-carousel height="466rem"
+                <el-carousel height="369rem"
                              direction="vertical"
                              :autoplay="true"
                              :loop="true"
                              interval=2000
                              indicator-position="none">
-                    <el-carousel-item v-for="item in 3" :key="item">
-                        <h3 class="medium">{{ item }}</h3>
+                    <el-carousel-item v-for="item in scoolerimgarr" :key="item">
+                        <h3 class="medium">
+                            <img style="height: 369rem;width: 446rem" :src="item.img" alt="">
+                        </h3>
                     </el-carousel-item>
                 </el-carousel>
             </div>
             <div class="goodsmsg-con">
                 <div class="goods-name">
-                    <div class="goos-name-text">北欧简约多色铁艺灯具</div>
-                    <img class="love" src="" alt="">
+                    <div class="goods-name-text">北欧简约多色铁艺灯具</div>
+                    <img class="love" src="../../static/img/goodsdetails/like.png" alt="">
                 </div>
                 <div class="goods-charge">￥4200</div>
                 <div class="line"></div>
@@ -42,16 +44,17 @@
                 </div>
                 <div class="choose-type-con">
                     <div class="choose-type">
-                        <select name="" id="">
-                            <option class="choose-type-text" value="">选择合适的尺码</option>
-                            <option class="choose-type-text" value="S">S</option>
-                            <option class="choose-type-text" value="M">M</option>
-                            <option class="choose-type-text" value="L">L</option>
-                            <option class="choose-type-text" value="XL">XL</option>
-                            <option class="choose-type-text" value="XXL">XXL</option>
-                        </select>
+                        <div @click="control">
+                            <div class="chooseitem">{{sizearr[currentindex]}}</div>
+                            <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">
+                        </div>
+                        <ul v-if="showitem">
+                            <li v-for="(item,index) in sizearr"
+                                :key="index"
+                                @click="changesize(index)">{{item}}</li>
+                        </ul>
                     </div>
-                    <div class="look-all-type">尺码表</div>
+                    <div class="look-all-type" @click="control">尺码表</div>
                 </div>
                 <div class="shopcar">加入购物车</div>
                 <div class="question">
@@ -95,13 +98,40 @@
         },
         data(){
             return{
-
+                scoolerimgarr:[
+                    {
+                        img:`${require('../../static/img/goodsdetails/goodsimg.png')}`
+                    },
+                    {
+                        img:`${require('../../static/img/goodsdetails/goodsimg.png')}`
+                    },
+                    {
+                        img:`${require('../../static/img/goodsdetails/goodsimg.png')}`
+                    }
+                ],
+                sizearr:[
+                    "请选择合适的尺码","S","M","L","XL","XXL"
+                ],
+                currentindex:0,
+                showitem:true
+            }
+        },
+        methods:{
+            control(){
+                this.showitem = !this.showitem;
+            },
+            changesize(index){
+                this.currentindex = index;
+                this.showitem = !this.showitem;
             }
         }
     }
 </script>
 
 <style scoped lang="less">
+    @keyframes showli {
+
+    }
 #goodsdetails{
     width: 100%;
     height: calc(100vh - 75rem);
@@ -109,43 +139,53 @@
     .goodsmsg{
         margin-top: 75rem;
         padding-top: 229rem;
-        height: 100%;
+        height: calc(100% - 229rem);
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 40rem;
         .goodsmsg-scoll{
-            width: 660rem;
+            width: 466rem;
             height: auto;
             margin-left: 360rem;
-            float: left;
             .el-carousel__item h3 {
-                color: #475669;
+                /*color: #475669;*/
                 font-size: 14rem;
                 opacity: 0.75;
                 line-height: 200rem;
                 margin: 0;
             }
             .el-carousel__item:nth-child(2n) {
-                background-color: #99a9bf;
+                /*background-color: #99a9bf;*/
             }
 
             .el-carousel__item:nth-child(2n+1) {
-                background-color: #d3dce6;
+                /*background-color: #d3dce6;*/
             }
         }
         .goodsmsg-con{
-            float: right;
             margin-right: 360rem;
             text-align: left;
             height: auto;
             width: 330rem;
             .goods-name{
-                padding-bottom: 11rem;
                 font-size: 24rem;
-                .googs-name-text{
+                .goods-name-text{
                     font-family: Source Han Sans CN;
                     font-weight: 400;
                     color: #444444;
+                    float: left;
+                }
+                .love{
+                    width: 16rem;
+                    height: 14rem;
+                    float: left;
+                    margin-left: 19rem;
+                    margin-top: 5rem;
                 }
             }
             .goods-charge{
+                padding-top: 11rem;
+                clear: both;
                 font-size: 24rem;
                 font-family: Source Han Sans CN;
                 font-weight: 400;
@@ -262,16 +302,44 @@
                 .choose-type{
                     float: left;
                     margin-right: 27rem;
-                    select{
-                        width: 140rem;
-                        height: 42rem;
-                        background: #F3F5F7;
-                        border: 1rem solid #DBDEE4;
-                        .choose-type-text{
-                            font-size: 12rem;
-                            font-family: Source Han Sans CN;
-                            font-weight: 400;
-                            color: #444444;
+                    background: #F3F5F7;
+                    border: 1px solid #DBDEE4;
+                    /*width: 160rem;*/
+                    height: 42rem;
+                    .chooseitem{
+                        font-size: 12rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #444444;
+                        line-height: 42rem;
+                        float: left;
+                        margin-left: 15rem;
+                    }
+                    .arrow-down{
+                        width: 12rem;
+                        height: 7rem;
+                        float: left;
+                        padding-left: 17rem;
+                        padding-right: 10rem;
+                        margin-top: 17rem;
+                    }
+                    ul{
+                        clear: both;
+                        font-size: 12rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #444444;
+                        li{
+                            list-style: none;
+                            /*display: none;*/
+                            line-height: 42rem;
+                            margin-left: 17rem;
+                            background-color: #fff;
+                            position: relative;
+                            z-index:10;
+                        }
+                        li:hover{
+                            background: #5E8FA0;
                         }
                     }
                 }

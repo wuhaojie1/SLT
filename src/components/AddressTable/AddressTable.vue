@@ -178,7 +178,7 @@
 
                     }
                     .active{
-                        /*margin-left: 20rem;*/
+                        margin-left: 20rem;
                         width: 92rem;
                         height: 30rem;
                         background: #FBD7D7;

@@ -34,42 +34,45 @@
                         <el-radio :label="9" class="user-sex-item"><span :style="{marginLeft:'11rem'}">保密</span></el-radio>
                     </el-radio-group>
                 </div>
-                <div class="user-bri-con">
-                    <div class="userinfo-bri-text">生日:</div>
-                    <div class="set-data-con">
-                        <dataselect></dataselect>
-                    </div>
+            </div>
+            <div class="user-bri-con">
+                <div class="userinfo-bri-text">生日:</div>
+                <div class="set-data-con">
+                    <dataselect></dataselect>
                 </div>
-                <div class="user-stu-con">
-                    <div class="userinfo-stu-text">教育程度:</div>
-                    <div class="set-stu-con">
-                        <select  placeholder="请选择">
-                            <option
-                                    v-for="item in study"
-                                    :key="item.value"
-                                    :label="item.label"
-                                    :value="item.value">
-                            </option>
-                        </select>
-                    </div>
+            </div>
+            <div class="user-stu-con">
+                <div class="userinfo-stu-text">教育程度:</div>
+                <div class="set-stu-con">
+                    <select  placeholder="请选择">
+                        <option
+                                v-for="item in study"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                        </option>
+                    </select>
                 </div>
-                <div class="user-stu-con">
-                    <div class="userinfo-stu-text">所在行业:</div>
-                    <div class="set-stu-con">
-                        <select  placeholder="请选择">
-                            <option
-                                    v-for="item in study"
-                                    :key="item.value"
-                                    :label="item.label"
-                                    :value="item.value">
-                            </option>
-                        </select>
-                    </div>
+            </div>
+            <div class="user-stu-con">
+                <div class="userinfo-stu-text">所在行业:</div>
+                <div class="set-stu-con">
+                    <select  placeholder="请选择">
+                        <option
+                                v-for="item in study"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                        </option>
+                    </select>
                 </div>
-                <div class="userinfo-snum-con">
-                    <div class="userinfo-snum-text">身份证号:</div>
-                    <input type="text" class="userinfo-snum-input" :value="snum">
-                </div>
+            </div>
+            <div class="userinfo-snum-con">
+                <div class="userinfo-snum-text">身份证号:</div>
+                <input type="text" class="userinfo-snum-input" :value="snum">
+            </div>
+            <div class="savebutton">
+                <div class="savetext">保存</div>
             </div>
         </div>
     </div>
@@ -114,6 +117,7 @@
             .user-name{
                 width: 100%;
                 padding-bottom: 15rem;
+                height: 38rem;
                 .user-name-text{
                     font-size: 14rem;
                     font-family: Source Han Sans CN;
@@ -156,6 +160,7 @@
             }
             .user-id-con{
                 clear: both;
+                height: 38rem;
                 .user-id-text{
                     font-size: 14rem;
                     font-family: Source Han Sans CN;
@@ -177,6 +182,7 @@
             .userinfo-name-con{
                 clear: both;
                 padding-top: 24rem;
+                height: 38rem;
                 .userinfo-name-text{
                     font-size: 14rem;
                     font-family: Source Han Sans CN;
@@ -202,6 +208,7 @@
             .user-sex-con{
                 clear: both;
                 text-align: left;
+                height: 38rem;
                 padding-top: 24rem;
                 .user-sex-text{
                     font-size: 14rem;
@@ -226,6 +233,7 @@
             .user-bri-con{
                 clear: both;
                 margin-top: 24rem;
+                height: 38rem;
                 .userinfo-bri-text{
                     font-size: 14rem;
                     font-family: Source Han Sans CN;
@@ -244,6 +252,7 @@
             .user-stu-con{
                 clear: both;
                 padding-top: 24rem;
+                height: 38rem;
                 .userinfo-stu-text{
                     font-size: 14rem;
                     font-family: Source Han Sans CN;
@@ -295,6 +304,7 @@
             .userinfo-snum-con{
                 clear: both;
                 padding-top: 24rem;
+                height: 38rem;
                 .userinfo-snum-text{
                     font-size: 14rem;
                     font-family: Source Han Sans CN;
@@ -315,6 +325,24 @@
                     font-weight: 400;
                     color: #444444;
                     float: left;
+                }
+            }
+            .savebutton{
+                clear: both;
+                width: 200rem;
+                height: 46rem;
+                background: #00B4FC;
+                border-radius: 2rem;
+                margin-left:92rem;
+                margin-top: 45rem;
+                margin-bottom: 40rem;
+                .savetext{
+                    font-size: 16rem;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #FFFFFF;
+                    text-align: center;
+                    line-height: 46rem;
                 }
             }
         }
