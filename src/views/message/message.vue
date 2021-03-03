@@ -15,7 +15,7 @@
                 <div class="theader">
                     <div class="headerLeft">
                         <div>消息列表</div>
-                        <div>2条未读</div>
+                        <div>2条未读解决</div>
                     </div>
                     <div class="headerRight">
                         <el-checkbox v-model="checked">隐藏已读</el-checkbox>
