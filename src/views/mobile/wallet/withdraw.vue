@@ -1,8 +1,15 @@
 <template>
     <div class="topUp">
+        <div class="header">
+            <img :src="sltlogo" alt="" class="sltlogo">
+            <img :src="userIcon" alt="" class="userIcon">
+        </div>
+        <div class="header-title">
+            <div class="text">充币</div>
+        </div>
         <!--<ThemeStickyHeader></ThemeStickyHeader>-->
         <div class="topUp-wrap">
-            <div class="topUp-wrap-nav">
+            <!--<div class="topUp-wrap-nav">
                 <div class="nav-content">
                     <div class="text">
                         <div class="left">
@@ -17,9 +24,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="topUp-content">
-                <div class="rem">
+                <!--<div class="rem">
                     <div class="box">
                         <div class="box-left">
                             <div class="imgBox">
@@ -41,6 +48,14 @@
                             </div>
                         </div>
                     </div>
+                </div>-->
+                <div class="btc">
+                    <div class="btc-img">
+                        <img :src="down" alt="">
+                    </div>
+                    <div class="btc-text">
+                        BTC <span>Bitcoin</span>
+                    </div>
                 </div>
                 <div class="topUp-content-wrap">
                     <div class="topUp-content-wrap-title">
@@ -60,79 +75,67 @@
                     <div class="withdraw-addr">
                         <div class="withdraw-addr-title">
                             <div class="text">提币地址</div>
-                            <div class="text">推荐使用<span>SLT</span>钱包 提币BTC</div>
+<!--                            <div class="text">推荐使用<span>SLT</span>钱包 提币BTC</div>-->
                         </div>
                         <div class="withdraw-input">
                             <input type="text" class="input">
                         </div>
                     </div>
-                    <div class="withdraw-number">
-                        <div class="number">
-                            <div class="number-title">提币数量</div>
-                            <div class="number-input">
-                                <input type="text" class="input">
+                    <div class="addr-content">
+                        <div class="addrSLT">SLT</div>
+                        <div class="text">TFBpBaswdZnyZewS9zTimjt</div>
+                    </div>
+                    <div class="copy">
+                        复制地址
+                    </div>
+                    <div class="QRCode">
+                        <VueQr :text="config.value"
+                               :size="90"
+                               :margin="0">
 
-                                <div class="input-tip">
-                                    <div class="text">BLC</div>
-                                    <div class="input-line"></div>
-                                    <div class="all">全部</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="fee">
-                            <div class="fee-title">手续费</div>
-                            <div class="fee-input">
-                                <input type="text" class="input">
-                            </div>
+                        </VueQr>
+                    </div>
+                    <div class="tip">
+                        <img :src="tip" alt="" class="img">
+                        <div class="text">
+                            使用USDT-TRC20地址充值需要1个网络确认才能到账，1个
+                            网络确认后才能提币。
                         </div>
                     </div>
-                    <div class="balance">
-                        可用：0.00000000BTC
-                    </div>
-                    <div class="arrival">到账数量（BTC）<span>0.00000000</span></div>
-
-                    <div class="btn-box">
-                        <div class="btn">
-                            提币
-                        </div>
+                    <div class="btn">
+                        确认
                     </div>
 
                     <div class="tipText">
-                        <div class="warn">
-                            <img src="" class="warn-img" alt="">
-                            <div class="warn-text">
-                                您的提币操作-旦完成， 对应的资产所有权将由您变更为目标地址所对应的账户所有人享有，请您务必
-                                在提币操作前，仔细核对提币地址信息，确保提币属于自愿行为，并确认不涉及任何传销、非法集资、
-                                诈骗等违法情形，谨防上当受骗，避免造成不必要的财产损失。
-                            </div>
-                        </div>
                         <ul>
                             <li>.最小提币数量为: 0.001 BTC.</li>
-                            <li>.为保障资金安全，当您账户安全策略变更、密码修改、我们会对提币进行人工审核，请耐心等待工作人员电话或邮
-                                件联系。
+                            <li>.为保障资金安全，当您账户安全策略变更、密码修改、我们会
+                                对提币进行人工审核，请耐心等待工作人员电话或邮件联系。
                             </li>
                             <li>.请务必确认电脑及浏览器安全，防止信息被篆改或泄露。</li>
-                            <li>.您所提的数字资产为- -币多链资产，无论您选择从哪个链上提出，均意味着您所拥有的该提币页面展示的数字资产
-                                总量减少相应的提出数量。
-                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-<!--        <Bottom></Bottom>-->
+        <!--        <Bottom></Bottom>-->
     </div>
 </template>
 
 <script>
+    import VueQr from 'vue-qr'
     // import ThemeStickyHeader from "../../components/header/themeStickyHeader";
     // import Bottom from "../../components/bottom/bottom";
 
     export default {
         name: "topUp",
-        // components: {Bottom, /*ThemeStickyHeader*/},
+        components: {VueQr, /*ThemeStickyHeader*/},
         data() {
             return {
+                sltlogo: `${require('@/static/img/index/sltlogo_60x120_white.png')}`,
+                down: `${require('@/static/img/login/down.png')}`,
+                tip: `${require('@/static/img/login/tip.png')}`,
+                userIcon: `${require('@/static/img/index/userIcon.png')}`,
                 coinIndex: 0,
                 coinList: [
                     {
@@ -165,9 +168,263 @@
         overflow: hidden;
         box-sizing: border-box;
 
+        .header {
+            width: 750rem;
+            height: 88rem;
+            background: #02031E;
+            display: flex;
+            box-sizing: border-box;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 35rem;
+
+            .sltlogo {
+                width: 80rem;
+                height: 42rem;
+            }
+
+            .userIcon {
+                width: 38rem;
+                height: 42rem;
+            }
+        }
+
+        .header-title {
+            width: 750rem;
+            height: 88rem;
+            background: #FFFFFF;
+            box-shadow: 0rem 5rem 10rem 0rem rgba(153, 153, 153, 0.1);
+
+            .text {
+                margin-left: 36rem;
+                text-align: left;
+                line-height: 88rem;
+                font-size: 30rem;
+                font-weight: 400;
+                color: #444444;
+            }
+        }
+        
         .topUp-wrap {
+            .topUp-content {
+                .btc {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    width: 680rem;
+                    height: 72rem;
+                    background: #FFFFFF;
+                    border: 1rem solid #E4E7ED;
+                    margin: 0 auto;
+                    box-sizing: border-box;
+
+                    .btc-img {
+                        margin-left: 25rem;
+                        width: 30rem;
+                        height: 30rem;
+                        background: #00B4FC;
+                        border-radius: 2rem;
+                        img {
+                            height: 12rem;
+                            width: 20rem;
+                        }
+                    }
+                    .btc-text {
+                        margin-left: 18rem;
+                        color: #444444;
+                        font-size: 30rem;
+                        span {
+                            font-size: 28rem;
+                            color: #8993A0;
+                        }
+                    }
+                }
+
+                .topUp-content-wrap {
+
+                    .topUp-content-wrap-title {
+                        text-align: left;
+                        font-size: 28rem;
+                        font-weight: 400;
+                        color: #666666;
+                        margin-left: 35rem;
+                        margin-top: 40rem;
+                    }
+
+                    .linkList {
+                        /*margin-top: 7rem;*/
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-top: 14rem;
+                        /*margin-bottom: 25rem;*/
+
+                        .linkList-item {
+                            width: 220rem;
+                            height: 72rem;
+                            background: #FFFFFF;
+                            border: 1rem solid #E4E7ED;
+                            border-radius: 2rem;
+                            margin-left: 9rem;
+                            position: relative;
+                            line-height: 72rem;
+                            cursor: pointer;
+                        }
+
+                        .linkList-item:before {
+                            position: absolute;
+                            width: 30rem;
+                            height: 30rem;
+                            border: 1rem solid #E4E7ED;
+                            border-radius: 50%;
+                            left: 20rem;
+                            top: 21rem;
+                            content: " ";
+
+                        }
+
+                        .linkList-item:first-child {
+                            margin-left: 0;
+                        }
+
+                        .linkList-item-active {
+                            border: 1rem solid #00B4FC;
+                        }
+
+                        .linkList-item-active:before {
+                            box-sizing: border-box;
+                            position: absolute;
+                            width: 30rem;
+                            height: 30rem;
+                            background: #FFFFFF;
+                            border: 9rem solid #00B4FC;
+                            border-radius: 50%;
+                            left: 20rem;
+                            top: 21rem;
+                            content: " ";
+                        }
+                    }
+
+                    .withdraw-addr {
+                        text-align: left;
+                        margin-top: 40rem;
+                        padding-left: 35rem;
+                        .withdraw-addr-title {
+                            .text {
+                                font-size: 28rem;
+                                font-weight: 400;
+                                color: #666666;
+                            }
+                        }
+                    }
+                    
+                    .addr-content {
+                        width: 680rem;
+                        height: 72rem;
+                        background: #FFFFFF;
+                        border: 1rem solid #E4E7ED;
+                        margin: 0 auto;
+                        box-sizing: border-box;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        /*justify-content: center;*/
+
+                        .text {
+                            line-height: 72rem;
+                            font-size: 30rem;
+                            font-weight: 400;
+                            color: #666666;
+                            text-align: center;
+                            margin-left: 40rem;
+                        }
+
+                        .addrSLT {
+                            /*top: 17rem;
+                            left: 20rem;
+                            position: absolute;*/
+                            margin-left: 20rem;
+                            width: 70rem;
+                            height: 38rem;
+                            background: #F8FAFC;
+                            border: 1rem solid #F8FAFC;
+                            border-radius: 2rem;
+                            font-size: 26rem;
+                            font-weight: 400;
+                            color: #C9CED4;
+                            line-height: 38rem;
+
+                        }
+                    }
+
+                    .copy {
+                        font-size: 24rem;
+                        font-weight: 400;
+                        color: #22BF7C;
+                        margin-top: 15rem;
+                    }
+
+                    .QRCode {
+                        margin-top: 50rem;
+                        margin-bottom: 38rem;
+                    }
+                    
+                    .tip {
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: center;
+                        .img {
+                            width: 32rem;
+                            height: 32rem;
+                        }
+                        .text {
+                            text-align: left;
+                            width: 620rem;
+                            font-size: 24rem;
+                            font-weight: 400;
+                            color: #8993A0;
+                            margin-left: 15rem;
+                        }
+                    }
+                    
+                    .btn {
+                        width: 680rem;
+                        height: 88rem;
+                        background: #00B4FC;
+                        border-radius: 2rem;
+                        font-size: 32rem;
+                        font-weight: 400;
+                        color: #FFFFFF;
+                        margin: 0 auto;
+                        line-height: 88rem;
+                        margin-top: 50rem;
+                    }
+
+                    .tipText {
+                        margin: 0 auto;
+                        margin-top: 50rem;
+                        padding-top: 24rem;
+                        width: 680rem;
+                        border-top: 1rem solid #E4E7ED;
+                        text-align: left;
+                        font-size: 24rem;
+                        font-weight: 400;
+                        color: #8993A0;
+                        line-height: 1.5em;
+                        ul {
+                            li {
+                                list-style: none;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        /*.topUp-wrap {
             width: 100%;
-            margin: 75rem 0 0 0;
+            !*margin: 75rem 0 0 0;*!
             box-sizing: border-box;
 
             .topUp-wrap-nav {
@@ -176,9 +433,9 @@
                 background: #041037;
 
                 .nav-content {
-                    width: 1000rem;
-                    height: 100%;
-                    margin: 0 auto;
+                    !*width: 1000rem;*!
+                    !*height: 100%;*!
+                    !*margin: 0 auto;*!
 
                     .text {
                         display: flex;
@@ -233,12 +490,12 @@
             }
 
             .topUp-content {
-                min-height: calc(100vh - 75rem - 200rem);
+                !*min-height: calc(100vh - 75rem - 200rem);*!
                 width: 1000rem;
                 height: 950rem;
                 background: #F8FAFC;
                 border: 1rem solid #E4E7ED;
-                margin: 20rem auto;
+                !*margin: 20rem auto;*!
                 box-sizing: border-box;
 
                 .rem {
@@ -248,10 +505,10 @@
 
                     .box {
                         height: 100%;
-                        /*width: 160rem;*/
+                        !*width: 160rem;*!
                         display: flex;
                         align-items: center;
-                        /*justify-content: center;*/
+                        !*justify-content: center;*!
                         border-right: 1rem solid #E4E7ED;
 
                         .box-left {
@@ -281,11 +538,11 @@
                             }
                         }
 
-                        /*.line {
+                        !*.line {
                             width: 1rem;
                             height: 100%;
                             color: #E4E7ED;
-                        }*/
+                        }*!
 
                         .amount-content {
                             display: flex;
@@ -458,7 +715,7 @@
                                 border-radius: 2rem;
                                 display: flex;
                                 align-items: center;
-                                /*padding-right: 20rem;*/
+                                !*padding-right: 20rem;*!
                                 box-sizing: border-box;
 
                                 .input {
@@ -467,14 +724,16 @@
                                     padding-left: 10rem;
                                     box-sizing: border-box;
                                     background: #FFFFFF;
-                                    /*border: 1rem solid #E4E7ED;*/
+                                    !*border: 1rem solid #E4E7ED;*!
                                     border-radius: 2rem;
 
                                 }
+
                                 .input-tip {
                                     height: 100%;
                                     display: flex;
                                     align-items: center;
+
                                     .text {
                                         font-size: 14rem;
                                         font-weight: 400;
@@ -518,7 +777,7 @@
                                     height: 100%;
                                     width: 220rem;
                                     background: #FFFFFF;
-                                    /*border: 1rem solid #E4E7ED;*/
+                                    !*border: 1rem solid #E4E7ED;*!
                                     border-radius: 2rem;
                                 }
                             }
@@ -539,6 +798,7 @@
                         font-size: 14rem;
                         font-weight: 400;
                         color: #666666;
+
                         span {
                             color: #00B4FC;
                         }
@@ -704,6 +964,6 @@
                     }
                 }
             }
-        }
+        }*/
     }
 </style>
