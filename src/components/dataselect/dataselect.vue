@@ -1,36 +1,53 @@
 <template>
     <div id="myDate" >
         <div class="chooce-year">
-            <select v-model="yearsModel" @change="dateChange(1)" placeholder="请选择">
-                <option
-                    v-for="item in years"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                </option>
-            </select>
+            <div class="choose-type" >
+                <div>
+                    <div class="chooseitem" style="width: 100rem;"  @click="control">{{years[currentindex].value}}</div>
+<!--                    <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">-->
+                </div>
+                <ul v-show="showitem">
+                    <li v-for="(item,index) in years"
+                        :key="index"
+                        @click="changesize(index)">{{item.value}}</li>
+                </ul>
+            </div>
+<!--            <select v-model="yearsModel" @change="dateChange(1)" placeholder="请选择">-->
+<!--                <option-->
+<!--                    v-for="item in years"-->
+<!--                    :key="item.value"-->
+<!--                    :label="item.label"-->
+<!--                    :value="item.value">-->
+<!--                </option>-->
+<!--            </select>-->
         </div>
         <div class="year">年</div>
         <div class="chooce-mouth">
-            <select v-model="monthsModel" @change="dateChange(2)" placeholder="请选择">
-                <option
-                    v-for="item in months"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                </option>
-            </select>
+            <div class="choose-type" >
+                <div>
+                    <div class="chooseitem" style="width: 100rem;"  @click="control1">{{months[currentindex1].value}}</div>
+                    <!--                    <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">-->
+                </div>
+                <ul v-show="showitem1">
+                    <li v-for="(item,index) in months"
+                        :key="index"
+                        @click="changesize1(index)">{{item.value}}</li>
+                </ul>
+            </div>
         </div>
         <div class="mouth">月</div>
         <div class="chooce-day">
-            <select v-model="daysModel" @change="dateChange(3)" placeholder="请选择">
-                <option
-                    v-for="item in days"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                </option>
-            </select>
+            <div class="choose-type" >
+                <div>
+                    <div class="chooseitem" style="width: 100rem;"  @click="control2">{{days[currentindex2].value}}</div>
+                    <!--                    <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">-->
+                </div>
+                <ul v-show="showitem2">
+                    <li v-for="(item,index) in days"
+                        :key="index"
+                        @click="changesize2(index)">{{item.value}}</li>
+                </ul>
+            </div>
         </div>
         <div class="day">日</div>
     </div>
@@ -43,11 +60,17 @@
         data() {
             return {
                 yearsModel:null,
-                years:['请选择'],
+                years:[],
                 monthsModel:null,
-                months:['请选择'],
+                months:[],
                 daysModel:null,
-                days:['请选择'],
+                days:[],
+                showitem:false,
+                showitem1:false,
+                showitem2:false,
+                currentindex:0,
+                currentindex1:0,
+                currentindex2:0
             }
         },
         mounted() {
@@ -60,6 +83,39 @@
             this.init();
         },
         methods: {
+            control(){
+                this.showitem = !this.showitem;
+                this.showitem1 = false;
+                this.showitem2 = false;
+                console.log(this.showitem);
+            },
+            control1(){
+                this.showitem1 = !this.showitem1;
+                this.showitem = false;
+                this.showitem2 = false;
+                console.log(this.showitem1);
+            },
+            control2(){
+                this.showitem2 = !this.showitem2;
+                this.showitem1 = false;
+                this.showitem = false;
+                console.log(this.showitem2);
+            },
+            changesize(index){
+                this.showitem = false;
+                this.currentindex = index;
+                console.log(this.showitem);
+            },
+            changesize1(index){
+                this.showitem1 = false;
+                this.currentindex1 = index;
+                console.log(this.showitem);
+            },
+            changesize2(index){
+                this.showitem2 = false;
+                this.currentindex2 = index;
+                console.log(this.showitem);
+            },
             init(){
                 var myDate = new Date;
                 var year = myDate.getFullYear();//获取当前年
@@ -80,6 +136,7 @@
                 for(let i=0;i<60;i++){
                     this.years.push({value:(year - i),label:(year - i)});
                 }
+                this.years.unshift({value:'请选择'})
             },
             initSelectMonth(){
                 this.months = [];
@@ -87,6 +144,7 @@
                 for(let i=1;i<=12;i++){
                     this.months.push({value:i,label:i});
                 }
+                this.months.unshift({value:'请选择'})
             },
             initSelectDay(year,month){
                 var maxDay = this.getMaxDay(year,month);
@@ -95,6 +153,7 @@
                 for(var i=1;i<=maxDay;i++){
                     this.days.push({value:i,label:i});
                 }
+                this.days.unshift({value:'请选择'})
             },
             dateChange(type){
                 //1年 2月 3日 4 左 5右
@@ -247,33 +306,58 @@
         float: left;
         margin-right: 5rem;
         line-height: 38rem;
-        select{
-            /*清除select的边框样式*/
-            border: none;
-            /*清除select聚焦时候的边框颜色*/
-            outline: none;
-            /*将select的宽高等于div的宽高*/
-            width: 100%;
-            height: 38rem;
-            line-height: 40rem;
-            /*隐藏select的下拉图标*/
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            /*通过padding-left的值让文字居中*/
-            padding-left: 20rem;
-        }
-        .chooce-year:after{
-            content: "";
-            width: 14rem;
-            height: 8rem;
-            /*background: url(../assets/arrow-down.png) no-repeat center;*/
-            /*通过定位将图标放在合适的位置*/
-            position: absolute;
-            right: 20rem;
-            top: 41%;
-            /*给自定义的图标实现点击下来功能*/
-            pointer-events: none;
+        .choose-type {
+            float: left;
+            margin-right: 27rem;
+            width: 100rem;
+            height: 338rem;
+            overflow: hidden;
+
+            .chooseitem {
+                font-size: 12rem;
+                font-family: Source Han Sans CN;
+                font-weight: 400;
+                color: #444444;
+                line-height: 42rem;
+                float: left;
+                /*margin-left: 15rem;*/
+            }
+
+            .arrow-down {
+                width: 12rem;
+                height: 7rem;
+                float: left;
+                /*padding-left: 17rem;*/
+                /*padding-right: 10rem;*/
+                margin-top: 17rem;
+            }
+                ul {
+                clear: both;
+                font-size: 12rem;
+                font-family: Source Han Sans CN;
+                font-weight: 400;
+                color: #444444;
+                width: 100rem;
+                height: 200rem;
+                overflow: hidden;
+                overflow-y: scroll;
+                scrollbar-width: none;
+                li {
+                    list-style: none;
+                    /*display: none;*/
+                    line-height: 38rem;
+                    /*margin-left: 17rem;*/
+                    background-color: #fff;
+                    position: relative;
+                    z-index: 10;
+                    width: 100rem;
+                    height: 38rem;
+                }
+
+                li:hover {
+                    background: #5E8FA0;
+                }
+            }
         }
     }
     .year{
@@ -282,41 +366,68 @@
         margin-right: 19rem;
     }
     .chooce-mouth{
-        background: #FFFFFF;
-        border: 1rem solid #E4E7ED;
-        border-radius: 2rem;
         width: 100rem;
         height: 38rem;
+        background: #FFFFFF;
+        /*border: 1rem solid #E4E7ED;*/
+        border-radius: 2rem;
         float: left;
         margin-right: 5rem;
         line-height: 38rem;
-        select{
-            /*清除select的边框样式*/
-            border: none;
-            /*清除select聚焦时候的边框颜色*/
-            outline: none;
-            /*将select的宽高等于div的宽高*/
-            width: 100%;
+        .choose-type {
+            float: left;
+            margin-right: 27rem;
+            /*background: #F3F5F7;*/
+            border: 1px solid #DBDEE4;
+            /*width: 160rem;*/
+            width: 100rem;
             height: 38rem;
-            line-height: 40rem;
-            /*隐藏select的下拉图标*/
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            /*通过padding-left的值让文字居中*/
-            padding-left: 20rem;
-        }
-        .chooce-mouth:after{
-            content: "";
-            width: 14rem;
-            height: 8rem;
-            /*background: url(../assets/arrow-down.png) no-repeat center;*/
-            /*通过定位将图标放在合适的位置*/
-            position: absolute;
-            right: 20rem;
-            top: 41%;
-            /*给自定义的图标实现点击下来功能*/
-            pointer-events: none;
+
+            .chooseitem {
+                font-size: 12rem;
+                font-family: Source Han Sans CN;
+                font-weight: 400;
+                color: #444444;
+                line-height: 42rem;
+                float: left;
+                /*margin-left: 15rem;*/
+            }
+
+            .arrow-down {
+                width: 12rem;
+                height: 7rem;
+                float: left;
+                /*padding-left: 17rem;*/
+                /*padding-right: 10rem;*/
+                margin-top: 17rem;
+            }
+
+            ul {
+                clear: both;
+                font-size: 12rem;
+                font-family: Source Han Sans CN;
+                font-weight: 400;
+                color: #444444;
+                width: 100rem;
+                height: 200rem;
+                overflow: hidden;
+                overflow-y: scroll;
+                li {
+                    list-style: none;
+                    /*display: none;*/
+                    line-height: 38rem;
+                    /*margin-left: 17rem;*/
+                    background-color: #fff;
+                    position: relative;
+                    z-index: 10;
+                    width: 100rem;
+                    height: 38rem;
+                }
+
+                li:hover {
+                    background: #5E8FA0;
+                }
+            }
         }
     }
     .mouth{
@@ -325,41 +436,68 @@
         margin-right: 19rem;
     }
     .chooce-day{
-        background: #FFFFFF;
-        border: 1rem solid #E4E7ED;
-        border-radius: 2rem;
         width: 100rem;
         height: 38rem;
+        background: #FFFFFF;
+        /*border: 1rem solid #E4E7ED;*/
+        border-radius: 2rem;
         float: left;
         margin-right: 5rem;
         line-height: 38rem;
-        select{
-            /*清除select的边框样式*/
-            border: none;
-            /*清除select聚焦时候的边框颜色*/
-            outline: none;
-            /*将select的宽高等于div的宽高*/
-            width: 100%;
+        .choose-type {
+            float: left;
+            margin-right: 27rem;
+            /*background: #F3F5F7;*/
+            border: 1px solid #DBDEE4;
+            /*width: 160rem;*/
+            width: 100rem;
             height: 38rem;
-            line-height: 40rem;
-            /*隐藏select的下拉图标*/
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            /*通过padding-left的值让文字居中*/
-            padding-left: 20rem;
-        }
-        .chooce-day:after{
-            content: "";
-            width: 14rem;
-            height: 8rem;
-            /*background: url(../assets/arrow-down.png) no-repeat center;*/
-            /*通过定位将图标放在合适的位置*/
-            position: absolute;
-            right: 20rem;
-            top: 41%;
-            /*给自定义的图标实现点击下来功能*/
-            pointer-events: none;
+
+            .chooseitem {
+                font-size: 12rem;
+                font-family: Source Han Sans CN;
+                font-weight: 400;
+                color: #444444;
+                line-height: 42rem;
+                float: left;
+                /*margin-left: 15rem;*/
+            }
+
+            .arrow-down {
+                width: 12rem;
+                height: 7rem;
+                float: left;
+                /*padding-left: 17rem;*/
+                /*padding-right: 10rem;*/
+                margin-top: 17rem;
+            }
+
+            ul {
+                clear: both;
+                font-size: 12rem;
+                font-family: Source Han Sans CN;
+                font-weight: 400;
+                color: #444444;
+                width: 100rem;
+                height: 200rem;
+                overflow: hidden;
+                overflow-y: scroll;
+                li {
+                    list-style: none;
+                    /*display: none;*/
+                    line-height: 38rem;
+                    /*margin-left: 17rem;*/
+                    background-color: #fff;
+                    position: relative;
+                    z-index: 10;
+                    width: 100rem;
+                    height: 38rem;
+                }
+
+                li:hover {
+                    background: #5E8FA0;
+                }
+            }
         }
     }
     .day{

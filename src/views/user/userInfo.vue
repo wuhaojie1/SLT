@@ -44,27 +44,33 @@
             <div class="user-stu-con">
                 <div class="userinfo-stu-text">教育程度:</div>
                 <div class="set-stu-con">
-                    <select  placeholder="请选择">
-                        <option
-                                v-for="item in study"
-                                :key="item.value"
-                                :label="item.label"
-                                :value="item.value">
-                        </option>
-                    </select>
+                    <div class="choose-type" >
+                        <div>
+                            <div class="chooseitem" style="width: 100rem;"  @click="control1">{{study[currentindex1]}}</div>
+                            <!--                    <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">-->
+                        </div>
+                        <ul v-show="showitem1">
+                            <li v-for="(item,index) in study"
+                                :key="index"
+                                @click="changesize1(index)">{{item}}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="user-stu-con">
                 <div class="userinfo-stu-text">所在行业:</div>
                 <div class="set-stu-con">
-                    <select  placeholder="请选择">
-                        <option
-                                v-for="item in study"
-                                :key="item.value"
-                                :label="item.label"
-                                :value="item.value">
-                        </option>
-                    </select>
+                    <div class="choose-type" >
+                        <div>
+                            <div class="chooseitem" style="width: 100rem;"  @click="control2">{{perfarr[currentindex2]}}</div>
+                            <!--                    <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">-->
+                        </div>
+                        <ul v-show="showitem2">
+                            <li v-for="(item,index) in perfarr"
+                                :key="index"
+                                @click="changesize2(index)">{{item}}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="userinfo-snum-con">
@@ -87,12 +93,32 @@
             return {
                 name:'王**',
                 radio:'3',
-                study:['博士','研究生','本科','大专'],
-                snum:'511036...'
+                study:["请选择",'博士','研究生','本科','大专'],
+                perfarr:['请选择','医生','老师','CEO','经理','运营','策划'],
+                snum:'511036...',
+                currentindex1:0,
+                currentindex2:0,
+                showitem1:false,
+                showitem2:false
             }
         },
         methods: {
-
+            control1(){
+                this.showitem1 = !this.showitem1;
+                this.showitem2 = false;
+            },
+            control2(){
+                this.showitem2 = !this.showitem2;
+                this.showitem1 = false;
+            },
+            changesize1(index){
+                this.currentindex1 = index;
+                this.showitem1 = false;
+            },
+            changesize2(index){
+                this.currentindex2 = index;
+                this.showitem2 = false;
+            }
         }
     }
 </script>
@@ -271,35 +297,62 @@
                         float: left;
                         margin-right: 5rem;
                         line-height: 38rem;
-                        select{
-                            /*清除select的边框样式*/
-                            border: none;
-                            /*清除select聚焦时候的边框颜色*/
-                            outline: none;
-                            /*将select的宽高等于div的宽高*/
-                            width: 100%;
-                            height: 38rem;
-                            line-height: 40rem;
-                            /*隐藏select的下拉图标*/
-                            appearance: none;
-                            -webkit-appearance: none;
-                            -moz-appearance: none;
-                            /*通过padding-left的值让文字居中*/
-                            padding-left: 20rem;
+                        .choose-type {
+                        float: left;
+                        margin-right: 27rem;
+                        width: 100rem;
+                        height: 338rem;
+                        overflow: hidden;
+
+                        .chooseitem {
+                            font-size: 12rem;
+                            font-family: Source Han Sans CN;
+                            font-weight: 400;
+                            color: #444444;
+                            line-height: 42rem;
+                            float: left;
+                            /*margin-left: 15rem;*/
                         }
-                        .chooce-year:after{
-                            content: "";
-                            width: 14rem;
-                            height: 8rem;
-                            /*background: url(../assets/arrow-down.png) no-repeat center;*/
-                            /*通过定位将图标放在合适的位置*/
-                            position: absolute;
-                            right: 20rem;
-                            top: 41%;
-                            /*给自定义的图标实现点击下来功能*/
-                            pointer-events: none;
+
+                        .arrow-down {
+                            width: 12rem;
+                            height: 7rem;
+                            float: left;
+                            /*padding-left: 17rem;*/
+                            /*padding-right: 10rem;*/
+                            margin-top: 17rem;
+                        }
+                        ul {
+                            clear: both;
+                            font-size: 12rem;
+                            font-family: Source Han Sans CN;
+                            font-weight: 400;
+                            color: #444444;
+                            width: 100rem;
+                            height: 200rem;
+                            overflow: hidden;
+                            overflow-y: scroll;
+                            scrollbar-width: none;
+                            /*overflow-y: hidden;*/
+                            ::-webkit-scrollbar{display: none}
+                            li {
+                                list-style: none;
+                                /*display: none;*/
+                                line-height: 38rem;
+                                /*margin-left: 17rem;*/
+                                background-color: #fff;
+                                position: relative;
+                                z-index: 10;
+                                width: 100rem;
+                                height: 38rem;
+                            }
+
+                            li:hover {
+                                background: #5E8FA0;
+                            }
                         }
                     }
+                }
             }
             .userinfo-snum-con{
                 clear: both;
