@@ -126,7 +126,19 @@ const routes = [{
         path: '/shoppingMall',
         name: 'shoppingMall',
         component: () => import ('../views/shoppingMall/shoppingMall.vue')
-    }
+    },
+    //移动端提现
+    {
+        path: '/Mwithdraw',
+        name: 'Mwithdraw',
+        component: () => import ('../views/mobile/withdraw.vue')
+    },
+    //移动端买卖
+    {
+        path: '/Mbuy',
+        name: 'Mbuy',
+        component: () => import ('../views/mobile/deal.vue')
+    },
 ]
 
 const router = new VueRouter({
