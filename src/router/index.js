@@ -113,7 +113,7 @@ const routes = [{
     {
         path: '/Mwithdraw',
         name: 'Mwithdraw',
-        component: () => import ('../views/mobile/withdraw.vue')
+        component: () => import ('../views/mobile/wallet/withdraw.vue')
     },
     //商品详情
     {
