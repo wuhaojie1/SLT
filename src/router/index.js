@@ -109,12 +109,6 @@ const routes = [{
         name: 'withdraw',
         component: () => import ('../views/wallet/withdraw.vue')
     },
-    //移动端提现
-    {
-        path: '/Mwithdraw',
-        name: 'Mwithdraw',
-        component: () => import ('../views/mobile/wallet/withdraw.vue')
-    },
     //商品详情
     {
         path: '/goodsdetails',
@@ -127,11 +121,17 @@ const routes = [{
         name: 'shoppingMall',
         component: () => import ('../views/shoppingMall/shoppingMall.vue')
     },
+    //移动端充值
+    {
+        path: '/MtopUp',
+        name: 'MtopUp',
+        component: () => import ('../views/mobile/wallet/topUp.vue')
+    },
     //移动端提现
     {
         path: '/Mwithdraw',
         name: 'Mwithdraw',
-        component: () => import ('../views/mobile/withdraw.vue')
+        component: () => import ('../views/mobile/wallet/withdraw.vue')
     },
     //移动端买卖
     {

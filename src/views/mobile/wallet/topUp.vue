@@ -5,8 +5,7 @@
             <img :src="userIcon" alt="" class="userIcon">
         </div>
         <div class="header-title">
-            <div class="text">提现</div>
-            <div class="balance">可提额度：0.10000000</div>
+            <div class="text">充币</div>
         </div>
         <!--<ThemeStickyHeader></ThemeStickyHeader>-->
         <div class="topUp-wrap">
@@ -76,47 +75,17 @@
                     <div class="withdraw-addr">
                         <div class="withdraw-addr-title">
                             <div class="text">提币地址</div>
-                            <!--                            <div class="text">推荐使用<span>SLT</span>钱包 提币BTC</div>-->
-                        </div>
-<!--                        <div class="withdraw-input">-->
-<!--                            <input type="text" class="input">-->
-<!--                        </div>-->
-                    </div>
-                    <div class="addr-content">
-                        <input type="text">
-                    </div>
-                    <div class="withdraw-addr">
-                        <div class="withdraw-addr-title">
-                            <div class="text">提币数量</div>
-                            <!--                            <div class="text">推荐使用<span>SLT</span>钱包 提币BTC</div>-->
+<!--                            <div class="text">推荐使用<span>SLT</span>钱包 提币BTC</div>-->
                         </div>
                         <div class="withdraw-input">
-<!--                            <input type="text" class="input">-->
-
+                            <input type="text" class="input">
                         </div>
                     </div>
                     <div class="addr-content">
-                        <input type="text">
-                        <div class="btn-box">
-                            <div class="btn-box-text">
-                                SLT
-                            </div>
-                            <div class="line"></div>
-                            <div class="btn-box-text blue">
-                                全部
-                            </div>
-                        </div>
+                        <div class="addrSLT">SLT</div>
+                        <div class="text">TFBpBaswdZnyZewS9zTimjt</div>
                     </div>
-                    <div class="fee">
-                        手续费: <span>30%</span>
-                    </div>
-                    <div class="number">
-                        到账数量（BTC）<span>0.00000000</span>
-                    </div>
-                    <div class="btn">
-                        确认
-                    </div>
-                    <!--<div class="copy">
+                    <div class="copy">
                         复制地址
                     </div>
                     <div class="QRCode">
@@ -125,16 +94,16 @@
                                :margin="0">
 
                         </VueQr>
-                    </div>-->
+                    </div>
                     <div class="tip">
                         <img :src="tip" alt="" class="img">
                         <div class="text">
-                            您的提币操作-旦完成， 对应的资产所有权将由您变更为目
-                            标地址所对应的账户所有人享有，请您务必在提币操作前，
-                            仔细核对提币地址信息，确保提币属于自愿行为，并确认不
-                            涉及任何传销、非法集资、诈骗等违法情形，谨防上当受骗
-                            ，避免造成不必要的财产损失。
+                            使用USDT-TRC20地址充值需要1个网络确认才能到账，1个
+                            网络确认后才能提币。
                         </div>
+                    </div>
+                    <div class="btn">
+                        确认
                     </div>
 
                     <div class="tipText">
@@ -154,13 +123,13 @@
 </template>
 
 <script>
-    // import VueQr from 'vue-qr'
+    import VueQr from 'vue-qr'
     // import ThemeStickyHeader from "../../components/header/themeStickyHeader";
     // import Bottom from "../../components/bottom/bottom";
 
     export default {
         name: "topUp",
-        // components: {VueQr, /*ThemeStickyHeader*/},
+        components: {VueQr, /*ThemeStickyHeader*/},
         data() {
             return {
                 sltlogo: `${require('@/static/img/index/sltlogo_60x120_white.png')}`,
@@ -225,9 +194,6 @@
             height: 88rem;
             background: #FFFFFF;
             box-shadow: 0rem 5rem 10rem 0rem rgba(153, 153, 153, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
 
             .text {
                 margin-left: 36rem;
@@ -237,15 +203,8 @@
                 font-weight: 400;
                 color: #444444;
             }
-
-            .balance {
-                margin-right: 35rem;
-                font-size: 28rem;
-                font-weight: 400;
-                color: #8993A0;
-            }
         }
-
+        
         .topUp-wrap {
             .topUp-content {
                 .btc {
@@ -265,18 +224,15 @@
                         height: 30rem;
                         background: #00B4FC;
                         border-radius: 2rem;
-
                         img {
                             height: 12rem;
                             width: 20rem;
                         }
                     }
-
                     .btc-text {
                         margin-left: 18rem;
                         color: #444444;
                         font-size: 30rem;
-
                         span {
                             font-size: 28rem;
                             color: #8993A0;
@@ -353,7 +309,6 @@
                         text-align: left;
                         margin-top: 40rem;
                         padding-left: 35rem;
-
                         .withdraw-addr-title {
                             .text {
                                 font-size: 28rem;
@@ -361,132 +316,68 @@
                                 color: #666666;
                             }
                         }
-
-                        .withdraw-input {
-                            position: relative;
-                            box-sizing: border-box;
-
-                            .input {
-                                width: 500rem;
-                                height: 100%;
-                            }
-
-                            .btn-box {
-                                position: absolute;
-                                top: 26rem;
-                                right: 70rem;
-                                z-index: 2;
-                                display: flex;
-
-                                .btn-box-text {
-                                    font-size: 28rem;
-                                    font-weight: 400;
-                                    color: #444444;
-                                }
-
-                                .line {
-                                    /*height: 100%;*/
-                                }
-
-                                .blue {
-                                    color: #00B4FC;
-                                }
-                            }
-                        }
                     }
-
+                    
                     .addr-content {
                         width: 680rem;
                         height: 72rem;
                         background: #FFFFFF;
                         border: 1rem solid #E4E7ED;
                         margin: 0 auto;
-                        margin-top: 15rem;
                         box-sizing: border-box;
                         position: relative;
                         display: flex;
                         align-items: center;
                         /*justify-content: center;*/
 
-                        input {
-                            padding-left: 20rem;
+                        .text {
+                            line-height: 72rem;
+                            font-size: 30rem;
+                            font-weight: 400;
+                            color: #666666;
+                            text-align: center;
+                            margin-left: 40rem;
                         }
 
-                        .btn-box {
-                            position: absolute;
-                            top: 24rem;
-                            right: 35rem;
-                            z-index: 2;
-                            display: flex;
+                        .addrSLT {
+                            /*top: 17rem;
+                            left: 20rem;
+                            position: absolute;*/
+                            margin-left: 20rem;
+                            width: 70rem;
+                            height: 38rem;
+                            background: #F8FAFC;
+                            border: 1rem solid #F8FAFC;
+                            border-radius: 2rem;
+                            font-size: 26rem;
+                            font-weight: 400;
+                            color: #C9CED4;
+                            line-height: 38rem;
 
-                            .btn-box-text {
-                                font-size: 28rem;
-                                font-weight: 400;
-                                color: #444444;
-                            }
-
-                            .line {
-                                width: 2rem;
-                                height: 32rem;
-                                background: #E4E7ED;
-                                /*height: 100%;*/
-                                margin: 0 16rem;
-                            }
-
-                            .blue {
-                                color: #00B4FC;
-                            }
-                        }
-
-                    }
-
-                    .fee {
-                        text-align: left;
-                        font-size: 28rem;
-                        font-weight: 400;
-                        color: #8993A0;
-                        margin-top: 20rem;
-                        padding-left: 36rem;
-                        span {
-                            color: #00B4FC;
                         }
                     }
 
-                    .number {
-                        margin-top: 90rem;
-                        padding-left: 36rem;
-                        text-align: left;
+                    .copy {
                         font-size: 24rem;
                         font-weight: 400;
-                        color: #666666;
-                        span {
-                            color: #00B4FC;
-                        }
+                        color: #22BF7C;
+                        margin-top: 15rem;
                     }
 
+                    .QRCode {
+                        margin-top: 50rem;
+                        margin-bottom: 38rem;
+                    }
+                    
                     .tip {
-
                         display: flex;
                         align-items: flex-start;
                         justify-content: center;
-                        line-height: 1.5em;
-                        width: 680rem;
-                        /*height: 210rem;*/
-                        background: #FFFFFF;
-                        border: 1rem solid #E4E7ED;
-                        border-radius: 1rem;
-                        margin: 0 auto;
-                        margin-top: 50rem;
-                        padding: 25rem 26rem;
-                        box-sizing: border-box;
-
                         .img {
                             width: 32rem;
                             height: 32rem;
                         }
-
                         .text {
-                            line-height: 1.5em;
                             text-align: left;
                             width: 620rem;
                             font-size: 24rem;
@@ -495,7 +386,7 @@
                             margin-left: 15rem;
                         }
                     }
-
+                    
                     .btn {
                         width: 680rem;
                         height: 88rem;
@@ -506,22 +397,20 @@
                         color: #FFFFFF;
                         margin: 0 auto;
                         line-height: 88rem;
-                        margin-top: 25rem;
-
+                        margin-top: 50rem;
                     }
 
                     .tipText {
                         margin: 0 auto;
-                        /*margin-top: 50rem;*/
+                        margin-top: 50rem;
                         padding-top: 24rem;
                         width: 680rem;
-                        /*border-top: 1rem solid #E4E7ED;*/
+                        border-top: 1rem solid #E4E7ED;
                         text-align: left;
                         font-size: 24rem;
                         font-weight: 400;
                         color: #8993A0;
                         line-height: 1.5em;
-
                         ul {
                             li {
                                 list-style: none;
