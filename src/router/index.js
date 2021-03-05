@@ -137,7 +137,33 @@ const routes = [{
     {
         path: '/Mbuy',
         name: 'Mbuy',
-        component: () => import ('../views/mobile/deal.vue')
+        component: () => import ('../views/mobile/trade/exchange.vue'),
+        children: [
+            //自选交易
+            {
+                path: 'MTrade',
+                name: 'MTrade',
+                component: () => import ('../views/mobile/trade/trade')
+            },
+            //一键买卖
+            {
+                path: 'Mdeal',
+                name: 'Mdeal',
+                component: () => import ('../views/mobile/trade/deal'),
+            },
+        ]
+    },
+    //移动端我的
+    {
+        path: '/Musermsg',
+        name: 'Musermsg',
+        component: () => import ('../views/mobile/usermsg/usermsg.vue')
+    },
+    //移动端消息列表
+    {
+        path: '/Mmsglist',
+        name: 'Mmsglist',
+        component: () => import ('../views/mobile/msglist/msglist.vue')
     },
     //移动端登录
     {
