@@ -139,6 +139,12 @@ const routes = [{
         name: 'Mbuy',
         component: () => import ('../views/mobile/deal.vue')
     },
+    //移动端登录
+    {
+        path: '/Mlogin',
+        name: 'Mlogin',
+        component: () => import ('../views/mobile/login/login.vue')
+    },
 ]
 
 const router = new VueRouter({

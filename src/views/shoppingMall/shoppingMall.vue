@@ -63,17 +63,19 @@
                 <div class="goods-box-wrap">
                     <div class="goods-box-item"
                          v-for="(item, index) in goodsList"
+                         @mouseenter="enters(index)"
+                         @mouseleave="leaver(index)"
                          :key="index">
-                        <img :src="item.img" alt="">
-                        <div class="msg"></div>
-                    </div>
-                </div>
-                <div class="goods-box-wrap">
-                    <div class="goods-box-item"
-                         v-for="(item, index) in goodsList"
-                         :key="index">
-                        <img :src="item.img" alt="">
-                        <div class="msg"></div>
+                        <div class="item-box">
+                            <img :src="item.img" alt="">
+                            <div class="msg" v-show="item.show">
+                                <div class="name">{{item.name}}</div>
+                                <div class="price">
+                                    <div class="number">{{item.price}}</div>
+                                    <div class="btn">购买</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -102,15 +104,51 @@
                 goodsList:[
                     {
                         img: `${require('../../static/img/shoppingMall/chair.png')}`,
+                        name: "日式原木餐桌",
+                        price: "￥299",
+                        show: false,
                     },
                     {
                         img: `${require('../../static/img/shoppingMall/dining-table.png')}`,
+                        name: "日式原木餐桌",
+                        price: "￥299",
+                        show: false,
                     },
                     {
                         img: `${require('../../static/img/shoppingMall/clock.png')}`,
+                        name: "日式原木餐桌",
+                        price: "￥299",
+                        show: false,
                     },
                     {
                         img: `${require('../../static/img/shoppingMall/chair.png')}`,
+                        name: "日式原木餐桌",
+                        price: "￥299",
+                        show: false,
+                    },
+                    {
+                        img: `${require('../../static/img/shoppingMall/chair.png')}`,
+                        name: "日式原木餐桌",
+                        price: "￥299",
+                        show: false,
+                    },
+                    {
+                        img: `${require('../../static/img/shoppingMall/dining-table.png')}`,
+                        name: "日式原木餐桌",
+                        price: "￥299",
+                        show: false,
+                    },
+                    {
+                        img: `${require('../../static/img/shoppingMall/clock.png')}`,
+                        name: "日式原木餐桌",
+                        price: "￥299",
+                        show: false,
+                    },
+                    {
+                        img: `${require('../../static/img/shoppingMall/chair.png')}`,
+                        name: "日式原木餐桌",
+                        price: "￥299",
+                        show: false,
                     },
                 ],
 
@@ -133,7 +171,14 @@
                 ],
             }
         },
-        methods: {}
+        methods: {
+            enters(index) {
+                this.goodsList[index].show = true;
+            },
+            leaver(index) {
+                this.goodsList[index].show = false;
+            },
+        }
     }
 </script>
 
@@ -378,19 +423,72 @@
                         justify-content: center;
                         box-sizing: border-box;
                         cursor: pointer;
+                        position: relative;
+                        /*overflow: hidden;*/
 
-                        img {
-                            width: 200rem;
-                            height: auto;
+                        .item-box {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            /*justify-content: center;*/
+                            /*box-sizing: border-box;*/
+                            img {
+                                padding-top: 98rem;
+                                width: 200rem;
+                                height: auto;
+                            }
+
+                            .msg {
+                                .name {
+                                    font-size: 16rem;
+                                    font-weight: bold;
+                                    color: #444444;
+                                    margin-top: 58rem;
+                                }
+
+                                .price {
+                                    margin-top: 15rem;
+                                    display: flex;
+
+                                    .number {
+                                        font-size: 22rem;
+                                        font-weight: 400;
+                                        color: #222C46;
+                                    }
+
+                                    .btn {
+                                        margin-left: 19rem;
+                                        width: 60rem;
+                                        height: 24rem;
+                                        background: #082850;
+                                        border-radius: 4rem;
+                                        line-height: 24rem;
+                                        font-size: 14rem;
+                                        font-weight: 400;
+                                        color: #FFFFFF;
+                                    }
+                                }
+                            }
                         }
+
+                        .item-box:hover {
+                            z-index: 2;
+                            height: 500rem;
+                            background: #FFFFFF;
+                            box-shadow: 0rem 0rem 26rem 0rem rgba(153, 153, 153, 0.3);
+                            /*position: absolute;*/
+                            img {
+                                padding-top: 93rem;
+                            }
+                        }
+
+
                     }
 
-                    .goods-box-item:hover {
-                        height: 500rem;
-                        background: #FFFFFF;
-                        box-shadow: 0rem 0rem 26rem 0rem rgba(153, 153, 153, 0.3);
-                        /*position: absolute;*/
-                    }
+
                 }
                 
 
