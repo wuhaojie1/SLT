@@ -183,12 +183,65 @@ const routes = [{
         component: () =>
             import ('../views/shoppingMall/shoppingMall.vue')
     },
+    //移动端充值
+    {
+        path: '/MtopUp',
+        name: 'MtopUp',
+        component: () =>
+            import ('../views/mobile/wallet/topUp.vue')
+    },
+    //移动端提现
+    {
+        path: '/Mwithdraw',
+        name: 'Mwithdraw',
+        component: () =>
+            import ('../views/mobile/wallet/withdraw.vue')
+    },
     //移动端买卖
     {
         path: '/Mbuy',
         name: 'Mbuy',
+        // component: () =>
+        //     import ('../views/mobile/deal.vue')
         component: () =>
-            import ('../views/mobile/deal.vue')
+            import ('../views/mobile/trade/exchange.vue'),
+        children: [
+            //自选交易
+            {
+                path: 'MTrade',
+                name: 'MTrade',
+                component: () =>
+                    import ('../views/mobile/trade/trade')
+            },
+            //一键买卖
+            {
+                path: 'Mdeal',
+                name: 'Mdeal',
+                component: () =>
+                    import ('../views/mobile/trade/deal'),
+            },
+        ]
+    },
+    //移动端我的
+    {
+        path: '/Musermsg',
+        name: 'Musermsg',
+        component: () =>
+            import ('../views/mobile/usermsg/usermsg.vue')
+    },
+    //移动端消息列表
+    {
+        path: '/Mmsglist',
+        name: 'Mmsglist',
+        component: () =>
+            import ('../views/mobile/msglist/msglist.vue')
+    },
+    //移动端登录
+    {
+        path: '/Mlogin',
+        name: 'Mlogin',
+        component: () =>
+            import ('../views/mobile/login/login.vue')
     },
 ]
 
