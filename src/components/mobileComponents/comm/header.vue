@@ -27,7 +27,7 @@ export default {
                 height:'42rem'
             },
             list:{
-                src:require('../../../static/img/index/userIcon.png'),
+                src:require('../../../static/img/shop/list.png'),
                 wdith:'27rem',
                 height:'20rem'
             }

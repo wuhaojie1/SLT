@@ -57,17 +57,17 @@
 
         <div class="bottomBar">
             <div class="barItem">
-                <img style="width:43rem;height:42rem" src="../../../static/img/shop/remove.png" alt="">
+                <img style="width:43rem;height:42rem" src="../../../static/img/shop/wallet.png" alt="">
                 <div>支付方式</div>
             </div>
             <div class="barItem">
-                <img style="width:51rem;height:42rem" src="../../../static/img/shop/remove.png" alt="">
+                <img style="width:51rem;height:42rem" src="../../../static/img/shop/car.png" alt="">
                 <div>配送服务</div>
             </div>
         </div>
 
         <div class="customer">
-            <img style="width:46rem;height:46rem" src="../../../static/img/shop/remove.png" alt="">
+            <img style="width:46rem;height:46rem" src="../../../static/img/shop/wangwang.png" alt="">
         </div>
 
         <Add ref="add"></Add>
