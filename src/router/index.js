@@ -176,6 +176,13 @@ const routes = [{
         component: () =>
             import ('../views/goodsdetails/goodsdetails.vue')
     },
+    //商品详情
+    {
+        path: '/Mgoodsdetails',
+        name: 'Mgoodsdetails',
+        component: () =>
+            import ('../views/mobile/goodsdetails/goodsfetails.vue')
+    },
     //商城
     {
         path: '/shoppingMall',

@@ -9,6 +9,10 @@ import echarts from 'echarts';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+import { Swipe, SwipeItem } from 'mint-ui';
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
+
 
 Vue.use(VueI18n);
 Vue.config.productionTip = false
@@ -42,7 +46,7 @@ const setHtmlFontSize = () => {
     if (htmlWidth <= 750) {
         // htmlWidth = 750;
         htmlDom.style.fontSize = `${(htmlWidth / 750)}px`;
-    }else{
+    } else {
         htmlDom.style.fontSize = `${(htmlWidth / 1920)}px`;
     }
     //1rem = 1px
