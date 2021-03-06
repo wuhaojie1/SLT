@@ -1,5 +1,6 @@
 <template>
     <div class="car">
+        <PageHeader :isShowRight="true" :rightIcon="false"></PageHeader>
         <div class="carTop">
             <img style="width:27rem;height:38rem" src="../../../static/img/shop/lock.png" alt="">
             <div class="carTitle">安全支付</div>
@@ -51,7 +52,7 @@
             </li>
         </ul>
 
-        <div class="settlement">立即结算</div>
+        <div @click="open" class="settlement">立即结算</div>
         <div class="continue">继续购物</div>
 
         <div class="bottomBar">
@@ -68,17 +69,30 @@
         <div class="customer">
             <img style="width:46rem;height:46rem" src="../../../static/img/shop/remove.png" alt="">
         </div>
+
+        <Add ref="add"></Add>
     </div>
 </template>
 
 <script>
+import PageHeader from '../../../components/mobileComponents/comm/header.vue';
+import Add from '../../../components/mobileComponents/shopCar/addShop.vue'
 export default {
+    components:{
+        PageHeader,
+        Add
+    },
     data(){
         return{
             list:[
                 {src:require('../../../static/img/shop/carDmo2.png')},
                 {src:require('../../../static/img/shop/carDemo1.png')}
             ]
+        }
+    },
+    methods:{
+        open(){
+            this.$refs.add.openModal();
         }
     }
 }

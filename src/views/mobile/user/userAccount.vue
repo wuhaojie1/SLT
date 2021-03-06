@@ -1,5 +1,6 @@
 <template>
     <div class="asset">
+        <PageHeader></PageHeader>
         <div class="assetTop">总资产</div>
         <div class="assetCenter">
             <div class="top">
@@ -28,8 +29,11 @@
 </template>
 
 <script>
+import PageHeader from '../../../components/mobileComponents/comm/header.vue'
 export default {
-
+    components:{
+        PageHeader
+    }
 }
 </script>
 

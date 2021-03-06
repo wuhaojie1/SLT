@@ -1,5 +1,6 @@
 <template>
     <div class="user">
+        <PageHeader></PageHeader>
         <div class="userHeader">
             <span class="headerLeft">收货地址</span>
             <img style="width:24rem;height:14rem;" src="../../../static/img/user/arrowdown.png" alt="">
@@ -33,11 +34,18 @@
                 <li><span>李歪歪</span><span>130****3556</span></li>
             </ul>
         </div>
+        <BottomBar></BottomBar>
     </div>
 </template>
 
 <script>
+import PageHeader from '../../../components/mobileComponents/comm/header.vue';
+import BottomBar from '../../../components/mobileComponents/user/bottomBar.vue';
 export default {
+    components:{
+        PageHeader,
+        BottomBar
+    },
     data(){
         return{
             list:[
@@ -56,7 +64,7 @@ export default {
 <style lang='less' scoped>
 .user{
     text-align: left;
-    height: 100vh;
+    min-height: 100vh;
     .userHeader{
         width: 750rem;
         height: 88rem;

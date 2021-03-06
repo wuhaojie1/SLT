@@ -1,5 +1,6 @@
 <template>
     <div class="user">
+        <PageHeader></PageHeader>
         <div class="userHeader">
             <span class="headerLeft">个人中心</span>
             <img style="width:24rem;height:14rem;" src="../../../static/img/user/arrowdown.png" alt="">
@@ -13,11 +14,18 @@
             </li>
         </ul>
         <div class="saveBtn">保存</div>
+        <BottomBar></BottomBar>
     </div>
 </template>
 
 <script>
+import PageHeader from '../../../components/mobileComponents/comm/header.vue';
+import BottomBar from '../../../components/mobileComponents/user/bottomBar.vue';
 export default {
+    components:{
+        PageHeader,
+        BottomBar
+    },
     data(){
         return{
             list:[
@@ -38,7 +46,6 @@ export default {
 <style lang='less' scoped>
 .user{
     text-align: left;
-    height: 100vh;
     .userHeader{
         width: 750rem;
         height: 88rem;
@@ -111,7 +118,7 @@ export default {
         color: #FFFFFF;
         text-align: center;
         line-height: 88rem;
-        margin: 79rem auto 0rem auto;
+        margin: 79rem auto 61rem auto;
 
     }
 }
