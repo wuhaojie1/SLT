@@ -201,8 +201,6 @@ const routes = [{
     {
         path: '/Mbuy',
         name: 'Mbuy',
-        // component: () =>
-        //     import ('../views/mobile/deal.vue')
         component: () =>
             import ('../views/mobile/trade/exchange.vue'),
         children: [
