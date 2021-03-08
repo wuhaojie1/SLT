@@ -8,6 +8,7 @@ import './assets/css/common.css';
 import echarts from 'echarts';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import axios from './static/js/axios';
 
 import { Swipe, SwipeItem } from 'mint-ui';
 Vue.component(Swipe.name, Swipe);
@@ -18,6 +19,7 @@ Vue.use(VueI18n);
 Vue.config.productionTip = false
 Vue.prototype._i18n = i18n
 Vue.prototype.$echarts = echarts
+Vue.prototype.axios = axios;
 Vue.use(ElementUI)
 
 const i18n = new VueI18n({
