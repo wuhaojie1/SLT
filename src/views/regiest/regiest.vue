@@ -17,7 +17,7 @@
                         <input class="password-input" type="password" v-model="password" placeholder="请输入您的密码">
                     </div>
                     <div class="getcodes">
-                        <input type="number" v-model="code" class="numcontent">
+                        <input type="text" v-model="code" class="numcontent">
                         <div class="getbutton">获取验证码</div>
                     </div>
                     <div class="loginbutton" @click="register">注册</div>

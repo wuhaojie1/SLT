@@ -40,7 +40,7 @@ const http = ({
                   url, headers, params, method, responseType
               }) => {
     // debugger
-    let timestamp = (new Date()).valueOf();
+    // let timestamp = (new Date()).valueOf();
     let prefix = '';
     // switch (hostType) {
     //     case 'IDreader':
@@ -76,7 +76,8 @@ const http = ({
     return new Promise((resolve, reject) => {
         if (isLogin) {
             axios({
-                url: `${prefix}/${url}?&&t=${timestamp}`, //
+                // url: `${prefix}/${url}?&&t=${timestamp}`, //
+                url: `${prefix}/${url}`, //
                 headers: formatHeaders(headers),
                 // data: formatParams(params),
                 data: params,
