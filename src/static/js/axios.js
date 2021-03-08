@@ -86,7 +86,7 @@ const http = ({
             }).then((data) => {
                 // debugger
                 console.log(data)
-                resolve(data);
+                resolve(data.data);
                 // if (data.data.code) {
                 // if (data.data.code.toString() === '-1') {
                 //   bus.$emit('NOT-LOGIN');

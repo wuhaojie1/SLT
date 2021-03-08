@@ -18,7 +18,7 @@
                     </div>
                     <div class="getcodes">
                         <input type="text" v-model="code" class="numcontent">
-                        <div class="getbutton">获取验证码</div>
+                        <div class="getbutton" @click="getCode">获取验证码</div>
                     </div>
                     <div class="loginbutton" @click="register">注册</div>
                 </div>
@@ -33,6 +33,7 @@ export default {
     name: "login",
     data() {
         return {
+            getCodeStatus: false,
             bgc: `${require('../../static/img/login/SLTcoin.png')}`,
             loginbgc: `${require('../../static/img/login/loginbg.png')}`,
 
@@ -44,12 +45,29 @@ export default {
         }
     },
     methods: {
-        register() {
-            let postData = {
-                code: this.code,
-                mobile: this.mobile,
-                password: this.password,
+        getCode(){
+            let postData = this.getCodePostData()
+            this.axios({
+                url: 'wx/auth/regCaptcha',
+                method: 'post',
+                params: JSON.stringify(postData),
+            }).then((res) => {
+                console.log(res)
+                if (res.errno == 0) {
+                    this.getCodeStatus = true
+                }
+            })
+        },
+        getCodePostData(){
+            if (!this.getCodeStatus) {
+                let postData = {
+                    mobile: this.mobile
+                }
+                return postData;
             }
+        },
+        register() {
+            let postData = this.getRegisterData()
             this.axios({
                 url: 'wx/auth/register',
                 method: 'post',
@@ -57,6 +75,18 @@ export default {
             }).then((res) => {
                 console.log(res)
             })
+        },
+        getRegisterData(){
+            if(this.getCodeStatus){
+                let postData = {
+                    code: this.code,
+                    mobile: this.mobile,
+                    password: this.password,
+                    repeatPassword: this.repeatPassword,
+                    username: "",
+                }
+                return postData
+            }
         }
     }
 }
