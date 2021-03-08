@@ -4,8 +4,10 @@ import axios from 'axios';
 // import {getCookie} from '../cookie';
 // import router from '../../router/router'
 import api from './api';
+import localStorage from '../js/localStorage';
 
-let isLogin = true;
+let isLogin = localStorage.get('isLogin');
+// console.log(isLogin)
 // 参数
 // const formatParams = (acParams = {}) => {
 //   let data;
@@ -26,7 +28,7 @@ const formatHeaders = (acHeaders) => {
     // headers['exchange-language'] = getCookie('lan') || 'zh_CN';
     // headers['Content-type'] = 'application/x-www-form-urlencoded';
     headers['Content-type'] = 'application/json';
-    // headers["__token"] = getCookie("tooken");
+    headers["token"] = localStorage.get("token");
     // headers['Accept'] = 'application/msword'
 
     // headers['exchange-time'] = formatTime(new Date().getTime()) Access-Control-Allow-Origin
@@ -87,33 +89,6 @@ const http = ({
                 // debugger
                 // console.log(data)
                 resolve(data.data);
-                // if (data.data.code) {
-                // if (data.data.code.toString() === '-1') {
-                //   bus.$emit('NOT-LOGIN');
-                // }
-                // if (data.data.code.toString() === '-1') {
-                //     bus.$emit('IS-LOGIN',false);
-                // }else{
-                //   if (data.data.code.toString() === '0') {
-                //     // bus.$emit('tip', {text: data.data.msg, type: 'error'});
-                // }
-                // if (data.config.responseType === 'blob') {
-                //     resolve(data.data)
-                // } else if (data.data.code.toString() === '0') {
-                //     bus.$emit('tip', {text: data.data.msg, type: 'error'});
-                // } else if (data.data.code.toString() === '-1') {
-                //
-                //     // bus.$emit('tip', {text: "未登录！请先登录", type: 'error'});
-                //     router.push('/login')
-                //     // isLogin = false
-                // } else {
-                //     resolve(data.data);
-                // }
-
-                // }else{
-
-                // }
-
             }).catch((err) => {
                 reject(err);
                 // throw new Error(`Error:${err}`);

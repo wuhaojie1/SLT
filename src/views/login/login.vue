@@ -62,9 +62,10 @@ export default {
                         avatarUrl: data.userInfo.avatarUrl,
                         nickName: data.userInfo.nickName,
                     }
-                    console.log(user)
+                    // console.log(user)
                     this.localStorage.set('token',data.token)
                     this.localStorage.set('user',user)
+                    this.localStorage.set('isLogin',true)
                 }
             })
         }
