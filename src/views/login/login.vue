@@ -40,8 +40,8 @@ export default {
         return {
             bgc: `${require('../../static/img/login/SLTcoin.png')}`,
             loginbgc: `${require('../../static/img/login/loginbg.png')}`,
-            password: "",
-            username: "",
+            password: "user123",
+            username: "user123",
         }
     },
     methods: {
@@ -55,7 +55,17 @@ export default {
                 method: 'post',
                 params: JSON.stringify(postData),
             }).then((res)=>{
-                console.log(res)
+                // console.log(res)
+                let data = res.data
+                if (res.errno === 0) {
+                    let user = {
+                        avatarUrl: data.userInfo.avatarUrl,
+                        nickName: data.userInfo.nickName,
+                    }
+                    console.log(user)
+                    this.localStorage.set('token',data.token)
+                    this.localStorage.set('user',user)
+                }
             })
         }
     }

@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import VueI18n from 'vue-i18n'
 import lang from './static/lang/index.js';
-import datastorage from './static/js/datastorage.js';
+import localStorage from './static/js/localStorage.js';
 import './assets/css/common.css';
 import echarts from 'echarts';
 import ElementUI from 'element-ui';
@@ -20,10 +20,11 @@ Vue.config.productionTip = false
 Vue.prototype._i18n = i18n
 Vue.prototype.$echarts = echarts
 Vue.prototype.axios = axios;
+Vue.prototype.localStorage = localStorage;
 Vue.use(ElementUI)
 
 const i18n = new VueI18n({
-    locale: datastorage.getSync({ key: 'langMsg' }) ? datastorage.getSync({ key: 'langMsg' }).name : 'en-US',
+    locale: localStorage.get('langMsg') ? localStorage.get('langMsg').name : 'en-US',
     messages: {
         'en-US': lang.en,
         'zh-CN': lang.cn,

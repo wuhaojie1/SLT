@@ -34,31 +34,36 @@ export default {
     data() {
         return {
             getCodeStatus: false,
+            regFlag: false,
             bgc: `${require('../../static/img/login/SLTcoin.png')}`,
             loginbgc: `${require('../../static/img/login/loginbg.png')}`,
 
             code: "123456",
             mobile: "15282148708",
             password: "111111",
+
             // repeatPassword: "111111",
             // username: "ww",
         }
     },
     methods: {
-        getCode(){
+        getCode() {
             let postData = this.getCodePostData()
-            this.axios({
-                url: 'wx/auth/regCaptcha',
-                method: 'post',
-                params: JSON.stringify(postData),
-            }).then((res) => {
-                console.log(res)
-                if (res.errno == 0) {
-                    this.getCodeStatus = true
-                }
-            })
+            if (postData) {
+                this.axios({
+                    url: 'wx/auth/regCaptcha',
+                    method: 'post',
+                    params: JSON.stringify(postData),
+                }).then((res) => {
+                    // console.log(res)
+                    if (res.errno == 0) {
+                        this.getCodeStatus = true
+                    }
+                })
+            }
+
         },
-        getCodePostData(){
+        getCodePostData() {
             if (!this.getCodeStatus) {
                 let postData = {
                     mobile: this.mobile
@@ -68,16 +73,23 @@ export default {
         },
         register() {
             let postData = this.getRegisterData()
-            this.axios({
-                url: 'wx/auth/register',
-                method: 'post',
-                params: JSON.stringify(postData),
-            }).then((res) => {
-                console.log(res)
-            })
+            if (!this.regFlag) {
+                this.axios({
+                    url: 'wx/auth/register',
+                    method: 'post',
+                    params: JSON.stringify(postData),
+                }).then((res) => {
+                    console.log(res)
+                    if (res.errno == 0) {
+                        // this.getCodeStatus = true
+                    }
+                })
+            }
+
         },
-        getRegisterData(){
-            if(this.getCodeStatus){
+        getRegisterData() {
+            this.regFlag = true
+            if (this.getCodeStatus) {
                 let postData = {
                     code: this.code,
                     mobile: this.mobile,

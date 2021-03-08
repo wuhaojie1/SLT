@@ -85,7 +85,7 @@ const http = ({
                 responseType: responseType || '',
             }).then((data) => {
                 // debugger
-                console.log(data)
+                // console.log(data)
                 resolve(data.data);
                 // if (data.data.code) {
                 // if (data.data.code.toString() === '-1') {
