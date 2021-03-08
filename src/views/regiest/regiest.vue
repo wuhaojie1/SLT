@@ -56,7 +56,7 @@ export default {
                     params: JSON.stringify(postData),
                 }).then((res) => {
                     // console.log(res)
-                    if (res.errno == 0) {
+                    if (res.errno === 0) {
                         this.getCodeStatus = true
                     }
                 })
@@ -72,16 +72,25 @@ export default {
             }
         },
         register() {
+            // eslint-disable-next-line no-debugger
+            debugger
             let postData = this.getRegisterData()
-            if (!this.regFlag) {
+            if (this.regFlag) {
                 this.axios({
                     url: 'wx/auth/register',
                     method: 'post',
                     params: JSON.stringify(postData),
                 }).then((res) => {
-                    console.log(res)
-                    if (res.errno == 0) {
-                        // this.getCodeStatus = true
+                    let data = res.data
+                    if (res.errno === 0) {
+                        let user = {
+                            avatarUrl: data.userInfo.avatarUrl,
+                            nickName: data.userInfo.nickName,
+                        }
+                        // console.log(user)
+                        this.localStorage.set('token',data.token)
+                        this.localStorage.set('user',user)
+                        this.localStorage.set('isLogin',true)
                     }
                 })
             }
@@ -89,6 +98,8 @@ export default {
         },
         getRegisterData() {
             this.regFlag = true
+            // eslint-disable-next-line no-debugger
+            // debugger
             if (this.getCodeStatus) {
                 let postData = {
                     code: this.code,
