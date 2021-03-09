@@ -45,7 +45,7 @@ export default {
         }
     },
     methods: {
-        login(){
+        login() {
             let postData = {
                 password: this.password,
                 username: this.username,
@@ -54,7 +54,7 @@ export default {
                 url: 'wx/auth/login',
                 method: 'post',
                 params: JSON.stringify(postData),
-            }).then((res)=>{
+            }).then((res) => {
                 // console.log(res)
                 let data = res.data
                 if (res.errno === 0) {
@@ -63,9 +63,12 @@ export default {
                         nickName: data.userInfo.nickName,
                     }
                     // console.log(user)
-                    this.localStorage.set('token',data.token)
-                    this.localStorage.set('user',user)
-                    this.localStorage.set('isLogin',true)
+                    this.localStorage.set('token', data.token)
+                    this.localStorage.set('user', user)
+                    this.localStorage.set('isLogin', true)
+                    this.$router.push({
+                        name: 'index',
+                    })
                 }
             })
         }

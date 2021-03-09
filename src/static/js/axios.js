@@ -9,7 +9,7 @@ let isLogin = localStorage.get('isLogin');
 const formatHeaders = (acHeaders) => {
     let headers = {};
     headers['Content-type'] = 'application/json';
-    headers["token"] = localStorage.get("token");
+    headers["Token"] = localStorage.get("token");
 
     if (acHeaders) {
         headers = {...headers, ...acHeaders};
