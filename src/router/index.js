@@ -190,6 +190,13 @@ const routes = [{
         component: () =>
             import ('../views/shoppingMall/shoppingMall.vue')
     },
+    //支付成功
+    {
+        path: '/paymentSuccess',
+        name: 'paymentSuccess',
+        component: () =>
+            import ('../views/paymentSuccess/paymentSuccess.vue')
+    },
     //移动端充值
     {
         path: '/MtopUp',
