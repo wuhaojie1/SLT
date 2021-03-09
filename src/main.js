@@ -21,7 +21,7 @@ Vue.prototype._i18n = i18n
 Vue.prototype.$echarts = echarts
 Vue.prototype.axios = axios;
 Vue.prototype.localStorage = localStorage;
-Vue.use(ElementUI)
+Vue.use(ElementUI);
 
 const i18n = new VueI18n({
     locale: localStorage.get('langMsg') ? localStorage.get('langMsg').name : 'en-US',

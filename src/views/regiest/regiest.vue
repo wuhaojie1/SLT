@@ -46,6 +46,9 @@ export default {
             // username: "ww",
         }
     },
+    mounted() {
+        this.localStorage.set('isLogin', false)
+    },
     methods: {
         getCode() {
             let postData = this.getCodePostData()

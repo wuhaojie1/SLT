@@ -44,6 +44,9 @@ export default {
             username: "user123",
         }
     },
+    mounted() {
+        this.localStorage.set('isLogin', false)
+    },
     methods: {
         login() {
             let postData = {
@@ -66,6 +69,7 @@ export default {
                     this.localStorage.set('token', data.token)
                     this.localStorage.set('user', user)
                     this.localStorage.set('isLogin', true)
+
                     this.$router.push({
                         name: 'index',
                     })
