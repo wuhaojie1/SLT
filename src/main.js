@@ -3,11 +3,12 @@ import App from './App.vue'
 import router from './router'
 import VueI18n from 'vue-i18n'
 import lang from './static/lang/index.js';
-import datastorage from './static/js/datastorage.js';
+import localStorage from './static/js/localStorage.js';
 import './assets/css/common.css';
 import echarts from 'echarts';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import axios from './static/js/axios';
 
 import { Swipe, SwipeItem } from 'mint-ui';
 Vue.component(Swipe.name, Swipe);
@@ -18,10 +19,12 @@ Vue.use(VueI18n);
 Vue.config.productionTip = false
 Vue.prototype._i18n = i18n
 Vue.prototype.$echarts = echarts
-Vue.use(ElementUI)
+Vue.prototype.axios = axios;
+Vue.prototype.localStorage = localStorage;
+Vue.use(ElementUI);
 
 const i18n = new VueI18n({
-    locale: datastorage.getSync({ key: 'langMsg' }) ? datastorage.getSync({ key: 'langMsg' }).name : 'en-US',
+    locale: localStorage.get('langMsg') ? localStorage.get('langMsg').name : 'en-US',
     messages: {
         'en-US': lang.en,
         'zh-CN': lang.cn,

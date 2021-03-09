@@ -8,6 +8,11 @@
   </div>
 </template>
 
+<script>
+import localStorage from "@/static/js/localStorage";
+
+localStorage.set('isLogin', false)
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

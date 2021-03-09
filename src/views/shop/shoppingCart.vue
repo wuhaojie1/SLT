@@ -5,10 +5,55 @@
             <ThemeStickyHeader class="ThemeStickyHeader"></ThemeStickyHeader>
         <!-- </transition> -->
         <div class="shoppingCart-content">
-
+            <div class="banner">
+                <img class="shoppingCartBanner" :src="shoppingCartBanner"/>
+                <div class="banner_title text">购物车</div>
+                <div class="banner_tip text"> 快来装满吧 !</div>
+                <img class="bannerBottom" :src="bannerBottom"/>
+                
+            </div>
+            <div class="listBox">
+                <div class="leftBox">
+                    <div class="listHeader" >
+                        <checkBoxCustom isSlect/>
+                        <div class="text">全部</div>
+                    </div>
+                    <div class="line" v-if="goodsList.length===0"></div>
+                    <shoppingCartItem v-for="(item,index) in goodsList" :key="index"></shoppingCartItem>
+                    <!-- <shoppingCartItem></shoppingCartItem> -->
+                </div>
+                <div class="rightBox">
+                    <div class="item item1">
+                        <div class="item_left">订单小计</div>
+                        <div class="item_right">已选2件商品</div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="item item2">
+                        <div class="item_left">商品总计</div>
+                        <div class="item_right">￥4,200</div>
+                    </div>
+                    <div class="item item3">
+                        <div class="item_left">运费</div>
+                        <div class="item_right">免费</div>
+                    </div>
+                    <div class="item item4">
+                        <div class="item_left">总计</div>
+                        <div class="item_right">￥4,200</div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="p p1">说明</div>
+                    <div class="p p2">在线支付订单提交之后15分钟内未付款，订单将被系统
+自动取消，请您尽快完成支付以确保商品能及时送达,有
+货商品和门店配货商品是分开寄出。</div>
+                    <div class="line"></div>
+                    <div class="btn btn1">立即结算</div>
+                    <div class="btn btn2">继续购物</div>
+                </div>
+            </div>
 
 
         </div>
+        <bottom></bottom>
     </div>
 </template>
 
@@ -16,13 +61,21 @@
     // import TopBar from "../../components/header/topBar";
     // import TimeCard from "../../components/index/timeCard";
     import ThemeStickyHeader from "../../components/header/themeStickyHeader";
+    import bottom from "../../components/bottom/bottom";
+    import checkBoxCustom from "../../components/checkBoxCustom/index";
+    import shoppingCartItem from "../../components/shop/shoppingCartItem";
     // import MemberCard from "../../components/index/memberCard";
 
     export default {
         name: "shoppingCart",
-        components: { ThemeStickyHeader},
+        components: { ThemeStickyHeader,bottom,checkBoxCustom,shoppingCartItem},
         data() {
             return {
+                shoppingCartBanner: `${require('../../static/img/shop/shoppingCartBanner.png')}`,
+                goodsList:[1,1,1,1,1],
+                bannerBottom :`${require('../../static/img/shop/bannerBottom.png')}`,
+
+
                 SLT_white: `${require('../../static/img/index/SLT_white.png')}`,
                 urlIcon: `${require('../../static/img/index/ico-landing1-banner_02.jpg')}`,
                 section3Bg: `${require('../../static/img/index/ico_bg_dark_03.png')}`,
@@ -111,4 +164,221 @@
     // .hidden-box1-leave-active {
     //     animation: fold 1s ease-in-out 0s reverse;
     // }
+    .shoppingCart{
+        width: 100%;
+        height: auto;
+        height: 100%;
+        overflow-y: auto;
+        
+        background: #F3F5F7;
+        // background: darkblue;
+        .shoppingCart-content{
+            width: 100%;
+            height: auto;
+            min-height: calc(100% - 200rem);
+            .banner{
+                position: relative;
+                // background: darkblue;
+                // .banner{  
+                    width: 100%;              
+                    height: auto;
+                // }
+                .shoppingCartBanner{
+                    width: 100%;
+                    height: auto;
+                }
+                .text{
+                    position: absolute;
+                    width: 100%;
+                    height: 38rem;
+                    font-size: 38rem;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #FFFFFF;
+                    line-height: 38rem;
+                    text-align: center;
+                    bottom: 160rem;
+                }
+                .banner_tip{   
+                    position: absolute;                 
+                    height: 20rem;
+                    font-size: 20rem;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #FFFFFF;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: 80rem;
+                    width: 268rem;
+                    height: 45rem;
+                    border: 1rem solid #F3F5F7;
+                    border-radius: 23rem;
+                    line-height: 45rem;                   
+                }
+                .bannerBottom{
+                    width: 50rem;
+                    height: auto;
+                    position: absolute;
+                    left: 50%;
+                    bottom: -22rem;
+                    transform: translateX(-50%);
+                }
+            }
+            .listBox{
+                height: auto;
+                // height: 100rem;
+                // background: darkcyan;
+                width: 1170rem;
+                margin: 0 auto ;
+                padding-top: 50rem;
+                overflow: hidden;
+                .leftBox{
+                    width: 790rem;
+                    // background: darkcyan;
+                    // height: 40rem;
+                    float: left;
+                    .line{
+                        height: 2rem;
+                        width: 100%;
+                        
+                        background: #DBDEE4;
+                    }
+                    .listHeader{
+                        height: 16rem;
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 10rem;
+                        .text{
+                            height: 16rem;
+                            display: inline-block;
+                            line-height: 16rem;
+                            margin-left: 15rem;
+                            font-size: 14rem;
+                            font-family: Source Han Sans CN;
+                            font-weight: 400;
+                            color: #444444;
+                        }
+                    }
+                }
+                .rightBox{
+                    width: 360rem;
+                    // height: 500rem;
+                    float: right;
+                    background: #FFFFFF;
+                    margin-bottom: 20rem;
+                    padding:25rem;
+                    box-sizing: border-box;
+                    .item{
+                        overflow: hidden;
+                        clear: both;
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        height: 14rem;
+                        line-height: 14rem;
+                        font-size: 14rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #000000;
+                        margin-bottom: 15rem;
+                        // .item_left{
+                        //     font-size: 14rem;
+                        //     font-family: Source Han Sans CN;
+                        //     font-weight: 400;
+                        //     color: #000000;
+                        // }
+                        // .item_right{
+                            
+                        //     font-size: 14px;
+                        //     font-family: Source Han Sans CN;
+                        //     font-weight: 400;
+                        //     color: #7E7E7E;
+                        // }
+                    }
+                    .item1{
+                        
+                        .item_left{
+                            
+                        color: #7E7E7E;
+                        }
+                    }
+                    .item2{
+                        margin-top: 24rem;
+                        margin-bottom: 25rem;
+                        .item_right{
+                            
+                        color: #7E7E7E;
+                        }
+                    }
+                    .item3{
+                        margin-bottom: 25rem;
+                        .item_right{
+                            
+                        color: #7E7E7E;
+                        }
+                    }
+                    .item4{
+                        margin-bottom: 40rem;
+                        height: 18rem;
+                        line-height: 14rem;
+                        .item_right{
+                         font-size: 18rem;   
+                        // color: #7E7E7E;
+                        }
+                    }
+                    .line{
+                        height: 1rem;
+                        width: 100%;
+                        
+                        background: #DBDEE4;
+                    }
+                    .p{
+                        text-align: left;
+                        margin-bottom: 25rem;
+                        width: 100%;
+// height: 13px;        
+                        font-size: 14rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #7E7E7E;
+                        line-height: 14rem;
+                    }
+                    .p1{
+                        margin-top: 25rem;
+                    }
+                    .p2{
+                        margin-bottom: 20rem;
+                        font-size: 12rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #7E7E7E;
+                        line-height: 20rem;
+                    }
+                    .btn{
+                        width: 100%;
+                        height: 42rem;
+                        line-height: 40rem;
+                        
+                        // height: 14px;
+                        font-size: 14rem;
+                        text-align: center;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #FFFFFF;
+                        background: #082850;
+                        box-sizing: border-box;
+                        border: 2rem solid #082850;
+                        margin-top: 30rem;
+                    }
+                    .btn2{
+                        margin-top: 16rem;
+                        background: #fff;
+                        color: #444444;
+                        margin-bottom: 3rem;
+                    }
+                }
+            }
+        }
+    }
 </style>
