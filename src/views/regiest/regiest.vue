@@ -47,7 +47,7 @@ export default {
         }
     },
     mounted() {
-        this.localStorage.set('isLogin', false)
+        // this.localStorage.set('isLogin', false)
     },
     methods: {
         getCode() {
