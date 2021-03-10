@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import localStorage from "@/static/js/localStorage";
+/*import localStorage from "@/static/js/localStorage";
 
-localStorage.set('isLogin', false)
+localStorage.set('isLogin', false)*/
 </script>
 <style>
 #app {

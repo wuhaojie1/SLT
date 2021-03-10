@@ -47,6 +47,13 @@ const routes = [{
                 component: () =>
                     import ('../views/buy/deal.vue'),
             },
+            //确认订单
+            {
+                path: 'confirmOrder',
+                name: 'confirmOrder',
+                component: () =>
+                    import ('../views/buy/confirmOrder.vue'),
+            },
         ]
     },
     {
