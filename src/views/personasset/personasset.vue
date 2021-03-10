@@ -22,6 +22,20 @@
                     <div class="aim-right">》</div>
                     <div class="open">展开</div>
                 </div>
+                <div class="trade-con">
+                    <div class="trade-con-left">
+                        <div class="trade-con-left-head">
+                            <div class="trade-con-left-head-left-text">资产详情</div>
+                            <div class="trade-con-left-head-right-con">
+                                <div class="trade-con-left-right-con-text">全部</div>
+                                <img src="" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="trade-con-right">
+
+                    </div>
+                </div>
             </div>
         </div>
         <bottom></bottom>
@@ -191,6 +205,59 @@
                         height: auto;
                         float: right;
                         margin-right: 21rem;
+                    }
+                }
+                .trade-con{
+                    width: 1200rem;
+                    height: auto;
+                    display: flex;
+                    justify-content: space-between;
+                    position: absolute;
+                    top:98rem;
+                    left: 360rem;
+                    .trade-con-left{
+                        width: 800rem;
+                        height: auto;
+                        .trade-con-left-head{
+                            width: 800rem;
+                            height: 60rem;
+                            display: flex;
+                            justify-content: space-between;
+                            border: 1rem solid #E4E7ED;
+                            .trade-con-left-head-left-text{
+                                margin-left:25rem;
+                                font-size: 18rem;
+                                font-family: Source Han Sans CN;
+                                font-weight: 400;
+                                color: #444444;
+                                line-height: 60rem;
+                            }
+                            .trade-con-left-head-right-con{
+                                width: 120rem;
+                                height: 40rem;
+                                background: #FFFFFF;
+                                border: 1rem solid #E4E7ED;
+                                margin-top: 10rem;
+                                margin-right: 10rem;
+                                .trade-con-left-right-con-text{
+                                    margin-right:10rem;
+                                    font-size: 16rem;
+                                    font-family: Source Han Sans CN;
+                                    font-weight: 400;
+                                    color: #444444;
+                                    line-height: 40rem;
+                                    float: left;
+                                    margin-left: 12rem;
+                                }
+                                img{
+                                    width: 16rem;
+                                    height: 9rem;
+                                }
+                            }
+                        }
+                    }
+                    .trade-con-right{
+
                     }
                 }
             }

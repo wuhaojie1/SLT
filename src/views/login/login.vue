@@ -49,6 +49,9 @@ export default {
     },
     methods: {
         login() {
+            // eslint-disable-next-line no-debugger
+            // debugger
+            // console.log('打印');
             let postData = {
                 password: this.password,
                 username: this.username,
@@ -58,14 +61,15 @@ export default {
                 method: 'post',
                 params: JSON.stringify(postData),
             }).then((res) => {
-                // console.log(res)
+                // eslint-disable-next-line no-debugger
+                debugger
+                console.log(res)
                 let data = res.data
                 if (res.errno === 0) {
                     let user = {
                         avatarUrl: data.userInfo.avatarUrl,
                         nickName: data.userInfo.nickName,
                     }
-                    // console.log(user)
                     this.localStorage.set('token', data.token)
                     this.localStorage.set('user', user)
                     this.localStorage.set('isLogin', true)
@@ -74,6 +78,8 @@ export default {
                         name: 'index',
                     })
                 }
+            }).catch(err=>{
+                console.log(err)
             })
         }
     }

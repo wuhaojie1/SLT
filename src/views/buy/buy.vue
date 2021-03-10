@@ -1,12 +1,14 @@
 <template>
     <div id="buy">
-        <tradebar></tradebar>
+        <ThemeStickyHeader></ThemeStickyHeader>
+        <tradebar class="tradebar"></tradebar>
         <router-view></router-view>
     </div>
 </template>
 
 <script>
     import tradebar from "../../components/tradebar/tradebar";
+    import ThemeStickyHeader from "@/components/header/themeStickyHeader";
     export default {
         name: "buy",
         data(){
@@ -15,6 +17,7 @@
           }
         },
         components:{
+            ThemeStickyHeader,
             tradebar
         }
     }
@@ -24,6 +27,10 @@
     #buy{
         width: 100%;
         height: 100%;
+
+        .tradebar {
+            padding-top: 75rem;
+        }
     }
 
 </style>
