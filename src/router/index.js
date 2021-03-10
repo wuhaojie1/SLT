@@ -35,14 +35,14 @@ const routes = [{
         children: [
             //自选交易
             {
-                path: 'freetrade',
+                path: '/freetrade',
                 name: 'freeTrade',
                 component: () =>
                     import ('../views/buy/freetrade.vue')
             },
             //一键买卖
             {
-                path: 'deal',
+                path: '/deal',
                 name: 'deal',
                 component: () =>
                     import ('../views/buy/deal.vue'),
@@ -55,6 +55,13 @@ const routes = [{
                     import ('../views/buy/confirmOrder.vue'),
             },
         ]
+    },
+    //取消订单
+    {
+        path: '/cancleorder',
+        name: 'cancleorder',
+        component: () =>
+            import ('../views/cancleorder/cancleorder.vue'),
     },
     {
         path: '/shoppingCart',
