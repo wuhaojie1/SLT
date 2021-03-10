@@ -2,7 +2,8 @@ import axios from 'axios';
 import api from './api';
 import localStorage from '../js/localStorage';
 
-let isLogin = localStorage.get('isLogin');
+// localStorage.set('isLogin', false);
+// let isLogin = localStorage.get('isLogin');
 // console.log(isLogin)
 // 参数
 // 请求头
@@ -24,7 +25,7 @@ const http = ({
     let prefix = '';
     prefix = api.commApi;
     return new Promise((resolve, reject) => {
-        if (isLogin) {
+        // if (isLogin) {
             axios({
                 // url: `${prefix}/${url}?&&t=${timestamp}`, //
                 url: `${prefix}/${url}`, //
@@ -41,7 +42,7 @@ const http = ({
                 reject(err);
                 // throw new Error(`Error:${err}`);
             });
-        }
+        // }
     });
 
 };

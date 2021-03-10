@@ -9,9 +9,15 @@
 </template>
 
 <script>
-import localStorage from "@/static/js/localStorage";
 
-localStorage.set('isLogin', false)
+export default {
+  name: 'app',
+  data(){
+    return{
+
+    }
+  }
+}
 </script>
 <style>
 #app {
