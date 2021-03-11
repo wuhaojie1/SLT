@@ -123,7 +123,9 @@
                             </ul>
                         </div>
                         <div class="btnBox">
-                            <div class="cancel">取消订单</div>
+                            <router-link to="cancleorder">
+                                <div class="cancel">取消订单</div>
+                            </router-link>
                             <div class="confirm">确认支付 45S</div>
                         </div>
                         <div class="connect-text">联系在线客服</div>
@@ -368,7 +370,9 @@ export default {
                     .btnBox {
                         margin-top: 25rem;
                         display: flex;
-
+                        a{
+                            text-decoration: none;
+                        }
                         .cancel {
                             width: 190rem;
                             height: 42rem;

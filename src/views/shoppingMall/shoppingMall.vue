@@ -61,22 +61,26 @@
             </div>
             <div class="goods-box">
                 <div class="goods-box-wrap">
-                    <div class="goods-box-item"
-                         v-for="(item, index) in goodsList"
-                         @mouseenter="enters(index)"
-                         @mouseleave="leaver(index)"
-                         :key="index">
-                        <div class="item-box">
-                            <img :src="item.img" alt="">
-                            <div class="msg" v-show="item.show">
-                                <div class="name">{{item.name}}</div>
-                                <div class="price">
-                                    <div class="number">{{item.price}}</div>
-                                    <div class="btn">购买</div>
+
+                        <div class="goods-box-item"
+                             v-for="(item, index) in goodsList"
+                             @mouseenter="enters(index)"
+                             @mouseleave="leaver(index)"
+                             :key="index">
+                            <div class="item-box">
+                                <router-link to="goodsdetails">
+                                <img :src="item.img" alt="">
+                                <div class="msg" v-show="item.show">
+                                    <div class="name">{{item.name}}</div>
+                                    <div class="price">
+                                        <div class="number">{{item.price}}</div>
+                                        <div class="btn">购买</div>
+                                    </div>
                                 </div>
+                                </router-link>
                             </div>
                         </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -435,6 +439,12 @@
                             align-items: center;
                             /*justify-content: center;*/
                             /*box-sizing: border-box;*/
+                            /*.router-link-active{*/
+                            /*    text-decoration: none;*/
+                            /*}*/
+                            a{
+                                text-decoration: none;
+                            }
                             img {
                                 padding-top: 98rem;
                                 width: 200rem;
@@ -452,7 +462,6 @@
                                 .price {
                                     margin-top: 15rem;
                                     display: flex;
-
                                     .number {
                                         font-size: 22rem;
                                         font-weight: 400;

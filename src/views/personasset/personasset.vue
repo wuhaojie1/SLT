@@ -31,9 +31,25 @@
                                 <img src="" alt="">
                             </div>
                         </div>
+                        <div class="trade-log">
+                            <div class="buy-text">购买账户</div>
+                            <div v-for="item in buyarr" :key="item.index">
+                                <buyseallog :item="item"></buyseallog>
+                            </div>
+                            <div class="seal-text">出售账户</div>
+                            <div v-for="item in sealarr" :key="item.index">
+                                <buyseallog :item="item"></buyseallog>
+                            </div>
+                        </div>
                     </div>
                     <div class="trade-con-right">
-
+                        <div class="trade-con-right-head">
+                            <div class="trade-con-right-head-text">资产分布</div>
+                        </div>
+                        <div class="acout">账户</div>
+                        <div class="trade-list" v-for="item in tradelist" :key="item.index">
+                            <assetitem :item="item"></assetitem>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,12 +61,62 @@
 <script>
     import ThemeStickyHeader from "../../components/header/themeStickyHeader";
     import bottom from "../../components/bottom/bottom";
-
+    import buyseallog from "../../components/buyseallog/buyseallog";
+    import assetitem from "../../components/assetitem/assetitem";
     export default {
         name: "personasset",
-        components: {ThemeStickyHeader, bottom},
+        components: {ThemeStickyHeader, bottom,buyseallog,assetitem},
         data() {
-            return {}
+            return {
+                buyarr:[
+                    {
+                        name:'ETH',
+                        time:'2021-03-10 13:01:25',
+                        buy:true,
+                        money:'5.20 ETH'
+                    },
+                    {
+                        name:'ETH',
+                        time:'2021-03-10 13:01:25',
+                        buy:true,
+                        money:'5.20 ETH'
+                    }
+                ],
+                sealarr:[
+                    {
+                        name:'ETH',
+                        time:'2021-03-10 13:01:25',
+                        buy:false,
+                        money:'5.20 ETH'
+                    },
+                    {
+                        name:'ETH',
+                        time:'2021-03-10 13:01:25',
+                        buy:false,
+                        money:'5.20 ETH'
+                    }
+                ],
+                tradelist:[
+                    {
+                        img:'',
+                        counttype:'购买账户',
+                        num:'6.65',
+                        persent:'100%'
+                    },
+                    {
+                        img:'',
+                        counttype:'出售账户',
+                        num:'6.65',
+                        persent:'100%'
+                    },
+                    {
+                        img:'',
+                        counttype:'接单账户',
+                        num:'6.65',
+                        persent:'0.00%'
+                    }
+                ]
+            }
         },
         methods: {
             topage(name) {
@@ -74,7 +140,7 @@
                 width: 1920rem;
                 height: 280rem;
                 background: #041037;
-                position: relative;
+                /*position: relative;*/
 
                 .assets-left {
                     float: left;
@@ -255,9 +321,66 @@
                                 }
                             }
                         }
+                        .trade-log{
+                            width: 800rem;
+                            /*height: 315rem;*/
+                            background: #FFFFFF;
+                            border-left: 1rem solid #E4E7ED;
+                            border-right: 1rem solid #E4E7ED;
+                            border-bottom: 1rem solid #E4E7ED;
+                            padding-bottom: 20rem;
+                            .buy-text{
+                                float: left;
+                                margin-left: 24rem;
+                                margin-top: 24rem;
+                                font-size: 12rem;
+                                font-family: Source Han Sans CN;
+                                font-weight: 400;
+                                color: #444444;
+                                margin-bottom: 38rem;
+                            }
+                            .seal-text{
+                                float: left;
+                                margin-left: 24rem;
+                                margin-top: 24rem;
+                                font-size: 12rem;
+                                font-family: Source Han Sans CN;
+                                font-weight: 400;
+                                color: #444444;
+                                margin-bottom: 38rem;
+                            }
+                        }
                     }
                     .trade-con-right{
-
+                        width: 380rem;
+                        height: 300rem;
+                        background: #FFFFFF;
+                        border: 1rem solid #E4E7ED;
+                        .trade-con-right-head{
+                            width: 380rem;
+                            height: 60rem;
+                            border-bottom: 1rem solid #E4E7ED;
+                            .trade-con-right-head-text{
+                                line-height: 60rem;
+                                margin-left: 20rem;
+                                font-size: 18rem;
+                                font-family: Source Han Sans CN;
+                                font-weight: 400;
+                                color: #444444;
+                            }
+                        }
+                        .acout{
+                            font-size: 12rem;
+                            font-family: Source Han Sans CN;
+                            font-weight: 400;
+                            color: #444444;
+                            margin-left: 24rem;
+                            text-align: left;
+                            margin-top: 20rem;
+                        }
+                        .trade-list{
+                            margin-top: 20rem;
+                        }
                     }
                 }
             }

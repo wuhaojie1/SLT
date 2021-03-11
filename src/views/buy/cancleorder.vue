@@ -1,12 +1,14 @@
 <template>
     <div>
         <themeStickyHeader></themeStickyHeader>
-        <tradebar style="margin-top: 75rem"></tradebar>
+<!--        <tradebar style="margin-top: 75rem"></tradebar>-->
         <div class="cancleorder-con">
             <div class="cancleorder-head">
                 <div class="goback">
-                    <img src="" alt="">
-                    <div class="goback-text">返回</div>
+                    <router-link to="confirmOrder">
+                        <img src="" alt="">
+                        <div class="goback-text">返回</div>
+                    </router-link>
                 </div>
             </div>
             <div class="cancle-con">
@@ -56,11 +58,11 @@
 
 <script>
     import themeStickyHeader from "../../components/header/themeStickyHeader";
-    import tradebar from "../../components/tradebar/tradebar";
+    // import tradebar from "../../components/tradebar/tradebar";
     import ordertextitem from "../../components/ordertextitem/orderitemtext"
     export default {
         name: "cancleorder",
-        components:{tradebar,themeStickyHeader,ordertextitem},
+        components:{themeStickyHeader,ordertextitem},
         data(){
             return{
                 textlist:[
@@ -110,6 +112,9 @@
                 height: 60rem;
                 width: 120rem;
                 background-color: #fff;
+                a{
+                    text-decoration: none;
+                }
                 .goback-text{
                     font-size: 16rem;
                     font-family: Source Han Sans CN;

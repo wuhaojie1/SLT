@@ -8,7 +8,7 @@
             <div class="banner">
                 <img class="shoppingCartBanner" :src="shoppingCartBanner"/>
                 <div class="banner_title text">购物车</div>
-                <div class="banner_tip text"> 快来装满吧 !</div>
+                <div class="banner_tip text">快来装满吧 !</div>
                 <img class="bannerBottom" :src="bannerBottom"/>
                 
             </div>
@@ -47,7 +47,9 @@
 货商品和门店配货商品是分开寄出。</div>
                     <div class="line"></div>
                     <div class="btn btn1">立即结算</div>
-                    <div class="btn btn2">继续购物</div>
+                    <router-link to="shoppingMall">
+                        <div class="btn btn2">继续购物</div>
+                    </router-link>
                 </div>
             </div>
 
@@ -376,6 +378,10 @@
                         background: #fff;
                         color: #444444;
                         margin-bottom: 3rem;
+
+                    }
+                    a{
+                        text-decoration: none;
                     }
                 }
             }

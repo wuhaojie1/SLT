@@ -51,7 +51,7 @@
                     },
                     {
                         text: "个人资产",
-                        name: "userAccount",
+                        name: "personasset",
                     },
                     {
                         text: "知识产权",
