@@ -1,25 +1,25 @@
 <template>
-    <div class="confirmOrder">
-        <div class="confirmOrder-wrap">
-            <div class="confirmOrder-wrap-content">
+    <div class="orderDetail">
+        <div class="orderDetail-wrap">
+            <div class="orderDetail-wrap-content">
                 <div class="unpaid">
                     <div class="unpaid-content">
                         <div class="unpaid-title">
                             <div class="left">
                                 <div class="pay">
                                     <span class="pay-text">
-                                        待支付
+                                        订单详情
                                     </span>
                                     <span class="pay-tip">
-                                        <div class="pay-tip-text">开启接单</div>
-                                        <div class="img-box">
+                                        <div class="pay-tip-text">待接单</div>
+<!--                                        <div class="img-box">
                                             <img :src="right" alt="">
-                                        </div>
+                                        </div>-->
                                     </span>
                                 </div>
                                 <div class="tip">
-                                    <span class="time">14:45</span>
-                                    <span class="tip-text">内未付款，将自动取消订单</span>
+<!--                                    <span class="time">如有疑问请向客服申诉</span>-->
+                                    <span class="tip-text">如有疑问请向客服申诉</span>
                                 </div>
                             </div>
                             <div class="right">
@@ -101,7 +101,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tipBox">
+<!--                        <div class="tipBox">
                             <ul class="tipBox-list">
                                 <li class="tipBox-item">
                                     <div class="tip-text">
@@ -125,7 +125,7 @@
                         <div class="btnBox">
                             <div class="cancel">取消订单</div>
                             <div class="confirm">确认支付 45S</div>
-                        </div>
+                        </div>-->
                         <div class="connect-text">联系在线客服</div>
                     </div>
                 </div>
@@ -136,29 +136,28 @@
 
 <script>
 export default {
-    name: "confirmOrder",
-    data() {
+    name: "orderDetail",
+    data(){
         return {
             right: `${require('../../static/img/buy/right.png')}`,
             SLT: `${require('../../static/img/buy/SLT.png')}`,
             up: `${require('../../static/img/buy/up.png')}`,
         }
     },
-    methods: {}
+    methods: {},
+
 }
 </script>
 
 <style scoped lang="less">
-.confirmOrder {
-    //width: 100%;
+.orderDetail {
     height: 100%;
-
-    .confirmOrder-wrap {
+    .orderDetail-wrap {
         width: 1200rem;
         //height: auto;
         margin: 0 auto;
 
-        .confirmOrder-wrap-content {
+        .orderDetail-wrap-content {
             margin-top: 20rem;
             width: 100%;
             height: 810rem;
@@ -198,7 +197,7 @@ export default {
 
                                 .pay-tip {
                                     margin-left: 11rem;
-                                    width: 74rem;
+                                    //width: 74rem;
                                     height: 20rem;
                                     background: #E4F7FE;
                                     opacity: 0.76;
@@ -213,6 +212,7 @@ export default {
 
                                     .pay-tip-text {
                                         //line-height: 21rem
+                                        padding: 0 8rem;
                                     }
 
                                     .img-box {
@@ -407,6 +407,5 @@ export default {
             }
         }
     }
-
 }
 </style>

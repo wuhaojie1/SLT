@@ -54,6 +54,13 @@ const routes = [{
                 component: () =>
                     import ('../views/buy/confirmOrder.vue'),
             },
+            //订单详情
+            {
+                path: 'orderDetail',
+                name: 'orderDetail',
+                component: () =>
+                    import ('../views/buy/orderDetail.vue'),
+            },
         ]
     },
     //取消订单
