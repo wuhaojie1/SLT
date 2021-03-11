@@ -46,7 +46,9 @@
                         <div class="trade-con-right-head">
                             <div class="trade-con-right-head-text">资产分布</div>
                         </div>
-                        <div class="acout">账户</div>
+                        <div class="acout">账户
+                            <img src="../../static/img/personasset/icon.png" alt="">
+                        </div>
                         <div class="trade-list" v-for="item in tradelist" :key="item.index">
                             <assetitem :item="item"></assetitem>
                         </div>
@@ -98,19 +100,19 @@
                 ],
                 tradelist:[
                     {
-                        img:'',
+                        img:`${require('../../static/img/personasset/buy.png')}`,
                         counttype:'购买账户',
                         num:'6.65',
                         persent:'100%'
                     },
                     {
-                        img:'',
+                        img:`${require('../../static/img/personasset/seal.png')}`,
                         counttype:'出售账户',
                         num:'6.65',
                         persent:'100%'
                     },
                     {
-                        img:'',
+                        img:`${require('../../static/img/personasset/recept.png')}`,
                         counttype:'接单账户',
                         num:'6.65',
                         persent:'0.00%'
@@ -135,7 +137,7 @@
             width: 100%;
             height: calc(100vh - 75rem - 200rem);
             padding-top: 75rem;
-
+            padding-bottom: 200rem;
             .assets {
                 width: 1920rem;
                 height: 280rem;
@@ -377,6 +379,10 @@
                             margin-left: 24rem;
                             text-align: left;
                             margin-top: 20rem;
+                            img{
+                                width: 16rem;
+                                height: 16rem;
+                            }
                         }
                         .trade-list{
                             margin-top: 20rem;
