@@ -10,7 +10,7 @@ import localStorage from '../js/localStorage';
 const formatHeaders = (acHeaders) => {
     let headers = {};
     headers['Content-type'] = 'application/json';
-    headers["Token"] = localStorage.get("token");
+    headers["X-Litemall-Token"] = localStorage.get("token");
 
     if (acHeaders) {
         headers = {...headers, ...acHeaders};

@@ -28,6 +28,12 @@ const routes = [{
             import ('../views/personasset/personasset.vue')
     },
     {
+        path: '/localdetails',
+        name: 'localdetails',
+        component: () =>
+            import ('../views/localdetails/localdetails.vue')
+    },
+    {
         path: '/buy',
         name: 'buy',
         component: () =>
