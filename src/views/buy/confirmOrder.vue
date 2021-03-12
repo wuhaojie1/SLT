@@ -342,7 +342,6 @@ export default {
                         }
 
 
-
                     }
 
                     .tipBox {
@@ -371,9 +370,11 @@ export default {
                     .btnBox {
                         margin-top: 25rem;
                         display: flex;
-                        a{
+
+                        a {
                             text-decoration: none;
                         }
+
                         .cancel {
                             width: 190rem;
                             height: 42rem;
