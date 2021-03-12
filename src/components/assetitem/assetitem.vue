@@ -1,6 +1,8 @@
 <template>
     <div class="asset-item">
-        <div class="img-con"></div>
+        <div class="img-con">
+            <img :src=item.img alt="">
+        </div>
         <div class="counttype">{{item.counttype}}</div>
         <div class="num">{{item.num}}</div>
         <div class="persent">{{item.persent}}</div>
@@ -27,9 +29,12 @@
     .img-con{
         width: 34rem;
         height: 34rem;
-        background: #E5F7FF;
         border-radius: 50%;
         margin-left: 20rem;
+        img{
+            width: 34rem;
+            height: 34rem;
+        }
     }
     .counttype{
         font-size: 16rem;

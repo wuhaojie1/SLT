@@ -1,0 +1,270 @@
+<template>
+    <div id="localdetails">
+        <themeStickyHeader></themeStickyHeader>
+        <div class="bar">
+            <img class="backbtn" src="" alt="">
+            <div class="bartext">小说详情</div>
+        </div>
+        <div class="con">
+            <div class="in-con">
+                <div class="con-left">
+                    <div class="img-con">
+                        <img class="img" src="../../static/img/localdetails/goodsimg.png" alt="">
+                    </div>
+                    <div class="goods_name">小说</div>
+                </div>
+                <div class="con-right">
+                    <div class="local-name">小说位置类</div>
+                    <div class="charge-con">
+                        <div class="charge-text">价格</div>
+                        <div class="charge-num">￥1200</div>
+                    </div>
+                    <div class="income-con">
+                        <div class="income-text1">收益</div>
+                        <div class="income-text2">有货，每个位置平均收入在100%</div>
+                    </div>
+                    <div class="seal-local">
+                        <div class="seal-local-text">卖出位置</div>
+                        <div class="seal-num">
+                            <div class="seal-num-text">数量: 10</div>
+                        </div>
+                    </div>
+                    <div class="residue-local">
+                        <div class="residue-local-text">剩余空位</div>
+                        <div class="residue-num">
+                            <div class="residue-num-text">数量: 10</div>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="buy-con">
+                        <input class="buy-num" type="num" onautocomplete="true"/>
+                        <div class="buy-btn">购买</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import themeStickyHeader from "../../components/header/themeStickyHeader";
+    export default {
+        name: "localdetails",
+        components:{themeStickyHeader}
+    }
+</script>
+
+<style scoped lang="less">
+#localdetails{
+    width: 1920rem;
+    height: 100%;
+    .bar{
+        margin-top: 75rem;
+        height: 90rem;
+        width: 100%;
+        background-color: #041037;
+        position: relative;
+        .backbtn{
+            position: absolute;
+            width: 16rem;
+            height: 9rem;
+        }
+        .bartext{
+            font-size: 14rem;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: #FFFFFF;
+            position: absolute;
+            left: 380rem;
+            top: 60rem;
+        }
+    }
+    .con{
+        width: 100%;
+        height: 400rem;
+        margin-top: 100rem;
+        .in-con{
+            width: 1000rem;
+            height: 400rem;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            .con-left{
+                width: 300rem;
+                /*margin-right: 50rem;*/
+                .img-con{
+                    width: 300rem;
+                    height: 300rem;
+                    background-color: #E4E7ED;
+                    .img{
+                        width: 160rem;
+                        height: 237rem;
+                        margin-top: 32rem;
+                        /*margin-left: 70rem;*/
+                    }
+                }
+                .goods_name{
+                    font-size: 16rem;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #444444;
+                    text-align: left;
+                    margin-top: 14rem;
+                }
+            }
+            .con-right{
+                width: 650rem;
+                .local-name{
+                    font-size: 22rem;
+                    font-family: Source Han Sans CN;
+                    font-weight: bold;
+                    color: #444444;
+                    margin-top: 10rem;
+                    text-align: left;
+                }
+                .charge-con{
+                    width: 650rem;
+                    height: 50rem;
+                    background: #F8FAFC;
+                    margin-top: 20rem;
+                    .charge-text{
+                        font-size: 16rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #9AA5B5;
+                        line-height: 50rem;
+                        float: left;
+                        margin-left: 16rem;
+                        margin-right: 17rem;
+                    }
+                    .charge-num{
+                        font-size: 18rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #00B4FC;
+                        line-height: 50rem;
+                        text-align: left;
+                    }
+                }
+                .income-con{
+                    margin-top: 25rem;
+                    height: 16rem;
+                    .income-text1{
+                        width: 63rem;
+                        height: 16rem;
+                        font-size: 16rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #9AA5B5;
+                        float: left;
+                        letter-spacing: 13rem;
+                        margin-left: 16rem;
+                    }
+                    .income-text2{
+                        /*width: 234rem;*/
+                        height: 16rem;
+                        font-size: 16rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #444444;
+                        float: left;
+                    }
+                }
+                .seal-local{
+                    clear: left;
+                    padding-top: 25rem;
+                    height: 38rem;
+                    .seal-local-text{
+                        font-size: 16rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #444444;
+                        margin-left: 16rem;
+                        float: left;
+                        line-height: 38rem;
+                        margin-right: 28rem;
+                    }
+                    .seal-num{
+                        width: 160rem;
+                        height: 38rem;
+                        background: #F8FAFC;
+                        border-radius: 2rem;
+                        float: left;
+                        .seal-num-text{
+                            font-size: 14rem;
+                            font-family: Source Han Sans CN;
+                            font-weight: 400;
+                            color: #8993A0;
+                            text-align: left;
+                            line-height: 38rem;
+                            margin-left: 16rem;
+                        }
+                    }
+                }
+                .residue-local{
+                    clear: left;
+                    padding-top: 25rem;
+                    height: 38rem;
+                    .residue-local-text{
+                        font-size: 16rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #444444;
+                        margin-left: 16rem;
+                        float: left;
+                        line-height: 38rem;
+                        margin-right: 28rem;
+                    }
+                    .residue-num{
+                        width: 160rem;
+                        height: 38rem;
+                        border: 1rem solid #DBDEE4;
+                        border-radius: 2rem;
+                        float: left;
+                        .residue-num-text{
+                            font-size: 14rem;
+                            font-family: Source Han Sans CN;
+                            font-weight: 400;
+                            color: #8993A0;
+                            text-align: left;
+                            line-height: 38rem;
+                            margin-left: 16rem;
+                        }
+                    }
+                }
+                .line{
+                    width: 650rem;
+                    height: 1rem;
+                    background: #DBDEE4;
+                    margin-top: 30rem;
+                }
+                .buy-con{
+                    height: 46rem;
+                    width: 100%;
+                    margin-top: 30rem;
+                    display: flex;
+                    justify-content: space-between;
+                    .buy-num{
+                        width: 120rem;
+                        height: 46rem;
+                        background: #FFFFFF;
+                        border: 1rem solid #DBDEE4;
+                        border-radius: 2rem;
+                    }
+                    .buy-btn{
+                        width: 515rem;
+                        height: 46rem;
+                        background: #00B4FC;
+                        border-radius: 2rem;
+                        font-size: 16rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #FFFFFF;
+                        line-height: 46rem;
+                    }
+                }
+            }
+        }
+    }
+}
+</style>

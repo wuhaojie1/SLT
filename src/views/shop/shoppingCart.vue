@@ -112,6 +112,7 @@
         mounted() {
             // window.addEventListener('scroll', this.handleScroll, true);
             // this.myEcharts();
+            this.getcarlist()
         },
         methods: {
             //监听滚动条事件
@@ -123,7 +124,21 @@
             //     this.scrollTop = scrollTop;
             //     // console.log(scrollTop)
             // },
-           
+           getcarlist(){
+               // let PostData = this.PostData
+               this.axios({
+                   url:'wx/cart/index',
+                   method:'get'
+               }).then((res)=>{
+                   console.log(res);
+               }).catch(err=>{
+                   console.log(err);
+               })
+           },
+           // PostData(){
+           //     let
+           //     return PostData;
+           // }
         }
     }
 </script>
