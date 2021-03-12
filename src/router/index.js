@@ -206,11 +206,20 @@ const routes = [{
         component: () =>
             import ('../views/shoppingMall/shoppingMall.vue')
     },
+
     {
         path: '/shoppingCar',
         name: 'shoppingCar',
         component: () =>
             import ('../views/shop/shoppingCart.vue')
+    },
+
+    //商城
+    {
+        path: '/position',
+        name: 'position',
+        component: () =>
+            import ('../views/position/position.vue')
     },
     //支付成功
     {
