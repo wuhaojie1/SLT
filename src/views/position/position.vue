@@ -56,6 +56,7 @@
                          v-for="(childItem, childIndex) in item"
                          @mouseenter="enters(index,childIndex)"
                          @mouseleave="leaver(index,childIndex)"
+                         @click="topage('localdetails')"
                          :key="childIndex">
                         <div class="item-box">
 <!--                            <router-link to="goodsdetails">-->
@@ -169,6 +170,11 @@ export default {
         leaver(index, childIndex) {
             this.goodsList[index][childIndex].show = false;
         },
+        topage(name) {
+            this.$router.push({
+                name: name
+            })
+        }
     }
 }
 </script>

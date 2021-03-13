@@ -15,7 +15,7 @@
                     <div class="site-header-item" @click="topage('shoppingMall')">
                         <div class="text">商场</div>
                     </div>
-                    <div class="site-header-item">
+                    <div class="site-header-item" @click="topage('position')">
                         <div class="text">位置买卖</div>
                     </div>
                     <div class="site-header-item">
