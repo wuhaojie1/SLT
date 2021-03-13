@@ -33,6 +33,13 @@ const routes = [{
         component: () =>
             import ('../views/localdetails/localdetails.vue')
     },
+    //白皮书
+    {
+        path: '/whitPaper',
+        name: 'whitPaper',
+        component: () =>
+            import ('../views/whitePaper/whitPaper.vue'),
+    },
     {
         path: '/buy',
         name: 'buy',
@@ -68,6 +75,7 @@ const routes = [{
                 component: () =>
                     import ('../views/buy/cancleorder.vue'),
             },
+
 
         ]
     },
@@ -220,7 +228,7 @@ const routes = [{
             import ('../views/shop/shoppingCart.vue')
     },
 
-    //商城
+    //位置
     {
         path: '/position',
         name: 'position',
