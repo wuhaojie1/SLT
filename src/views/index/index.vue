@@ -78,7 +78,7 @@
                                     </div>
                                 </div>
                                 <div class="ico-content-text">Token sales ends on 31st May, 2021</div>
-                                <div class="ico-content-btn">
+                                <div class="ico-content-btn" @click="topage('buy')">
                                     BUY SLT COINS
                                 </div>
                                 <div class="money">
@@ -778,6 +778,11 @@
             },
             openBox(name) {
                 this[name] = !this[name];
+            },
+            topage(name) {
+                this.$router.push({
+                    name: name
+                })
             },
             myEcharts() {
                 let echartsBox = this.$refs.echartsBox;

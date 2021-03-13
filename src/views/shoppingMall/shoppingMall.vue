@@ -26,9 +26,11 @@
                                 <div class="tip">
                                     See the world with your heart
                                 </div>
-                                <div class="btn">
-                                    buy now
-                                </div>
+                                <router-link to="goodsdetails">
+                                    <div class="btn">
+                                        buy now
+                                    </div>
+                                </router-link>
                             </div>
                         </div>
                         <img :src="item.img" alt="">
@@ -49,17 +51,19 @@
                     <div class="goods-list-box"
                          v-for="(item, index) in books"
                          :key="index">
-                        <div class="goods-list-item"
-                             v-for="(childItem, childIndex) in item"
-                             :key="childIndex">
-                            <div class="imgBox">
-                                <img :src="childItem.img" alt="">
+                            <div class="goods-list-item"
+                                 v-for="(childItem, childIndex) in item"
+                                 :key="childIndex">
+                                <router-link to="goodsdetails">
+                                <div class="imgBox">
+                                    <img :src="childItem.img" alt="">
+                                </div>
+                                <div class="text">
+                                    <div class="bookName">{{childItem.name}}</div>
+                                    <div class="price">{{childItem.price}}</div>
+                                </div>
+                                </router-link>
                             </div>
-                            <div class="text">
-                                <div class="bookName">{{childItem.name}}</div>
-                                <div class="price">{{childItem.price}}</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -301,6 +305,9 @@ export default {
                             line-height: 52rem;
                             text-align: center;
                         }
+                        a{
+                            text-decoration: none;
+                        }
 
 
                     }
@@ -360,7 +367,9 @@ export default {
                     display: flex;
                     box-sizing: border-box;
                     flex-wrap: wrap;
-
+                    a{
+                        text-decoration: none;
+                    }
 
                     .goods-list-item {
                         margin-left: 25rem;
