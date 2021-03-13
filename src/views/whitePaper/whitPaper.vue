@@ -2,7 +2,11 @@
     <div class="whitPaper">
         <ThemeStickyHeader class="whitPaper-header"></ThemeStickyHeader>
         <div class="whitPaper-pdf">
-            <pdf src="/pdf/SLTWhitePaper.pdf" class="pdfClass"></pdf>
+            <pdf src="/pdf/SLTWhitePaper.pdf"
+                 class="pdfClass"
+                 v-for="i in numPages"
+                 :key="i"
+                 :page="i"></pdf>
         </div>
 
     </div>
@@ -16,7 +20,9 @@ export default {
     name: "whitPaper",
     components: {ThemeStickyHeader, pdf},
     data() {
-        return {}
+        return {
+            numPages: 37  //  pdf 文件总页数
+        }
     }
 }
 </script>
