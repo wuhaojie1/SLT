@@ -381,6 +381,8 @@ export default {
             width: 100%;
             margin-top: 69rem;
             margin-bottom: 257rem;
+            width: 1170rem;
+            margin: 69rem auto 257rem;
 
             .goods-box-wrap {
                 display: flex;
@@ -394,6 +396,7 @@ export default {
                 .goods-box-item {
                     //margin-left: 1rem;
                     width: 33%;
+                    height: 636rem;
                     height: 636rem;
                     background: #F3F5F7;
                     display: flex;
