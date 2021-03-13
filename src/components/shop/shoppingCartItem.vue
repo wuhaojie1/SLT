@@ -10,7 +10,7 @@
             </div>
             <div class="text text4">有货</div>
             <div class="text text5">预计发货后2-4个工作日送达</div>
-            <div class="btn text text6">删除</div>
+            <div class="btn text text6" @click="del">删除</div>
         </div>
         <!-- <div class="goodsItemRight"> -->
         <div class="goodsItemRight_Num">
@@ -58,6 +58,9 @@
                     isSlect:!isSlect,
                     data:formData
                 })
+            },
+            del(){
+                this.$emit("deletegoods")
             }
         }
     }

@@ -19,7 +19,7 @@
                         <div class="text">全部</div>
                     </div>
                     <div class="line" v-if="goodsList.length===0"></div>
-                    <shoppingCartItem v-for="(item,index) in goodsList" :key="index"></shoppingCartItem>
+                    <shoppingCartItem @deletegoods="deletegoods" v-for="(item,index) in goodsList" :key="index"></shoppingCartItem>
                     <!-- <shoppingCartItem></shoppingCartItem> -->
                 </div>
                 <div class="rightBox">
@@ -112,7 +112,8 @@
         mounted() {
             // window.addEventListener('scroll', this.handleScroll, true);
             // this.myEcharts();
-            this.getcarlist()
+            this.getcarlist();
+            this.updategoods();
         },
         methods: {
             //监听滚动条事件
@@ -135,10 +136,74 @@
                    console.log(err);
                })
            },
-           // PostData(){
-           //     let
-           //     return PostData;
-           // }
+           deletegoods(){
+               let PostData = this.getdelPostData();
+               console.log(PostData);
+               this.axios({
+                   url:'wx/cart/delete',
+                   method:'post',
+                   PostData:PostData
+               }).then(res=>{
+                   console.log(res)
+               }).catch(err=>{
+                   console.log(err);
+               })
+           },
+            getdelPostData(){
+               let productIds =0;
+               let PostData={
+                   productIds:productIds
+               }
+               return PostData
+            },
+            updategoods(){
+               let PostData = this.getupdatePostData();
+               this.axios({
+                   url:'wx/cart/update',
+                   method:'post',
+                   params:PostData
+               }).then(res=>{
+                   console.log(res);
+               }).catch(err=>{
+                   console.log(err);
+               })
+            },
+            getupdatePostData(){
+               let number= 0;
+               let goodsId = 0;
+               let id = 0;
+               let productId = 0;
+               let PostData={
+                    number:number,
+                    goodsId:goodsId,
+                    id:id,
+                    productId:productId
+                }
+                return PostData;
+            },
+            buygoods(){
+               let PostData = this.getbuyPostData();
+               this.axios({
+                   url:'wx/cart/fastadd',
+                   method:'post',
+                   params:PostData
+               }).then(res=>{
+                   console.log(res);
+               }).catch(err=>{
+                   console.log(err);
+               })
+            },
+            getbuyPostData(){
+               let goodsId = 0;
+               let selectedNum = 0;
+               let productId = 0;
+               let PostData={
+                   goodsId: goodsId,
+                   number: selectedNum,
+                   productId: productId
+               }
+               return PostData;
+            }
         }
     }
 </script>
