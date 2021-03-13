@@ -1,7 +1,9 @@
 const webpack = require('webpack')
 
 module.exports = {
-    publicPath : './',
+    publicPath: process.env.NODE_ENV === 'production'
+        ? './'
+        : '/',
     chainWebpack: config => {
         config.plugin('provide').use(webpack.ProvidePlugin, [{
             $: 'jquery',
@@ -9,6 +11,5 @@ module.exports = {
             jQuery: 'jquery',
             'window.jQuery': 'jquery'
         }])
-        // baseUrl: './' // 加入这行就可以了
     }
 }
