@@ -62,8 +62,8 @@ export default {
                 params: JSON.stringify(postData),
             }).then((res) => {
                 // eslint-disable-next-line no-debugger
-                debugger
-                console.log(res)
+                // debugger
+                // console.log(res)
                 let data = res.data
                 if (res.errno === 0) {
                     let user = {
@@ -243,6 +243,7 @@ export default {
                     text-align: center;
                     line-height: 58rem;
                     margin-left: 86rem;
+                    cursor: pointer;
                 }
             }
         }
