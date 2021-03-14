@@ -26,8 +26,8 @@
                     </div>
                     <div class="site-header-item" @click="topage('userInfo')">
                         <img :src="userIcon" alt="" class="userIcon">
-                        <img :src="ring" alt="" class="ring">
-                        <img :src="service" alt="" class="service">
+<!--                        <img :src="ring" alt="" class="ring">-->
+<!--                        <img :src="service" alt="" class="service">-->
                     </div>
                     <div class="site-header-item">
                         <div class="text">简体中文</div>

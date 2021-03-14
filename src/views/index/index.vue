@@ -1,6 +1,5 @@
 <template>
     <div class="index">
-        <TopBar></TopBar>
         <transition name="slide-fade-Y">
             <ThemeStickyHeader v-if="showSticky" class="ThemeStickyHeader"></ThemeStickyHeader>
         </transition>
@@ -657,6 +656,7 @@
                 </div>
             </div>
         </div>
+        <TopBar></TopBar>
     </div>
 </template>
 
@@ -739,7 +739,7 @@
                     },
                 ],
 
-                showSticky: false,
+                showSticky: true,
                 scrollTop: 0,
                 box1: false,
                 box2: false,
@@ -754,13 +754,13 @@
             }
         },
         watch: {
-            scrollTop(v) {
+            /*scrollTop(v) {
                 if (v > 240) {
                     this.showSticky = true;
                 } else {
                     this.showSticky = false;
                 }
-            }
+            }*/
         },
         mounted() {
             window.addEventListener('scroll', this.handleScroll, true);
