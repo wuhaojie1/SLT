@@ -2,7 +2,7 @@
     <div class="whitPaper">
         <ThemeStickyHeader class="whitPaper-header"></ThemeStickyHeader>
         <div class="whitPaper-pdf">
-            <pdf src="/pdf/SLTWhitePaper.pdf"
+            <pdf src="/SLTWhitePaper.pdf"
                  class="pdfClass"
                  v-for="i in numPages"
                  :key="i"
@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import pdf from 'vue-pdf'
+import Pdf from 'vue-pdf'
 import ThemeStickyHeader from "@/components/header/themeStickyHeader";
 
 export default {
     name: "whitPaper",
-    components: {ThemeStickyHeader, pdf},
+    components: {ThemeStickyHeader, Pdf},
     data() {
         return {
             numPages: 37  //  pdf 文件总页数
