@@ -53,9 +53,13 @@
                         text: "个人资产",
                         name: "personasset",
                     },
+                    // {
+                    //     text: "知识产权",
+                    //     name: "property",
+                    // },
                     {
-                        text: "知识产权",
-                        name: "property",
+                        text: "财务记录",
+                        name: "financial",
                     },
                 ],
                 active: 0,

@@ -7,7 +7,7 @@
                     <div class="text">
                         <div class="left">
                             <img src="" alt="" class="back">
-                            <div>充币</div>
+                            <div>提币</div>
                         </div>
                         <div class="right">
                             <div class="right-content">24H累计提币额度：1,00000000 BTC</div>

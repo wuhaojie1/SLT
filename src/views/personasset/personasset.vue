@@ -16,12 +16,12 @@
                 </div>
             </div>
             <div class="assets-center-bar">
-                <div class="assets-center-content">
+<!--                <div class="assets-center-content">
                     <div class="dot"></div>
                     <div class="center-text">检查访问网址、开后二次验证、不要给声称是SLT的工作人员转账或透露密码等信息。</div>
                     <div class="aim-right">》</div>
                     <div class="open">展开</div>
-                </div>
+                </div>-->
                 <div class="trade-con">
                     <div class="trade-con-left">
                         <div class="trade-con-left-head">
