@@ -13,7 +13,7 @@
                             <div class="right-content">24H累计提币额度：1,00000000 BTC</div>
                             <div class="right-content">剩余额度：1,00000000 BTC</div>
                             <div class="line"></div>
-                            <div class="right-content">提币地址管理</div>
+<!--                            <div class="right-content">提币地址管理</div>-->
                         </div>
                     </div>
                 </div>

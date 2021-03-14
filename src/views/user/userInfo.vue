@@ -41,38 +41,38 @@
                     <dataselect></dataselect>
                 </div>
             </div>
-            <div class="user-stu-con">
-                <div class="userinfo-stu-text">教育程度:</div>
-                <div class="set-stu-con">
-                    <div class="choose-type" >
-                        <div>
-                            <div class="chooseitem" style="width: 100rem;"  @click="control1">{{study[currentindex1]}}</div>
-                            <!--                    <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">-->
-                        </div>
-                        <ul v-show="showitem1">
-                            <li v-for="(item,index) in study"
-                                :key="index"
-                                @click="changesize1(index)">{{item}}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="user-stu-con">
-                <div class="userinfo-stu-text">所在行业:</div>
-                <div class="set-stu-con">
-                    <div class="choose-type" >
-                        <div>
-                            <div class="chooseitem" style="width: 100rem;"  @click="control2">{{perfarr[currentindex2]}}</div>
-                            <!--                    <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">-->
-                        </div>
-                        <ul v-show="showitem2">
-                            <li v-for="(item,index) in perfarr"
-                                :key="index"
-                                @click="changesize2(index)">{{item}}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="user-stu-con">-->
+<!--                <div class="userinfo-stu-text">教育程度:</div>-->
+<!--                <div class="set-stu-con">-->
+<!--                    <div class="choose-type" >-->
+<!--                        <div>-->
+<!--                            <div class="chooseitem" style="width: 100rem;"  @click="control1">{{study[currentindex1]}}</div>-->
+<!--                            &lt;!&ndash;                    <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">&ndash;&gt;-->
+<!--                        </div>-->
+<!--                        <ul v-show="showitem1">-->
+<!--                            <li v-for="(item,index) in study"-->
+<!--                                :key="index"-->
+<!--                                @click="changesize1(index)">{{item}}</li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="user-stu-con">-->
+<!--                <div class="userinfo-stu-text">所在行业:</div>-->
+<!--                <div class="set-stu-con">-->
+<!--                    <div class="choose-type" >-->
+<!--                        <div>-->
+<!--                            <div class="chooseitem" style="width: 100rem;"  @click="control2">{{perfarr[currentindex2]}}</div>-->
+<!--                            &lt;!&ndash;                    <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">&ndash;&gt;-->
+<!--                        </div>-->
+<!--                        <ul v-show="showitem2">-->
+<!--                            <li v-for="(item,index) in perfarr"-->
+<!--                                :key="index"-->
+<!--                                @click="changesize2(index)">{{item}}</li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="userinfo-snum-con">
                 <div class="userinfo-snum-text">身份证号:</div>
                 <input type="text" class="userinfo-snum-input" :value="snum">
