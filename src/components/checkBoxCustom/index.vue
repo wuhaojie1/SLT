@@ -31,6 +31,7 @@
                     isSlect:!isSlect,
                     data:formData
                 })
+                this.$emit('choose')
             }
         }
     }

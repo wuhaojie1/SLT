@@ -14,13 +14,12 @@
             </div>
             <div class="listBox">
                 <div class="leftBox">
-                    <div class="listHeader" >
-                        <checkBoxCustom isSlect/>
+                    <div class="listHeader" @click="allcheck">
+                        <checkBoxCustom :isSlect="allchecked"/>
                         <div class="text">全部</div>
                     </div>
                     <div class="line" v-if="goodsList.length===0"></div>
-                    <shoppingCartItem @deletegoods="deletegoods" v-for="(item,index) in goodsList" :key="index"></shoppingCartItem>
-                    <!-- <shoppingCartItem></shoppingCartItem> -->
+                    <shoppingCartItem @deletegoods="deletegoods" @choose="choose(index)" v-for="(item,index) in goodsList" :goodsitem="item" :key="index"></shoppingCartItem>
                 </div>
                 <div class="rightBox">
                     <div class="item item1">
@@ -43,17 +42,15 @@
                     <div class="line"></div>
                     <div class="p p1">说明</div>
                     <div class="p p2">在线支付订单提交之后15分钟内未付款，订单将被系统
-自动取消，请您尽快完成支付以确保商品能及时送达,有
-货商品和门店配货商品是分开寄出。</div>
+                        自动取消，请您尽快完成支付以确保商品能及时送达,有
+                        货商品和门店配货商品是分开寄出。</div>
                     <div class="line"></div>
-                    <div class="btn btn1">立即结算</div>
+                    <div class="btn btn1" @click="buygoods">立即结算</div>
                     <router-link to="shoppingMall">
                         <div class="btn btn2">继续购物</div>
                     </router-link>
                 </div>
             </div>
-
-
         </div>
         <bottom></bottom>
     </div>
@@ -74,7 +71,32 @@
         data() {
             return {
                 shoppingCartBanner: `${require('../../static/img/shop/shoppingCartBanner.png')}`,
-                goodsList:[1,1,1,1,1],
+                goodsList:[
+                    {
+                        goodsname:'北欧简约多色铁艺灯具',
+                        goodsmsg:'款号652000 0XJDBM  9095',
+                        goodstype:'款式: 雾霾蓝',
+                        havegoods:'有货',
+                        num:'10',
+                        checked:false,
+                    },
+                    {
+                        goodsname:'北欧简约多色铁艺灯具',
+                        goodsmsg:'款号652000 0XJDBM  9095',
+                        goodstype:'款式: 雾霾蓝',
+                        havegoods:'暂时缺货',
+                        num:'5',
+                        checked:false,
+                    },
+                    {
+                        goodsname:'北欧简约多色铁艺灯具',
+                        goodsmsg:'款号652000 0XJDBM  9095',
+                        goodstype:'款式: 雾霾蓝',
+                        havegoods:'有货',
+                        num:'0',
+                        checked:true,
+                    }
+                ],
                 bannerBottom :`${require('../../static/img/shop/bannerBottom.png')}`,
 
 
@@ -98,6 +120,7 @@
                     `${require('../../static/img/index/booktree_white.png')}`,
                     `${require('../../static/img/index/SLT_white.png')}`,
                 ],
+                allchecked:false
             }
         },
         watch: {
@@ -125,6 +148,85 @@
             //     this.scrollTop = scrollTop;
             //     // console.log(scrollTop)
             // },
+
+            //获取数量
+            getmomunt(){
+              this.axios({
+                  url:'wx/cart/goodscount',
+                  method:'get',
+                  params:{userId:'17882237256'}
+              }).then(res=>{
+                  console.log(res);
+              }).catch(err=>{
+                  console.log(err);
+              })
+            },
+
+            //取消或者选中
+            choose(index){
+                this.goodsList[index].checked = !this.goodsList[index].checked;
+                if(this.goodsList[index].checked){
+                    this.axios({
+                        url:'wx/cart/checked',
+                        method:'post',
+                        params: {userId:17882237256}
+                    }).then(res=>{
+                        console.log(res);
+                    }).catch(err=>{
+                        console.log(err);
+                    })
+                }else{
+                    let PostData =this.checkoutPostData()
+                    this.axios({
+                        url:'wx/cart/checkout',
+                        method:'get',
+                        params: PostData
+                    }).then(res=>{
+                        console.log(res);
+                    }).catch(err=>{
+                        console.log(err);
+                    })
+                }
+
+                let temarr = this.goodsList.filter(item=>item.checked)
+                if(temarr.length==this.goodsList.length){
+                    this.allchecked = true
+                }else{
+                    this.allchecked = false
+                }
+                console.log(this.allchecked);
+                // for (let i = 0 ; i<this.goodsList.length; i++){
+                //     if(this.goodsList[i].checked){
+                //
+                //     }
+                // }
+            },
+            checkoutPostData(){
+                let addressId = 1;
+                let cartId = 1;
+                let couponId = 1;
+                let grouponRulesId = 1;
+                let userCouponId = 1;
+                let userId = 17882237256;
+                let PostData ={
+                    addressId:addressId,
+                    cartId:cartId,
+                    couponId:couponId,
+                    grouponRulesId:grouponRulesId,
+                    userCouponId:userCouponId,
+                    userId:userId,
+                };
+                return PostData
+            },
+            allcheck(){
+                // console.log('666');
+                this.allchecked = !this.allchecked;
+                console.log(this.allchecked);
+                for (let i = 0 ; i<this.goodsList.length; i++){
+                    this.goodsList[i].checked = this.allchecked
+                }
+            },
+            //获取购物车列表数据
            getcarlist(){
                // let PostData = this.PostData
                this.axios({
@@ -136,9 +238,10 @@
                    console.log(err);
                })
            },
+            //删除购物车某个商品
            deletegoods(){
                let PostData = this.getdelPostData();
-               console.log(PostData);
+               // console.log(PostData);
                this.axios({
                    url:'wx/cart/delete',
                    method:'post',
@@ -156,6 +259,7 @@
                }
                return PostData
             },
+            //更新数据
             updategoods(){
                let PostData = this.getupdatePostData();
                this.axios({
@@ -181,29 +285,30 @@
                 }
                 return PostData;
             },
+            //购买选中的商品
             buygoods(){
-               let PostData = this.getbuyPostData();
-               this.axios({
-                   url:'wx/cart/fastadd',
-                   method:'post',
-                   params:PostData
-               }).then(res=>{
-                   console.log(res);
-               }).catch(err=>{
-                   console.log(err);
-               })
+                let PostData = this.getbuyPostData();
+                this.axios({
+                    url: 'wx/cart/fastadd',
+                    method: 'post',
+                    params: PostData
+                }).then(res => {
+                    console.log(res);
+                }).catch(err => {
+                    console.log(err);
+                })
             },
             getbuyPostData(){
-               let goodsId = 0;
-               let selectedNum = 0;
-               let productId = 0;
-               let PostData={
-                   goodsId: goodsId,
-                   number: selectedNum,
-                   productId: productId
-               }
-               return PostData;
-            }
+                let goodsId = 0;
+                let selectedNum = 0;
+                let productId = 0;
+                let PostData={
+                    goodsId: goodsId,
+                    number: selectedNum,
+                    productId: productId
+                }
+                return PostData;
+            },
         }
     }
 </script>

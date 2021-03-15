@@ -4,12 +4,12 @@
         <div class="userInfo-con">
             <div class="user-name">
                 <div class="user-name-text">用户名:</div>
-                <input type="text" class="user-name-input">
+                <input type="text" :value="usermsg.nickname" class="user-name-input">
                 <div class="change">修改</div>
                 <div class="remind">用于登录用，要牢记哦~</div>
             </div>
             <div class="user-id-con">
-                <div class="user-id-text">用户名:</div>
+                <div class="user-id-text">用户ID:</div>
                 <div class="user-id">JCJDVJDS</div>
             </div>
             <div class="userinfo-name-con">
@@ -29,9 +29,9 @@
 <!--                        <input type="radio" value="保密">-->
 <!--                    </div>-->
                     <el-radio-group v-model="radio">
-                        <el-radio :label="3" class="user-sex-item"><span :style="{marginLeft:'11rem'}">男</span></el-radio>
-                        <el-radio :label="6" class="user-sex-item"><span :style="{marginLeft:'11rem'}">女</span></el-radio>
-                        <el-radio :label="9" class="user-sex-item"><span :style="{marginLeft:'11rem'}">保密</span></el-radio>
+                        <el-radio :label="1" v-model="radio" class="user-sex-item"><span :style="{marginLeft:'11rem'}">男</span></el-radio>
+                        <el-radio :label="0" v-model="radio" class="user-sex-item"><span :style="{marginLeft:'11rem'}">女</span></el-radio>
+                        <el-radio :label="2" v-model="radio" class="user-sex-item"><span :style="{marginLeft:'11rem'}">保密</span></el-radio>
                     </el-radio-group>
                 </div>
             </div>
@@ -92,15 +92,22 @@
         data() {
             return {
                 name:'王**',
-                radio:'3',
-                study:["请选择",'博士','研究生','本科','大专'],
-                perfarr:['请选择','医生','老师','CEO','经理','运营','策划'],
+                radio:'0',
+                // study:["请选择",'博士','研究生','本科','大专'],
+                // perfarr:['请选择','医生','老师','CEO','经理','运营','策划'],
                 snum:'511036...',
                 currentindex1:0,
                 currentindex2:0,
                 showitem1:false,
-                showitem2:false
+                showitem2:false,
+                usermsg:{
+                    nickname:'',
+                    gender:''
+                }
             }
+        },
+        mounted() {
+            this.getuserinfo();
         },
         methods: {
             control1(){
@@ -118,6 +125,21 @@
             changesize2(index){
                 this.currentindex2 = index;
                 this.showitem2 = false;
+            },
+            getuserinfo(){
+                this.axios({
+                    url:'wx/auth/info',
+                    method:'get',
+                    params:{userId:'user123'}
+                }).then(res=>{
+                    console.log(res);
+                    this.usermsg.nickname = res.data.nickName;
+                    this.usermsg.gender = res.data.gender;
+                    console.log(this.usermsg.nickname,this.usermsg.gender)
+                    this.radio = this.usermsg.gender
+                }).catch(err=>{
+                    console.log(err);
+                })
             }
         }
     }
