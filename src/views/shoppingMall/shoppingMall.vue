@@ -39,31 +39,31 @@
             </div>
             <div class="goods">
                 <div class="nav">
-                    <Classify @navSelected="navSelected"></Classify>
+                    <Classify @navSelected="navSelected" :filterList="filterList"></Classify>
                 </div>
                 <div class="goods-list">
                     <div class="goods-list-title">
                         <div class="text">
                             <span class="titleName">{{ titleItem.name }}</span>
-                            <span class="titleNumber">(100)</span>
+                            <span class="titleNumber">({{ goodsTotal }})</span>
                         </div>
                     </div>
                     <div class="goods-list-box"
                          v-for="(item, index) in books"
                          :key="index">
-                            <div class="goods-list-item"
-                                 v-for="(childItem, childIndex) in item"
-                                 :key="childIndex">
-                                <router-link to="goodsdetails">
+                        <div class="goods-list-item"
+                             v-for="(childItem, childIndex) in item"
+                             :key="childIndex">
+                            <router-link to="goodsdetails">
                                 <div class="imgBox">
                                     <img :src="childItem.img" alt="">
                                 </div>
                                 <div class="text">
-                                    <div class="bookName">{{childItem.name}}</div>
-                                    <div class="price">{{childItem.price}}</div>
+                                    <div class="bookName">{{ childItem.name }}</div>
+                                    <div class="price">{{ childItem.price }}</div>
                                 </div>
-                                </router-link>
-                            </div>
+                            </router-link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,11 +80,13 @@ import Classify from "@/components/shoppingMall/classify";
 export default {
     name: "shoppingMall",
     components: {Classify, Bottom, ThemeStickyHeader},
+    mounted() {
+        this.getCatalog();
+    },
     data() {
         return {
             titleItem: {
-                name: "北特里",
-                number: "100"
+                name: "",
             },
             interval: 7000,
             icon: `${require('../../static/img/shoppingMall/icon.png')}`,
@@ -94,101 +96,51 @@ export default {
             chair: `${require('../../static/img/shoppingMall/chair.png')}`,
             dining: `${require('../../static/img/shoppingMall/dining-table.png')}`,
             clock: `${require('../../static/img/shoppingMall/clock.png')}`,
-            goodsList: [
-                {
-                    img: `${require('../../static/img/shoppingMall/chair.png')}`,
-                    name: "日式原木餐桌",
-                    price: "￥299",
-                    show: false,
-                },
-                {
-                    img: `${require('../../static/img/shoppingMall/dining-table.png')}`,
-                    name: "日式原木餐桌",
-                    price: "￥299",
-                    show: false,
-                },
-                {
-                    img: `${require('../../static/img/shoppingMall/clock.png')}`,
-                    name: "日式原木餐桌",
-                    price: "￥299",
-                    show: false,
-                },
-                {
-                    img: `${require('../../static/img/shoppingMall/chair.png')}`,
-                    name: "日式原木餐桌",
-                    price: "￥299",
-                    show: false,
-                },
-                {
-                    img: `${require('../../static/img/shoppingMall/chair.png')}`,
-                    name: "日式原木餐桌",
-                    price: "￥299",
-                    show: false,
-                },
-                {
-                    img: `${require('../../static/img/shoppingMall/dining-table.png')}`,
-                    name: "日式原木餐桌",
-                    price: "￥299",
-                    show: false,
-                },
-                {
-                    img: `${require('../../static/img/shoppingMall/clock.png')}`,
-                    name: "日式原木餐桌",
-                    price: "￥299",
-                    show: false,
-                },
-                {
-                    img: `${require('../../static/img/shoppingMall/chair.png')}`,
-                    name: "日式原木餐桌",
-                    price: "￥299",
-                    show: false,
-                },
-            ],
-            books:[
-                [
-                    {
-                        img : `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name : "晚熟的人 莫言新书",
-                        price : "￥299",
-                    },
-                    {
-                        img : `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name : "晚熟的人 莫言新书",
-                        price : "￥299",
-                    },
-                    {
-                        img : `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name : "晚熟的人 莫言新书",
-                        price : "￥299",
-                    },
-                    {
-                        img : `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name : "晚熟的人 莫言新书",
-                        price : "￥299",
-                    },
-                ],
-                [
-                    {
-                        img : `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name : "晚熟的人 莫言新书",
-                        price : "￥299",
-                    },
-                    {
-                        img : `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name : "晚熟的人 莫言新书",
-                        price : "￥299",
-                    },
-                    {
-                        img : `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name : "晚熟的人 莫言新书",
-                        price : "￥299",
-                    },
-                    {
-                        img : `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name : "晚熟的人 莫言新书",
-                        price : "￥299",
-                    },
-                ],
+            books: [
+                // [
+                //     {
+                //         img: `${require('../../static/img/shoppingMall/book1.png')}`,
+                //         name: "晚熟的人 莫言新书",
+                //         price: "￥299",
+                //     },
+                //     {
+                //         img: `${require('../../static/img/shoppingMall/book1.png')}`,
+                //         name: "晚熟的人 莫言新书",
+                //         price: "￥299",
+                //     },
+                //     {
+                //         img: `${require('../../static/img/shoppingMall/book1.png')}`,
+                //         name: "晚熟的人 莫言新书",
+                //         price: "￥299",
+                //     },
+                //     {
+                //         img: `${require('../../static/img/shoppingMall/book1.png')}`,
+                //         name: "晚熟的人 莫言新书",
+                //         price: "￥299",
+                //     },
+                // ],
+                // [
+                //     {
+                //         img: `${require('../../static/img/shoppingMall/book1.png')}`,
+                //         name: "晚熟的人 莫言新书",
+                //         price: "￥299",
+                //     },
+                //     {
+                //         img: `${require('../../static/img/shoppingMall/book1.png')}`,
+                //         name: "晚熟的人 莫言新书",
+                //         price: "￥299",
+                //     },
+                //     {
+                //         img: `${require('../../static/img/shoppingMall/book1.png')}`,
+                //         name: "晚熟的人 莫言新书",
+                //         price: "￥299",
+                //     },
+                //     {
+                //         img: `${require('../../static/img/shoppingMall/book1.png')}`,
+                //         name: "晚熟的人 莫言新书",
+                //         price: "￥299",
+                //     },
+                // ],
             ],
 
             imgs: [
@@ -208,20 +160,84 @@ export default {
                     p: "안전한 주차와 정성스러운 서비스로 고객만족을 우선으로 생각합니다",*/
                 },
             ],
+
+            //种类
+            filterList: [],
+            //商品数量
+            goodsTotal: 0,
         }
     },
     methods: {
         enters(index) {
             this.goodsList[index].show = true;
         },
+
         leaver(index) {
             this.goodsList[index].show = false;
         },
-        navSelected(item) {
+
+        navSelected(data) {
+            // console.log(data)
             this.titleItem = {
-                name: item.name,
+                name: data.item.name,
             }
-        }
+            this.getGoodsById(data.item.id)
+        },
+
+        getCatalog() {
+            this.axios({
+                url: 'wx/catalog/all',
+                method: 'get',
+                // params: JSON.stringify(postData),
+            }).then((res) => {
+                // eslint-disable-next-line no-debugger
+                // debugger
+                // console.log(res)
+                let data = res.data
+                if (res.errno === 0) {
+                    this.filterList = data.categoryList;
+                    this.titleItem.name = data.categoryList[0].name
+                    this.getGoodsById(data.categoryList[0].id)
+                }
+            }).catch(err => {
+                console.log(err)
+            })
+        },
+        getGoodsById(id) {
+            let getData = {
+                categoryId: id,
+            }
+            this.axios({
+                url: 'wx/goods/list',
+                method: 'get',
+                params: getData
+            }).then((res) => {
+                // eslint-disable-next-line no-debugger
+                // debugger
+                // console.log(res)
+
+                let data = res.data
+                if (res.errno === 0) {
+                    // console.log(data.total)
+                    this.goodsTotal = data.total;
+                    let tempArray = [];
+                    for(let i=0;i<data.list.length;i+=4){
+                        tempArray.push(data.list.slice(i,i+4));
+                    }
+                    this.books = tempArray;
+
+                    // filterCategoryList: [{id: 1005007, name: "锅具", keywords: "", desc: "一口好锅，炖煮生活一日三餐", pid: 1005001,…},…]
+                    // limit: 10
+                    // list: []
+                    // page: 0
+                    // pages: 0
+                    // total: 0
+
+                }
+            }).catch(err => {
+                console.log(err)
+            })
+        },
     }
 }
 </script>
@@ -305,7 +321,8 @@ export default {
                             line-height: 52rem;
                             text-align: center;
                         }
-                        a{
+
+                        a {
                             text-decoration: none;
                         }
 
@@ -340,6 +357,7 @@ export default {
 
                 .goods-list-title {
                     width: 100%;
+
                     .text {
                         //height: 37rem;
                         display: flex;
@@ -351,6 +369,7 @@ export default {
                             color: #444444;
                             //line-height: 37rem;
                         }
+
                         .titleNumber {
                             margin-left: 7rem;
                             font-size: 16rem;
@@ -367,13 +386,15 @@ export default {
                     display: flex;
                     box-sizing: border-box;
                     flex-wrap: wrap;
-                    a{
+
+                    a {
                         text-decoration: none;
                     }
 
                     .goods-list-item {
                         margin-left: 25rem;
                         width: 23%;
+
                         .imgBox {
                             //width: 314rem;
                             height: 314rem;

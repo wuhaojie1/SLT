@@ -13,7 +13,7 @@
                          v-for="(item, index) in filterList"
                          :key="index"
                          :class="selected === index ? 'active' : '' "
-                         @click="addItem(index,item.name)">
+                         @click="addItem(index,item)">
                         <div class="content">
                             <div class="text">{{ item.name }}</div>
 <!--                            <div class="icon">
@@ -34,41 +34,41 @@ export default {
     name: "classify",
     data() {
         return {
-            filterList: [
-                {
-                    name: '北特里'
-                },
-                {
-                    name: '小说'
-                },
-                {
-                    name: '诗/散文'
-                },
-                {
-                    name: '经济/经营'
-                },
-                {
-                    name: '自我启发'
-                },
-                {
-                    name: '政治/社会'
-                },
-                {
-                    name: '技术/工程'
-                },
-                {
-                    name: '计算机/IT'
-                },
-                {
-                    name: '参考书'
-                },
-                {
-                    name: '哲学'
-                },
-                {
-                    name: '科学'
-                },
-            ],
+            // filterList: [
+            //     {
+            //         name: '北特里'
+            //     },
+            //     {
+            //         name: '小说'
+            //     },
+            //     {
+            //         name: '诗/散文'
+            //     },
+            //     {
+            //         name: '经济/经营'
+            //     },
+            //     {
+            //         name: '自我启发'
+            //     },
+            //     {
+            //         name: '政治/社会'
+            //     },
+            //     {
+            //         name: '技术/工程'
+            //     },
+            //     {
+            //         name: '计算机/IT'
+            //     },
+            //     {
+            //         name: '参考书'
+            //     },
+            //     {
+            //         name: '哲学'
+            //     },
+            //     {
+            //         name: '科学'
+            //     },
+            // ],
             selected: 0,
             itemIndexes: [],
             items:[],
@@ -76,12 +76,18 @@ export default {
             plus: `${require('@/static/img/shoppingMall/plus.png')}`,
         }
     },
+    props:{
+        filterList:{
+            type: Array,
+            default: ()=>[]
+        }
+    },
     methods: {
         addItem(itemIndex,item) {
             this.selected = itemIndex;
             this.$emit('navSelected',{
                 itemIndex,
-                name: item
+                item: item
             })
             // if (this.itemIndexes.includes(itemIndex)) {
             //     let index = this.itemIndexes.indexOf(itemIndex)
