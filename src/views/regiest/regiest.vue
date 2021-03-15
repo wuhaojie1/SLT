@@ -76,7 +76,7 @@ export default {
         },
         register() {
             // eslint-disable-next-line no-debugger
-            debugger
+            // debugger
             let postData = this.getRegisterData()
             if (this.regFlag) {
                 this.axios({
@@ -301,6 +301,7 @@ export default {
                     line-height: 58rem;
                     margin-left: 86rem;
                     margin-bottom: 68rem;
+                    cursor: pointer;
                 }
             }
         }

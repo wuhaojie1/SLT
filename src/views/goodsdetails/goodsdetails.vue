@@ -56,7 +56,9 @@
                     </div>
                     <div class="look-all-type" @click="control">尺码表</div>
                 </div>
-                <div class="shopcar">加入购物车</div>
+                <router-link to="shoppingCar">
+                    <div class="shopcar" @click="addgoods">加入购物车</div>
+                </router-link>
                 <div class="question">
                     <div class="online">
                         <img class="online-img" src="../../static/img/goodsdetails/local.png" alt="">
@@ -113,7 +115,12 @@
                     "请选择合适的尺码","S","M","L","XL","XXL"
                 ],
                 currentindex:0,
-                showitem:true
+                showitem:false,
+                goodsmsg:{
+                    goodsId:0,
+                    number:0,
+                    productId:0,
+                }
             }
         },
         methods:{
@@ -123,6 +130,31 @@
             changesize(index){
                 this.currentindex = index;
                 this.showitem = !this.showitem;
+            },
+            addgoods(){
+                let PostData = this.getPostData()
+                this.axios(
+                    {
+                        url:'wx/cart/add',
+                        method:'post',
+                        params:PostData
+                    }
+                ).then(res=>{
+                    console.log(res);
+                }).catch(err=>{
+                    console.log(err);
+                })
+            },
+            getPostData(){
+                let goodsId = this.goodsmsg.goodsId;
+                // let number = this.goodsmsg.number;
+                let productId = 0;
+                let PostData = {
+                    goodsId:goodsId,
+                    // number:number,
+                    productId:productId
+                }
+                return PostData
             }
         }
     }
@@ -142,7 +174,7 @@
         height: calc(100% - 229rem);
         display: flex;
         justify-content: space-between;
-        padding-bottom: 40rem;
+        /*padding-bottom: 40rem;*/
         .goodsmsg-scoll{
             width: 466rem;
             height: auto;

@@ -1,6 +1,5 @@
 <template>
     <div class="index">
-        <TopBar></TopBar>
         <transition name="slide-fade-Y">
             <ThemeStickyHeader v-if="showSticky" class="ThemeStickyHeader"></ThemeStickyHeader>
         </transition>
@@ -78,7 +77,7 @@
                                     </div>
                                 </div>
                                 <div class="ico-content-text">Token sales ends on 31st May, 2021</div>
-                                <div class="ico-content-btn">
+                                <div class="ico-content-btn" @click="topage('buy')">
                                     BUY SLT COINS
                                 </div>
                                 <div class="money">
@@ -657,6 +656,7 @@
                 </div>
             </div>
         </div>
+        <TopBar></TopBar>
     </div>
 </template>
 
@@ -739,7 +739,7 @@
                     },
                 ],
 
-                showSticky: false,
+                showSticky: true,
                 scrollTop: 0,
                 box1: false,
                 box2: false,
@@ -754,13 +754,13 @@
             }
         },
         watch: {
-            scrollTop(v) {
+            /*scrollTop(v) {
                 if (v > 240) {
                     this.showSticky = true;
                 } else {
                     this.showSticky = false;
                 }
-            }
+            }*/
         },
         mounted() {
             window.addEventListener('scroll', this.handleScroll, true);
@@ -778,6 +778,11 @@
             },
             openBox(name) {
                 this[name] = !this[name];
+            },
+            topage(name) {
+                this.$router.push({
+                    name: name
+                })
             },
             myEcharts() {
                 let echartsBox = this.$refs.echartsBox;

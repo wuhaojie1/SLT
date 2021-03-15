@@ -1,21 +1,21 @@
 <template>
     <div class="shoppingCartItem">
-        <checkBoxCustom/>
+        <checkBoxCustom @choose="choose" :isSlect="goodsitem.checked"/>
         <img class="goodsImage" :src="goodsImage"/>
         <div class="goodsItemCenter">
             <div class="goodsItemCenter_top">
-                <div class="p p1">北欧简约多色铁艺灯具</div>
-                <div class="p p2">款号652000 0XJDBM  9095</div>
-                <div class="p p3">款式: 雾霾蓝</div>
+                <div class="p p1">{{goodsitem.goodsname}}</div>
+                <div class="p p2">{{goodsitem.goodsmsg}}</div>
+                <div class="p p3">{{goodsitem.goodstype}}</div>
             </div>
-            <div class="text text4">有货</div>
+            <div class="text text4">{{goodsitem.havegoods}}</div>
             <div class="text text5">预计发货后2-4个工作日送达</div>
-            <div class="btn text text6">删除</div>
+            <div class="btn text text6" @click="del">删除</div>
         </div>
         <!-- <div class="goodsItemRight"> -->
         <div class="goodsItemRight_Num">
             <div class="lable">数量：</div>
-            <input type="number" min="1" value="1"/>
+            <input type="number" min="1" :value="goodsitem.num"/>
         </div>
         <div class="countPrice">￥ 4,200</div>
             <!-- <div class="text text4">有货</div>
@@ -48,6 +48,10 @@
             formData:{
                 type: [Boolean,Object,Array,String,Number],
                 default:()=>{} 
+            },
+            goodsitem:{
+                type:Object,
+                default:()=>{}
             }
 
         },
@@ -58,6 +62,12 @@
                     isSlect:!isSlect,
                     data:formData
                 })
+            },
+            del(){
+                this.$emit("deletegoods")
+            },
+            choose(){
+                this.$emit("choose")
             }
         }
     }

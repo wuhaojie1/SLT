@@ -28,10 +28,24 @@ const routes = [{
             import ('../views/personasset/personasset.vue')
     },
     {
+        path: '/localdetails',
+        name: 'localdetails',
+        component: () =>
+            import ('../views/localdetails/localdetails.vue')
+    },
+    //白皮书
+    {
+        path: '/whitPaper',
+        name: 'whitPaper',
+        component: () =>
+            import ('../views/whitePaper/whitPaper.vue'),
+    },
+    {
         path: '/buy',
         name: 'buy',
         component: () =>
             import ('../views/buy/buy.vue'),
+        redirect: '/freetrade',
         children: [
             //自选交易
             {
@@ -54,14 +68,16 @@ const routes = [{
                 component: () =>
                     import ('../views/buy/confirmOrder.vue'),
             },
+            //取消订单
+            {
+                path: 'cancleorder',
+                name: 'cancleorder',
+                component: () =>
+                    import ('../views/buy/cancleorder.vue'),
+            },
+
+
         ]
-    },
-    //取消订单
-    {
-        path: '/cancleorder',
-        name: 'cancleorder',
-        component: () =>
-            import ('../views/cancleorder/cancleorder.vue'),
     },
     {
         path: '/shoppingCart',
@@ -204,6 +220,21 @@ const routes = [{
         component: () =>
             import ('../views/shoppingMall/shoppingMall.vue')
     },
+
+    {
+        path: '/shoppingCar',
+        name: 'shoppingCar',
+        component: () =>
+            import ('../views/shop/shoppingCart.vue')
+    },
+
+    //位置
+    {
+        path: '/position',
+        name: 'position',
+        component: () =>
+            import ('../views/position/position.vue')
+    },
     //支付成功
     {
         path: '/paymentSuccess',
@@ -272,6 +303,8 @@ const routes = [{
 ]
 
 const router = new VueRouter({
+    // mode: 'history',  //去掉url中的#
+    // base: '/dist',
     routes
 })
 
