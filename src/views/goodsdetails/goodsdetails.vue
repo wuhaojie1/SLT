@@ -147,11 +147,11 @@
             },
             getPostData(){
                 let goodsId = this.goodsmsg.goodsId;
-                let number = this.goodsmsg.number;
+                // let number = this.goodsmsg.number;
                 let productId = 0;
                 let PostData = {
                     goodsId:goodsId,
-                    number:number,
+                    // number:number,
                     productId:productId
                 }
                 return PostData

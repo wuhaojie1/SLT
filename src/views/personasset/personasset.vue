@@ -8,11 +8,11 @@
                     <div class="assets-num">1.000000BLT
                         <text class="assetsmoney">≈ 0.00BLT</text>
                     </div>
-                    <div class="assets-log">收益记录</div>
+<!--                    <div class="assets-log">收益记录</div>-->
                 </div>
                 <div class="assets-right">
-                    <div class="reduce" @click="topage('topUp')">提币</div>
-                    <div class="adds" @click="topage('withdraw')">充币</div>
+                    <div class="reduce" @click="topage('withdraw')">提币</div>
+                    <div class="adds" @click="topage('topUp')">充币</div>
                 </div>
             </div>
             <div class="assets-center-bar">
