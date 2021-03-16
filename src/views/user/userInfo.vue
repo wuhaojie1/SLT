@@ -215,7 +215,7 @@ export default {
                     }
                     this.usermsg = usermsg;
                     // this.birthdayarr = usermsg.birthday.split("-");
-                    this.localStorage.set('user', usermsg)
+                    this.localStorage.set('usermsg', usermsg)
                 }
 
             }).catch(err => {
