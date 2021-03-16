@@ -24,10 +24,14 @@
                     <div class="site-header-item">
                         <div class="text">关于我们</div>
                     </div>
-                    <div class="site-header-item" @click="topage('userInfo')">
-                        <img :src="userIcon" alt="" class="userIcon">
+                    <div class="site-header-item">
+                        <img :src="userIcon" alt="" class="userIcon" v-if="islogin" @click="topage('userInfo')">
 <!--                        <img :src="ring" alt="" class="ring">-->
 <!--                        <img :src="service" alt="" class="service">-->
+                        <div class="goin" v-else>
+                            <div class="logintext" @click="topage('login')">登录</div>
+                            <div class="regiesttext" @click="topage('regiest')">注册</div>
+                        </div>
                     </div>
                     <div class="site-header-item">
                         <div class="text">简体中文</div>
@@ -52,7 +56,12 @@ export default {
             ring: `${require('../../static/img/index/ring.png')}`,
             service: `${require('../../static/img/index/service.png')}`,
             up: `${require('../../static/img/index/up.png')}`,
+            islogin:''
         }
+    },
+    mounted() {
+        this.islogin = this.localStorage.get("isLogin");
+        console.log(this.islogin)
     },
     methods: {
         topage(name) {
@@ -111,7 +120,22 @@ export default {
                         width: 17rem;
                         height: 20rem;
                     }
-
+                    .goin{
+                        width: 100rem;
+                        height: 20rem;
+                        display: flex;
+                        justify-content: space-between;
+                        .logintext{
+                            font-size: 15rem;
+                            line-height: 20rem;
+                            color: #FFFFFF;
+                        }
+                        .regiesttext{
+                            font-size: 12rem;
+                            line-height: 20rem;
+                            color: #DBDEE4;
+                        }
+                    }
                     .ring {
                         width: 17rem;
                         height: 20rem;
