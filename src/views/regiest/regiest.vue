@@ -9,11 +9,11 @@
                 <div class="loginbox-right" :style="{ 'backgroundImage':'url('+ loginbgc +')' }">
                     <div class="user">用户注册</div>
                     <div class="username">
-                        <image class="username-img"></image>
+                        <img class="username-img" src="../../static/img/login/user.png"/>
                         <input class="username-input" type="text" v-model="mobile" placeholder="请输入您的用户名">
                     </div>
                     <div class="password">
-                        <image class="password-img"></image>
+                        <img class="password-img" src="../../static/img/login/lock.png"/>
                         <input class="password-input" type="password" v-model="password" placeholder="请输入您的密码">
                     </div>
                     <div class="getcodes">
@@ -207,12 +207,19 @@ export default {
                     opacity: 0.5;
                     border-radius: 8rem;
                     color: #FFFFFF;
-
+                    .username-img{
+                        position: absolute;
+                        width: 27rem;
+                        height: 27rem;
+                        margin-left: 20rem;
+                        margin-right: 15rem;
+                        margin-top: 16rem;
+                    }
                     .username-input {
                         width: 350rem;
                         line-height: 58rem;
                         color: #FFFFFF;
-                        padding-left: 50rem;
+                        padding-left: 62rem;
                     }
                 }
 
@@ -225,12 +232,19 @@ export default {
                     opacity: 0.5;
                     border-radius: 8rem;
                     color: #FFFFFF;
-
+                    .password-img{
+                        position: absolute;
+                        width: 27rem;
+                        height: 27rem;
+                        margin-left: 20rem;
+                        margin-right: 15rem;
+                        margin-top: 16rem;
+                    }
                     .password-input {
                         width: 350rem;
                         line-height: 58rem;
                         color: #FFFFFF;
-                        padding-left: 50rem;
+                        padding-left: 62rem;
                     }
                 }
 
@@ -246,6 +260,8 @@ export default {
                         float: left;
                         margin-top: 20rem;
                         margin-bottom: 35rem;
+                        color: #FFFFFF;
+                        text-indent: 10rem;
                     }
 
                     .getbutton {

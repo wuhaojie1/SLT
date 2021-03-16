@@ -9,11 +9,11 @@
                 <div class="loginbox-right" :style="{ 'backgroundImage':'url('+ loginbgc +')' }">
                     <div class="user">用户登录</div>
                     <div class="username">
-                        <image class="username-img"></image>
+                        <img class="username-img" src="../../static/img/login/user.png"/>
                         <input class="username-input" type="text" v-model="username" placeholder="请输入您的用户名">
                     </div>
                     <div class="password">
-                        <image class="password-img"></image>
+                        <img class="password-img" src="../../static/img/login/lock.png"/>
                         <input class="password-input" type="password" v-model="password" placeholder="请输入您的密码">
                     </div>
                     <div class="userchoice">
@@ -177,7 +177,14 @@ export default {
                     border-radius: 8rem;
                     color: #FFFFFF;
                     box-sizing: border-box;
-
+                    .username-img{
+                        position: absolute;
+                        width: 27rem;
+                        height: 27rem;
+                        margin-left: 20rem;
+                        margin-right: 15rem;
+                        margin-top: 16rem;
+                    }
                     .username-input {
                         width: 100%;
                         line-height: 58rem;
@@ -196,7 +203,14 @@ export default {
                     opacity: 0.5;
                     border-radius: 8rem;
                     color: #FFFFFF;
-
+                    .password-img{
+                        position: absolute;
+                        width: 27rem;
+                        height: 27rem;
+                        margin-left: 20rem;
+                        margin-right: 15rem;
+                        margin-top: 16rem;
+                    }
                     .password-input {
                         width: 100%;
                         line-height: 58rem;

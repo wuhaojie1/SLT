@@ -49,7 +49,8 @@
                     <div class="oprate-con"> <span>修改</span> | <span>删除</span> </div>
                 </th>
                 <th>
-                    <div :class="item.useaddress?'active':'set-adress'">默认地址</div>
+                    <div v-if="item.useaddress" class="set-adress">默认地址</div>
+                    <div v-else class="active">设为默认地址</div>
                 </th>
             </tr>
             </tbody>
@@ -179,7 +180,7 @@
                     }
                     .active{
                         margin-left: 20rem;
-                        width: 92rem;
+                        width: 122rem;
                         height: 30rem;
                         background: #FBD7D7;
                         border: 1rem solid #EF5656;

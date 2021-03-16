@@ -70,6 +70,7 @@
                 font-family: Source Han Sans CN;
                 font-weight: 400;
                 color: #444444;
+                text-indent: 10rem;
             }
         }
         .num-con{
@@ -93,6 +94,7 @@
                 font-family: Source Han Sans CN;
                 font-weight: 400;
                 color: #444444;
+                text-indent: 10rem;
             }
         }
         .face-text{
