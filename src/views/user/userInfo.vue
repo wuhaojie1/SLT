@@ -4,17 +4,17 @@
         <div class="userInfo-con">
             <div class="user-name">
                 <div class="user-name-text">用户名:</div>
-                <input type="text" :value="usermsg.nickname" class="user-name-input">
+                <input type="text" v-model="usermsg.username" class="user-name-input">
                 <div class="change">修改</div>
                 <div class="remind">用于登录用，要牢记哦~</div>
             </div>
             <div class="user-id-con">
                 <div class="user-id-text">用户ID:</div>
-                <div class="user-id">JCJDVJDS</div>
+                <div class="user-id">{{usermsg.userId}}</div>
             </div>
             <div class="userinfo-name-con">
                 <div class="userinfo-name-text">真实姓名:</div>
-                <input type="text" class="userinfo-name-input" :value="name">
+                <input type="text" class="userinfo-name-input" v-model="usermsg.realName">
             </div>
             <div class="user-sex-con">
                 <div class="user-sex-text">性别:</div>
@@ -41,7 +41,10 @@
             <div class="user-bri-con">
                 <div class="userinfo-bri-text">生日:</div>
                 <div class="set-data-con">
-                    <dataselect></dataselect>
+                    <dataselect :birthdayarr="birthdayarr"
+                                @getbirthday="getbirthday"
+                                @getbirthmonth="getbirthmonth"
+                                @getbirthyear="getbirthyear"></dataselect>
                 </div>
             </div>
             <!--            <div class="user-stu-con">-->
@@ -78,10 +81,10 @@
             <!--            </div>-->
             <div class="userinfo-snum-con">
                 <div class="userinfo-snum-text">身份证号:</div>
-                <input type="text" class="userinfo-snum-input" :value="snum">
+                <input type="text" class="userinfo-snum-input" v-model="usermsg.idcard">
             </div>
             <div class="savebutton">
-                <div class="savetext">保存</div>
+                <div class="savetext" @click="updatamsg">保存</div>
             </div>
         </div>
     </div>
@@ -95,19 +98,18 @@ export default {
     components: {dataselect},
     data() {
         return {
-            name: '王**',
-            radio: '0',
             // study:["请选择",'博士','研究生','本科','大专'],
             // perfarr:['请选择','医生','老师','CEO','经理','运营','策划'],
-            snum: '511036...',
             currentindex1: 0,
             currentindex2: 0,
             showitem1: false,
             showitem2: false,
-            usermsg: {
-                nickname: '',
-                gender: ''
-            }
+            usermsg: {},
+            birthdayarr:[],
+            year:'',
+            month:'',
+            day:'',
+            radio:''
         }
     },
     mounted() {
@@ -130,6 +132,46 @@ export default {
             this.currentindex2 = index;
             this.showitem2 = false;
         },
+        getbirthday(day){
+            this.day = day
+            console.log(this.day.value);
+            this.usermsg.birthday = this.year.value+'-'+this.month.value+'-'+this.day.value
+            console.log(this.usermsg.birthday)
+        },
+        getbirthmonth(month){
+            this.month = month
+            console.log(this.month.value);
+            this.usermsg.birthday = this.year.value+'-'+this.month.value+'-'+this.day.value
+            console.log(this.usermsg.birthday)
+        },
+        getbirthyear(year){
+            this.year = year
+            console.log(this.year.value);
+            this.usermsg.birthday = this.year.value+'-'+this.month.value+'-'+this.day.value
+            console.log(this.usermsg.birthday)
+        },
+        choosesex(){
+          this.usermsg.gender = this.radio;
+          console.log(this.usermsg.gender)
+        },
+        updatamsg(){
+            let PostData = this.getnewmsgPostdata();
+            this.axios({
+                url:'wx/user/update',
+                method:'post',
+                params:PostData
+            }).then(res=>{
+                console.log(res);
+            }).catch(err=>{
+                console.log(err);
+            })
+        },
+        getnewmsgPostdata(){
+            this.usermsg.gender = this.radio;
+            console.log(this.usermsg.gender,this.radio)
+            let PostData=this.usermsg;
+            return PostData;
+        },
         getUserInfo() {
             // let getData = {
             //     categoryId: '',
@@ -150,13 +192,13 @@ export default {
                 console.log(res);
                 let data = res.data
                 if (res.errno === 0) {
-                    this.usermsg.nickname = data.nickName;
                     this.usermsg.gender = data.gender;
-                    // console.log(this.usermsg.nickname,this.usermsg.gender)
                     this.radio = this.usermsg.gender
                     let usermsg = {
                         ...data
                     }
+                    this.usermsg = usermsg;
+                    this.birthdayarr = usermsg.birthday.split("-");
                     this.localStorage.set('user', usermsg)
                 }
 

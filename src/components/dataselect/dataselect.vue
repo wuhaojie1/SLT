@@ -3,7 +3,7 @@
         <div class="chooce-year">
             <div class="choose-type" >
                 <div>
-                    <div class="chooseitem" style="width: 100rem;"  @click="control">{{years[currentindex].value}}</div>
+                    <div class="chooseitem" style="width: 100rem;"  @click="control">{{birthdayarr.length==0?years[currentindex].value:birthdayarr[0]}}</div>
 <!--                    <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">-->
                 </div>
                 <ul v-show="showitem">
@@ -25,7 +25,7 @@
         <div class="chooce-mouth">
             <div class="choose-type" >
                 <div>
-                    <div class="chooseitem" style="width: 100rem;"  @click="control1">{{months[currentindex1].value}}</div>
+                    <div class="chooseitem" style="width: 100rem;"  @click="control1">{{birthdayarr.length==0?months[currentindex1].value:birthdayarr[1]}}</div>
                     <!--                    <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">-->
                 </div>
                 <ul v-show="showitem1">
@@ -39,7 +39,7 @@
         <div class="chooce-day">
             <div class="choose-type" >
                 <div>
-                    <div class="chooseitem" style="width: 100rem;"  @click="control2">{{days[currentindex2].value}}</div>
+                    <div class="chooseitem" style="width: 100rem;"  @click="control2">{{birthdayarr.length==0?days[currentindex2].value:birthdayarr[2]}}</div>
                     <!--                    <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">-->
                 </div>
                 <ul v-show="showitem2">
@@ -56,6 +56,10 @@
 <script>
     export default {
         props: {
+            birthdayarr:{
+                type:Array,
+                default:()=>[]
+            }
         },
         data() {
             return {
@@ -78,24 +82,29 @@
             this.yearsModel = null;
             this.monthsModel = null;
             this.daysModel = null;
+
         },
         created() {
             this.init();
+            // console.log(this.birthdayarr.length);
         },
         methods: {
             control(){
+                this.birthdayarr=[];
                 this.showitem = !this.showitem;
                 this.showitem1 = false;
                 this.showitem2 = false;
                 console.log(this.showitem);
             },
             control1(){
+                this.birthdayarr=[];
                 this.showitem1 = !this.showitem1;
                 this.showitem = false;
                 this.showitem2 = false;
                 console.log(this.showitem1);
             },
             control2(){
+                this.birthdayarr=[];
                 this.showitem2 = !this.showitem2;
                 this.showitem1 = false;
                 this.showitem = false;
@@ -105,16 +114,19 @@
                 this.showitem = false;
                 this.currentindex = index;
                 console.log(this.showitem);
+                this.$emit('getbirthyear',this.years[index])
             },
             changesize1(index){
                 this.showitem1 = false;
                 this.currentindex1 = index;
                 console.log(this.showitem);
+                this.$emit('getbirthmonth',this.months[index])
             },
             changesize2(index){
                 this.showitem2 = false;
                 this.currentindex2 = index;
                 console.log(this.showitem);
+                this.$emit('getbirthday',this.days[index])
             },
             init(){
                 var myDate = new Date;
@@ -155,28 +167,28 @@
                 }
                 this.days.unshift({value:'请选择'})
             },
-            dateChange(type){
-                //1年 2月 3日 4 左 5右
-                if(type == 1||type == 2){
-                    if(this.monthsModel == 0){
-                        this.daysModel = 0;
-                        this.initSelectDay(this.yearsModel,1);
-                    }else{
-                        this.initSelectDay(this.yearsModel,this.monthsModel);
-                    }
-                }
-                // if(type == 4){
-                //     this.dayleft();
-                // }
-                // if(type == 5){
-                //     this.dayright();
-                // }
-
-                //操作父组件方法
-                let obj ={year:this.yearsModel,month:this.monthsModel,day:this.daysModel }
-                this.$parent.dateChange(obj);
-
-            },
+            // dateChange(type){
+            //     //1年 2月 3日 4 左 5右
+            //     if(type == 1||type == 2){
+            //         if(this.monthsModel == 0){
+            //             this.daysModel = 0;
+            //             this.initSelectDay(this.yearsModel,1);
+            //         }else{
+            //             this.initSelectDay(this.yearsModel,this.monthsModel);
+            //         }
+            //     }
+            //     if(type == 4){
+            //         this.dayleft();
+            //     }
+            //     if(type == 5){
+            //         this.dayright();
+            //     }
+            //
+            //     //操作父组件方法
+            //     let obj ={year:this.yearsModel,month:this.monthsModel,day:this.daysModel }
+            //     this.$parent.dateChange(obj);
+            //
+            // },
             // dayleft(){
             //
             //     var tmpYear = this.yearsModel;
@@ -288,7 +300,7 @@
                 }
                 var new_date = new Date(new_year,new_month,1);//取当年当月中的第一天
                 return (new Date(new_date.getTime()-1000*60*60*24)).getDate();//获取当月最后一天日期
-            }
+            },
         }
     }
 </script>
