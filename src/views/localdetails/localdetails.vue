@@ -3,7 +3,7 @@
         <themeStickyHeader></themeStickyHeader>
         <div class="bar">
             <img class="backbtn" src="" alt="">
-            <div class="bartext">小说详情</div>
+            <div class="bartext">小说{{$t('positionDetail.detail')}}</div>
         </div>
         <div class="con">
             <div class="in-con">
@@ -14,31 +14,31 @@
                     <div class="goods_name">小说</div>
                 </div>
                 <div class="con-right">
-                    <div class="local-name">小说位置类</div>
+                    <div class="local-name">小说类{{$t('positionDetail.position')}}</div>
                     <div class="charge-con">
-                        <div class="charge-text">价格</div>
+                        <div class="charge-text">{{$t('positionDetail.price')}}</div>
                         <div class="charge-num">￥1200</div>
                     </div>
                     <div class="income-con">
-                        <div class="income-text1">收益</div>
+                        <div class="income-text1">{{$t('positionDetail.get')}}</div>
                         <div class="income-text2">有货，每个位置平均收入在100%</div>
                     </div>
                     <div class="seal-local">
-                        <div class="seal-local-text">卖出位置</div>
+                        <div class="seal-local-text">{{$t('positionDetail.sell')}}</div>
                         <div class="seal-num">
-                            <div class="seal-num-text">数量: 10</div>
+                            <div class="seal-num-text">{{$t('positionDetail.num')}}: 10</div>
                         </div>
                     </div>
                     <div class="residue-local">
-                        <div class="residue-local-text">剩余空位</div>
+                        <div class="residue-local-text">{{$t('positionDetail.remain')}}</div>
                         <div class="residue-num">
-                            <div class="residue-num-text">数量: 10</div>
+                            <div class="residue-num-text">{{$t('positionDetail.num')}}: 10</div>
                         </div>
                     </div>
                     <div class="line"></div>
                     <div class="buy-con">
                         <input class="buy-num" type="num" onautocomplete="true"/>
-                        <div class="buy-btn">购买</div>
+                        <div class="buy-btn">{{$t('positionDetail.buy')}}</div>
                     </div>
                 </div>
             </div>
