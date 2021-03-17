@@ -7,26 +7,26 @@
                 <div class="goback">
                     <router-link to="confirmOrder">
                         <img src="" alt="">
-                        <div class="goback-text">返回</div>
+                        <div class="goback-text">{{$t('cancleorder.back')}}</div>
                     </router-link>
                 </div>
             </div>
             <div class="cancle-con">
                 <div class="cancle">
                     <img class="cancle-big" src="../../static/img/cancleorder/big.png" alt="">
-                    <div class="cancle-text">订单取消</div>
+                    <div class="cancle-text">{{$t('cancleorder.cancleorder')}}</div>
                     <div class="cancle-slider">
                         <div class="cancle-slider-small-con">
                             <img class="cancle-slider-small" src="../../static/img/cancleorder/small.png" alt="">
                         </div>
-                        <div class="colse-order">关闭接单</div>
+                        <div class="colse-order">{{$t('cancleorder.closeorder')}}</div>
                     </div>
                 </div>
-                <div class="text-two">如有疑问请向客服申诉</div>
+                <div class="text-two">{{$t('cancleorder.complaintext1')}}</div>
                 <div class="line"></div>
                 <div class="item-con">
                     <div class="order-head">
-                        <div class="order-details-text">订单详情</div>
+                        <div class="order-details-text">{{$t('cancleorder.orderdetails')}}</div>
                         <img class="arrow" src="../../static/img/cancleorder/uparrow.png" alt="">
                     </div>
                     <div v-for="item in textlist" :key="item.index">
@@ -37,20 +37,18 @@
                 <div class="bottom-con">
                     <div class="bottom-first">
                         <div class="dot"></div>
-                        <div class="bottom-first-text">若您已经转账，由于未确认付款系统自动取消订单，
-                            您可以在聊天界面与对方进行沟通;</div>
+                        <div class="bottom-first-text">{{$t('cancleorder.remindmsg1')}}</div>
                     </div>
                     <div class="bottom-second">
                         <div class="dot"></div>
-                        <div class="bottom-first-text">[主动取消]或[超时]自动取消3次，或恶意取消达-次，
-                            当天禁止交易:由于卖家未提供有效收款方式 导致订单取消，可向客服申诉，重新判责</div>
+                        <div class="bottom-first-text">{{$t('cancleorder.remindmsg2')}}</div>
                     </div>
                     <div class="bottom-third">
                         <div class="dot"></div>
-                        <div class="bottom-first-text">当月累计6次，自第7次开始，每取消1次，禁止交易2小时。</div>
+                        <div class="bottom-first-text">{{$t('cancleorder.remindmsg3')}}</div>
                     </div>
                 </div>
-                <div class="complain">向客户申诉</div>
+                <div class="complain">{{$t('cancleorder.complaintext2')}}</div>
             </div>
         </div>
     </div>

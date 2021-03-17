@@ -7,23 +7,23 @@
                              direction="vertical"
                              :autoplay="true"
                              :loop="true"
-                             interval=2000
+                             :interval='2000'
                              indicator-position="none">
-                    <el-carousel-item v-for="item in scoolerimgarr" :key="item">
+                    <el-carousel-item v-for="(item,index) in goodsDetail.info.gallery" :key="index+Math.random()">
                         <h3 class="medium">
-                            <img style="height: 369rem;width: 446rem" :src="item.img" alt="">
+                            <img style="height: 369rem;width: 446rem" :src="item" alt="">
                         </h3>
                     </el-carousel-item>
                 </el-carousel>
             </div>
             <div class="goodsmsg-con">
                 <div class="goods-name">
-                    <div class="goods-name-text">北欧简约多色铁艺灯具</div>
+                    <div class="goods-name-text">{{goodsDetail.info.name}}</div>
                     <img class="love" src="../../static/img/goodsdetails/like.png" alt="">
                 </div>
-                <div class="goods-charge">￥4200</div>
+                <div class="goods-charge">￥{{goodsDetail.info.retailPrice}}</div>
                 <div class="line"></div>
-                <div class="goods-num">款号652000 0XJDBM 9095</div>
+                <div class="goods-num">款号{{goodsDetail.info.goodsSn}}</div>
                 <div class="goods-attr">
                     <div class="goods-attr-item1">
                         <div class="goods-attr-img-con">
@@ -49,9 +49,9 @@
                             <img class="arrow-down" src="../../static/img/goodsdetails/arrow-down.png" alt="">
                         </div>
                         <ul v-if="showitem">
-                            <li v-for="(item,index) in sizearr"
+                            <li v-for="(item,index) in goodsDetail.specificationList"
                                 :key="index"
-                                @click="changesize(index)">{{item}}</li>
+                                @click="changesize(index)">{{item.name}}</li>
                         </ul>
                     </div>
                     <div class="look-all-type" @click="control">尺码表</div>
@@ -120,8 +120,12 @@
                     goodsId:0,
                     number:0,
                     productId:0,
-                }
+                },
+                goodsDetail:{}
             }
+        },
+        mounted(){
+            this.getGoodsDetail();
         },
         methods:{
             control(){
@@ -155,6 +159,23 @@
                     productId:productId
                 }
                 return PostData
+            },
+            getGoodsDetail(){
+                this.axios({
+                    url:'wx/goods/detail',
+                    method:'get',
+                    params:{
+                        id:1152008
+                    }
+                }).then((res)=>{
+                    console.log(res);
+                    if(res.errno == 0){
+                        this.goodsDetail = res.data
+                    }
+                    console.log(this.goodsDetail);
+                }).catch((e)=>{
+                    console.log(e);
+                })
             }
         }
     }

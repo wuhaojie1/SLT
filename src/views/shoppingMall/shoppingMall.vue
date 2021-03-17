@@ -219,7 +219,7 @@ export default {
                 let data = res.data
                 if (res.errno === 0) {
                     // console.log(data.total)
-                    this.goodsTotal = data.total;
+                    this.goodsTotal = data.total;//user/userInfo
                     let tempArray = [];
                     for(let i=0;i<data.list.length;i+=4){
                         tempArray.push(data.list.slice(i,i+4));

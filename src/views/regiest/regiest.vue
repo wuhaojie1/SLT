@@ -4,23 +4,23 @@
             <div class="loginbox">
                 <div class="loginbox-left">
                     <div class="left-text-top">S L T coin</div>
-                    <div class="left-text-down">SLTcoin 团队欢迎任何代购币购买或者业务查询。</div>
+                    <div class="left-text-down">SLTcoin {{$t('regiest.welcome')}}</div>
                 </div>
                 <div class="loginbox-right" :style="{ 'backgroundImage':'url('+ loginbgc +')' }">
-                    <div class="user">用户注册</div>
+                    <div class="user">{{$t('regiest.userres')}}</div>
                     <div class="username">
                         <img class="username-img" src="../../static/img/login/user.png"/>
-                        <input class="username-input" type="text" v-model="mobile" placeholder="请输入您的用户名">
+                        <input class="username-input" type="text" v-model="mobile" :placeholder="$t('regiest.username')">
                     </div>
                     <div class="password">
                         <img class="password-img" src="../../static/img/login/lock.png"/>
-                        <input class="password-input" type="password" v-model="password" placeholder="请输入您的密码">
+                        <input class="password-input" type="password" v-model="password" :placeholder="$t('regiest.userpsw')">
                     </div>
                     <div class="getcodes">
                         <input type="text" v-model="code" class="numcontent">
-                        <div class="getbutton" @click="getCode">获取验证码</div>
+                        <div class="getbutton" @click="getCode">{{$t('regiest.get')}}</div>
                     </div>
-                    <div class="loginbutton" @click="register">注册</div>
+                    <div class="loginbutton" @click="register">{{$t('regiest.regiest')}}</div>
                 </div>
             </div>
         </div>

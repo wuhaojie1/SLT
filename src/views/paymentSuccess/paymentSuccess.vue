@@ -4,15 +4,15 @@
         <div class="paymentBox">
             <div class="paymentText">
                 <img style="width:8rem;height:14rem" src="../../static/img/paymentSuccess/arrowleft.png" alt="">
-                <span>支付成功</span>
+                <span>{{$t('paymentSuccess.success')}}</span>
             </div>
             <div class="check">
                 <div class="checkLeft">
                     <img style="width:47rem;height:39rem;" src="../../static/img/paymentSuccess/check.png" alt="">
                 </div>
                 <div class="checkRight">
-                    <div>支付成功!</div>
-                    <div>感谢您的购买</div>
+                    <div>{{$t('paymentSuccess.success')}}!</div>
+                    <div>{{$t('paymentSuccess.thank')}}</div>
                 </div>
             </div>
             <div class="detail">
@@ -31,30 +31,30 @@
                     </div>
                     <ul class="option">
                         <li>
-                            <div class="optLeft">订单号</div>
+                            <div class="optLeft">{{$t('paymentSuccess.order')}}</div>
                             <div class="optRight">210308165719943 </div>
                         </li>
                         <li>
-                            <div class="optLeft">支付方式</div>
+                            <div class="optLeft">{{$t('paymentSuccess.model')}}</div>
                             <div class="optRight"> <img style="width:18rem;height:18rem" src="../../static/img/paymentSuccess/money.png" alt=""> <span>SLT</span></div>
                         </li>
                         <li>
-                            <div class="optLeft">手续费</div>
+                            <div class="optLeft">{{$t('paymentSuccess.handfee')}}</div>
                             <div class="optRight">0.00 ETH</div>
                         </li>
                         <li>
-                            <div class="optLeft">成交单价</div>
+                            <div class="optLeft">{{$t('paymentSuccess.unitprice')}}</div>
                             <div class="optRight">326,252.232 ETH </div>
                         </li>
                         <li>
-                            <div class="optLeft">成交数量</div>
+                            <div class="optLeft">{{$t('paymentSuccess.num')}}</div>
                             <div class="optRight">0.000100 SLT</div>
                         </li>
                     </ul>
                     <div class="cell2"></div>
                     <div class="btnBox">
-                        <div class="btnLeft">查看订单</div>
-                        <div class="btnRight">返回首页</div>
+                        <div class="btnLeft">{{$t('paymentSuccess.checkorder')}}</div>
+                        <div class="btnRight">{{$t('paymentSuccess.returnHome')}}</div>
                     </div>
                 </div>
             </div>
