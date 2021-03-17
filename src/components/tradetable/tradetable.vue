@@ -4,15 +4,30 @@
             <thead>
                 <tr>
                     <th>
-                        <div class="man">{{$t('personasset.moneytype')}}</div>
+                        <div class="man">{{$t('personasset.tableHeader')[0]}}</div>
                     </th>
                     <th>
-                        <div class="local">{{$t('personasset.num')}}</div>
+                        <div>{{$t('personasset.tableHeader')[1]}}</div>
                     </th>
-                    <th>
+                    <!-- <th>
                         <div class="adress">{{$t('personasset.amount')}}</div>
+                    </th> -->
+                    <th>
+                        <div>{{$t('personasset.tableHeader')[2]}}</div>
                     </th>
                     <th>
+                        <div>{{$t('personasset.tableHeader')[3]}}</div>
+                    </th>
+                    <th>
+                        <div >{{$t('personasset.tableHeader')[4]}}</div>
+                    </th>
+                    <th>
+                        <div >{{$t('personasset.tableHeader')[5]}}</div>
+                    </th>
+                    <th>
+                        <div >{{$t('personasset.tableHeader')[6]}}</div>
+                    </th>
+                    <!-- <th>
                         <div class="price">{{$t('personasset.charge')}}</div>
                     </th>
                     <th>
@@ -23,7 +38,7 @@
                     </th>
                     <th>
                         <div class="setadress">{{$t('personasset.usermoney')}}</div>
-                    </th>
+                    </th> -->
                 </tr>
             </thead>
             <tbody>
@@ -32,25 +47,37 @@
                         <div class="man">{{item.cointypetext}}</div>
                     </th>
                     <th>
-                        <div class="local">{{item.num}}</div>
+                        <div >{{item.num}}</div>
                     </th>
                     <th>
-                        <div class="adress">{{item.allmoney}}</div>
+                        <div >{{item.allmoney}}</div>
                     </th>
                     <th>
-                        <div class="price">{{item.charge}}</div>
+                        <div >{{item.charge}}</div>
                     </th>
-                    <th>
+                     <th>
+                        <div >{{item.charge}}</div>
+                    </th>
+                     <th>
+                        <div >{{item.charge}}</div>
+                    </th>
+                     <th>
+                        <div class="options">
+                            <span class="in">{{$t('personasset.in')}}</span>
+                            <span class="out">{{$t('personasset.out')}}</span>
+                        </div>
+                    </th>
+                    <!-- <th>
                         <div class="phone">
                             <div :class="item.cointype=='ETH'?'paycoinETH':'paycoinSLT'">{{item.cointype}}</div>
                         </div>
-                    </th>
-                    <th>
+                    </th> -->
+                    <!-- <th>
                         <div :class="item.in?'opratein':'oprateout'">{{item.tradetype}}</div>
-                    </th>
-                    <th>
+                    </th> -->
+                    <!-- <th>
                         <div class="setadress">{{item.expense}}</div>
-                    </th>
+                    </th> -->
                 </tr>
             </tbody>
         </table>
@@ -97,6 +124,9 @@
                         line-height: 42rem;
                         width: 147rem;
                     }
+                    div{
+                        width: 150rem; 
+                    }
                     .local{
                         /*margin-left: 20rem;*/
                         line-height: 42rem;
@@ -127,6 +157,7 @@
                         line-height: 42rem;
                         margin-right: 34rem;
                     }
+                    
                 }
             }
         }
@@ -163,6 +194,21 @@
                         /*margin-left: 20rem;*/
                         line-height: 42rem;
                         width: 178rem;
+                    }
+                    .options{
+                        span{
+                            font-size: 14rem;
+                            margin-right: 20rem;
+                            cursor: pointer;
+                        }
+                        .in{
+                           color: #EF5656;
+                        }
+                        .out{
+                           
+                           color: #00B9FE; 
+                        }
+                        
                     }
                     .phone{
                         /*margin-left: 20rem;*/

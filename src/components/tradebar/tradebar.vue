@@ -2,10 +2,10 @@
     <div>
         <div class="selectbar">
             <div class="selectbar-con">
-                <div class="selectbar-item" @click="gocurrency1('freeTrade')" :style="this.currency1?{color:'#FFFFFF'}:''">自选交易
+                <div class="selectbar-item" @click="gocurrency1('freeTrade')" :style="this.currency1?{color:'#FFFFFF'}:''">{{ $t('otcTrade.tabBar')[0] }}
                     <div class="active-item" v-if="this.currency1"></div>
                 </div>
-                <div class="selectbar-item" @click="gocurrency2('deal')" :style="this.currency2?{color:'#FFFFFF'}:''">一键买卖
+                <div class="selectbar-item" @click="gocurrency2('deal')" :style="this.currency2?{color:'#FFFFFF'}:''">{{ $t('otcTrade.tabBar')[1] }}
                     <div class="active-item" v-if="this.currency2"></div>
                 </div>
             </div>

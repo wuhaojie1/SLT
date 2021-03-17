@@ -2,11 +2,11 @@
     <div class="classify">
         <div class="classify-wrap">
             <div class="classify-title">
-                <div class="text">分类</div>
+                <div class="text">{{$t('shop.classify')}}</div>
             </div>
             <div class="classify-filter">
                 <div class="classify-filter-title">
-                    <div class="text">按下列条件筛选</div>
+                    <div class="text">{{$t('shop.classifyTip')}}</div>
                 </div>
                 <div class="classify-filter-list">
                     <div class="classify-filter-item"

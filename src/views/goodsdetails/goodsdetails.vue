@@ -23,7 +23,7 @@
                 </div>
                 <div class="goods-charge">￥{{goodsDetail.info.retailPrice}}</div>
                 <div class="line"></div>
-                <div class="goods-num">款号{{goodsDetail.info.goodsSn}}</div>
+                <div class="goods-num">{{$t('goodsdetails.goodsId')}} {{goodsDetail.info.goodsSn}}</div>
                 <div class="goods-attr">
                     <div class="goods-attr-item1">
                         <div class="goods-attr-img-con">
@@ -39,10 +39,10 @@
                     </div>
                 </div>
                 <div class="goods-theme">
-                    <div class="goods-color"></div>
+                    <!-- <div class="goods-color"></div> -->
                     <div class="goods-color-text">雾霾蓝</div>
                 </div>
-                <div class="choose-type-con">
+                <!-- <div class="choose-type-con">
                     <div class="choose-type">
                         <div @click="control">
                             <div class="chooseitem">{{sizearr[currentindex]}}</div>
@@ -55,11 +55,11 @@
                         </ul>
                     </div>
                     <div class="look-all-type" @click="control">尺码表</div>
-                </div>
+                </div> -->
                 <router-link to="shoppingCar">
-                    <div class="shopcar" @click="addgoods">加入购物车</div>
+                    <div class="shopcar" @click="addgoods">{{$t('goodsdetails.shopcar')}}</div>
                 </router-link>
-                <div class="question">
+                <!-- <div class="question">
                     <div class="online">
                         <img class="online-img" src="../../static/img/goodsdetails/local.png" alt="">
                         <div class="online-text">在线顾问</div>
@@ -85,7 +85,7 @@
                     <img class="location" style="width: 9rem;height: 12rem;" src="../../static/img/goodsdetails/local.png" alt="">
                     <div class="setaddress-text">查找有货直营店</div>
                     <div class="free-text">选择标准配送，免运费</div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

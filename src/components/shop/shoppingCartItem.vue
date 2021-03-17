@@ -5,16 +5,17 @@
         <div class="goodsItemCenter">
             <div class="goodsItemCenter_top">
                 <div class="p p1">{{goodsitem.goodsname}}</div>
-                <div class="p p2">{{goodsitem.goodsmsg}}</div>
-                <div class="p p3">{{goodsitem.goodstype}}</div>
+                <div class="p p2">{{$t('shopcar.goodsId')}} {{goodsitem.goodsmsg}}</div>
+                <div class="p p3">{{$t('shopcar.goodsStyle')}} {{goodsitem.goodstype}}</div>
             </div>
-            <div class="text text4">{{goodsitem.havegoods}}</div>
-            <div class="text text5">预计发货后2-4个工作日送达</div>
-            <div class="btn text text6" @click="del">删除</div>
+            <div class="text text4" v-if="goodsitem.havegoods">{{$t('shopcar.inStock')}}</div>
+            <div class="text text4" v-else>{{$t('shopcar.outStock')}}</div>
+            <div class="text text5">{{$t('shopcar.date')}}</div>
+            <div class="btn text text6" @click="del">{{$t('shopcar.delete')}}</div>
         </div>
         <!-- <div class="goodsItemRight"> -->
         <div class="goodsItemRight_Num">
-            <div class="lable">数量：</div>
+            <div class="lable">{{$t('shopcar.num')}}：</div>
             <input type="number" min="1" :value="goodsitem.num"/>
         </div>
         <div class="countPrice">￥ 4,200</div>

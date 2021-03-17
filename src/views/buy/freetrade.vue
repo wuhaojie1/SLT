@@ -2,24 +2,24 @@
     <div class="freetrade">
         <div class="freetrade-wrap">
             <div class="freetrade-wrap-title">
-                <div class="buy" :class="active?'active':''" @click="changeactive(true)">购买</div>
+                <div class="buy" :class="active?'active':''" @click="changeactive(true)">{{ $t('otcTrade.buy') }}</div>
                 <div class="rightafter"></div>
-                <div class="sell" :class="!active?'redActive ':''" @click="changeactive(false)">出售</div>
+                <div class="sell" :class="!active?'redActive ':''" @click="changeactive(false)">{{ $t('otcTrade.sell') }}</div>
             </div>
             <div class="freetrade-wrap-buy" v-if="active">
                 <div class="buy-title">
                     <div class="left">
-                        <div class="text">自选交易</div>
-                        <div class="tip">更多选择，自由交易</div>
+                        <div class="text">{{ $t('otcTrade.title') }}</div>
+                        <div class="tip">{{ $t('otcTrade.subTitle') }}</div>
                     </div>
-                    <div class="right">
+                    <!-- <div class="right">
                         <div class="searchBox">
                             <input type="text" placeholder="请输入购买总金额" class="inputBox">
                             <div class="line"></div>
                             <div class="btn">确定</div>
                             <div class="text">ETH</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="table">
                     <Table :businessType="active"
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="freetrade-wrap-sell" v-if="!active">
-                <div class="chooseType">
+                <!-- <div class="chooseType">
                     <div class="coinType-list">
                         <div class="coinType-item"
                              v-for="(item, index) in coinList"
@@ -37,23 +37,21 @@
                              :key="index">
                             {{item.text}}
                         </div>
-                        <!--<div class="coinType-item">TRX</div>
-                        <div class="coinType-item">ETH</div>-->
                     </div>
-                </div>
+                </div> -->
                 <div class="sell-title">
                     <div class="left">
-                        <div class="text">自选交易</div>
-                        <div class="tip">更多选择，自由交易</div>
+                        <div class="text">{{ $t('otcTrade.title') }}</div>
+                        <div class="tip">{{ $t('otcTrade.subTitle') }}</div>
                     </div>
-                    <div class="right">
+                    <!-- <div class="right">
                         <div class="searchBox">
                             <input type="text" placeholder="请输入购买总金额" class="inputBox">
                             <div class="line"></div>
                             <div class="btn">确定</div>
                             <div class="text">ETH</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="table">
                     <Table :businessType="active"

@@ -5,8 +5,8 @@
             <div class="topUp-wrap-nav">
                 <div class="nav-content">
                     <div class="text">
-                        <img src="" alt="" class="back">
-                        <div>充币</div>
+                        <!-- <img src="" alt="" class="back"> -->
+                        <div>{{$t('wallet.charge')}}</div>
                     </div>
                 </div>
             </div>
@@ -14,16 +14,16 @@
                 <div class="topUp-content-title">
                     <div class="box">
                         <div class="imgBox">
-                            <img src="" class="img" alt="">
+                            <!-- <img src="" class="img" alt=""> -->
                         </div>
                         <div class="text">
-                            BTC<span>Bitcoin</span>
+                            SLT<span>Bitcoin</span>
                         </div>
                     </div>
                 </div>
                 <div class="topUp-content-wrap">
                     <div class="topUp-content-wrap-title">
-                        链名称
+                        {{$t('wallet.chinaName')}}
                     </div>
                     <div class="linkList">
                         <div class="linkList-item"
@@ -36,7 +36,7 @@
                         <div class="linkList-item">HEOC</div>-->
                     </div>
                     <div class="address-title">
-                        充币地址
+                        {{$t('wallet.chargeAddress')}}
                     </div>
                     <div class="address-content">
                         <div class="addrBox">
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="addr-text">TFBpBaswdZnyZewS9zTimjtGpb11rhhLx</div>
                             </div>
-                            <div class="copy">复制地址</div>
+                            <div class="copy">{{$t('wallet.copyAddress')}}</div>
                         </div>
                         <div class="QRCode">
                             <VueQr :text="config.value"
@@ -56,28 +56,26 @@
                             </VueQr>
                         </div>
                         <div class="tip">
-                            <img src="" alt="" class="img">
-                            <div class="text">
+                            <!-- <img src="" alt="" class="img"> -->
+                            <!-- <div class="text">
                                 使用USDT-TRC20地址充值需要1个网络确认才能到账，1个
                                 网络确认后才能提币。
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="btn-box">
                         <div class="btn">
-                            确认
+                            {{$t('wallet.confirm')}}
                         </div>
                     </div>
                     <!--<div class="line"></div>-->
                     <div class="tipText">
                         <ul>
-                            <li>.最小提币数量为: 0.001 BTC.</li>
-                            <li>.为保障资金安全，当您账户安全策略变更、密码修改、我们会对提币进行人工审核，请耐心等待工作人员电话或邮
-                                件联系。
+                            <li>.{{$t('wallet.chargeTipArray')[0]}} 0.001 SLT。</li>
+                            <li>.{{$t('wallet.chargeTipArray')[1]}}
                             </li>
-                            <li>.请务必确认电脑及浏览器安全，防止信息被篆改或泄露。</li>
-                            <li>.您所提的数字资产为- -币多链资产，无论您选择从哪个链上提出，均意味着您所拥有的该提币页面展示的数字资产
-                                总量减少相应的提出数量。
+                            <li>.{{$t('wallet.chargeTipArray')[2]}}</li>
+                            <li>.{{$t('wallet.chargeTipArray')[3]}}
                             </li>
                         </ul>
                     </div>

@@ -6,7 +6,7 @@
         </div>
         <div class="header-title">
             <div class="text">提现</div>
-            <div class="balance">可提额度：0.10000000</div>
+            <!-- <div class="balance">可提额度：0.10000000</div> -->
         </div>
         <!--<ThemeStickyHeader></ThemeStickyHeader>-->
         <div class="topUp-wrap">

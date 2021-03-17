@@ -56,7 +56,8 @@ export default {
         charge: '单价',
         tredetype: '支付方式',
         moneycomes: '货币来源',
-        usermoney: '手续费'
+        usermoney: '手续费',
+        tableHeader:['币种','数量','冻结','可用','单价','总额','操作']
 
     },
     //一键购买
@@ -78,6 +79,7 @@ export default {
     },
     //订单详情
     orderdetails: {
+        status:['待支付','交易成功','交易失败'],
         waitpay: '待支付',
         opentrade: '开启接单',
         cancleorderauto: '内未付款，将自动取消订单',
@@ -94,7 +96,8 @@ export default {
         remindmsg2: '您需要根据对方的收款方式通过微信/支付宝/银行卡等平台转账给对方，请认真核对对方的收款信息;转账时请勿备注任何信息，以免您的第三方账户被冻结;',
         cancelorder: '取消订单',
         confirmtext: '确认支付',
-        connect: '联系在线客服'
+        connect: '联系在线客服',
+        tip:'如有疑问请向客服申诉'
     },
     //取消订单
     cancleorder: {
@@ -123,7 +126,26 @@ export default {
         text: '说明',
         text1: '在线支付订单提交之后15分钟内未付款，订单将被系统自动取消，请您尽快完成支付以确保商品能及时送达,有货商品和门店配货商品是分开寄出。',
         gopay: '立即结算',
-        goon: '继续购物'
+        goon: '继续购物',
+        inStock:'有货',
+        outStock:'暂时缺货',
+        goodsId:'款号',
+        goodsStyle:'款式',
+        delete:'删除',
+        date:'预计发货后2-4个工作日送达',
+        num:'数量'
+
+        
+    },
+    //商品详细
+    goodsdetails:{
+        shopcar: '加入购物车',
+        goodsId:'款号',
+    },
+    //商城
+    shop:{
+        classify:'分类' ,
+        classifyTip:'按下列条件筛选' ,
     },
     login:{
         welcome:'团队欢迎任何代购币购买或者业务查询。',
@@ -312,5 +334,44 @@ export default {
         num: '成交数量',
         checkorder: '查看订单',
         returnHome: '返回首页'
+    },
+    //OTC
+    otcTrade:{
+        tabBar:['自选交易','一键买卖'],
+        buy:'购买',
+        sell:'出售',
+        title:'自选交易',
+        subTitle:'更多选择，自由交易',
+        tableHeader:['广告方','数量','限额','单价','支付方式','交易','手续费'],
+        auth:'需实名认证'
+    },
+    //钱包 提币、充币wallet
+    wallet:{
+        charge:'充币',
+        chinaName:'链名称',
+        chargeAddress:'充币地址',
+        copyAddress:'复制地址',
+        confirm:'确认',
+        chargeTipArray:[
+            '最小充币数量为:',
+            '为保障资金安全，当您账户安全策略变更、密码修改、我们会进行人工审核，请耐心等待工作人员电话或邮件联系。',
+            '请务必确认电脑及浏览器安全，防止信息被篆改或泄露。',
+            '您所提的数字资产为- -币多链资产，无论您选择从哪个链上提出，均意味着您所拥有的该提币页面展示的数字资产总量减少相应的提出数量。'
+        ],
+        withdraw:'提币',
+        available:'可用',
+        withdrawAddress:'提币地址',
+        num:'提币数量',
+        all:'全部',
+        serviceCharge:'手续费',
+        tip:'您的提币操作-旦完成， 对应的资产所有权将由您变更为目标地址所对应的账户所有人享有，请您务必在提币操作前，仔细核对提币地址信息，确保提币属于自愿行为，并确认不涉及任何传销、非法集资、诈骗等违法情形，谨防上当受骗，避免造成不必要的财产损失。',
+        withdrawTipArray:[
+            '最小提币数量为:',
+            '为保障资金安全，当您账户安全策略变更、密码修改、我们会进行人工审核，请耐心等待工作人员电话或邮件联系。',
+            '请务必确认电脑及浏览器安全，防止信息被篆改或泄露。',
+            '您所提的数字资产为- -币多链资产，无论您选择从哪个链上提出，均意味着您所拥有的该提币页面展示的数字资产总量减少相应的提出数量。'
+        ],
+        received:'到账数量'
+
     }
 }

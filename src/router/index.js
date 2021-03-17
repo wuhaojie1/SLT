@@ -79,6 +79,13 @@ const routes = [{
 
         ]
     },
+    //orderDetail
+    {
+        path: '/orderDetail',
+        name: 'orderDetail',
+        component: () =>
+            import ('../views/buy/orderDetail.vue')
+    },
     {
         path: '/shoppingCart',
         name: 'shoppingCart',

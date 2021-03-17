@@ -30,9 +30,9 @@
                 <div class="trade-con-two">
                     <div class="trade-con-two-text">
                         {{$t('personasset.accout')}}
-                        <img class="icon-img" src="../../static/img/personasset/icon.png" alt="">
+                        <!-- <img class="icon-img" src="../../static/img/personasset/icon.png" alt=""> -->
                     </div>
-                    <selectitem :typearr="typearr" class="trade-type"></selectitem>
+                    <!-- <selectitem :typearr="typearr" class="trade-type"></selectitem> -->
                 </div>
                 <tradetable :tradelist="tradelist"></tradetable>
             </div>
@@ -45,10 +45,10 @@
     import ThemeStickyHeader from "../../components/header/themeStickyHeader";
     import bottom from "../../components/bottom/bottom";
     import tradetable from "../../components/tradetable/tradetable";
-    import selectitem from "../../components/select-item/selectitem";
+    // import selectitem from "../../components/select-item/selectitem";
     export default {
         name: "personasset",
-        components: {ThemeStickyHeader, bottom ,tradetable ,selectitem},
+        components: {ThemeStickyHeader, bottom ,tradetable },
         data() {
             return {
                 typearr:[],
@@ -73,16 +73,16 @@
                         expense:'0.03%',
                         in:false
                     },
-                    {
-                        cointypetext:'SLT',
-                        num:'10000',
-                        allmoney:'10000',
-                        charge:'0.03',
-                        cointype:'SLT',
-                        tradetype:'接单',
-                        expense:'0.03%',
-                        in:true
-                    }
+                    // {
+                    //     cointypetext:'SLT',
+                    //     num:'10000',
+                    //     allmoney:'10000',
+                    //     charge:'0.03',
+                    //     cointype:'SLT',
+                    //     tradetype:'接单',
+                    //     expense:'0.03%',
+                    //     in:true
+                    // }
                 ]
             }
         },

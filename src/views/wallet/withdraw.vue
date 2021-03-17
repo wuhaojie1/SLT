@@ -6,13 +6,13 @@
                 <div class="nav-content">
                     <div class="text">
                         <div class="left">
-                            <img src="" alt="" class="back">
-                            <div>提币</div>
+                            <!-- <img src="" alt="" class="back"> -->
+                            <div>{{$t('wallet.withdraw')}}</div>
                         </div>
                         <div class="right">
-                            <div class="right-content">24H累计提币额度：1,00000000 BTC</div>
-                            <div class="right-content">剩余额度：1,00000000 BTC</div>
-                            <div class="line"></div>
+                            <!-- <div class="right-content">24H累计提币额度：1,00000000 SLT</div>
+                            <div class="right-content">剩余额度：1,00000000 SLT</div> -->
+                            <!-- <div class="line"></div> -->
 <!--                            <div class="right-content">提币地址管理</div>-->
                         </div>
                     </div>
@@ -23,28 +23,28 @@
                     <div class="box">
                         <div class="box-left">
                             <div class="imgBox">
-                                <img src="" class="img" alt="">
+                                <!-- <img src="" class="img" alt=""> -->
                             </div>
                             <div class="text">
-                                BTC<span>Bitcoin</span>
+                                SLT<span></span>
                             </div>
                         </div>
 
                         <div class="line"></div>
 
                         <div class="amount-content">
-                            <div class="usable">可用：<span>0.00000000</span></div>
-                            <div class="withdraw">可提额度：<span>0.10000000</span></div>
+                            <div class="usable">{{$t('wallet.available')}}：<span>0.00000000</span></div>
+                            <!-- <div class="withdraw">可提额度：<span>0.10000000</span></div>
                             <div class="apply">
                                 <img src="" alt="" class="img">
                                 <div class="text">申请提额</div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
                 <div class="topUp-content-wrap">
                     <div class="topUp-content-wrap-title">
-                        链名称
+                        {{$t('wallet.chinaName')}}
                     </div>
                     <div class="linkList">
                         <div class="linkList-item"
@@ -59,8 +59,8 @@
 
                     <div class="withdraw-addr">
                         <div class="withdraw-addr-title">
-                            <div class="text">提币地址</div>
-                            <div class="text">推荐使用<span>SLT</span>钱包 提币BTC</div>
+                            <div class="text">{{$t('wallet.withdrawAddress')}}</div>
+                            <!-- <div class="text">推荐使用<span>SLT</span>钱包 提币SLT</div> -->
                         </div>
                         <div class="withdraw-input">
                             <input type="text" class="input">
@@ -68,32 +68,32 @@
                     </div>
                     <div class="withdraw-number">
                         <div class="number">
-                            <div class="number-title">提币数量</div>
+                            <div class="number-title">{{$t('wallet.num')}}</div>
                             <div class="number-input">
                                 <input type="text" class="input">
 
                                 <div class="input-tip">
                                     <div class="text">BLC</div>
                                     <div class="input-line"></div>
-                                    <div class="all">全部</div>
+                                    <div class="all">{{$t('wallet.all')}}</div>
                                 </div>
                             </div>
                         </div>
                         <div class="fee">
-                            <div class="fee-title">手续费</div>
+                            <div class="fee-title">{{$t('wallet.serviceCharge')}}</div>
                             <div class="fee-input">
                                 <input type="text" class="input">
                             </div>
                         </div>
                     </div>
                     <div class="balance">
-                        可用：0.00000000BTC
+                        {{$t('wallet.available')}}：0.00000000SLT
                     </div>
-                    <div class="arrival">到账数量（BTC）<span>0.00000000</span></div>
+                    <div class="arrival">{{$t('wallet.received')}}（SLT）<span>0.00000000</span></div>
 
                     <div class="btn-box">
                         <div class="btn">
-                            提币
+                            {{$t('wallet.withdraw')}}
                         </div>
                     </div>
 
@@ -101,19 +101,15 @@
                         <div class="warn">
                             <img src="" class="warn-img" alt="">
                             <div class="warn-text">
-                                您的提币操作-旦完成， 对应的资产所有权将由您变更为目标地址所对应的账户所有人享有，请您务必
-                                在提币操作前，仔细核对提币地址信息，确保提币属于自愿行为，并确认不涉及任何传销、非法集资、
-                                诈骗等违法情形，谨防上当受骗，避免造成不必要的财产损失。
+                               {{$t('wallet.tip')}}
                             </div>
                         </div>
                         <ul>
-                            <li>.最小提币数量为: 0.001 BTC.</li>
-                            <li>.为保障资金安全，当您账户安全策略变更、密码修改、我们会对提币进行人工审核，请耐心等待工作人员电话或邮
-                                件联系。
+                            <li>.{{$t('wallet.withdrawTipArray')[0]}} 0.001 SLT.</li>
+                            <li>.{{$t('wallet.withdrawTipArray')[1]}}
                             </li>
-                            <li>.请务必确认电脑及浏览器安全，防止信息被篆改或泄露。</li>
-                            <li>.您所提的数字资产为- -币多链资产，无论您选择从哪个链上提出，均意味着您所拥有的该提币页面展示的数字资产
-                                总量减少相应的提出数量。
+                            <li>.{{$t('wallet.withdrawTipArray')[2]}}</li>
+                            <li>.{{$t('wallet.withdrawTipArray')[3]}}
                             </li>
                         </ul>
                     </div>

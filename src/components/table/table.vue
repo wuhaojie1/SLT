@@ -4,25 +4,25 @@
             <thead>
             <tr>
                 <th>
-                    <div class="rate">广告方(30日成单| 30日完成率)</div>
+                    <div class="rate">{{ $t('otcTrade.tableHeader')[0] }}</div>
                 </th>
                 <th>
-                    <div class="number">数量</div>
+                    <div class="number">{{ $t('otcTrade.tableHeader')[1] }}</div>
                 </th>
                 <th>
-                    <div class="quota">限额</div>
+                    <div class="quota">{{ $t('otcTrade.tableHeader')[2] }}</div>
                 </th>
                 <th>
-                    <div class="price">单价</div>
+                    <div class="price">{{ $t('otcTrade.tableHeader')[3] }}</div>
                 </th>
                 <th>
-                    <div class="payment">支付方式</div>
+                    <div class="payment">{{ $t('otcTrade.tableHeader')[4] }}</div>
                 </th>
                 <th>
                     <div class="operation">
                         <div class="icon"></div>
-                        <div class="text">交易</div>
-                        <div class="tip">0手续费</div>
+                        <div class="text">{{ $t('otcTrade.tableHeader')[5] }}</div>
+                        <div class="tip">0{{ $t('otcTrade.tableHeader')[6] }}</div>
                     </div>
 
                 </th>
@@ -68,14 +68,14 @@
                 <th>
                     <div class="auth" v-if="auth">
                         <div class="sell" v-if="!businessType">
-                            <div class="text">出售 SLT</div>
+                            <div class="text">{{ $t('otcTrade.sell') }} SLT</div>
                         </div>
                         <div class="buy" v-if="businessType">
-                            <div class="text">购买 SLT</div>
+                            <div class="text">{{ $t('otcTrade.buy') }} SLT</div>
                         </div>
                     </div>
                     <div class="noAuth" v-else>
-                        购买需<span>实名认证</span>
+                        <span>{{ $t('otcTrade.需实名认证') }}</span>
                     </div>
                 </th>
             </tr>
