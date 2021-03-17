@@ -125,6 +125,23 @@ export default {
         gopay:'立即结算',
         goon:'继续购物'
     },
+    login:{
+        welcome:'团队欢迎任何代购币购买或者业务查询。',
+        logintext:'用户登录',
+        username:'请输入您的用户名',
+        userpsw:'请输入您的密码',
+        forget:'忘记密码?',
+        goreigest:'立即注册?',
+        login:'登录'
+    },
+    regiest:{
+        welcome:'团队欢迎任何代购币购买或者业务查询。',
+        username:'请输入您的用户名',
+        userpsw:'请输入您的密码',
+        userres:'立即注册',
+        get:'获取验证码',
+        regiest:'注册'
+    },
     //头部
     header: {
         tabbar: ['首页', '白皮书', '商场', '位置买卖', 'OTC'],
