@@ -4,32 +4,32 @@
         <div class="center-con">
             <div class="assets">
                 <div class="assets-left">
-                    <div class="assets-text">总资产</div>
+                    <div class="assets-text">{{$t('personasset.all')}}</div>
                     <div class="assets-num">1.000000BLT
                         <text class="assetsmoney">≈ 0.00BLT</text>
                     </div>
 <!--                    <div class="assets-log">收益记录</div>-->
                 </div>
                 <div class="assets-right">
-                    <div class="reduce" @click="topage('withdraw')">提币</div>
-                    <div class="adds" @click="topage('topUp')">充币</div>
+                    <div class="reduce" @click="topage('withdraw')">{{$t('personasset.in')}}</div>
+                    <div class="adds" @click="topage('topUp')">{{$t('personasset.out')}}</div>
                 </div>
             </div>
             <div class="assets-center-bar">
                 <div class="assets-center-content">
                     <div class="dot"></div>
-                    <div class="center-text">检查访问网址、开后二次验证、不要给声称是SLT的工作人员转账或透露密码等信息。</div>
+                    <div class="center-text">{{$t('personasset.remind')}}</div>
 <!--                    <div class="aim-right">》</div>-->
 <!--                    <div class="open">展开</div>-->
                 </div>
             </div>
             <div class="trade-log">
                 <div class="trade-con-head">
-                    <div class="trade-con-head-text">资产分布</div>
+                    <div class="trade-con-head-text">{{$t('personasset.money')}}</div>
                 </div>
                 <div class="trade-con-two">
                     <div class="trade-con-two-text">
-                        账户
+                        {{$t('personasset.accout')}}
                         <img class="icon-img" src="../../static/img/personasset/icon.png" alt="">
                     </div>
                     <selectitem :typearr="typearr" class="trade-type"></selectitem>
@@ -51,7 +51,7 @@
         components: {ThemeStickyHeader, bottom ,tradetable ,selectitem},
         data() {
             return {
-                typearr:["全部来源","充币","出售","接单"],
+                typearr:[],
                 tradelist:[
                     {
                         cointypetext:'SLT',
@@ -85,6 +85,9 @@
                     }
                 ]
             }
+        },
+        mounted() {
+            this.typearr = this.$t('personasset.accoutarr')
         },
         methods: {
             topage(name) {

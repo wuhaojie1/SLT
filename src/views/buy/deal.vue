@@ -3,13 +3,13 @@
         <div v-if="buyit">
             <div class="center-contens">
                 <div class="con-head">
-                    <div class="buyslt" @click="gobuy()" :style="buyit?{color:'#00B4FC'}:''">购买</div>
+                    <div class="buyslt" @click="gobuy()" :style="buyit?{color:'#00B4FC'}:''">{{$t('deal.buy')}}</div>
                     <div class="saleslt" @click="gosale()" :style="
-                        saleit?{color:'#00B4FC'}:''">出售
+                        saleit?{color:'#00B4FC'}:''">{{$t('deal.seal')}}
                     </div>
                 </div>
-                <div class="wellcome">SLT团队欢迎您</div>
-                <div class="slt-text">任何代币购买出售</div>
+                <div class="wellcome">{{$t('deal.welcome')}}</div>
+                <div class="slt-text">{{$t('deal.buorseal')}}</div>
                 <div class="tradecon">
                     <div class="trade-left">
                         <div class="letf-head">
@@ -17,7 +17,7 @@
                                 <img :src="SLT" class="ethicon" alt="">
                             </div>
                             <div class="text-con">
-                                <div class="pay-text">我将支付</div>
+                                <div class="pay-text">{{$t('deal.pay')}}</div>
                                 <div class="pay-mtype">ETH</div>
                             </div>
                         </div>
@@ -28,8 +28,8 @@
                         <div class="bottom-line"></div>
                     </div>
                     <div class="trade-center">
-                        <div class="trade-center-text">暂无报价，您可前往自选区
-                            <div class="lookcharge">查看报价</div>
+                        <div class="trade-center-text">{{$t('deal.goout')}}
+                            <div class="lookcharge">{{$t('deal.look')}}</div>
                         </div>
                         <div class="exchange-con">
                             <img :src="exchange" alt="">
@@ -41,13 +41,13 @@
                                 <img :src="ETH" class="ethicon" alt="">
                             </div>
                             <div class="text-con">
-                                <div class="pay-text">我将获得</div>
+                                <div class="pay-text">{{$t('deal.rewind')}}</div>
                                 <div class="pay-mtype">SLTcoin</div>
                             </div>
                         </div>
                         <div class="center-con">
                             <div class="pay-num">≈
-                                <input type="text" placeholder="请输入购买总数量" class="inputcon">
+                                <input type="text" :placeholder="$t('deal.buynum')" class="inputcon">
                             </div>
                             <div class="pay-eth">SLTcoin</div>
                         </div>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="contents-bottom">
-                    <div class="bottom-text">支付方式</div>
+                    <div class="bottom-text">{{$t('deal.paytype')}}</div>
                     <div class="bottom-coin">
                         <div class="bottom-coin-left">
                             <img :src="ETHcoin" alt="" :style="{width:'12rem',height:'20rem'}">
@@ -68,18 +68,18 @@
                     </div>
                 </div>
                 <div class="buy-button-con">
-                    <div class="buy-button" @click="buySLT()">购买SLT</div>
+                    <div class="buy-button" @click="buySLT()">{{$t('deal.buySLT')}}</div>
                 </div>
             </div>
         </div>
         <div v-if="saleit">
             <div class="center-contens">
                 <div class="con-head">
-                    <div class="buyslt" @click="gobuy()" :style="buyit?{color:'#00B4FC'}:''">购买</div>
-                    <div class="saleslt" @click="gosale()" :style="saleit?{color:'#00B4FC'}:''">出售</div>
+                    <div class="buyslt" @click="gobuy()" :style="buyit?{color:'#00B4FC'}:''">{{$t('deal.buy')}}</div>
+                    <div class="saleslt" @click="gosale()" :style="saleit?{color:'#00B4FC'}:''">{{$t('deal.seal')}}</div>
                 </div>
-                <div class="wellcome">SLT团队欢迎您</div>
-                <div class="slt-text">任何代币购买出售</div>
+                <div class="wellcome">{{$t('deal.welcome')}}</div>
+                <div class="slt-text">{{$t('deal.buorseal')}}</div>
                 <div class="tradecon">
                     <div class="trade-left">
                         <div class="letf-head">
@@ -87,7 +87,7 @@
                                 <img :src="ETH" class="ethicon" alt="">
                             </div>
                             <div class="text-con">
-                                <div class="pay-text">我将出售</div>
+                                <div class="pay-text">{{$t('deal.goseal')}}</div>
                                 <div class="pay-mtype">ETH</div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                         <div class="bottom-line"></div>
                     </div>
                     <div class="trade-center">
-                        <div class="trade-center-text">可用余额
+                        <div class="trade-center-text">{{$t('deal.havemoney')}}
                             <div class="lookcharge">0.0000000</div>
                         </div>
                         <div class="exchange-con">
@@ -111,13 +111,13 @@
                                 <img :src="SLT" class="ethicon" alt="">
                             </div>
                             <div class="text-con">
-                                <div class="pay-text">我将获得</div>
+                                <div class="pay-text">{{$t('deal.rewind')}}</div>
                                 <div class="pay-mtype">SLTcoin</div>
                             </div>
                         </div>
                         <div class="center-con">
                             <div class="pay-num">≈
-                                <input type="text" placeholder="请输入购买总数量" class="inputcon">
+                                <input type="text" :placeholder="$t('deal.buynum')" class="inputcon">
                             </div>
                             <div class="pay-eth">SLTcoin</div>
                         </div>
@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <div class="contents-bottom">
-                    <div class="bottom-text">支付方式</div>
+                    <div class="bottom-text">{{$t('deal.paytype')}}</div>
                     <div class="bottom-coin">
                         <div class="bottom-coin-left">
                             <img :src="ETHcoin" alt="" :style="{width:'12rem',height:'20rem'}">
@@ -138,7 +138,7 @@
                     </div>
                 </div>
                 <div class="buy-button-con">
-                    <div class="buy-button">出售SLT</div>
+                    <div class="buy-button">{{$t('deal.sealSLT')}}</div>
                 </div>
             </div>
         </div>

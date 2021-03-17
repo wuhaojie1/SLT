@@ -4,16 +4,16 @@
             <thead>
             <tr>
                 <th>
-                    <div class="man">收货人</div>
+                    <div class="man">{{$t('userAdress.reciveman')}}</div>
                 </th>
                 <th>
-                    <div class="local">所在地区</div>
+                    <div class="local">{{$t('userAdress.area')}}</div>
                 </th>
                 <th>
-                    <div class="adress">详细地址</div>
+                    <div class="adress">{{$t('userAdress.msgdetail')}}</div>
                 </th>
                 <th>
-                    <div class="price">邮编</div>
+                    <div class="price">{{$t('userAdress.mailnum')}}</div>
                 </th>
                 <th>
                     <div class="phone">电话/手机</div>
@@ -43,20 +43,20 @@
                     <div class="price-con">{{ item.code }}</div>
                 </th>
                 <th>
-                    <div class="phone-con">{{ item.phone }}</div>
+                    <div class="phone-con">{{ item.phonenum}}</div>
                 </th>
                 <th>
                     <div class="oprate-con">
                         <span class="alter"
-                              @click="alter(item)">修改</span>
+                              @click="alter(item)">{{$t('userAdress.change')}}</span>
                         |
                         <span class="delete"
-                              @click="deleteById(item)">删除</span>
+                              @click="deleteById(item)">{{$t('userAdress.delete')}}</span>
                     </div>
                 </th>
                 <th>
-                    <div v-if="item.useaddress" class="set-adress">默认地址</div>
-                    <div v-else class="active" @click="isDefault(item)">设为默认地址</div>
+                    <div v-if="item.useaddress" class="set-adress">{{$t('userAdress.address')}}</div>
+                    <div v-else class="active" @click="isDefault(item)">{{$t('userAdress.defaultaddress')}}</div>
                 </th>
             </tr>
             </tbody>

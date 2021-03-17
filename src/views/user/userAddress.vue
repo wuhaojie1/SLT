@@ -1,32 +1,32 @@
 <template>
     <div id="useradress">
-        <div class="adress-text">收货地址</div>
+        <div class="adress-text">{{$t('userAdress.userAdresstext')}}</div>
         <div class="msgcon">
             <div class="name-con">
-                <div class="name-text">收货人姓名:</div>
+                <div class="name-text">{{$t('userAdress.name')}}:</div>
                 <input type="text" placeholder="请输入收货人姓名" v-model="postData.name" class="name-input">
             </div>
             <div class="ad-msg-con">
-                <div class="ad-msg-text">地址信息:</div>
+                <div class="ad-msg-text">{{$t('userAdress.Adressmsg')}}:</div>
                 <input type="text" placeholder="请输入省/市/区/街道" v-model="postData.address" class="ad-msg-input">
             </div>
             <div class="detail-msg-con">
-                <div class="detail-msg-text">详细地址:</div>
+                <div class="detail-msg-text">{{$t('userAdress.msgdetail')}}:</div>
                 <input type="text" placeholder="请输入详细地址信息，如小区、门牌号" v-model="postData.addressDetail" class="detail-msg-input">
             </div>
             <div class="name-con">
-                <div class="name-text">邮政编码:</div>
+                <div class="name-text">{{$t('userAdress.mailnum')}}:</div>
                 <input type="text" placeholder="请输入邮政编码" v-model="postData.postalCode" class="name-input">
             </div>
             <div class="ad-msg-con">
-                <div class="ad-msg-text">手机号码:</div>
+                <div class="ad-msg-text">{{$t('userAdress.phonenum')}}:</div>
                 <input type="text" placeholder="请输入手机号码" v-model="postData.tel" class="ad-msg-input">
             </div>
             <div class="setadress">
                 <input type="checkbox" v-model="postData.isDefault" class="check">
-                设为默认地址
+                {{$t('userAdress.defaultaddress')}}
             </div>
-            <div class="save-button" @click="saveAddr">保存</div>
+            <div class="save-button" @click="saveAddr">{{$t('userAdress.save')}}</div>
         </div>
         <div class="adress-num-text">
             <div class="imgcon">

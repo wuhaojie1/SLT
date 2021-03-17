@@ -1,24 +1,24 @@
 <template>
     <div class="userInfo">
-        <div class="userInfo-title">基本信息</div>
+        <div class="userInfo-title">{{$t('userInfo.basemsg')}}</div>
         <div class="userInfo-con">
             <div class="user-name">
-                <div class="user-name-text">手机号:</div>
-                <input type="text" v-model="usermsg.username" class="user-name-input">
-                <div class="change">修改</div>
-                <div class="remind">用于登录用，要牢记哦~</div>
+                <div class="user-name-text">{{$t('userInfo.phonenum')}}:</div>
+                <input type="text" disabled="true" v-model="usermsg.username" class="user-name-input">
+<!--                <div class="change">修改</div>-->
+<!--                <div class="remind">用于登录用，要牢记哦~</div>-->
             </div>
             <div class="user-id-con">
-                <div class="user-id-text">用户ID:</div>
+                <div class="user-id-text">{{$t('userInfo.userID')}}:</div>
                 <div class="user-id">{{usermsg.userId}}</div>
             </div>
             <div class="userinfo-name-con">
-                <div class="userinfo-name-text">真实姓名:</div>
+                <div class="userinfo-name-text">{{$t('userInfo.truename')}}:</div>
                 <div v-if="status0" class="userinfo-name">{{usermsg.realName}}</div>
                 <input v-else type="text" class="userinfo-name-input" v-model="usermsg.realName">
             </div>
             <div class="user-sex-con">
-                <div class="user-sex-text">性别:</div>
+                <div class="user-sex-text">{{$t('userInfo.sex')}}:</div>
                 <div class="user-sex-choice">
                     <!--                    <div class="user-sex-item">-->
                     <!--                        <input type="radio" value="男">-->
@@ -31,16 +31,16 @@
                     <!--                    </div>-->
                     <el-radio-group v-model="radio">
                         <el-radio :label="1" v-model="radio" class="user-sex-item"><span
-                            :style="{marginLeft:'11rem'}">男</span></el-radio>
+                            :style="{marginLeft:'11rem'}">{{$t('userInfo.man')}}</span></el-radio>
                         <el-radio :label="0" v-model="radio" class="user-sex-item"><span
-                            :style="{marginLeft:'11rem'}">女</span></el-radio>
-                        <el-radio :label="2" v-model="radio" class="user-sex-item"><span :style="{marginLeft:'11rem'}">保密</span>
+                            :style="{marginLeft:'11rem'}">{{$t('userInfo.weman')}}</span></el-radio>
+                        <el-radio :label="2" v-model="radio" class="user-sex-item"><span :style="{marginLeft:'11rem'}">{{$t('userInfo.secret')}}</span>
                         </el-radio>
                     </el-radio-group>
                 </div>
             </div>
             <div class="user-bri-con">
-                <div class="userinfo-bri-text">生日:</div>
+                <div class="userinfo-bri-text">{{$t('userInfo.birthday')}}:</div>
                 <div class="set-data-con">
 <!--                    <dataselect :birthdayarr="birthdayarr"-->
 <!--                                @getbirthday="getbirthday"-->
@@ -86,7 +86,7 @@
             <!--                </div>-->
             <!--            </div>-->
             <div class="userinfo-snum-con">
-                <div class="userinfo-snum-text">身份证号:</div>
+                <div class="userinfo-snum-text">{{$t('userInfo.idnum')}}:</div>
                 <div v-if="status0" class="userinfo-snum">{{usermsg.idcard}}</div>
                 <input v-else type="text" class="userinfo-snum-input" v-model="usermsg.idcard">
             </div>

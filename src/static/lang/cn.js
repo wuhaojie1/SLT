@@ -1,19 +1,80 @@
-
-
 export default {
-    index: {
-        /*myMoney: "我的资产（$）",
-        detail: "详情",
-        transfer: "转账",
-        collection: "收款",
-        GasNow: "Gas Now",
-        lock: "锁仓挖矿",
-        share: "推广分享",
-        teamDetail: "团队详情",
-        record: "收益记录",
-        pool: "源能池",
-        money: "资产",
-        search: "搜索",*/
+    //个人资料
+    userInfo: {
+        basemsg:'基本信息',
+        phonenum:'手机号',
+        userID:'用户ID',
+        truename:'真实姓名',
+        sex:'性别',
+        man:'男',
+        weman:'女',
+        secret:'保密',
+        birthday:'生日',
+        idnum:'身份证号'
+    },
+    //身份认证
+    identifi:{
+        identifitext:'身份认证',
+        truename:'真实姓名',
+        idnum:'身份证号',
+        uploadface:'上传正面身份证照片',
+        uploadback:'上传反面身份证照片',
+        goidenrifi:'认证',
+        finish:'已完成认证',
+        addname:'请输入您的姓名',
+        addidnum:'请输入您的身份证号'
+    },
+    //收货地址
+    userAdress:{
+        userAdresstext:'收货地址',
+        name:'收货人姓名',
+        Adressmsg:'地址信息',
+        msgdetail:'详细地址',
+        mailnum:'邮政编码',
+        phonenum:'手机号码',
+        defaultaddress:'设为默认地址',
+        save:'保存',
+        reciveman:'收货人',
+        area:'所在地区',
+        op:'操作',
+        delete:'删除',
+        change:'修改',
+        address:'默认地址'
+    },
+    //个人资产
+    personasset:{
+        all:'总资产',
+        in:'提币',
+        out:'充币',
+        remind:'检查访问网址、开后二次验证、不要给声称是SLT的工作人员转账或透露密码等信息。',
+        money:'资产分布',
+        accout:'账户',
+        accoutarr:["全部来源","充币","出售","接单"],
+        moneytype:'币种',
+        num:'数量',
+        amount:'总额',
+        charge:'单价',
+        tredetype:'支付方式',
+        moneycomes:'货币来源',
+        usermoney:'手续费'
+
+    },
+    //一键购买
+    deal:{
+        buy:'购买',
+        seal:'出售',
+        welcome:'SLT团队欢迎您',
+        buorseal:'任何代币购买出售',
+        pay:'我将支付',
+        goseal:'我讲出售',
+        havemoney:'可用余额',
+        goout:'暂无报价，您可前往自选区',
+        look:'查看报价',
+        rewind:'我将获得',
+        buynum:'请输入购买总数量',
+        paytype:'支付方式',
+        buySLT:'购买SLT',
+        sealSLT:'出售SLT'
     },
     //头部
     header:{

@@ -1,25 +1,25 @@
 <template>
     <div id="userauth">
-        <div class="optype">身份认证</div>
+        <div class="optype">{{$t('identifi.identifitext')}}</div>
         <div class="auth-content">
             <div class="name-con">
-                <div class="name-text">真实姓名:</div>
-                <input type="text" placeholder="请输入您的姓名" class="name-input">
+                <div class="name-text">{{$t('identifi.truename')}}:</div>
+                <input type="text" :placeholder="$t('identifi.addname')" class="name-input">
             </div>
             <div class="num-con">
-                <div class="num-text">身份证号:</div>
-                <input type="text" placeholder="请输入您的身份证号" class="num-input">
+                <div class="num-text">{{$t('identifi.idnum')}}:</div>
+                <input type="text" :placeholder="$t('identifi.addidnum')" class="num-input">
             </div>
-            <div class="face-text">上传正面身份证照片</div>
+            <div class="face-text">{{$t('identifi.uploadface')}}</div>
             <div class="foce-con">
                 <img style="{width: 314rem;height: 219rem;}" src="../../static/img/user/idcardup.png" alt="">
             </div>
-            <div class="back-text">上传反面身份证照片</div>
+            <div class="back-text">{{$t('identifi.uploadback')}}</div>
             <div class="back-con">
                 <img style="{width: 314rem;height: 219rem;}" src="../../static/img/user/idcardup.png" alt="">
             </div>
             <div class="auth-button-con">
-                <div class="auth-button">认证</div>
+                <div class="auth-button">{{$t('identifi.goidenrifi')}}</div>
             </div>
         </div>
     </div>

@@ -4,25 +4,25 @@
             <thead>
                 <tr>
                     <th>
-                        <div class="man">币种</div>
+                        <div class="man">{{$t('personasset.moneytype')}}</div>
                     </th>
                     <th>
-                        <div class="local">数量</div>
+                        <div class="local">{{$t('personasset.num')}}</div>
                     </th>
                     <th>
-                        <div class="adress">总额</div>
+                        <div class="adress">{{$t('personasset.amount')}}</div>
                     </th>
                     <th>
-                        <div class="price">单价</div>
+                        <div class="price">{{$t('personasset.charge')}}</div>
                     </th>
                     <th>
-                        <div class="phone">支付方式</div>
+                        <div class="phone">{{$t('personasset.tredetype')}}</div>
                     </th>
                     <th>
-                        <div class="oprate">货币来源</div>
+                        <div class="oprate">{{$t('personasset.moneycomes')}}</div>
                     </th>
                     <th>
-                        <div class="setadress">手续费</div>
+                        <div class="setadress">{{$t('personasset.usermoney')}}</div>
                     </th>
                 </tr>
             </thead>
