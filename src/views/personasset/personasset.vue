@@ -4,56 +4,37 @@
         <div class="center-con">
             <div class="assets">
                 <div class="assets-left">
-                    <div class="assets-text">总资产</div>
+                    <div class="assets-text">{{$t('personasset.all')}}</div>
                     <div class="assets-num">1.000000BLT
                         <text class="assetsmoney">≈ 0.00BLT</text>
                     </div>
 <!--                    <div class="assets-log">收益记录</div>-->
                 </div>
                 <div class="assets-right">
-                    <div class="reduce" @click="topage('withdraw')">提币</div>
-                    <div class="adds" @click="topage('topUp')">充币</div>
+                    <div class="reduce" @click="topage('withdraw')">{{$t('personasset.in')}}</div>
+                    <div class="adds" @click="topage('topUp')">{{$t('personasset.out')}}</div>
                 </div>
             </div>
             <div class="assets-center-bar">
-<!--                <div class="assets-center-content">
+                <div class="assets-center-content">
                     <div class="dot"></div>
-                    <div class="center-text">检查访问网址、开后二次验证、不要给声称是SLT的工作人员转账或透露密码等信息。</div>
-                    <div class="aim-right">》</div>
-                    <div class="open">展开</div>
-                </div>-->
-                <div class="trade-con">
-                    <div class="trade-con-left">
-                        <div class="trade-con-left-head">
-                            <div class="trade-con-left-head-left-text">资产详情</div>
-                            <div class="trade-con-left-head-right-con">
-                                <div class="trade-con-left-right-con-text">全部</div>
-                                <img src="" alt="">
-                            </div>
-                        </div>
-                        <div class="trade-log">
-                            <div class="buy-text">购买账户</div>
-                            <div v-for="item in buyarr" :key="item.index">
-                                <buyseallog :item="item"></buyseallog>
-                            </div>
-                            <div class="seal-text">出售账户</div>
-                            <div v-for="item in sealarr" :key="item.index">
-                                <buyseallog :item="item"></buyseallog>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="trade-con-right">
-                        <div class="trade-con-right-head">
-                            <div class="trade-con-right-head-text">资产分布</div>
-                        </div>
-                        <div class="acout">账户
-                            <img src="../../static/img/personasset/icon.png" alt="">
-                        </div>
-                        <div class="trade-list" v-for="item in tradelist" :key="item.index">
-                            <assetitem :item="item"></assetitem>
-                        </div>
-                    </div>
+                    <div class="center-text">{{$t('personasset.remind')}}</div>
+<!--                    <div class="aim-right">》</div>-->
+<!--                    <div class="open">展开</div>-->
                 </div>
+            </div>
+            <div class="trade-log">
+                <div class="trade-con-head">
+                    <div class="trade-con-head-text">{{$t('personasset.money')}}</div>
+                </div>
+                <div class="trade-con-two">
+                    <div class="trade-con-two-text">
+                        {{$t('personasset.accout')}}
+                        <img class="icon-img" src="../../static/img/personasset/icon.png" alt="">
+                    </div>
+                    <selectitem :typearr="typearr" class="trade-type"></selectitem>
+                </div>
+                <tradetable :tradelist="tradelist"></tradetable>
             </div>
         </div>
         <bottom></bottom>
@@ -63,62 +44,50 @@
 <script>
     import ThemeStickyHeader from "../../components/header/themeStickyHeader";
     import bottom from "../../components/bottom/bottom";
-    import buyseallog from "../../components/buyseallog/buyseallog";
-    import assetitem from "../../components/assetitem/assetitem";
+    import tradetable from "../../components/tradetable/tradetable";
+    import selectitem from "../../components/select-item/selectitem";
     export default {
         name: "personasset",
-        components: {ThemeStickyHeader, bottom,buyseallog,assetitem},
+        components: {ThemeStickyHeader, bottom ,tradetable ,selectitem},
         data() {
             return {
-                buyarr:[
-                    {
-                        name:'ETH',
-                        time:'2021-03-10 13:01:25',
-                        buy:true,
-                        money:'5.20 ETH'
-                    },
-                    {
-                        name:'ETH',
-                        time:'2021-03-10 13:01:25',
-                        buy:true,
-                        money:'5.20 ETH'
-                    }
-                ],
-                sealarr:[
-                    {
-                        name:'ETH',
-                        time:'2021-03-10 13:01:25',
-                        buy:false,
-                        money:'5.20 ETH'
-                    },
-                    {
-                        name:'ETH',
-                        time:'2021-03-10 13:01:25',
-                        buy:false,
-                        money:'5.20 ETH'
-                    }
-                ],
+                typearr:[],
                 tradelist:[
                     {
-                        img:`${require('../../static/img/personasset/buy.png')}`,
-                        counttype:'购买账户',
-                        num:'6.65',
-                        persent:'100%'
+                        cointypetext:'SLT',
+                        num:'10000',
+                        allmoney:'10000',
+                        charge:'0.03',
+                        cointype:'SLT',
+                        tradetype:'充币',
+                        expense:'0.03%',
+                        in:true
                     },
                     {
-                        img:`${require('../../static/img/personasset/seal.png')}`,
-                        counttype:'出售账户',
-                        num:'6.65',
-                        persent:'100%'
+                        cointypetext:'ETH',
+                        num:'10000',
+                        allmoney:'10000',
+                        charge:'0.03',
+                        cointype:'ETH',
+                        tradetype:'出售',
+                        expense:'0.03%',
+                        in:false
                     },
                     {
-                        img:`${require('../../static/img/personasset/recept.png')}`,
-                        counttype:'接单账户',
-                        num:'6.65',
-                        persent:'0.00%'
+                        cointypetext:'SLT',
+                        num:'10000',
+                        allmoney:'10000',
+                        charge:'0.03',
+                        cointype:'SLT',
+                        tradetype:'接单',
+                        expense:'0.03%',
+                        in:true
                     }
                 ]
             }
+        },
+        mounted() {
+            this.typearr = this.$t('personasset.accoutarr')
         },
         methods: {
             topage(name) {
@@ -217,7 +186,7 @@
 
             .assets-center-bar {
                 width: 1920rem;
-                height: 150rem;
+                height: 65rem;
                 background: #FFFFFF;
                 border-radius: 40rem 40rem 0rem 0rem;
                 position: relative;
@@ -232,7 +201,7 @@
                     line-height: 38rem;
                     /*margin: 0 auto;*/
                     position: absolute;
-                    top: 40rem;
+                    top: 25rem;
                     left: 360rem;
 
                     .dot {
@@ -275,118 +244,54 @@
                         margin-right: 21rem;
                     }
                 }
-                .trade-con{
+            }
+            .trade-log{
+                width: 1200rem;
+                height: 562rem;
+                background: #FFFFFF;
+                border: 1rem solid #E4E7ED;
+                margin: 0 auto;
+                .trade-con-head{
                     width: 1200rem;
-                    height: auto;
+                    height: 60rem;
+                    background: #FFFFFF;
+                    border-bottom: 1px solid #E4E7ED;
+                    margin: 0 auto;
+                    .trade-con-head-text{
+                        font-size: 18rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #444444;
+                        line-height: 60rem;
+                        margin-left: 25rem;
+                        text-align: left;
+                    }
+                }
+                .trade-con-two{
+                    /*margin-top: 28rem;*/
+                    /*margin-left: 24rem;*/
+                    width: 1200rem;
+                    height: 60rem;
+                    line-height: 60rem;
                     display: flex;
                     justify-content: space-between;
-                    position: absolute;
-                    top:98rem;
-                    left: 360rem;
-                    .trade-con-left{
-                        width: 800rem;
-                        height: auto;
-                        .trade-con-left-head{
-                            width: 800rem;
-                            height: 60rem;
-                            display: flex;
-                            justify-content: space-between;
-                            border: 1rem solid #E4E7ED;
-                            .trade-con-left-head-left-text{
-                                margin-left:25rem;
-                                font-size: 18rem;
-                                font-family: Source Han Sans CN;
-                                font-weight: 400;
-                                color: #444444;
-                                line-height: 60rem;
-                            }
-                            .trade-con-left-head-right-con{
-                                width: 120rem;
-                                height: 40rem;
-                                background: #FFFFFF;
-                                border: 1rem solid #E4E7ED;
-                                margin-top: 10rem;
-                                margin-right: 10rem;
-                                .trade-con-left-right-con-text{
-                                    margin-right:10rem;
-                                    font-size: 16rem;
-                                    font-family: Source Han Sans CN;
-                                    font-weight: 400;
-                                    color: #444444;
-                                    line-height: 40rem;
-                                    float: left;
-                                    margin-left: 12rem;
-                                }
-                                img{
-                                    width: 16rem;
-                                    height: 9rem;
-                                }
-                            }
-                        }
-                        .trade-log{
-                            width: 800rem;
-                            /*height: 315rem;*/
-                            background: #FFFFFF;
-                            border-left: 1rem solid #E4E7ED;
-                            border-right: 1rem solid #E4E7ED;
-                            border-bottom: 1rem solid #E4E7ED;
-                            padding-bottom: 20rem;
-                            .buy-text{
-                                float: left;
-                                margin-left: 24rem;
-                                margin-top: 24rem;
-                                font-size: 12rem;
-                                font-family: Source Han Sans CN;
-                                font-weight: 400;
-                                color: #444444;
-                                margin-bottom: 38rem;
-                            }
-                            .seal-text{
-                                float: left;
-                                margin-left: 24rem;
-                                margin-top: 24rem;
-                                font-size: 12rem;
-                                font-family: Source Han Sans CN;
-                                font-weight: 400;
-                                color: #444444;
-                                margin-bottom: 38rem;
-                            }
+                    .trade-con-two-text{
+                        font-size: 12rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #444444;
+                        float: left;
+                        margin-left: 24rem;
+                        margin-right: 7rem;
+                        .icon-img{
+                            width: 16rem;
+                            height: 16rem;
+                            /*float: left;*/
                         }
                     }
-                    .trade-con-right{
-                        width: 380rem;
-                        height: 300rem;
-                        background: #FFFFFF;
-                        border: 1rem solid #E4E7ED;
-                        .trade-con-right-head{
-                            width: 380rem;
-                            height: 60rem;
-                            border-bottom: 1rem solid #E4E7ED;
-                            .trade-con-right-head-text{
-                                line-height: 60rem;
-                                margin-left: 20rem;
-                                font-size: 18rem;
-                                font-family: Source Han Sans CN;
-                                font-weight: 400;
-                                color: #444444;
-                            }
-                        }
-                        .acout{
-                            font-size: 12rem;
-                            font-family: Source Han Sans CN;
-                            font-weight: 400;
-                            color: #444444;
-                            margin-left: 24rem;
-                            text-align: left;
-                            margin-top: 20rem;
-                            img{
-                                width: 16rem;
-                                height: 16rem;
-                            }
-                        }
-                        .trade-list{
-                            margin-top: 20rem;
-                        }
+                    .trade-type{
+                        /*float: right;*/
+                        margin-right: 25rem;
                     }
                 }
             }

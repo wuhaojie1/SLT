@@ -4,16 +4,16 @@
             <thead>
             <tr>
                 <th>
-                    <div class="man">收货人</div>
+                    <div class="man">{{$t('userAdress.reciveman')}}</div>
                 </th>
                 <th>
-                    <div class="local">所在地区</div>
+                    <div class="local">{{$t('userAdress.area')}}</div>
                 </th>
                 <th>
-                    <div class="adress">详细地址</div>
+                    <div class="adress">{{$t('userAdress.msgdetail')}}</div>
                 </th>
                 <th>
-                    <div class="price">邮编</div>
+                    <div class="price">{{$t('userAdress.mailnum')}}</div>
                 </th>
                 <th>
                     <div class="phone">电话/手机</div>
@@ -29,27 +29,34 @@
             <tbody>
             <tr v-for="item in dataList" :key="item.index">
                 <th>
-                    <div class="man-con">{{item.name}}</div>
+                    <div class="man-con">{{ item.name }}</div>
                 </th>
                 <th>
                     <div class="local-con">
-                        <div class="address-text">{{item.address}}</div>
+                        <div class="address-text">{{ item.address }}</div>
                     </div>
                 </th>
                 <th>
-                    <div class="adress-con">{{item.daddress}}</div>
+                    <div class="adress-con">{{ item.daddress }}</div>
                 </th>
                 <th>
-                    <div class="price-con">{{item.code}}</div>
+                    <div class="price-con">{{ item.code }}</div>
                 </th>
                 <th>
-                    <div class="phone-con">{{item.phone}}</div>
+                    <div class="phone-con">{{ item.phonenum}}</div>
                 </th>
                 <th>
-                    <div class="oprate-con"> <span>修改</span> | <span>删除</span> </div>
+                    <div class="oprate-con">
+                        <span class="alter"
+                              @click="alter(item)">{{$t('userAdress.change')}}</span>
+                        |
+                        <span class="delete"
+                              @click="deleteById(item)">{{$t('userAdress.delete')}}</span>
+                    </div>
                 </th>
                 <th>
-                    <div :class="item.useaddress?'active':'set-adress'">默认地址</div>
+                    <div v-if="item.useaddress" class="set-adress">{{$t('userAdress.address')}}</div>
+                    <div v-else class="active" @click="isDefault(item)">{{$t('userAdress.defaultaddress')}}</div>
                 </th>
             </tr>
             </tbody>
@@ -58,19 +65,30 @@
 </template>
 
 <script>
-    export default {
-        name: "AddressTable",
-        props:{
-            dataList: {
-                type: Array,
-                default: () => [],
-            }
+export default {
+    name: "AddressTable",
+    props: {
+        dataList: {
+            type: Array,
+            default: () => [],
+        }
+    },
+    methods: {
+        alter(item) {
+            this.$emit('alter', item)
+        },
+        deleteById(item) {
+            this.$emit('delete', item)
+        },
+        isDefault(item){
+            this.$emit('isDefault',item)
         }
     }
+}
 </script>
 
 <style scoped lang="less">
-#atable{
+#atable {
     width: 100%;
     height: 100%;
 
@@ -81,105 +99,137 @@
         font-family: Source Han Sans CN;
         font-weight: 400;
         color: #444444;
+
         thead {
             border: 1rem solid #E4E7ED;
             background: #EBECF0;
             height: 42rem;
+
             tr {
                 border: 1rem solid #E4E7ED;
+
                 th {
                     border: 1rem solid #E4E7ED;
                     text-align: left;
                     height: 42rem;
-                    .man{
+
+                    .man {
                         margin-left: 20rem;
                         line-height: 42rem;
                         /*width: 83rem;*/
                     }
-                    .local{
+
+                    .local {
                         margin-left: 20rem;
                         line-height: 42rem;
                         /*width: 135rem;*/
                     }
-                    .adress{
+
+                    .adress {
                         margin-left: 20rem;
                         line-height: 42rem;
                         /*width: 228rem;*/
                     }
-                    .price{
+
+                    .price {
                         margin-left: 20rem;
                         line-height: 42rem;
                         /*width: 117rem;*/
                     }
-                    .phone{
+
+                    .phone {
                         margin-left: 20rem;
                         line-height: 42rem;
                         /*width: 160rem;*/
                     }
-                    .oprate{
+
+                    .oprate {
                         margin-left: 20rem;
                         line-height: 42rem;
                         /*width: 129rem;*/
                     }
-                    .setadress{
+
+                    .setadress {
                         /*width: 132rem;*/
                     }
                 }
             }
         }
-        tbody{
-            tr{
+
+        tbody {
+            tr {
                 text-align: left;
                 height: 74rem;
                 border: 1rem solid #E4E7ED;
-                th{
+
+                th {
                     border: 1rem solid #E4E7ED;
-                    .man-con{
+
+                    .man-con {
                         margin-left: 20rem;
                         line-height: 42rem;
                         /*width: 83rem;*/
                     }
-                    .local-con{
+
+                    .local-con {
                         margin-left: 20rem;
                         /*line-height: 42rem;*/
                         width: 135rem;
                         text-align: left;
-                        .address-text{
+
+                        .address-text {
                             /*width: 90rem;*/
                             height: auto;
                             /*margin-left: 20rem;*/
                         }
                     }
-                    .adress-con{
+
+                    .adress-con {
                         margin-left: 20rem;
                         /*line-height: 42rem;*/
                         /*width: 228rem;*/
                     }
-                    .price-con{
+
+                    .price-con {
                         margin-left: 20rem;
                         line-height: 42rem;
                         /*width: 117rem;*/
                     }
-                    .phone-con{
+
+                    .phone-con {
                         margin-left: 20rem;
                         line-height: 42rem;
                         /*width: 160rem;*/
                     }
-                    .oprate-con{
+
+                    .oprate-con {
                         margin-left: 20rem;
                         line-height: 42rem;
+
+                        .alter, .delete {
+                            cursor: pointer;
+                        }
+
+                        .delete {
+
+                        }
+
                         /*width: 129rem;*/
                     }
-                    .setadress-con{
+
+                    .setadress-con {
                         /*width: 132rem;*/
                     }
-                    .set-adress{
+
+                    .set-adress {
                         margin-left: 20rem;
 
                     }
-                    .active{
+
+                    .active {
+                        cursor: pointer;
                         margin-left: 20rem;
-                        width: 92rem;
+                        width: 122rem;
                         height: 30rem;
                         background: #FBD7D7;
                         border: 1rem solid #EF5656;

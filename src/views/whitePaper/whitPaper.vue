@@ -35,7 +35,7 @@ export default {
 
     .whitPaper-pdf {
         padding-top: 75rem;
-        width: 1200rem;
+        width: 100%;
         margin: 0 auto;
 
         .pdfClass {

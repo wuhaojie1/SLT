@@ -8,10 +8,10 @@
                             <div class="left">
                                 <div class="pay">
                                     <span class="pay-text">
-                                        待支付
+                                        {{$t('orderdetails.waitpay')}}
                                     </span>
                                     <span class="pay-tip">
-                                        <div class="pay-tip-text">开启接单</div>
+                                        <div class="pay-tip-text">{{$t('orderdetails.opentrade')}}</div>
                                         <div class="img-box">
                                             <img :src="right" alt="">
                                         </div>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="tip">
                                     <span class="time">14:45</span>
-                                    <span class="tip-text">内未付款，将自动取消订单</span>
+                                    <span class="tip-text">{{$t('orderdetails.cancleorderauto')}}</span>
                                 </div>
                             </div>
                             <div class="right">
@@ -30,7 +30,7 @@
                             <div class="unpaid-detail-list">
                                 <div class="unpaid-detail-item isTitle">
                                     <div class="left">
-                                        支付方式
+                                        {{$t('orderdetails.paytype')}}
                                     </div>
                                     <div class="right">
                                         <div class="img-box">
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="unpaid-detail-item">
                                     <div class="left">
-                                        订单详情
+                                        {{$t('orderdetails.orderdetail')}}
                                     </div>
                                     <div class="right">
                                         <div class="img-box">
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="unpaid-detail-item">
                                     <div class="left">
-                                        订单号
+                                        {{$t('orderdetails.ordernum')}}
                                     </div>
                                     <div class="right">
                                         <div class="text">
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="unpaid-detail-item">
                                     <div class="left">
-                                        手续费
+                                        {{$t('orderdetails.usemoney')}}
                                     </div>
                                     <div class="right">
                                         <div class="text">
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="unpaid-detail-item">
                                     <div class="left">
-                                        成交单价
+                                        {{$t('orderdetails.charge')}}
                                     </div>
                                     <div class="right">
                                         <div class="text">
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="unpaid-detail-item">
                                     <div class="left">
-                                        成交数量
+                                        {{$t('orderdetails.num')}}
                                     </div>
                                     <div class="right">
                                         <div class="text">
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="unpaid-detail-item">
                                     <div class="left">
-                                        总金额
+                                        {{$t('orderdetails.allmoney')}}
                                     </div>
                                     <div class="right">
                                         <div class="text">
@@ -105,30 +105,28 @@
                             <ul class="tipBox-list">
                                 <li class="tipBox-item">
                                     <div class="tip-text">
-                                        请确保付款卡所属人与平台实名信息(王亚萍)一致，若不一致卖家有权不放币。请不要使用支付宝转
-                                        银行卡等到账时间较长的付款方式;
+                                        {{$t('orderdetails.confirmmsg1')}}(王亚萍){{$t('orderdetails.confirmmsg2')}}
                                     </div>
                                 </li>
                                 <li class="tipBox-item">
                                     <div class="tip-text">
-                                        如果您已向卖家付款，请千万不要取消订单。
+                                        {{$t('orderdetails.remindmsg1')}}
                                     </div>
                                 </li>
                                 <li class="tipBox-item">
                                     <div class="tip-text">
-                                        您需要根据对方的收款方式通过微信/支付宝/银行卡等平台转账给对方，请认真核对对方的收款信息
-                                        ;转账时请勿备注任何信息，以免您的第三方账户被冻结;
+                                        {{$t('orderdetails.remindmsg2')}}
                                     </div>
                                 </li>
                             </ul>
                         </div>
                         <div class="btnBox">
                             <router-link to="cancleorder">
-                                <div class="cancel">取消订单</div>
+                                <div class="cancel">{{$t('orderdetails.cancelorder')}}</div>
                             </router-link>
-                            <div class="confirm">确认支付 45S</div>
+                            <div class="confirm">{{$t('orderdetails.confirmtext')}} 45S</div>
                         </div>
-                        <div class="connect-text">联系在线客服</div>
+                        <div class="connect-text">{{$t('orderdetails.connect')}}</div>
                     </div>
                 </div>
             </div>

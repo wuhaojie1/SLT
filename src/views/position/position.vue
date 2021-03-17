@@ -4,15 +4,14 @@
         <div class="shoppingMall-wrap">
             <div class="content-carousel">
                 <el-carousel indicator-position="none"
-                             height="900rem"
+                             height="700rem"
                              :interval="interval">
                     <el-carousel-item v-for="(item,index) in imgs" :key="index">
                         <div class="textTip">
                             <div class="textTip-box">
-                                <div class="text1">位置买卖</div>
-                                <div class="text2">全新推出 位置买卖</div>
-                                <div class="text3">Return to the most pure nature/concentrate and return to myself/people’s hearts over a certain height/high sky ＆
-                                    pale clouds,clear ＆ clam/the natural realm,just
+                                <div class="text1">{{$t('position.title1')}}</div>
+                                <div class="text2">{{$t('position.title2')}}</div>
+                                <div class="text3">Return to the most pure nature/concentrate and return to myself/people’s hearts over a certain height/high sky ＆ pale clouds,clear ＆ clam/the natural realm,just
                                 </div>
                             </div>
 <!--                            <div class="icon">-->
@@ -45,7 +44,7 @@
             <div class="new-goods">
                 <div class="new-goods-title">
                     <div class="text">Product category</div>
-                    <div class="text">产品类别</div>
+                    <div class="text">{{$t('position.title5')}}</div>
                 </div>
             </div>
             <div class="goods-box">
@@ -381,7 +380,7 @@ export default {
             width: 100%;
             margin-top: 69rem;
             margin-bottom: 257rem;
-            width: 1170rem;
+            //width: 1170rem;
             margin: 69rem auto 257rem;
 
             .goods-box-wrap {

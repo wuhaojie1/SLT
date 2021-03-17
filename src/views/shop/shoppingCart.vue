@@ -7,8 +7,8 @@
         <div class="shoppingCart-content">
             <div class="banner">
                 <img class="shoppingCartBanner" :src="shoppingCartBanner"/>
-                <div class="banner_title text">购物车</div>
-                <div class="banner_tip text">快来装满吧 !</div>
+                <div class="banner_title text">{{$t('shopcar.shopcar')}}</div>
+                <div class="banner_tip text">{{$t('shopcar.gofill')}}</div>
                 <img class="bannerBottom" :src="bannerBottom"/>
                 
             </div>
@@ -16,38 +16,36 @@
                 <div class="leftBox">
                     <div class="listHeader" @click="allcheck">
                         <checkBoxCustom :isSlect="allchecked"/>
-                        <div class="text">全部</div>
+                        <div class="text">{{$t('shopcar.all')}}</div>
                     </div>
                     <div class="line" v-if="goodsList.length===0"></div>
                     <shoppingCartItem @deletegoods="deletegoods" @choose="choose(index)" v-for="(item,index) in goodsList" :goodsitem="item" :key="index"></shoppingCartItem>
                 </div>
                 <div class="rightBox">
                     <div class="item item1">
-                        <div class="item_left">订单小计</div>
-                        <div class="item_right">已选2件商品</div>
+                        <div class="item_left">{{$t('shopcar.ordermoney')}}</div>
+                        <div class="item_right">{{$t('shopcar.have')}}2{{$t('shopcar.goodsnum')}}</div>
                     </div>
                     <div class="line"></div>
                     <div class="item item2">
-                        <div class="item_left">商品总计</div>
+                        <div class="item_left">{{$t('shopcar.goodsall')}}</div>
                         <div class="item_right">￥4,200</div>
                     </div>
                     <div class="item item3">
-                        <div class="item_left">运费</div>
-                        <div class="item_right">免费</div>
+                        <div class="item_left">{{$t('shopcar.usemoney')}}</div>
+                        <div class="item_right">{{$t('shopcar.free')}}</div>
                     </div>
                     <div class="item item4">
-                        <div class="item_left">总计</div>
+                        <div class="item_left">{{$t('shopcar.allmoney')}}</div>
                         <div class="item_right">￥4,200</div>
                     </div>
                     <div class="line"></div>
-                    <div class="p p1">说明</div>
-                    <div class="p p2">在线支付订单提交之后15分钟内未付款，订单将被系统
-                        自动取消，请您尽快完成支付以确保商品能及时送达,有
-                        货商品和门店配货商品是分开寄出。</div>
+                    <div class="p p1">{{$t('shopcar.text')}}</div>
+                    <div class="p p2">{{$t('shopcar.text1')}}</div>
                     <div class="line"></div>
-                    <div class="btn btn1" @click="buygoods">立即结算</div>
+                    <div class="btn btn1" @click="buygoods">{{$t('shopcar.gopay')}}</div>
                     <router-link to="shoppingMall">
-                        <div class="btn btn2">继续购物</div>
+                        <div class="btn btn2">{{$t('shopcar.goon')}}</div>
                     </router-link>
                 </div>
             </div>

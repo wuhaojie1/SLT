@@ -7,31 +7,50 @@
             <div class="right">
                 <div class="right-text-list">
                     <div class="site-header-item">
-                        <div class="text" @click="topage('index')">首页</div>
+                        <div class="text" @click="topage('index')">{{ $t('header.tabbar')[0] }}</div>
                     </div>
                     <div class="site-header-item">
-                        <div class="text" @click="topage('whitPaper')">白皮书</div>
+                        <div class="text" @click="topage('whitPaper')">{{ $t('header.tabbar')[1] }}</div>
                     </div>
                     <div class="site-header-item" @click="topage('shoppingMall')">
-                        <div class="text">商场</div>
+                        <div class="text">{{ $t('header.tabbar')[2] }}</div>
                     </div>
                     <div class="site-header-item" @click="topage('position')">
-                        <div class="text">位置买卖</div>
+                        <div class="text">{{ $t('header.tabbar')[3] }}</div>
                     </div>
-                    <div class="site-header-item">
+                    <div class="site-header-item" @click="topage('buy')">
+                        <div class="text">{{ $t('header.tabbar')[4] }}</div>
+                    </div>
+                    <!-- <div class="site-header-item">
                         <div class="text">帮助中心</div>
                     </div>
                     <div class="site-header-item">
                         <div class="text">关于我们</div>
-                    </div>
-                    <div class="site-header-item" @click="topage('userInfo')">
-                        <img :src="userIcon" alt="" class="userIcon">
-<!--                        <img :src="ring" alt="" class="ring">-->
-<!--                        <img :src="service" alt="" class="service">-->
-                    </div>
+                    </div> -->
                     <div class="site-header-item">
-                        <div class="text">简体中文</div>
+                        <img :src="userIcon" alt="" class="userIcon" v-if="islogin" @click="topage('userInfo')">
+                        <!--                        <img :src="ring" alt="" class="ring">-->
+                        <!--                        <img :src="service" alt="" class="service">-->
+                        <div class="goin" v-else>
+                            <div class="logintext" @click="topage('login')">{{ $t('header.loginText')[0] }}</div>
+                            <div class="regiesttext" @click="topage('regiest')">{{ $t('header.loginText')[1] }}</div>
+                        </div>
+                    </div>
+                    <div class="site-header-item" @click="selectLanguage()">
+                        <div class="text">{{ $t('header.lenList')[0] }}</div>
                         <img :src="up" alt="" class="upImg">
+                    </div>
+                    <div class="language" v-show="languageShow">
+                        <div class="language-wrap">
+                            <div class="language-list">
+                                <div class="language-item"
+                                     v-for="item in languageList"
+                                     :key="item.id"
+                                     @click="chooseLangguageItem(item.text)">
+                                    <div class="text">{{ item.text }}</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="right-icon-list">
@@ -52,14 +71,34 @@ export default {
             ring: `${require('../../static/img/index/ring.png')}`,
             service: `${require('../../static/img/index/service.png')}`,
             up: `${require('../../static/img/index/up.png')}`,
+            islogin: '',
+            languageList: [
+                {
+                    text: this.$t('header.lenList')[0],
+                },
+                {
+                    text: this.$t('header.lenList')[1],
+                }
+            ],
+            languageShow: false,
         }
+    },
+    mounted() {
+        this.islogin = this.localStorage.get("isLogin");
     },
     methods: {
         topage(name) {
             this.$router.push({
                 name: name
             })
+        },
+        selectLanguage() {
+            this.languageShow = !this.languageShow;
+        },
+        chooseLangguageItem(item){
+            console.log(item)
         }
+
     }
 }
 </script>
@@ -95,6 +134,7 @@ export default {
             .right-text-list {
                 display: flex;
                 align-items: center;
+                position: relative;
                 /*justify-content: space-between;*/
                 /*width: 570rem;*/
 
@@ -106,10 +146,30 @@ export default {
                     display: flex;
                     align-items: center;
                     margin-left: 35rem;
+                    position: relative;
 
                     .userIcon {
                         width: 17rem;
                         height: 20rem;
+                    }
+
+                    .goin {
+                        width: 100rem;
+                        height: 20rem;
+                        display: flex;
+                        justify-content: space-between;
+
+                        .logintext {
+                            font-size: 15rem;
+                            line-height: 20rem;
+                            color: #FFFFFF;
+                        }
+
+                        .regiesttext {
+                            font-size: 12rem;
+                            line-height: 20rem;
+                            color: #DBDEE4;
+                        }
                     }
 
                     .ring {
@@ -128,6 +188,37 @@ export default {
                         width: 18rem;
                         height: 10rem;
                         margin-left: 9rem;
+                    }
+
+
+                }
+
+                .language {
+                    width: 130rem;
+                    height: auto;
+                    background: #FFF;
+                    position: absolute;
+                    right: 0;
+                    top: 65rem;
+                    color: #444444;
+                    box-shadow: 0rem 0rem 5rem 0rem rgba(153, 153, 153, 0.35);
+                    border-radius: 4rem;
+
+                    .language-wrap {
+                        .language-list {
+                            .language-item {
+                                width: 130rem;
+                                height: 40rem;
+                                line-height: 40rem;
+                                text-align: center;
+                                cursor: pointer;
+                            }
+
+                            .language-item:hover {
+                                background: #F2F6FA;
+                                color: #00B4FC;
+                            }
+                        }
                     }
                 }
 
