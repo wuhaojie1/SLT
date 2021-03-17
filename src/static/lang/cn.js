@@ -76,6 +76,55 @@ export default {
         buySLT: '购买SLT',
         sealSLT: '出售SLT'
     },
+    //订单详情
+    orderdetails:{
+        waitpay:'待支付',
+        opentrade:'开启接单',
+        cancleorderauto:'内未付款，将自动取消订单',
+        paytype:'支付方式',
+        orderdetail:'订单详情',
+        ordernum:'订单号',
+        usemoney:'手续费',
+        charge:'成交单价',
+        num:'成交数量',
+        allmoney:'总金额',
+        confirmmsg1:'请确保付款卡所属人与平台实名信息',
+        confirmmsg2:'一致，若不一致卖家有权不放币。请不要使用支付宝转银行卡等到账时间较长的付款方式;',
+        remindmsg1:'如果您已向卖家付款，请千万不要取消订单。',
+        remindmsg2:'您需要根据对方的收款方式通过微信/支付宝/银行卡等平台转账给对方，请认真核对对方的收款信息;转账时请勿备注任何信息，以免您的第三方账户被冻结;',
+        cancelorder:'取消订单',
+        confirmtext:'确认支付',
+        connect:'联系在线客服'
+    },
+    //取消订单
+    cancleorder:{
+        back:'返回',
+        cancleorder:'取消订单',
+        closeorder:'关闭接单',
+        complaintext1:'如有疑问请向客服申诉',
+        orderdetails:'订单详情',
+        remindmsg1:'若您已经转账，由于未确认付款系统自动取消订单,您可以在聊天界面与对方进行沟通;',
+        remindmsg2:'[主动取消]或[超时]自动取消3次，或恶意取消达-次，当天禁止交易:由于卖家未提供有效收款方式 导致订单取消，可向客服申诉，重新判责',
+        remindmsg3:'当月累计6次，自第7次开始，每取消1次，禁止交易2小时。',
+        complaintext2:'向客户申诉'
+    },
+    //购物车
+    shopcar:{
+        shopcar:'购物车',
+        gofill:'快来装满吧!',
+        all:'全部',
+        ordermoney:'订单小记',
+        have:'已选',
+        goodsnum:'件商品',
+        goodsall:'商品总计',
+        usemoney:'运费',
+        free:'免费',
+        allmoney:'总计',
+        text:'说明',
+        text1:'在线支付订单提交之后15分钟内未付款，订单将被系统自动取消，请您尽快完成支付以确保商品能及时送达,有货商品和门店配货商品是分开寄出。',
+        gopay:'立即结算',
+        goon:'继续购物'
+    },
     //头部
     header: {
         tabbar: ['首页', '白皮书', '商场', '位置买卖', 'OTC'],
