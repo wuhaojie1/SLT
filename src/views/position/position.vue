@@ -4,7 +4,7 @@
         <div class="shoppingMall-wrap">
             <div class="content-carousel">
                 <el-carousel indicator-position="none"
-                             height="900rem"
+                             height="700rem"
                              :interval="interval">
                     <el-carousel-item v-for="(item,index) in imgs" :key="index">
                         <div class="textTip">
@@ -380,7 +380,7 @@ export default {
             width: 100%;
             margin-top: 69rem;
             margin-bottom: 257rem;
-            width: 1170rem;
+            //width: 1170rem;
             margin: 69rem auto 257rem;
 
             .goods-box-wrap {
