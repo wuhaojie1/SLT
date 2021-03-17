@@ -15,4 +15,10 @@ export default {
         money: "资产",
         search: "搜索",*/
     },
+    //头部
+    header:{
+        tabbar:['首页','白皮书','商场','位置买卖','OTC'],
+        lenList:['简体中文','韩文'],
+        loginText:['登录','注册']
+    }
 }
