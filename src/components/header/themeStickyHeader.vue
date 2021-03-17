@@ -7,37 +7,37 @@
             <div class="right">
                 <div class="right-text-list">
                     <div class="site-header-item">
-                        <div class="text" @click="topage('index')">首页</div>
+                        <div class="text" @click="topage('index')">{{$t('header.tabbar')[0]}}</div>
                     </div>
                     <div class="site-header-item">
-                        <div class="text" @click="topage('whitPaper')">白皮书</div>
+                        <div class="text" @click="topage('whitPaper')">{{$t('header.tabbar')[1]}}</div>
                     </div>
                     <div class="site-header-item" @click="topage('shoppingMall')">
-                        <div class="text">商场</div>
+                        <div class="text">{{$t('header.tabbar')[2]}}</div>
                     </div>
                     <div class="site-header-item" @click="topage('position')">
-                        <div class="text">位置买卖</div>
+                        <div class="text">{{$t('header.tabbar')[3]}}</div>
                     </div>
                     <div class="site-header-item" @click="topage('buy')">
-                        <div class="text">OTC</div>
+                        <div class="text">{{$t('header.tabbar')[4]}}</div>
                     </div>
-                    <div class="site-header-item">
+                    <!-- <div class="site-header-item">
                         <div class="text">帮助中心</div>
                     </div>
                     <div class="site-header-item">
                         <div class="text">关于我们</div>
-                    </div>
+                    </div> -->
                     <div class="site-header-item">
                         <img :src="userIcon" alt="" class="userIcon" v-if="islogin" @click="topage('userInfo')">
 <!--                        <img :src="ring" alt="" class="ring">-->
 <!--                        <img :src="service" alt="" class="service">-->
                         <div class="goin" v-else>
-                            <div class="logintext" @click="topage('login')">登录</div>
-                            <div class="regiesttext" @click="topage('regiest')">注册</div>
+                            <div class="logintext" @click="topage('login')">{{$t('header.loginText')[0]}}</div>
+                            <div class="regiesttext" @click="topage('regiest')">{{$t('header.loginText')[1]}}</div>
                         </div>
                     </div>
                     <div class="site-header-item">
-                        <div class="text">简体中文</div>
+                        <div class="text">{{$t('header.lenList')[0]}}</div>
                         <img :src="up" alt="" class="upImg">
                     </div>
                 </div>
@@ -64,7 +64,6 @@ export default {
     },
     mounted() {
         this.islogin = this.localStorage.get("isLogin");
-        console.log(this.islogin)
     },
     methods: {
         topage(name) {
