@@ -24,7 +24,7 @@ Vue.prototype.localStorage = localStorage;
 Vue.use(ElementUI);
 
 const i18n = new VueI18n({
-    locale: localStorage.get('langMsg') ? localStorage.get('langMsg').name : 'en-US',
+    locale: localStorage.get('langMsg') ? localStorage.get('langMsg').name : 'zh-CN',
     messages: {
         'en-US': lang.en,
         'zh-CN': lang.cn,
