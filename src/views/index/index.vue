@@ -509,34 +509,53 @@
                             </div>
                             <div class="right">
                                 <div class="right-content">
-                                    <div class="title">How to buy SLT coin</div>
-                                    <div class="content">전체 코인의 10%에 해당하는 10억개는 IEO및 사모펀드 방식으로 판매되며, 안정적인 SLTcoin의 운영을
-                                        위하여 초기 엔젤투자자가 10%, 마케팅 15%, 생태기금으로 30%, 비축기금으로 20%, 개발팀과 고문이 15%의 SLTcoin을 보유하게
-                                        됩니다.
+                                    <div class="title">{{ $t('index').Howtobuy }}</div>
+                                    <div class="content">
+                                        {{ $t('index').HowtobuyWay }}
                                     </div>
                                 </div>
                                 <div class="right-table">
                                     <table>
                                         <tbody>
                                         <tr>
-                                            <td>SLT coin</td>
-                                            <td><strong>TRON TRC20</strong></td>
+                                            <td>
+                                                {{ $t('index').tableTextTitle[0] }}
+                                            </td>
+                                            <td><strong>
+                                                {{ $t('index').tableTextContent[0] }}
+                                            </strong></td>
                                         </tr>
                                         <tr>
-                                            <td>ICO Price</td>
-                                            <td><strong>1 SLT coin = 10KRW</strong></td>
+                                            <td>
+                                                {{ $t('index').tableTextTitle[1] }}
+                                            </td>
+                                            <td><strong>
+                                                {{ $t('index').tableTextContent[1] }}
+                                            </strong></td>
                                         </tr>
                                         <tr>
-                                            <td>ICO Date</td>
-                                            <td>March 31 – May 31 (23:59 UTA+9)</td>
+                                            <td>
+                                                {{ $t('index').tableTextTitle[2] }}
+                                            </td>
+                                            <td>
+                                                {{ $t('index').tableTextContent[2] }}
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td>Exchange Listing</td>
-                                            <td><strong>Main Exchanges by 15 September</strong></td>
+                                            <td>
+                                                {{ $t('index').tableTextTitle[3] }}
+                                            </td>
+                                            <td><strong>
+                                                {{ $t('index').tableTextContent[3] }}
+                                            </strong></td>
                                         </tr>
                                         <tr>
-                                            <td>Token Distribution</td>
-                                            <td><strong>Right after the ICO</strong></td>
+                                            <td>
+                                                {{ $t('index').tableTextTitle[4] }}
+                                            </td>
+                                            <td><strong>
+                                                {{ $t('index').tableTextContent[4] }}
+                                            </strong></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -550,15 +569,17 @@
                                         <img src="" alt="" class="img">
                                     </div>
                                     <div class="recommend-item-top">
-                                        <div class="title">Whitepaper</div>
+                                        <div class="title">{{ $t('index').whitBook }}</div>
                                         <div class="text"></div>
                                     </div>
                                     <div class="content">
                                         <div class="content-list">
-                                            <div class="content-item">Korean(한글)</div>
-                                            <div class="content-item">English(영어)</div>
-                                            <div class="content-item">Chinese(중국어)</div>
-                                            <div class="content-item">Japanese(일본어)</div>
+                                            <div class="content-item">
+                                                {{ $t('index').Korean }}
+                                            </div>
+                                            <div class="content-item">
+                                                {{ $t('index').Chinese }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -567,8 +588,12 @@
                                         <img src="" alt="" class="img">
                                     </div>
                                     <div class="recommend-item-top">
-                                        <div class="title">Notifications</div>
-                                        <div class="text">성장시장인 교육산업을 블록체인/빅데이터/AI등을 이용하여 지속적인 수익 창출</div>
+                                        <div class="title">
+                                            {{ $t('index').notice }}
+                                        </div>
+                                        <div class="text">
+                                            {{ $t('index').noticeText }}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="recommend-item">
@@ -576,8 +601,12 @@
                                         <img src="" alt="" class="img">
                                     </div>
                                     <div class="recommend-item-top">
-                                        <div class="title">Payment Options</div>
-                                        <div class="text">학부모, 학생, 플랫폼고객, 교육기업, 작가, 교육광고자</div>
+                                        <div class="title">
+                                            {{ $t('index').payWay }}
+                                        </div>
+                                        <div class="text">
+                                            {{ $t('index').payWayText }}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="recommend-item">
@@ -585,8 +614,12 @@
                                         <img src="" alt="" class="img">
                                     </div>
                                     <div class="recommend-item-top">
-                                        <div class="title">Referral & Bounty</div>
-                                        <div class="text">상품유통, 광고, 펀딩 서비스를 통한 다양한 수익원</div>
+                                        <div class="title">
+                                            {{ $t('index').money }}
+                                        </div>
+                                        <div class="text">
+                                            {{ $t('index').moneyText }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -596,14 +629,20 @@
                 <div class="section9" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
                     <div class="section9-wrap">
                         <div class="section9-wrap-title">
-                            <div class="team">TEAM</div>
-                            <div class="text">Who We Are</div>
-                            <div class="text2">Get to know the team of enthusiasts who are working hard
-                                and passionately behind this project
+                            <div class="team">
+                                {{ $t('index').team }}
+                            </div>
+                            <div class="text">
+                                {{ $t('index').teamTitle }}
+                            </div>
+                            <div class="text2">
+                                {{ $t('index').teamTitleText }}
                             </div>
                         </div>
                         <div class="Team-card">
-                            <h2 class="Team-card-title">Member</h2>
+                            <h2 class="Team-card-title">
+                                {{ $t('index').member }}
+                            </h2>
                             <div class="Team-card-content">
                                 <div class="Team-card-content-list">
                                     <div class="Team-card-content-item"
@@ -619,7 +658,9 @@
                             </div>
                         </div>
                         <div class="Team-card">
-                            <h2 class="Team-card-title">Advisor</h2>
+                            <h2 class="Team-card-title">
+                                {{ $t('index').counselor }}
+                            </h2>
                             <div class="Team-card-content">
                                 <div class="Team-card-content-list">
                                     <div class="Team-card-content-item"
@@ -639,57 +680,65 @@
                 <div class="section10">
                     <div class="section10-wrap">
                         <div class="section9-wrap-title">
-                            <div class="team">SLTcoin 로드맵</div>
-                            <div class="text">How it was implemented</div>
-                            <div class="text2">Here is a timeline of how we get started with the
-                                SLT coin and where we are going further
+                            <div class="team">
+                                {{ $t('index').SLTMap }}
+                            </div>
+                            <div class="text">
+                                {{ $t('index').way }}
+                            </div>
+                            <div class="text2">
+                                {{ $t('index').time }}
                             </div>
                         </div>
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div class="timeline-badge "
-                                     style="background-color:#1e73be">Mar<span>2021</span>
+                                     style="background-color:#1e73be">{{ $t('index').Mar }}<span>{{ $t('index').year1 }}</span>
                                     <div class=" " style="background-color:#1e73be"></div>
                                 </div>
                                 <div class="timeline-panel">
                                     <div class="description">
-                                        <span style="color: #ffffff">초기 엔젤투자 판매</span></div>
+                                        <span style="color: #ffffff">{{ $t('index').year20211 }}</span></div>
                                 </div>
                             </div>
                             <div class="timeline-item">
-                                <div class="timeline-badge " style="background-color:#81d742">May<span>2021</span>
+                                <div class="timeline-badge "
+                                     style="background-color:#81d742">{{ $t('index').May }}<span>{{ $t('index').year1 }}</span>
                                     <div class=" " style="background-color:#81d742"></div>
                                 </div>
                                 <div class="timeline-panel">
                                     <div class="description">
-                                        <span style="color: #ffffff">사모펀드 진행</span></div>
+                                        <span style="color: #ffffff">{{ $t('index').year20212 }}</span></div>
                                 </div>
                             </div>
                             <div class="timeline-item">
-                                <div class="timeline-badge " style="background-color:#eeee22">Jun<span>2021</span>
+                                <div class="timeline-badge " style="background-color:#eeee22">{{ $t('index').Jun }}<span>{{ $t('index').year1 }}</span>
                                     <div class=" " style="background-color:#eeee22"></div>
                                 </div>
                                 <div class="timeline-panel">
                                     <div class="description">
-                                        <span style="color: #ffffff">첫번째 거래소 상장</span></div>
+                                        <span style="color: #ffffff">{{ $t('index').year20213 }}</span></div>
                                 </div>
                             </div>
                             <div class="timeline-item">
-                                <div class="timeline-badge " style="background-color:#8224e3">Aug<span>2021</span>
+                                <div class="timeline-badge " style="background-color:#8224e3">
+                                    {{ $t('index').Aug }}<span>
+                                        {{ $t('index').year1 }}
+                                    </span>
                                     <div class=" " style="background-color:#8224e3"></div>
                                 </div>
                                 <div class="timeline-panel">
                                     <div class="description">
-                                        <span style="color: #ffffff">대형 거래소 상장</span></div>
+                                        <span style="color: #ffffff">{{ $t('index').year20214 }}</span></div>
                                 </div>
                             </div>
                             <div class="timeline-item">
-                                <div class="timeline-badge " style="background-color:#faa732">Mar<span>2022</span>
+                                <div class="timeline-badge " style="background-color:#faa732">{{ $t('index').Mar }}<span>{{ $t('index').year2 }}</span>
                                     <div class=" " style="background-color:#faa732"></div>
                                 </div>
                                 <div class="timeline-panel">
                                     <div class="description">
-                                        <span style="color: #ffffff">첫번째 바이백 진행</span></div>
+                                        <span style="color: #ffffff">{{ $t('index').year20221 }}</span></div>
                                 </div>
                             </div>
                         </div>
@@ -697,30 +746,34 @@
                 </div>
                 <div class="section11" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
                     <div class="section11-wrap">
-                        <div class="section11-wrap-title">SLTcoin과 함께 하세요!</div>
-                        <div class="section11-wrap-tip">SLTcoin 팀은 코인 구매나 사업관련 어떠한 문의든지 환영 합니다.</div>
+                        <div class="section11-wrap-title">
+                            {{ $t('index').join }}
+                        </div>
+                        <div class="section11-wrap-tip">
+                            {{ $t('index').joinText }}
+                        </div>
                         <div class="section11-wrap-btnBox">
                             <div class="input-item">
-                                <input type="text" placeholder="Name">
+                                <input type="text" :placeholder="$t('index').namePlaceholder ">
                             </div>
                             <div class="input-item">
-                                <input type="email" placeholder="Email">
+                                <input type="email" :placeholder="$t('index').emailPlaceholder ">
                             </div>
                             <div class="btn">
-                                Submit
+                                {{ $t('index').submit }}
                             </div>
                         </div>
                         <div class="url">
-                            <div class="url-content">☉ SLT Global<span>http://sltglobal.net</span></div>
-                            <div class="url-content">☉ 북트리<span>http://ubooktree.com</span></div>
-                            <div class="url-content email">☉ 문의 e-Mail : sltglobalcoin@gmail.com</div>
+                            <div class="url-content">{{ $t('index').net1[0] }}<span>{{ $t('index').net1[1] }}</span></div>
+                            <div class="url-content">{{ $t('index').net2[0] }}<span>{{ $t('index').net2[1] }}</span></div>
+                            <div class="url-content email">{{ $t('index').net3[0] }}</div>
                         </div>
                         <div class="logo-icon">
                             <img :src="logoIcon" alt="" class="icon-img">
                         </div>
-                        <div class="foot-text">© <strong>S</strong>mart <strong>L</strong>earning
-                            <strong>T</strong>echnology <strong>Global</strong> <strong>2020. All rights
-                                reserved.</strong></div>
+                        <div class="foot-text">© {{ $t('index').own }}<strong>
+
+                        </strong></div>
                     </div>
                 </div>
             </div>
