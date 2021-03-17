@@ -18,6 +18,9 @@
                     <div class="site-header-item" @click="topage('position')">
                         <div class="text">位置买卖</div>
                     </div>
+                    <div class="site-header-item" @click="topage('buy')">
+                        <div class="text">OTC</div>
+                    </div>
                     <div class="site-header-item">
                         <div class="text">帮助中心</div>
                     </div>

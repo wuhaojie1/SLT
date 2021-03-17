@@ -7,7 +7,7 @@
             <div class="index-content-wrap">
                 <div class="section1" :style="{ 'backgroundImage':'url('+ urlIcon +')' }">
                     <div class="site-header">
-                        <div class="site-header-list">
+                        <!-- <div class="site-header-list">
                             <div class="site-header-item-img">
                                 <img :src="SLT_white" alt="" class="SLT_white_logo">
                             </div>
@@ -31,7 +31,7 @@
                                     <div class="text">ROADMAP</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="section1-content">
                         <div class="wpb-wrapper">
