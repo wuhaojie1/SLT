@@ -4,28 +4,28 @@
             <div class="loginbox">
                 <div class="loginbox-left">
                     <div class="left-text-top">S L T coin</div>
-                    <div class="left-text-down">SLTcoin 团队欢迎任何代购币购买或者业务查询。</div>
+                    <div class="left-text-down">SLTcoin {{$t('login.welcome')}}</div>
                 </div>
                 <div class="loginbox-right" :style="{ 'backgroundImage':'url('+ loginbgc +')' }">
-                    <div class="user">用户登录</div>
+                    <div class="user">{{$t('login.logintext')}}</div>
                     <div class="username">
                         <img class="username-img" src="../../static/img/login/user.png"/>
-                        <input class="username-input" type="text" v-model="username" placeholder="请输入您的用户名">
+                        <input class="username-input" type="text" v-model="username" :placeholder="$t('login.username')">
                     </div>
                     <div class="password">
                         <img class="password-img" src="../../static/img/login/lock.png"/>
-                        <input class="password-input" type="password" v-model="password" placeholder="请输入您的密码">
+                        <input class="password-input" type="password" v-model="password" placeholder="$t('login.userpsw')">
                     </div>
                     <div class="userchoice">
                         <div class="remberpsw">
                             <!--                            <input type="checkbox" class="checkbox">-->
-                            忘记密码?
+                            {{$t('login.forget')}}
                         </div>
                         <router-link to="regiest">
-                            <div class="regiest">立即注册?</div>
+                            <div class="regiest">{{$t('login.goreigest')}}</div>
                         </router-link>
                     </div>
-                    <div class="loginbutton" @click="login">登录</div>
+                    <div class="loginbutton" @click="login">{{$t('login.login')}}</div>
                 </div>
             </div>
         </div>
