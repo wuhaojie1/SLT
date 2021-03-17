@@ -16,6 +16,17 @@ Vue.component(SwipeItem.name, SwipeItem);
 
 
 Vue.use(VueI18n);
+
+
+const i18n = new VueI18n({
+    // locale: localStorage.get('langMsg') ? localStorage.get('langMsg').name : 'zh-CN',
+    locale: 'zh-CN',
+    messages: {
+        'zh-CN': lang.cn,
+        "ko-KR": lang.kr,
+    },
+    silentTranslationWarn: true,
+})
 Vue.config.productionTip = false
 Vue.prototype._i18n = i18n
 Vue.prototype.$echarts = echarts
@@ -23,16 +34,7 @@ Vue.prototype.axios = axios;
 Vue.prototype.localStorage = localStorage;
 Vue.use(ElementUI);
 
-const i18n = new VueI18n({
-    locale: localStorage.get('langMsg') ? localStorage.get('langMsg').name : 'zh-CN',
-    messages: {
-        'en-US': lang.en,
-        'zh-CN': lang.cn,
-        "ko-KR": lang.kr,
-        'ja_JP': lang.jp
-    },
-    silentTranslationWarn: true,
-})
+
 
 const setHtmlFontSize = () => {
 
