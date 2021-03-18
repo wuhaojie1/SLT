@@ -12,11 +12,18 @@
             </div>
             <div class="face-text">{{$t('identifi.uploadface')}}</div>
             <div class="foce-con">
-                <img style="{width: 314rem;height: 219rem;}" src="../../static/img/user/idcardup.png" alt="">
+                <el-upload :on-success="handleAvatarSuccess"
+                           :before-upload="beforeUpload"
+                            action="123"
+                            accept=".jpg .jpeg .png">
+                    <img style="{width: 314rem;height: 219rem;}" src="../../static/img/user/idcardup.png" alt="">
+                </el-upload>
             </div>
             <div class="back-text">{{$t('identifi.uploadback')}}</div>
             <div class="back-con">
-                <img style="{width: 314rem;height: 219rem;}" src="../../static/img/user/idcardup.png" alt="">
+                <el-upload>
+                <img style="{width: 314rem;height: 219rem;}" src="../../static/img/user/idcarddown.png" alt="">
+                </el-upload>
             </div>
             <div class="auth-button-con">
                 <div class="auth-button">{{$t('identifi.goidenrifi')}}</div>
@@ -27,7 +34,12 @@
 
 <script>
     export default {
-        name: "userAuth"
+        name: "userAuth",
+        methods:{
+            beforeUpload(file){
+                console.log(file)
+            }
+        }
     }
 </script>
 

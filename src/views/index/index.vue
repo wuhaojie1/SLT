@@ -49,7 +49,7 @@
                                     {{ $t('index').whitBook }}
                                 </div>
                                 <div class="right">
-                                    <!--<img src="" alt="" class="right-img">-->
+                                    <img src="../../static/img/index/pause.png" alt="" class="right-img">
                                     <h4>{{ $t('index').whitBookT }}</h4>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                             <div class="section3-item-left">
                                 <div class="section3-item-box">
                                     <div class="img">
-                                        <img src="" alt="" class="section3-item-box-img">
+                                        <img src="../../static/img/index/system.png" alt="" class="section3-item-box-img">
                                     </div>
                                     <div class="text">
                                         <div class="title">
@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="section3-item-box">
                                     <div class="img">
-                                        <img src="" alt="" class="section3-item-box-img">
+                                        <img src="../../static/img/index/tec.png" alt="" class="section3-item-box-img">
                                     </div>
                                     <div class="text">
                                         <div class="title">
@@ -157,7 +157,7 @@
                             <div class="section3-item-right">
                                 <div class="section3-item-box">
                                     <div class="img">
-                                        <img src="" alt="" class="section3-item-box-img">
+                                        <img src="../../static/img/index/application.png" alt="" class="section3-item-box-img">
                                     </div>
                                     <div class="text">
                                         <div class="title">
@@ -170,7 +170,7 @@
                                 </div>
                                 <div class="section3-item-box">
                                     <div class="img">
-                                        <img src="" alt="" class="section3-item-box-img">
+                                        <img src="../../static/img/index/promise.png" alt="" class="section3-item-box-img">
                                     </div>
                                     <div class="text">
                                         <div class="title">
@@ -413,7 +413,7 @@
                                 </div>
                                 <div class="section7-content1-cards-item black">
                                     <div class="imgBox">
-                                        <img src="" alt="">
+                                        <img src="../../static/img/index/ETH.png" alt="">
                                     </div>
                                     <div class="rate">
                                         {{ $t('index').rateText1 }}
@@ -424,7 +424,7 @@
                                 </div>
                                 <div class="section7-content1-cards-item blue">
                                     <div class="imgBox">
-                                        <img src="" alt="">
+                                        <img src="../../static/img/index/ETH2.png" alt="">
                                     </div>
                                     <div class="rate">
                                         {{ $t('index').rateText2 }}
@@ -435,7 +435,7 @@
                                 </div>
                                 <div class="section7-content1-cards-item green">
                                     <div class="imgBox">
-                                        <img src="" alt="">
+                                        <img src="../../static/img/index/ETH1.png" alt="">
                                     </div>
                                     <div class="rate">
                                         {{ $t('index').rateText3 }}
@@ -566,7 +566,7 @@
                             <div class="recommend-list">
                                 <div class="recommend-item">
                                     <div class="imgBox">
-                                        <img src="" alt="" class="img">
+                                        <img src="../../static/img/index/item3.png" alt="" class="img">
                                     </div>
                                     <div class="recommend-item-top">
                                         <div class="title">{{ $t('index').whitBook }}</div>
@@ -585,7 +585,7 @@
                                 </div>
                                 <div class="recommend-item">
                                     <div class="imgBox">
-                                        <img src="" alt="" class="img">
+                                        <img src="../../static/img/index/item4.png" alt="" class="img">
                                     </div>
                                     <div class="recommend-item-top">
                                         <div class="title">
@@ -598,7 +598,7 @@
                                 </div>
                                 <div class="recommend-item">
                                     <div class="imgBox">
-                                        <img src="" alt="" class="img">
+                                        <img src="../../static/img/index/item1.png" alt="" class="img">
                                     </div>
                                     <div class="recommend-item-top">
                                         <div class="title">
@@ -611,7 +611,7 @@
                                 </div>
                                 <div class="recommend-item">
                                     <div class="imgBox">
-                                        <img src="" alt="" class="img">
+                                        <img src="../../static/img/index/item2.png" alt="" class="img">
                                     </div>
                                     <div class="recommend-item-top">
                                         <div class="title">
@@ -1140,8 +1140,10 @@ export default {
                             .right {
 
                                 .right-img {
-                                    width: 55rem;
-                                    height: 55rem;
+                                    width: 13rem;
+                                    height: 18rem;
+                                    float: left;
+                                    margin-top: 15rem;
                                 }
 
                                 h4 {
@@ -1884,6 +1886,10 @@ export default {
                                 border-radius: 2em;
                                 background-color: #00B4FC;
                                 text-align: center;
+                                /*.right-img{*/
+                                /*    width: 13rem;*/
+                                /*    height: 18rem;*/
+                                /*}*/
                             }
 
                             .btn:hover {

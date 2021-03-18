@@ -80,7 +80,7 @@ export default {
                     text: this.$t('header.lenList')[1],
                 }
             ],
-            languageShow: false,
+            languageShow:false,
         }
     },
     mounted() {
