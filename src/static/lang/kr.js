@@ -24,6 +24,11 @@ export default {
         addname: '성명을 입력하여주세요.',
         addidnum: '신분증번호를 입력하여주세요'
     },
+    //用户设置
+    userSet:{
+        title:'账户设置',
+        tabArray:['个人信息','身份认证','收货地址','个人资产','财务记录']
+    },
     //收货地址
     userAdress: {
         userAdresstext: '수하주소',

@@ -2,7 +2,7 @@
     <div class="userSet">
         <div class="userSet-wrap">
             <div class="userSet-title">
-                账户设置
+                {{$t('userSet.title')}}
             </div>
             <div class="userSet-list">
                 <div class="userSet-item"
@@ -38,27 +38,23 @@
             return {
                 userSetList: [
                     {
-                        text: "个人信息",
+                        text: this.$t('userSet.tabArray')[0],
                         name: "userInfo",
                     },
                     {
-                        text: "身份认证",
+                        text: this.$t('userSet.tabArray')[1],
                         name: "userAuth",
                     },
                     {
-                        text: "收货地址",
+                        text: this.$t('userSet.tabArray')[2],
                         name: "userAddress",
                     },
                     {
-                        text: "个人资产",
+                        text: this.$t('userSet.tabArray')[3],
                         name: "personasset",
                     },
-                    // {
-                    //     text: "知识产权",
-                    //     name: "property",
-                    // },
                     {
-                        text: "财务记录",
+                        text: this.$t('userSet.tabArray')[4],
                         name: "financial",
                     },
                 ],

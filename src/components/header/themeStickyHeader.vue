@@ -36,7 +36,7 @@
                             <div class="regiesttext" @click="topage('regiest')">{{ $t('header.loginText')[1] }}</div>
                         </div>
                     </div>
-                    <div class="site-header-item" @click="selectLanguage()">
+                    <!-- <div class="site-header-item" @click="selectLanguage()">
                         <div class="text">{{ $t('header.lenList')[0] }}</div>
                         <img :src="up" alt="" class="upImg">
                     </div>
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="right-icon-list">
 

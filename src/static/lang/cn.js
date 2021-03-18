@@ -1,4 +1,5 @@
 export default {
+    
     //个人资料
     userInfo: {
         basemsg: '基本信息',
@@ -23,6 +24,11 @@ export default {
         finish: '已完成认证',
         addname: '请输入您的姓名',
         addidnum: '请输入您的身份证号'
+    },
+    //用户设置
+    userSet:{
+        title:'账户设置',
+        tabArray:['个人信息','身份认证','收货地址','个人资产','财务记录']
     },
     //收货地址
     userAdress: {
