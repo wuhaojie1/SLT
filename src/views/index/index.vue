@@ -232,7 +232,7 @@
                                 <div class="quesgtionBox">
                                     <div class="quesgtionBox-item1">
                                         <div class="quesgtionBox-item-top" @click="openBox('box1')">
-                                            <img class="quesgtionBox-item-img" src="" alt="">
+                                            <!-- <img class="quesgtionBox-item-img" src="" alt=""> -->
                                             <div class="quesgtionBox-item-text">
                                                 {{ $t('index').aboutQuestion }}
                                             </div>
@@ -248,7 +248,7 @@
                                     </div>
                                     <div class="quesgtionBox-item2">
                                         <div class="quesgtionBox-item-top" @click="openBox('box2')">
-                                            <img class="quesgtionBox-item-img" src="" alt="">
+                                            <!-- <img class="quesgtionBox-item-img" src="" alt=""> -->
                                             <div class="quesgtionBox-item-text">
                                                 {{ $t('index').aboutQuestion }}
                                             </div>

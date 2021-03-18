@@ -33,9 +33,9 @@
                 :key="index">
                 <th>
                     <div class="tread">
-                        <div class="header-img">
+                        <!-- <div class="header-img">
                             <img src="" alt="" class="img">
-                        </div>
+                        </div> -->
                         <div class="name">{{item.name}}</div>
                     </div>
                 </th>
@@ -219,6 +219,7 @@
                                 height: 38rem;
                                 width: 38rem;
                                 border-radius: 50%;
+                                margin-right: 10rem;
 
                                 .img {
                                     height: 100%;
@@ -227,7 +228,7 @@
                             }
 
                             .name {
-                                margin-left: 10rem;
+                                // margin-left: 10rem;
                                 font-size: 14rem;
                                 font-weight: 400;
                                 color: #00B9FE;
