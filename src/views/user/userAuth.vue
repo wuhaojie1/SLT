@@ -15,14 +15,19 @@
                 <el-upload :on-success="handleAvatarSuccess"
                            :before-upload="beforeUpload"
                             action="123"
-                            accept=".jpg .jpeg .png">
-                    <img style="{width: 314rem;height: 219rem;}" src="../../static/img/user/idcardup.png" alt="">
+                           :on-change="uploadfaceFile"
+                            accept="image/jpeg,image/png,image/jpg">
+                    <img style="{width: 314rem;height: 219rem;}" :src="face?faceURL:faceimg" alt="">
                 </el-upload>
             </div>
             <div class="back-text">{{$t('identifi.uploadback')}}</div>
             <div class="back-con">
-                <el-upload>
-                <img style="{width: 314rem;height: 219rem;}" src="../../static/img/user/idcarddown.png" alt="">
+                <el-upload :on-success="handleAvatarSuccess"
+                           :before-upload="beforeUpload"
+                           action="123"
+                           :on-change="uploadbackFile"
+                           accept="image/jpeg,image/png,image/jpg">
+                    <img style="{width: 314rem;height: 219rem;}" :src="back?backURL:backimg" alt="">
                 </el-upload>
             </div>
             <div class="auth-button-con">
@@ -35,10 +40,34 @@
 <script>
     export default {
         name: "userAuth",
-        methods:{
-            beforeUpload(file){
-                console.log(file)
+        data(){
+            return{
+                faceURL:'',
+                backURL:'',
+                face:false,
+                back:false,
+                faceimg:`${require('../../static/img/user/idcardup.png')}`,
+                backimg:`${require('../../static/img/user/idcarddown.png')}`
             }
+        },
+        methods:{
+            uploadfaceFile(file){
+                // let fileName = file.name;
+                this.faceURL = URL.createObjectURL(file.raw)  // 获取URL
+                this.face=true
+                // console.log(file)
+                // console.log(this.posterURL)
+            },
+            uploadbackFile(file){
+                // let fileName = file.name;
+                this.backURL = URL.createObjectURL(file.raw)  // 获取URL
+                this.back=true
+                // console.log(file)
+                // console.log(this.posterURL)
+            }
+            // beforeUpload(file){
+            //     console.log(file)
+            // },
         }
     }
 </script>
