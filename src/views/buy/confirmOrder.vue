@@ -105,7 +105,7 @@
                             <ul class="tipBox-list">
                                 <li class="tipBox-item">
                                     <div class="tip-text">
-                                        {{$t('orderdetails.confirmmsg1')}}(){{$t('orderdetails.confirmmsg2')}}
+                                        {{$t('orderdetails.confirmmsg1')}}(王亚萍){{$t('orderdetails.confirmmsg2')}}
                                     </div>
                                 </li>
                                 <li class="tipBox-item">
@@ -121,10 +121,10 @@
                             </ul>
                         </div>
                         <div class="btnBox">
-                            <router-link to="cancleorder">
-                                <div class="cancel">{{$t('orderdetails.cancelorder')}}</div>
-                            </router-link>
-                            <div class="confirm">{{$t('orderdetails.confirmtext')}} 45S</div>
+                            <!--                            <router-link to="cancleorder">-->
+                            <div class="cancel">{{ $t('orderdetails.cancelorder') }}</div>
+                            <!--                            </router-link>-->
+                            <div class="confirm">{{ $t('orderdetails.confirmtext') }} 45S</div>
                         </div>
                         <div class="connect-text">{{$t('orderdetails.connect')}}</div>
                     </div>
