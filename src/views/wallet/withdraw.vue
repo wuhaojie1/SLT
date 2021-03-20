@@ -92,7 +92,7 @@
                     <div class="arrival">{{$t('wallet.received')}}（SLT）<span>0.00000000</span></div>
 
                     <div class="btn-box">
-                        <div class="btn">
+                        <div class="btn" @click="dialogVisible">
                             {{$t('wallet.withdraw')}}
                         </div>
                     </div>
@@ -116,6 +116,28 @@
                 </div>
             </div>
         </div>
+        <el-dialog :visible.sync="dialogVisible"
+                   width="400rem"
+                   :center="false"
+                   class="elDialogBox"
+                   :title="title"
+                   top="30vh">
+            <div class="tipText">
+                <div class="text">
+                    {{ $t('cancleorder.tipText') }}
+                    <span>
+                        {{$t('cancleorder.book')}}
+                    </span>
+                </div>
+            </div>
+            <div class="toolTip">
+                <input type="checkBox"><span>不再提醒</span>
+            </div>
+            <div class="btn">
+                <el-button type="primary"
+                           @click="cancleComfirm">确定</el-button>
+            </div>
+        </el-dialog>
         <Bottom></Bottom>
     </div>
 </template>
@@ -129,6 +151,8 @@
         components: {Bottom, ThemeStickyHeader},
         data() {
             return {
+                title:this.$t('cancleorder.title'),
+                dialogVisible: true,
                 coinIndex: 0,
                 coinList: [
                     {
@@ -639,6 +663,7 @@
                             border-radius: 2rem;
                             line-height: 46rem;
                             color: #fff;
+                            cursor: pointer;
                         }
                     }
 
@@ -658,7 +683,7 @@
 
                         .warn {
                             width: 620rem;
-                            height: 95rem;
+                            //height: 95rem;
                             margin-bottom: 25rem;
                             background: #FFFFFF;
                             border: 1rem solid #E4E7ED;
@@ -699,6 +724,40 @@
                         }
                     }
                 }
+            }
+        }
+
+        .elDialogBox {
+            text-align: left;
+
+            .tipText {
+
+                width: 350rem;
+                margin: 0 auto;
+                .text {
+                    font-size: 14rem;
+                    font-weight: 400;
+                    color: #666666;
+                    line-height: 23rem;
+                }
+                span {
+                    color: #00B9FE;
+                }
+
+            }
+
+            .toolTip {
+                margin-top: 22rem;
+                input {
+
+                }
+                span {
+                    margin-left: 8rem;
+                }
+            }
+
+            .btn {
+                text-align: right;
             }
         }
     }

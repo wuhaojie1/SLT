@@ -142,8 +142,10 @@
                     </div>
                 </div>
                 <div class="btn">
-                    <el-button @click="dialogVisible = false">不，谢谢</el-button>
-                    <el-button type="primary" @click="dialogVisible = false">确认取消</el-button>
+                    <el-button
+                        @click="dialogVisible = false">不，谢谢</el-button>
+                    <el-button type="primary"
+                               @click="cancleComfirm">确认取消</el-button>
                 </div>
             </el-dialog>
         </div>
@@ -163,7 +165,13 @@ export default {
             cancleTip: this.$t('orderdetails.cancleTip')
         }
     },
-    methods: {}
+    methods: {
+        cancleComfirm(){
+            this.$router.push({
+                name: "cancleorder",
+            })
+        }
+    }
 }
 </script>
 
