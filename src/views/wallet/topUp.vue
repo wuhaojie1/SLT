@@ -14,10 +14,54 @@
                 <div class="topUp-content-title">
                     <div class="box">
                         <div class="imgBox">
-                            <!-- <img src="" class="img" alt=""> -->
+                            <img src="../../static/img/wallet/arrowdown.png" class="img" alt="">
                         </div>
                         <div class="text">
                             SLT<span>Bitcoin</span>
+                        </div>
+                        <div class="downmenu">
+                            <div class="search">
+                                <img style="width:16rem;height:16rem;margin:0rem 7rem 0rem 10rem" src="../../static/img/wallet/search.png" alt="">
+                                <input class="place" type="text" placeholder-class="place" placeholder="搜索币种">
+                            </div>
+                            <ul class="searchMenu">
+                                <li>
+                                    <span>USDT</span>
+                                    <span>Tether</span>
+                                </li>
+                                <li>
+                                    <span>USDT</span>
+                                    <span>Tether</span>
+                                </li>
+                                <li>
+                                    <span>USDT</span>
+                                    <span>Tether</span>
+                                </li>
+                                <li>
+                                    <span>USDT</span>
+                                    <span>Tether</span>
+                                </li>
+                                <li>
+                                    <span>USDT</span>
+                                    <span>Tether</span>
+                                </li>
+                                <li>
+                                    <span>USDT</span>
+                                    <span>Tether</span>
+                                </li>
+                                <li>
+                                    <span>USDT</span>
+                                    <span>Tether</span>
+                                </li>
+                                <li>
+                                    <span>USDT</span>
+                                    <span>Tether</span>
+                                </li>
+                                <li>
+                                    <span>USDT</span>
+                                    <span>Tether</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -83,6 +127,7 @@
             </div>
         </div>
         <Bottom></Bottom>
+        <Notice></Notice>
     </div>
 </template>
 
@@ -90,10 +135,11 @@
     import VueQr from 'vue-qr'
     import ThemeStickyHeader from "../../components/header/themeStickyHeader";
     import Bottom from "../../components/bottom/bottom";
+    import Notice from '../../components/notice/notice.vue';
 
     export default {
         name: "topUp",
-        components: {Bottom, ThemeStickyHeader, VueQr},
+        components: {Bottom, ThemeStickyHeader, VueQr,Notice},
         data() {
             return {
                 coinIndex: 0,
@@ -188,11 +234,19 @@
                         align-items: center;
                         justify-content: center;
                         border-right: 1rem solid #E4E7ED;
+                        position: relative;
 
                         .imgBox {
+                            width: 20rem;
+                            height: 20rem;
+                            background: #00B4FC;
+                            border-radius: 2rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                             .img {
-                                width: 20rem;
-                                height: 20rem;
+                                width: 14rem;
+                                height: 8rem;
                             }
                         }
 
@@ -204,6 +258,107 @@
                             span {
                                 color: #8993A0;
                                 margin-left: 10rem;
+                            }
+                        }
+
+                        .downmenu{
+                            position: absolute;
+                            width: 230rem;
+                            height: 260rem;
+                            background: #FFFFFF;
+                            box-shadow:0rem -1rem 5rem 0rem rgba(153, 153, 153, 0.35);
+                            left: 0;
+                            top: 40rem;
+                            z-index: 1;
+                            .search{
+                                width: 210rem;
+                                height: 40rem;
+                                background: #FFFFFF;
+                                border: 1rem solid #E4E7ED;
+                                margin: 10rem auto;
+                                display: flex;
+                                align-items: center;
+                                .place{
+                                    width:100%;
+                                    margin-right: 10rem;
+                                }
+                                .place::-webkit-input-placeholder {
+                                /* Chrome/Opera/Safari */
+                                    font-size: 14rem;
+                                    font-weight: 400;
+                                    color: #666666;
+                                }
+                    
+                                .place::-moz-placeholder {
+                                    /* Firefox 19+ */
+                                    font-size: 14rem;
+                                    font-weight: 400;
+                                    color: #666666;
+                                }
+                    
+                                .place:-ms-input-placeholder {
+                                    /* IE 10+ */
+                                    font-size: 14rem;
+                                    font-weight: 400;
+                                    color: #666666;
+                                }
+                    
+                                .place:-moz-placeholder {
+                                    /* Firefox 18- */
+                                    font-size: 14rem;
+                                    font-weight: 400;
+                                    color: #666666;
+                                }
+
+                            }
+                            .searchMenu{
+                                list-style: none;
+                                margin: 0;
+                                text-align: left;
+                                overflow: auto;
+                                height: calc(260rem - 60rem);
+
+                                li{
+                                    width: 230rem;
+                                    height: 38rem;
+                                    display: flex;
+                                    align-items: center;
+                                    padding-left: 21rem;
+                                    box-sizing: border-box;
+                                    
+                                    span:nth-child(1){
+                                        font-size: 14rem;
+                                        font-weight: 400;
+                                        color: #444;
+                                    }
+                                    span:nth-child(2){
+                                        font-size: 14rem;
+                                        font-weight: 400;
+                                        color: #8993A0;
+                                        padding-left: 6rem;
+                                    }
+                                    &:hover{
+                                        background: #F2F6FA;
+                                        span:nth-child(1){
+                                            color: #00B4FC;
+                                        }
+                                    }
+                                }
+                            }
+                            .searchMenu::-webkit-scrollbar {
+                                // width:6px;
+                                // height:640px;     
+                            }
+                            .searchMenu::-webkit-scrollbar-thumb {
+                                width: 6rem;
+                                height: 80rem;
+                                background: #CCD2DB;
+                                border-radius: 3rem;
+                            }
+                            .searchMenu::-webkit-scrollbar-track {
+                                -webkit-box-shadow: 0 0 0px rgba(0,0,0,0.2);
+                                border-radius: 0;
+                                background: white;
                             }
                         }
                     }
