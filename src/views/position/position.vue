@@ -9,33 +9,35 @@
                     <el-carousel-item v-for="(item,index) in imgs" :key="index">
                         <div class="textTip">
                             <div class="textTip-box">
-                                <div class="text1">{{$t('position.title1')}}</div>
-                                <div class="text2">{{$t('position.title2')}}</div>
-                                <div class="text3">Return to the most pure nature/concentrate and return to myself/people’s hearts over a certain height/high sky ＆ pale clouds,clear ＆ clam/the natural realm,just
+                                <div class="text1">{{ $t('position.title1') }}</div>
+                                <div class="text2">{{ $t('position.title2') }}</div>
+                                <div class="text3">Return to the most pure nature/concentrate and return to
+                                    myself/people’s hearts over a certain height/high sky ＆ pale clouds,clear ＆ clam/the
+                                    natural realm,just
                                 </div>
                             </div>
-<!--                            <div class="icon">-->
-<!--                                <img :src="icon" alt="" class="">-->
-<!--                            </div>-->
-<!--                            <div class="textTip-margin">-->
-<!--                                <div class="date">-->
-<!--                                    2021-->
-<!--                                </div>-->
-<!--                                <div class="title">-->
-<!--                                    <span class="">-->
-<!--                                        Auditory feast-->
-<!--                                    </span>-->
-<!--                                    <span class="">-->
-<!--                                        Sound on the scene !-->
-<!--                                    </span>-->
-<!--                                </div>-->
-<!--                                <div class="tip">-->
-<!--                                    See the world with your heart-->
-<!--                                </div>-->
-<!--                                <div class="btn">-->
-<!--                                    buy now-->
-<!--                                </div>-->
-<!--                            </div>-->
+                            <!--                            <div class="icon">-->
+                            <!--                                <img :src="icon" alt="" class="">-->
+                            <!--                            </div>-->
+                            <!--                            <div class="textTip-margin">-->
+                            <!--                                <div class="date">-->
+                            <!--                                    2021-->
+                            <!--                                </div>-->
+                            <!--                                <div class="title">-->
+                            <!--                                    <span class="">-->
+                            <!--                                        Auditory feast-->
+                            <!--                                    </span>-->
+                            <!--                                    <span class="">-->
+                            <!--                                        Sound on the scene !-->
+                            <!--                                    </span>-->
+                            <!--                                </div>-->
+                            <!--                                <div class="tip">-->
+                            <!--                                    See the world with your heart-->
+                            <!--                                </div>-->
+                            <!--                                <div class="btn">-->
+                            <!--                                    buy now-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
                         </div>
                         <img :src="item.img" alt="">
                     </el-carousel-item>
@@ -44,31 +46,36 @@
             <div class="new-goods">
                 <div class="new-goods-title">
                     <div class="text">Product category</div>
-                    <div class="text">{{$t('position.title5')}}</div>
+                    <div class="text">{{ $t('position.title5') }}</div>
                 </div>
             </div>
             <div class="goods-box">
-                <div class="goods-box-wrap"
-                     v-for="(item, index) in goodsList"
-                     :key="index">
-                    <div class="goods-box-item"
-                         v-for="(childItem, childIndex) in item"
-                         @mouseenter="enters(index,childIndex)"
-                         @mouseleave="leaver(index,childIndex)"
-                         @click="topage('localdetails')"
-                         :key="childIndex">
-                        <div class="item-box">
-<!--                            <router-link to="goodsdetails">-->
-                                <img :src="childItem.img" alt="">
-                                <div class="msg" v-show="childItem.show">
-                                    <div class="name">{{ childItem.name }}</div>
-                                    <div class="price">
-                                        <div class="number">{{ childItem.price }}</div>
-<!--                                        <div class="btn">购买</div>-->
-                                    </div>
-                                </div>
-<!--                            </router-link>-->
-                        </div>
+                <div class="goods-box-wrap">
+                    <!--                    <div class="goods-box-item"
+                                             v-for="(childItem, childIndex) in item"
+                                             @mouseenter="enters(index,childIndex)"
+                                             @mouseleave="leaver(index,childIndex)"
+                                             @click="topage('localdetails')"
+                                             :key="childIndex">
+                                            <div class="item-box">
+                    &lt;!&ndash;                            <router-link to="goodsdetails">&ndash;&gt;
+                                                    <img :src="childItem.img" alt="">
+                                                    <div class="msg" v-show="childItem.show">
+                                                        <div class="name">{{ childItem.name }}</div>
+                                                        <div class="price">
+                                                            <div class="number">{{ childItem.price }}</div>
+                    &lt;!&ndash;                                        <div class="btn">购买</div>&ndash;&gt;
+                                                        </div>
+                                                    </div>
+                    &lt;!&ndash;                            </router-link>&ndash;&gt;
+                                            </div>
+                                        </div>-->
+                    <div class="goods-box-list">
+                        <PositionBlock v-for="(item, index) in blockItemList"
+                                       :key="index"
+                                       :blockItem="item"
+                                       class="positionBlock"></PositionBlock>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
@@ -80,10 +87,11 @@
 <script>
 import ThemeStickyHeader from "../../components/header/themeStickyHeader";
 import Bottom from "../../components/bottom/bottom";
+import PositionBlock from "@/components/position/positionBlock";
 
 export default {
     name: "shoppingMall",
-    components: {Bottom, ThemeStickyHeader},
+    components: {PositionBlock, Bottom, ThemeStickyHeader},
     data() {
         return {
             interval: 7000,
@@ -94,6 +102,128 @@ export default {
             chair: `${require('../../static/img/shoppingMall/chair.png')}`,
             dining: `${require('../../static/img/shoppingMall/dining-table.png')}`,
             clock: `${require('../../static/img/shoppingMall/clock.png')}`,
+            blockItemList:[
+                {
+                    text: "北特里",
+                    number: "10/80",
+                    color: "color1"
+                },
+                {
+                    text: "小说",
+                    number: "20/80",
+                    color: "color2"
+                },
+                {
+                    text: "经济/经营",
+                    number: "30/80",
+                    color: "color3"
+                },
+                {
+                    text: "诗/散文",
+                    number: "40/80",
+                    color: "color4"
+                },
+                {
+                    text: "计算机/IT",
+                    number: "20/80",
+                    color: "color5"
+                },
+                {
+                    text: "计算机/IT",
+                    number: "20/80",
+                    color: "color6"
+                },
+                {
+                    text: "历史/文化",
+                    number: "20/80",
+                    color: "color7"
+                },
+                {
+                    text: "语言",
+                    number: "20/80",
+                    color: "color8"
+                },
+                {
+                    text: "北特里",
+                    number: "10/80",
+                    color: "color1"
+                },
+                {
+                    text: "小说",
+                    number: "20/80",
+                    color: "color2"
+                },
+                {
+                    text: "经济/经营",
+                    number: "30/80",
+                    color: "color3"
+                },
+                {
+                    text: "诗/散文",
+                    number: "40/80",
+                    color: "color4"
+                },
+                {
+                    text: "计算机/IT",
+                    number: "20/80",
+                    color: "color5"
+                },
+                {
+                    text: "计算机/IT",
+                    number: "20/80",
+                    color: "color6"
+                },
+                {
+                    text: "历史/文化",
+                    number: "20/80",
+                    color: "color7"
+                },
+                {
+                    text: "语言",
+                    number: "20/80",
+                    color: "color8"
+                },
+                {
+                    text: "北特里",
+                    number: "10/80",
+                    color: "color1"
+                },
+                {
+                    text: "小说",
+                    number: "20/80",
+                    color: "color2"
+                },
+                {
+                    text: "经济/经营",
+                    number: "30/80",
+                    color: "color3"
+                },
+                {
+                    text: "诗/散文",
+                    number: "40/80",
+                    color: "color4"
+                },
+                {
+                    text: "计算机/IT",
+                    number: "20/80",
+                    color: "color5"
+                },
+                {
+                    text: "计算机/IT",
+                    number: "20/80",
+                    color: "color6"
+                },
+                {
+                    text: "历史/文化",
+                    number: "20/80",
+                    color: "color7"
+                },
+                {
+                    text: "语言",
+                    number: "20/80",
+                    color: "color8"
+                },
+            ],
             goodsList: [
                 [
                     {
@@ -209,6 +339,7 @@ export default {
                         position: relative;
                         width: 710rem;
                         margin: 0 auto;
+
                         .text1 {
                             width: 100%;
                             position: absolute;
@@ -217,6 +348,7 @@ export default {
                             color: #FEFFFF;
                             top: 190rem;
                         }
+
                         .text2 {
                             width: 100%;
                             position: absolute;
@@ -225,6 +357,7 @@ export default {
                             color: #FEFEFF;
                             top: 390rem;
                         }
+
                         .text3 {
                             //margin: 0 auto;
                             //width: 100%;
@@ -378,21 +511,35 @@ export default {
 
         .goods-box {
             width: 100%;
-            margin-top: 69rem;
-            margin-bottom: 257rem;
+            //margin-top: 69rem;
+            //margin-bottom: 257rem;
             //width: 1170rem;
-            margin: 69rem auto 257rem;
+            margin: 49rem auto 257rem;
 
             .goods-box-wrap {
-                display: flex;
-                flex-wrap: wrap;
-                box-sizing: border-box;
-                margin-bottom: 5rem;
-                position: relative;
-                justify-content: space-between;
+                width: 1600rem;
+                margin: 0 auto;
+                //display: flex;
+                //flex-wrap: wrap;
+                //box-sizing: border-box;
+                //margin-bottom: 5rem;
+                //position: relative;
+                //justify-content: space-between;
+
+                .goods-box-list {
+                    .positionBlock {
+                        float: left;
+                        //margin-left: 20rem;
+                        padding-right: 20rem;
+                        margin-top: 20rem;
+                    }
+                    .positionBlock:first-child {
+                        margin-left: 0;
+                    }
+                }
 
 
-                .goods-box-item {
+                /*.goods-box-item {
                     //margin-left: 1rem;
                     width: 33%;
                     height: 636rem;
@@ -405,7 +552,7 @@ export default {
                     box-sizing: border-box;
                     cursor: pointer;
                     position: relative;
-                    /*overflow: hidden;*/
+                    !*overflow: hidden;*!
 
                     .item-box {
                         position: absolute;
@@ -414,11 +561,11 @@ export default {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
-                        /*justify-content: center;*/
-                        /*box-sizing: border-box;*/
-                        /*.router-link-active{*/
-                        /*    text-decoration: none;*/
-                        /*}*/
+                        !*justify-content: center;*!
+                        !*box-sizing: border-box;*!
+                        !*.router-link-active{*!
+                        !*    text-decoration: none;*!
+                        !*}*!
 
                         a {
                             text-decoration: none;
@@ -468,7 +615,7 @@ export default {
                         height: 700rem;
                         background: #FFFFFF;
                         box-shadow: 0 0 26rem 0 rgba(153, 153, 153, 0.3);
-                        /*position: absolute;*/
+                        !*position: absolute;*!
 
                         img {
                             padding-top: 170rem;
@@ -476,7 +623,7 @@ export default {
                     }
 
 
-                }
+                }*/
 
 
             }
