@@ -61,31 +61,39 @@
     export default {
         name: "cancleorder",
         components:{themeStickyHeader,ordertextitem},
+        mounted() {
+            this.textlist[0].lefttext = this.$t('orderdetails.orderdetail')
+            this.textlist[1].lefttext = this.$t('cancleorder.ordernum')
+            this.textlist[2].lefttext = this.$t('orderdetails.usemoney')
+            this.textlist[3].lefttext = this.$t('orderdetails.charge')
+            this.textlist[4].lefttext = this.$t('orderdetails.num')
+            this.textlist[5].lefttext = this.$t('orderdetails.allmoney')
+        },
         data(){
             return{
                 textlist:[
                     {
-                        lefttext:'订单号',
+                        lefttext:'',
                         righttext:'210308165719943'
                     },
                     {
-                        lefttext:'手续费',
+                        lefttext:'',
                         righttext:'0.00 ETH'
                     },
                     {
-                        lefttext:'成交订单',
+                        lefttext:'',
                         righttext:'325,941.49 ETH'
                     },
                     {
-                        lefttext:'成交数量',
+                        lefttext:'',
                         righttext:'0.000030 SLT'
                     },
                     {
-                        lefttext:'总金额',
+                        lefttext:'',
                         righttext:'10.00 ETH'
                     },
                     {
-                        lefttext:'取消时间',
+                        lefttext:'',
                         righttext:'2021-03-08 17:17:20'
                     }
                 ]

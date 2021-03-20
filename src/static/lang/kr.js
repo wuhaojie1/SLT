@@ -106,7 +106,8 @@ export default {
     },
     //取消订单
     cancleorder: {
-        back: '返回',
+        back: '돌아가다',
+        ordernum:'주문 번호',
         cancleorder: '주문취소',
         closeorder: '인수닫기',
         complaintext1: '만약 의문이 있으시면 고객센터에 진정하십시오.',

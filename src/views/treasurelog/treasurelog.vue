@@ -3,7 +3,7 @@
         <themeStickyHeader></themeStickyHeader>
         <div class="content">
             <div class="tabbar-con">
-                <div class="back">
+                <div class="back" @click="topage('user')">
                     <img class="arrowimg" src="../../static/img/treasurelog/arrow-left.png" alt="">
                     财务记录
                 </div>
@@ -137,6 +137,11 @@
         methods:{
             changecurrent(index){
                 this.currentindex = index
+            },
+            topage(name){
+                this.$router.push({
+                    name: name
+                })
             }
         }
     }

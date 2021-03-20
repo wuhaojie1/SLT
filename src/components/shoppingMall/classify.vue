@@ -10,7 +10,7 @@
                 </div>
                 <div class="classify-filter-list">
                     <div class="classify-filter-item"
-                         v-for="(item, index) in filterList"
+                         v-for="(item, index) in filterList1"
                          :key="index"
                          :class="selected === index ? 'active' : '' "
                          @click="addItem(index,item)">
@@ -74,6 +74,7 @@ export default {
             items:[],
             minus: `${require('@/static/img/shoppingMall/minus.png')}`,
             plus: `${require('@/static/img/shoppingMall/plus.png')}`,
+            filterList1:['books','tools','foods']
         }
     },
     props:{
