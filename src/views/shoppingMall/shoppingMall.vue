@@ -44,7 +44,8 @@
                 <div class="goods-list">
                     <div class="goods-list-title">
                         <div class="text">
-                            <span class="titleName">{{ titleItem.name }}</span>
+                            <!-- <span class="titleName">{{ titleItem.name }}</span> -->
+                            <span class="titleName">DEMO</span>
                             <span class="titleNumber">({{ goodsTotal }})</span>
                         </div>
                     </div>
@@ -59,7 +60,8 @@
                                     <img :src="childItem.img" alt="">
                                 </div>
                                 <div class="text">
-                                    <div class="bookName">{{ childItem.name }}</div>
+                                    <!-- <div class="bookName">{{ childItem.name }}</div> -->
+                                    <div class="bookName">DEMO</div>
                                     <div class="price">{{ childItem.price }}</div>
                                 </div>
                             </router-link>
