@@ -8,10 +8,10 @@
                             <div class="left">
                                 <div class="pay">
                                     <span class="pay-text">
-                                        {{$t('orderdetails.waitpay')}}
+                                        {{ $t('orderdetails.waitpay') }}
                                     </span>
                                     <span class="pay-tip">
-                                        <div class="pay-tip-text">{{$t('orderdetails.opentrade')}}</div>
+                                        <div class="pay-tip-text">{{ $t('orderdetails.opentrade') }}</div>
                                         <div class="img-box">
                                             <img :src="right" alt="">
                                         </div>
@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="tip">
                                     <span class="time">14:45</span>
-                                    <span class="tip-text">{{$t('orderdetails.cancleorderauto')}}</span>
+                                    <span class="tip-text">{{ $t('orderdetails.cancleorderauto') }}</span>
                                 </div>
                             </div>
                             <div class="right">
@@ -30,7 +30,7 @@
                             <div class="unpaid-detail-list">
                                 <div class="unpaid-detail-item isTitle">
                                     <div class="left">
-                                        {{$t('orderdetails.paytype')}}
+                                        {{ $t('orderdetails.paytype') }}
                                     </div>
                                     <div class="right">
                                         <div class="img-box">
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="unpaid-detail-item">
                                     <div class="left">
-                                        {{$t('orderdetails.orderdetail')}}
+                                        {{ $t('orderdetails.orderdetail') }}
                                     </div>
                                     <div class="right">
                                         <div class="img-box">
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="unpaid-detail-item">
                                     <div class="left">
-                                        {{$t('orderdetails.ordernum')}}
+                                        {{ $t('orderdetails.ordernum') }}
                                     </div>
                                     <div class="right">
                                         <div class="text">
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="unpaid-detail-item">
                                     <div class="left">
-                                        {{$t('orderdetails.usemoney')}}
+                                        {{ $t('orderdetails.usemoney') }}
                                     </div>
                                     <div class="right">
                                         <div class="text">
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="unpaid-detail-item">
                                     <div class="left">
-                                        {{$t('orderdetails.charge')}}
+                                        {{ $t('orderdetails.charge') }}
                                     </div>
                                     <div class="right">
                                         <div class="text">
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="unpaid-detail-item">
                                     <div class="left">
-                                        {{$t('orderdetails.num')}}
+                                        {{ $t('orderdetails.num') }}
                                     </div>
                                     <div class="right">
                                         <div class="text">
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="unpaid-detail-item">
                                     <div class="left">
-                                        {{$t('orderdetails.allmoney')}}
+                                        {{ $t('orderdetails.allmoney') }}
                                     </div>
                                     <div class="right">
                                         <div class="text">
@@ -105,31 +105,47 @@
                             <ul class="tipBox-list">
                                 <li class="tipBox-item">
                                     <div class="tip-text">
-                                        {{$t('orderdetails.confirmmsg1')}}(王亚萍){{$t('orderdetails.confirmmsg2')}}
+                                        {{ $t('orderdetails.confirmmsg1') }}(王亚萍){{ $t('orderdetails.confirmmsg2') }}
                                     </div>
                                 </li>
                                 <li class="tipBox-item">
                                     <div class="tip-text">
-                                        {{$t('orderdetails.remindmsg1')}}
+                                        {{ $t('orderdetails.remindmsg1') }}
                                     </div>
                                 </li>
                                 <li class="tipBox-item">
                                     <div class="tip-text">
-                                        {{$t('orderdetails.remindmsg2')}}
+                                        {{ $t('orderdetails.remindmsg2') }}
                                     </div>
                                 </li>
                             </ul>
                         </div>
                         <div class="btnBox">
                             <!--                            <router-link to="cancleorder">-->
-                            <div class="cancel">{{ $t('orderdetails.cancelorder') }}</div>
+                            <div class="cancel" @click="dialogVisible = true">{{ $t('orderdetails.cancelorder') }}</div>
                             <!--                            </router-link>-->
                             <div class="confirm">{{ $t('orderdetails.confirmtext') }} 45S</div>
                         </div>
-                        <div class="connect-text">{{$t('orderdetails.connect')}}</div>
+                        <div class="connect-text">{{ $t('orderdetails.connect') }}</div>
                     </div>
                 </div>
             </div>
+            <el-dialog :visible.sync="dialogVisible"
+                       width="660rem"
+                       :center="false"
+                       class="elDialogBox"
+                       :title="title"
+                       top="30vh">
+                <div class="tipText">
+                    <div class="text">
+                        {{ $t('orderdetails.cancleTip') }}
+                    </div>
+                </div>
+                <div class="btn">
+                    <el-button @click="dialogVisible = false">不，谢谢</el-button>
+                    <el-button type="primary" @click="dialogVisible = false">确认取消</el-button>
+                </div>
+            </el-dialog>
         </div>
     </div>
 </template>
@@ -142,11 +158,15 @@ export default {
             right: `${require('../../static/img/buy/right.png')}`,
             SLT: `${require('../../static/img/buy/SLT.png')}`,
             up: `${require('../../static/img/buy/up.png')}`,
+            dialogVisible: false,
+            title: this.$t('orderdetails.title'),
+            cancleTip: this.$t('orderdetails.cancleTip')
         }
     },
     methods: {}
 }
 </script>
+
 
 <style scoped lang="less">
 .confirmOrder {
@@ -374,6 +394,7 @@ export default {
                         }
 
                         .cancel {
+                            cursor: pointer;
                             width: 190rem;
                             height: 42rem;
                             background: #FFFFFF;
@@ -409,7 +430,34 @@ export default {
                 }
             }
         }
+
+        .elDialogBox {
+            text-align: left;
+
+           .tipText {
+               padding: 30rem 25rem;
+               border-bottom: 1rem solid #E4E7ED;
+               border-top: 1rem solid #E4E7ED;
+
+               .text {
+                   font-size: 14rem;
+                   font-weight: 400;
+                   color: #111111;
+                   line-height: 22rem;
+               }
+           }
+
+            .btn {
+                padding: 20rem 25rem;
+                text-align: right;
+            }
+        }
     }
 
+}
+</style>
+<style>
+.elDialogBox .el-dialog__body {
+    padding: 0;
 }
 </style>
