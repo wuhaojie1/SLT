@@ -55,7 +55,7 @@
                     },
                     {
                         text: this.$t('userSet.tabArray')[4],
-                        name: "financial",
+                        name: "treasurelog",
                     },
                 ],
                 active: 0,
