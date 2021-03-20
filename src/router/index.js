@@ -100,6 +100,12 @@ const routes = [{
             import ('../views/mobile/shop/shoppingCart.vue')
     },
     {
+        path:'/treasurelog',
+        name:'treasurelog',
+        component:()=>
+            import('../views/treasurelog/treasurelog.vue')
+    },
+    {
         path: '/user',
         name: 'user',
         component: () =>
