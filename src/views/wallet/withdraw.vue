@@ -152,7 +152,7 @@
         data() {
             return {
                 title:this.$t('cancleorder.title'),
-                dialogVisible: true,
+                dialogVisible: false,
                 coinIndex: 0,
                 coinList: [
                     {
