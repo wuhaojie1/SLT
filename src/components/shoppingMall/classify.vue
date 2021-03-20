@@ -10,7 +10,7 @@
                 </div>
                 <div class="classify-filter-list">
                     <div class="classify-filter-item"
-                         v-for="(item, index) in filterList1"
+                         v-for="(item, index) in filterList"
                          :key="index"
                          :class="selected === index ? 'active' : '' "
                          @click="addItem(index,item)">

@@ -195,10 +195,11 @@ export default {
                 // console.log(res)
                 let data = res.data
                 if (res.errno === 0) {
-                    // this.filterList = data.categoryList;
-                    this.filterList =['books','tools','furniture']
+                    this.filterList = data.categoryList;
+                    // this.filterList =['books','tools','furniture']
                     this.titleItem.name = data.categoryList[0].name
                     this.getGoodsById(data.categoryList[0].id)
+                    console.log(this.filterList)
 
                 }
             }).catch(err => {

@@ -18,7 +18,8 @@
             </div>
             <div class="goodsmsg-con">
                 <div class="goods-name">
-                    <div class="goods-name-text">{{goodsDetail.info.name}}</div>
+<!--                    {{goodsDetail.info.name}}-->
+                    <div class="goods-name-text">goodsname</div>
                     <img class="love" src="../../static/img/goodsdetails/like.png" alt="">
                 </div>
                 <div class="goods-charge">￥{{goodsDetail.info.retailPrice}}</div>
@@ -29,18 +30,18 @@
                         <div class="goods-attr-img-con">
                             <img class="quality-img" src="../../static/img/goodsdetails/quality.png" alt="">
                         </div>
-                        <div class="goods-attr-item1-text">责任</div>
+                        <div class="goods-attr-item1-text">책임</div>
                     </div>
                     <div class="goods-attr-item2">
                         <div class="goods-attr-img-con">
                             <img class="pro-img" src="../../static/img/goodsdetails/pro-envir.png" alt="">
                         </div>
-                        <div class="goods-attr-item2-text">环保</div>
+                        <div class="goods-attr-item2-text">환경 보호</div>
                     </div>
                 </div>
                 <div class="goods-theme">
                     <!-- <div class="goods-color"></div> -->
-                    <div class="goods-color-text">雾霾蓝</div>
+                    <div class="goods-color-text">color</div>
                 </div>
                 <!-- <div class="choose-type-con">
                     <div class="choose-type">
