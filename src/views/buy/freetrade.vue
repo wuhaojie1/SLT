@@ -87,14 +87,14 @@
 
                 dataList: [
                     {
-                        name: '大信交易所（1329|99%）',
+                        name: 'trade center（1329|99%）',
                         number: '1.159935 SLT',
                         quota: '40,000.00-387,481.00 ETH',
                         price: '334,260.75 ETH',
                         payment: ['SLT', 'ETH'],
                     },
                     {
-                        name: '大信交易所（1329|99%）',
+                        name: 'trade center（1329|99%）',
                         number: '1.159935 SLT',
                         quota: '40,000.00-387,481.00 ETH',
                         price: '334,260.75 ETH',

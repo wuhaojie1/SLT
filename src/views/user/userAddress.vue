@@ -29,10 +29,10 @@
             <div class="save-button" @click="saveAddr">{{$t('userAdress.save')}}</div>
         </div>
         <div class="adress-num-text">
-            <div class="imgcon">
-                <img style="{width: 18rem;height: 18rem;}" src="../../static/img/user/addressimg.png" alt="">
-            </div>
-            <div class="num-text">已保存两个地址</div>
+<!--            <div class="imgcon">-->
+<!--                <img style="{width: 18rem;height: 18rem;}" src="../../static/img/user/addressimg.png" alt="">-->
+<!--            </div>-->
+<!--            <div class="num-text">已保存两个地址</div>-->
         </div>
         <div class="adress-num-con">
             <address-table :dataList="dataList"
@@ -55,34 +55,34 @@ export default {
     data() {
         return {
             postData: {
-                name: "啊啊啊",//姓名
+                name: "xxx",//姓名
                 tel: "12345611111",//电话
                 postalCode: "642150",//邮编
-                addressDetail: "中心大道二段",//详细地址
+                addressDetail: "xxxxxxxx",//详细地址
                 isDefault: false,//是否是默认地址
-                province: "四川",//省
-                city: "成都市",//市
-                county: "郫都区",//县
-                areaCode: "810010",
-                address: "四川 成都市 郫都区",
+                province: "xxxx",//省
+                city: "xxxx",//市
+                county: "xxxxx",//县
+                areaCode: "xxxxxx",
+                address: "xxxxx",
             },
             dataList: [
-                {
-                    name: '王**',
-                    address: '成都市 郫都区 中心大道二段',
-                    daddress: '致远居8号楼8243',
-                    code: '000000',
-                    phone: '17824561783',
-                    useaddress: true
-                },
-                {
-                    name: '李**',
-                    address: '成都市 郫都区 中心大道二段',
-                    daddress: '致远居8号楼8247',
-                    code: '000001',
-                    phone: '17824561783',
-                    useaddress: false
-                }
+                // {
+                //     name: '王**',
+                //     address: '成都市 郫都区 中心大道二段',
+                //     daddress: '致远居8号楼8243',
+                //     code: '000000',
+                //     phone: '17824561783',
+                //     useaddress: true
+                // },
+                // {
+                //     name: '李**',
+                //     address: '成都市 郫都区 中心大道二段',
+                //     daddress: '致远居8号楼8247',
+                //     code: '000001',
+                //     phone: '17824561783',
+                //     useaddress: false
+                // }
             ]
         }
     },

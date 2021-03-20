@@ -49,7 +49,7 @@
                     <el-date-picker
                             v-model="usermsg.birthday"
                             type="date"
-                            placeholder="选择日期">
+                            placeholder="날짜를선택하다">
                     </el-date-picker>
                 </div>
             </div>
@@ -119,8 +119,8 @@ export default {
             radio:2,
             status0:true,
             status1:false,
-            edit:'编辑',
-            save:'保存'
+            edit:'편집 하 다',
+            save:'보존 하 다'
         }
     },
     mounted() {

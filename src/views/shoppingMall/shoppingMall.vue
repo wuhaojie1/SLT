@@ -44,7 +44,8 @@
                 <div class="goods-list">
                     <div class="goods-list-title">
                         <div class="text">
-                            <span class="titleName">{{ titleItem.name }}</span>
+                            <!-- <span class="titleName">{{ titleItem.name }}</span> -->
+                            <span class="titleName">DEMO</span>
                             <span class="titleNumber">({{ goodsTotal }})</span>
                         </div>
                     </div>
@@ -59,7 +60,8 @@
                                     <img :src="childItem.img" alt="">
                                 </div>
                                 <div class="text">
-                                    <div class="bookName">{{ childItem.name }}</div>
+                                    <!-- <div class="bookName">{{ childItem.name }}</div> -->
+                                    <div class="bookName">DEMO</div>
                                     <div class="price">{{ childItem.price }}</div>
                                 </div>
                             </router-link>
@@ -195,10 +197,11 @@ export default {
                 // console.log(res)
                 let data = res.data
                 if (res.errno === 0) {
-                    // this.filterList = data.categoryList;
-                    this.filterList =['books','tools','furniture']
+                    this.filterList = data.categoryList;
+                    // this.filterList =['books','tools','furniture']
                     this.titleItem.name = data.categoryList[0].name
                     this.getGoodsById(data.categoryList[0].id)
+                    console.log(this.filterList)
 
                 }
             }).catch(err => {

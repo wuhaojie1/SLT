@@ -5,7 +5,7 @@
             <div class="tabbar-con">
                 <div class="back" @click="topage('user')">
                     <img class="arrowimg" src="../../static/img/treasurelog/arrow-left.png" alt="">
-                    财务记录
+                    재무 기록
                 </div>
                 <div class="tabbarlist">
                     <div :class="currentindex==index ? 'active':'tabbar-item'"
@@ -19,14 +19,14 @@
             <div class="logcon">
                 <div class="inlog" v-if="currentindex==0">
                     <div class="head">
-                        <span class="head-text">充币记录</span>
+                        <span class="head-text">동전 충전 기록</span>
                     </div>
                     <div class="table-head">
-                        <div class="item1">时间</div>
-                        <div class="item2">币种</div>
-                        <div class="item3">类型</div>
-                        <div class="item4">数量</div>
-                        <div class="item5">操作</div>
+                        <div class="item1">시간</div>
+                        <div class="item2">화폐종류</div>
+                        <div class="item3">유형</div>
+                        <div class="item4">수량</div>
+                        <div class="item5">조작하다</div>
                     </div>
                     <div v-for="item in inloglist"
                          :key="item.index">
@@ -36,14 +36,14 @@
                 </div>
                 <div class="outlog" v-if="currentindex==1">
                     <div class="head">
-                        <span class="head-text">提币记录</span>
+                        <span class="head-text">동전 인출 기록</span>
                     </div>
                     <div class="table-head">
-                        <div class="item1">时间</div>
-                        <div class="item2">币种</div>
-                        <div class="item3">类型</div>
-                        <div class="item4">数量</div>
-                        <div class="item5">操作</div>
+                        <div class="item1">시간</div>
+                        <div class="item2">화폐종류</div>
+                        <div class="item3">유형</div>
+                        <div class="item4">수량</div>
+                        <div class="item5">조작하다</div>
                     </div>
                     <div v-for="item in inloglist"
                          :key="item.index">
@@ -52,14 +52,14 @@
                 </div>
                 <div class="otclog" v-if="currentindex==2">
                     <div class="head">
-                        <span class="head-text">OTC交易记录</span>
+                        <span class="head-text">OTC 거래 기록</span>
                     </div>
                     <div class="table-head">
-                        <div class="item1">时间</div>
-                        <div class="item2">币种</div>
-                        <div class="item3">类型</div>
-                        <div class="item4">数量</div>
-                        <div class="item5">操作</div>
+                        <div class="item1">시간</div>
+                        <div class="item2">화폐종류</div>
+                        <div class="item3">유형</div>
+                        <div class="item4">수량</div>
+                        <div class="item5">조작하다</div>
                     </div>
                     <div v-for="item in inloglist"
                          :key="item.index">
@@ -68,29 +68,29 @@
                 </div>
                 <div class="locallog" v-if="currentindex==3">
                     <div class="head">
-                        <span class="head-text">位置交易记录</span>
+                        <span class="head-text">위치 구 매 기록</span>
                     </div>
                     <div class="table-head">
-                        <div class="item1">时间</div>
-                        <div class="item2">位置</div>
-                        <div class="item3">类型</div>
-                        <div class="item4">数量</div>
-                        <div class="item5">单价</div>
-                        <div class="item6">操作</div>
+                        <div class="item1">시간</div>
+                        <div class="item2">위치</div>
+                        <div class="item3">유형</div>
+                        <div class="item4">수량</div>
+                        <div class="item5">단가</div>
+                        <div class="item6">조작 하 다</div>
                     </div>
                     <gllog></gllog>
                 </div>
                 <div class="goodslog" v-if="currentindex==4">
                     <div class="head">
-                        <span class="head-text">商城交易记录</span>
+                        <span class="head-text">상점 구 매 기록</span>
                     </div>
                     <div class="table-head">
-                        <div class="item1">时间</div>
-                        <div class="item2">商品</div>
-                        <div class="item3">类型</div>
-                        <div class="item4">数量</div>
-                        <div class="item5">单价</div>
-                        <div class="item6">操作</div>
+                        <div class="item1">시간</div>
+                        <div class="item2">위치</div>
+                        <div class="item3">유형</div>
+                        <div class="item4">수량</div>
+                        <div class="item5">단가</div>
+                        <div class="item6">조작 하 다</div>
                     </div>
                     <gllog></gllog>
                 </div>
@@ -110,25 +110,25 @@
         components:{themeStickyHeader,bottom,coinlog,gllog},
         data(){
             return{
-                tabbarlist:['充币记录','提币记录','OTC交易记录','位置购买记录','商城购买记录'],
+                tabbarlist:['동전 충전 기록','동전 인출 기록','OTC 거래 기록','위치 구 매 기록','상점 구 매 기록'],
                 currentindex:0,
                 inloglist:[
                     {
                         time:'2021-02-25',
                         cointype:'SLT',
-                        type:'类型',
+                        type:'유형',
                         num:'1000000'
                     },
                     {
                         time:'2021-03-25',
                         cointype:'SLT',
-                        type:'类型',
+                        type:'유형',
                         num:'1000000'
                     },
                     {
                         time:'2021-04-25',
                         cointype:'SLT',
-                        type:'类型',
+                        type:'유형',
                         num:'1000000'
                     }
                 ]
@@ -243,39 +243,49 @@
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
-                            margin-right: 230rem;
+                            color: #444444;
+                            /*margin-right: 181rem;*/
+                            width: 288rem;
+                            text-align: left;
                         }
                         .item2{
                             line-height: 50rem;
-                            margin-right: 170rem;
+                            /*margin-right: 172rem;*/
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            width: 219rem;
+                            text-align: left;
                         }
                         .item3{
                             line-height: 50rem;
-                            margin-right: 210rem;
+                            /*margin-right: 210rem;*/
+                            width: 263rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                         .item4{
                             line-height: 50rem;
-                            margin-right: 362rem;
+                            /*margin-right: 262rem;*/
+                            width: 400rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                         .item5{
                             line-height: 50rem;
                             font-size: 14rem;
+                            width: 104rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                     }
                 }
@@ -309,39 +319,49 @@
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
-                            margin-right: 230rem;
+                            color: #444444;
+                            /*margin-right: 181rem;*/
+                            width: 288rem;
+                            text-align: left;
                         }
                         .item2{
                             line-height: 50rem;
-                            margin-right: 170rem;
+                            /*margin-right: 172rem;*/
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            width: 219rem;
+                            text-align: left;
                         }
                         .item3{
                             line-height: 50rem;
-                            margin-right: 210rem;
+                            /*margin-right: 210rem;*/
+                            width: 263rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                         .item4{
                             line-height: 50rem;
-                            margin-right: 362rem;
+                            /*margin-right: 262rem;*/
+                            width: 400rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                         .item5{
                             line-height: 50rem;
                             font-size: 14rem;
+                            width: 104rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                     }
                 }
@@ -375,39 +395,49 @@
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
-                            margin-right: 230rem;
+                            color: #444444;
+                            /*margin-right: 181rem;*/
+                            width: 288rem;
+                            text-align: left;
                         }
                         .item2{
                             line-height: 50rem;
-                            margin-right: 170rem;
+                            /*margin-right: 172rem;*/
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            width: 219rem;
+                            text-align: left;
                         }
                         .item3{
                             line-height: 50rem;
-                            margin-right: 210rem;
+                            /*margin-right: 210rem;*/
+                            width: 263rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                         .item4{
                             line-height: 50rem;
-                            margin-right: 362rem;
+                            /*margin-right: 262rem;*/
+                            width: 400rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                         .item5{
                             line-height: 50rem;
                             font-size: 14rem;
+                            width: 104rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                     }
                 }
@@ -441,47 +471,58 @@
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
-                            margin-right: 230rem;
+                            color: #444444;
+                            /*margin-right: 230rem;*/
+                            width: 308rem;
+                            text-align: left;
                         }
                         .item2{
                             line-height: 50rem;
-                            margin-right: 170rem;
+                            /*margin-right: 170rem;*/
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            width: 235rem;
+                            text-align: left;
                         }
                         .item3{
                             line-height: 50rem;
-                            margin-right: 161rem;
+                            /*margin-right: 161rem;*/
+                            width: 229rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                         .item4{
                             line-height: 50rem;
-                            margin-right: 170rem;
+                            /*margin-right: 170rem;*/
+                            width: 228rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                         .item5{
                             line-height: 50rem;
-                            margin-right: 215rem;
+                            /*margin-right: 215rem;*/
+                            width: 262rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                         .item6{
                             line-height: 50rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            width: 100rem;
                         }
                     }
                 }
@@ -515,47 +556,58 @@
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
-                            margin-right: 230rem;
+                            color: #444444;
+                            /*margin-right: 230rem;*/
+                            width: 308rem;
+                            text-align: left;
                         }
                         .item2{
                             line-height: 50rem;
-                            margin-right: 170rem;
+                            /*margin-right: 170rem;*/
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            width: 235rem;
+                            text-align: left;
                         }
                         .item3{
                             line-height: 50rem;
-                            margin-right: 161rem;
+                            /*margin-right: 161rem;*/
+                            width: 229rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                         .item4{
                             line-height: 50rem;
-                            margin-right: 170rem;
+                            /*margin-right: 170rem;*/
+                            width: 228rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                         .item5{
                             line-height: 50rem;
-                            margin-right: 215rem;
+                            /*margin-right: 215rem;*/
+                            width: 262rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            text-align: left;
                         }
                         .item6{
                             line-height: 50rem;
                             font-size: 14rem;
                             font-family: Source Han Sans CN;
                             font-weight: 400;
-                            color: #9AA5B5;
+                            color: #444444;
+                            width: 100rem;
                         }
                     }
                 }

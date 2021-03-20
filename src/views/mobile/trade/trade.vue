@@ -26,7 +26,7 @@
                 currentindex:0,
                 buyarr:[
                     {
-                        name:'大信交易所(1329|99%)',
+                        name:'trade center(1329|99%)',
                         num:'数量:1.159935SLT',
                         charge:'单价',
                         limit:'限额：40,000.00-387,481.00 ETH',
@@ -35,7 +35,7 @@
                         buyitem:true
                     },
                     {
-                        name:'大信交易所(1329|99%)',
+                        name:'trade center(1329|99%)',
                         num:'数量:1.159935SLT',
                         charge:'单价',
                         limit:'限额：40,000.00-387,481.00 ETH',
@@ -46,7 +46,7 @@
                 ],
                 sealarr:[
                     {
-                        name:'大信交易所(1329|99%)',
+                        name:'trade center(1329|99%)',
                         num:'数量:1.159935SLT',
                         charge:'单价',
                         limit:'限额：40,000.00-387,481.00 ETH',
@@ -55,7 +55,7 @@
                         buyitem:false
                     },
                     {
-                        name:'大信交易所(1329|99%)',
+                        name:'trade center(1329|99%)',
                         num:'数量:1.159935SLT',
                         charge:'单价',
                         limit:'限额：40,000.00-387,481.00 ETH',

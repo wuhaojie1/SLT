@@ -4,7 +4,7 @@
             <div class="trade-org-img">
                 <div class="trade-org-text">大</div>
             </div>
-            <div class="trade-org-name">大信交易所(1329|99%)</div>
+            <div class="trade-org-name">trade center(1329|99%)</div>
         </div>
         <div class="num-con">
             <div class="num-con-left">数量:1.159935SLT</div>

@@ -5,8 +5,8 @@
             <div class="assets">
                 <div class="assets-left">
                     <div class="assets-text">{{$t('personasset.all')}}</div>
-                    <div class="assets-num">1.000000BLT
-                        <text class="assetsmoney">≈ 0.00BLT</text>
+                    <div class="assets-num">1.000000SLT
+                        <text class="assetsmoney">≈ 0.00SLT</text>
                     </div>
 <!--                    <div class="assets-log">收益记录</div>-->
                 </div>

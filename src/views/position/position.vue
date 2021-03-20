@@ -105,112 +105,112 @@ export default {
             blockItemList:[
                 {
                     text: "북트리",
-                    number: "10/80",
+                    number: "10/100",
                     color: "color1"
                 },
                 {
                     text: "소설",
-                    number: "20/80",
+                    number: "20/100",
                     color: "color2"
                 },
                 {
                     text: "시/에세이",
-                    number: "30/80",
+                    number: "30/100",
                     color: "color3"
                 },
                 {
                     text: "경제/경영",
-                    number: "40/80",
+                    number: "40/100",
                     color: "color4"
                 },
                 {
                     text: "자기계발",
-                    number: "20/80",
+                    number: "20/100",
                     color: "color5"
                 },
                 {
                     text: "정치/사회",
-                    number: "20/80",
+                    number: "20/100",
                     color: "color6"
                 },
                 {
                     text: "기술/공학",
-                    number: "20/80",
+                    number: "20/100",
                     color: "color7"
                 },
                 {
                     text: "컴퓨터/IT",
-                    number: "20/80",
+                    number: "20/100",
                     color: "color8"
                 },
                 {
                     text: "참고서",
-                    number: "10/80",
+                    number: "10/100",
                     color: "color1"
                 },
                 {
                     text: "철학",
-                    number: "20/80",
+                    number: "20/100",
                     color: "color2"
                 },
                 {
                     text: "과학",
-                    number: "30/80",
+                    number: "30/100",
                     color: "color3"
                 },
                 {
                     text: "심리학",
-                    number: "40/80",
+                    number: "40/100",
                     color: "color4"
                 },
                 {
                     text: "종교",
-                    number: "20/80",
+                    number: "20/100",
                     color: "color5"
                 },
                 {
                     text: "역사/문화",
-                    number: "20/80",
+                    number: "20/100",
                     color: "color6"
                 },
                 {
                     text: "언어",
-                    number: "20/80",
+                    number: "20/100",
                     color: "color7"
                 },
                 {
                     text: "예술/대중문화",
-                    number: "20/80",
+                    number: "20/100",
                     color: "color8"
                 },
                 {
                     text: "건강",
-                    number: "10/80",
+                    number: "10/100",
                     color: "color1"
                 },
                 {
                     text: "가정/육아",
-                    number: "20/80",
+                    number: "20/100",
                     color: "color2"
                 },
                 {
                     text: "여행",
-                    number: "30/80",
+                    number: "30/100",
                     color: "color3"
                 },
                 {
                     text: "요리",
-                    number: "40/80",
+                    number: "40/100",
                     color: "color4"
                 },
                 {
                     text: "취미/실용/스포츠",
-                    number: "20/80",
+                    number: "20/100",
                     color: "color5"
                 },
                 {
                     text: "잡지/만화",
-                    number: "20/80",
+                    number: "20/100",
                     color: "color6"
                 },
             ],
