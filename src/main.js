@@ -9,6 +9,9 @@ import echarts from 'echarts';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from './static/js/axios';
+import VideoPlayer from 'vue-video-player'
+require('video.js/dist/video-js.css')
+require('vue-video-player/src/custom-theme.css')
 
 import { Swipe, SwipeItem } from 'mint-ui';
 Vue.component(Swipe.name, Swipe);
@@ -16,6 +19,7 @@ Vue.component(SwipeItem.name, SwipeItem);
 
 
 Vue.use(VueI18n);
+Vue.use(VideoPlayer)
 
 
 const i18n = new VueI18n({
