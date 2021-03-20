@@ -174,7 +174,7 @@
         methods: {
             select(index) {
                 this.coinIndex = index
-            }
+            },
         }
     }
 </script>

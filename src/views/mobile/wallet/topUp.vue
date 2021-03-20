@@ -102,7 +102,7 @@
                             网络确认后才能提币。
                         </div>
                     </div>
-                    <div class="btn">
+                    <div class="btn" @click="openTip">
                         确认
                     </div>
 
@@ -119,6 +119,36 @@
             </div>
         </div>
         <!--        <Bottom></Bottom>-->
+        <el-dialog :visible.sync="dialogVisible"
+                   width="680rem"
+                   :center="false"
+                   class="elDialogBox"
+                   top="30vh">
+            <div class="tipText">
+                <div class="title">
+                    <div class="img">
+                        <img :src="tipImg" alt="" class="tipImg">
+                    </div>
+                    <div class="text">
+                        {{ $t('Mwithdraw.tipText') }}
+                    </div>
+
+                </div>
+
+                <div class="text">
+                    {{ $t('Mwithdraw.book') }}
+                </div>
+            </div>
+            <div class="toolTip">
+                <input type="checkBox"><span> {{ $t('Mwithdraw').toolTip }}</span>
+            </div>
+            <div class="btn">
+                <el-button type="primary"
+                           class="el-btn"
+                           @click="comfirm"> {{ $t('Mwithdraw').primary }}
+                </el-button>
+            </div>
+        </el-dialog>
     </div>
 </template>
 
@@ -132,6 +162,8 @@
         components: {VueQr, /*ThemeStickyHeader*/},
         data() {
             return {
+                dialogVisible: true,
+                tipImg: `${require('@/static/img/wallet/hint.png')}`,
                 sltlogo: `${require('@/static/img/index/sltlogo_60x120_white.png')}`,
                 down: `${require('@/static/img/login/down.png')}`,
                 tip: `${require('@/static/img/login/tip.png')}`,
@@ -157,6 +189,12 @@
         methods: {
             select(index) {
                 this.coinIndex = index
+            },
+            openTip() {
+                this.dialogVisible = true
+            },
+            comfirm() {
+                this.dialogVisible = false
             }
         }
     }
@@ -418,6 +456,60 @@
                         }
 
                     }
+                }
+            }
+        }
+
+        .elDialogBox {
+            .tipText {
+                .title {
+                    position: relative;
+                    .img {
+                        height: 30rem;
+                        .tipImg {
+                            position: absolute;
+                            width: 68rem;
+                            height: 68rem;
+                            top: -30rem;
+                            left: 255rem;
+                        }
+                    }
+
+                    .text {
+                        font-size: 34rem;
+                        font-weight: 400;
+                        color: #444444;
+                        line-height: 37rem;
+                        margin-top: 40rem;
+                    }
+                }
+
+                .text {
+                    font-size: 28rem;
+                    font-weight: 400;
+                    color: #444444;
+                    line-height: 40rem;
+                    margin-top: 40rem;
+                }
+            }
+
+            .toolTip {
+                text-align: left;
+                margin-top: 40rem;
+                input {
+
+                }
+
+                span {
+
+                }
+            }
+
+            .btn {
+                margin-top: 40rem;
+
+                .el-btn {
+                    width: 100%;
                 }
             }
         }
