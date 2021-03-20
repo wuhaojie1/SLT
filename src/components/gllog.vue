@@ -2,11 +2,11 @@
     <div id="gllog">
         <div class="table-head">
             <div class="item1">2021-02-25</div>
-            <div class="item2">按摩椅</div>
-            <div class="item3">类型</div>
+            <div class="item2">안마 의자</div>
+            <div class="item3">유형</div>
             <div class="item4">1</div>
             <div class="item5">1000</div>
-            <div class="item6">查看详情
+            <div class="item6">상세한상
                 <img class="img" src="../static/img/treasurelog/arrow-left.png" alt="">
             </div>
         </div>

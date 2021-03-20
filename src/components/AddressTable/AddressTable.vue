@@ -16,10 +16,10 @@
                     <div class="price">{{$t('userAdress.mailnum')}}</div>
                 </th>
                 <th>
-                    <div class="phone">电话/手机</div>
+                    <div class="phone">전화/휴대폰</div>
                 </th>
                 <th>
-                    <div class="oprate">操作</div>
+                    <div class="oprate">조작하다</div>
                 </th>
                 <th>
                     <div class="setadress"></div>
