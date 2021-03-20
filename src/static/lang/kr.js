@@ -26,8 +26,8 @@ export default {
     },
     //用户设置
     userSet:{
-        title:'账户设置',
-        tabArray:['个人信息','身份认证','收货地址','个人资产','财务记录']
+        title:'계정설정',
+        tabArray:['개인정보','신분인증','배송주소','개인자산','재무기록']
     },
     //收货地址
     userAdress: {
