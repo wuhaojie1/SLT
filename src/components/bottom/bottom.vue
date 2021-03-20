@@ -23,7 +23,7 @@
             </div>
             <div class="line"></div>
             <div class="content2">
-                Copright 小号沃尔玛 大号牛逼李有成全球2020.AII版权所有
+                © © Smart Learning Technology Global 2020. All rights reserved.
             </div>
         </div>
     </div>
