@@ -1,6 +1,6 @@
 <template>
     <div class="pageHeader">
-        <div v-if="isHome==true" @click="backHandel" class="back">
+        <div v-if="isHome==false" @click="backHandel" class="back">
             <img  style="width:17rem;height:28rem" src="../../../static/img/index/back.png" alt="">
         </div>
         <div class="logo" :style="'margin-left:'+(isHome?0:35)+'rem'">
