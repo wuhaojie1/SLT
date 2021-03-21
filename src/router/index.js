@@ -6,6 +6,12 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
+        name: 'initIndex',
+        component: () =>
+            import ('../views/initPage/index.vue')
+    },
+    {
+        path: '/index',
         name: 'index',
         component: () =>
             import ('../views/index/index.vue')
