@@ -2,9 +2,27 @@
     <div class="order">
         <PageHeader :isShowRight="true" :rightIcon="true"></PageHeader>
         <div class="orderTop">{{$t('myorder.myorder')}}</div>
-        <div class="menuTitle">
-            <div>{{$t('myorder.inoutOrder')}}</div>
+        <div class="menuTitle" @click="openCoin">
+            <div>{{chooseOrderItem.text}}</div>
             <img style="width:24rem;height:14rem" src="../../../static/img/user/arrowdown.png" alt="">
+            <!--                    订单下拉-->
+            <div class="order"
+                 v-show="showCoins">
+                <div class="order-content">
+                    <div class="order-content-item"
+                         v-for="(item,index) in orderList"
+                         :key="index"
+                         @click="chooseOrder(item)">
+                        {{ item.text }}
+                    </div>
+                    <!--                            <div class="order-content-item">
+                                                    买入
+                                                </div>
+                                                <div class="order-content-item">
+                                                    卖出
+                                                </div>-->
+                </div>
+            </div>
         </div>
         <ul class="orderTabel">
             <li>{{$t('myorder.shop')}}<span>SLT</span></li>
@@ -28,6 +46,33 @@ import PageHeader from '../../../components/mobileComponents/comm/header.vue';
 export default {
     components:{
         PageHeader
+    },
+    data(){
+        return {
+            showCoins: false,
+            orderList: [
+                {
+                    text: this.$t('myorder.all'),
+                },
+                {
+                    text: this.$t('myorder.buy'),
+                },
+                {
+                    text: this.$t('myorder.sell'),
+                },
+            ],
+            chooseOrderItem:{
+                text:  this.$t('myorder.all'),
+            },
+        }
+    },
+    methods: {
+        chooseOrder(item){
+            this.chooseOrderItem = item
+        },
+        openCoin() {
+            this.showCoins = !this.showCoins
+        },
     }
 }
 </script>
@@ -55,6 +100,40 @@ export default {
         border: 1rem solid #E4E7ED;
         margin: 35rem auto 40rem auto;
         box-sizing: border-box;
+        position: relative;
+
+        .order {
+            width: 680rem;
+            height: 236rem;
+            background: #FFFFFF;
+            border: 1rem solid #E4E7ED;
+            box-shadow: 0rem 5rem 25rem 0rem rgba(153, 153, 153, 0.25);
+            box-sizing: border-box;
+            padding: 10rem 0;
+            position: absolute;
+            top: 70rem;
+            z-index: 5;
+            left: 0;
+
+            .order-content {
+                .order-content-item {
+                    text-align: left;
+                    font-size: 28rem;
+                    font-weight: 400;
+                    color: #444444;
+                    width: 680rem;
+                    height: 72rem;
+                    line-height: 72rem;
+                    box-sizing: border-box;
+                    padding-left: 36rem;
+                }
+
+                .order-content-item:active {
+                    background: #F2F6FA;
+                }
+            }
+        }
+
     }
     .orderTabel{
         list-style: none;

@@ -248,17 +248,7 @@ export default {
                     tip: "VEN",
                 },
             ],
-            orderList: [
-                {
-                    text: "全部方向的订单",
-                },
-                {
-                    text: "买入",
-                },
-                {
-                    text: "卖出",
-                },
-            ],
+
             chooseOrderItem:{
                 text: "全部方向的订单",
             },
@@ -284,9 +274,9 @@ export default {
         selectCoin(item) {
             this.selectedCoin = item
         },
-        chooseOrder(item){
-            this.chooseOrderItem = item
-        }
+        // chooseOrder(item){
+        //     this.chooseOrderItem = item
+        // }
     }
 }
 </script>
