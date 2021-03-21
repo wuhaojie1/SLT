@@ -25,9 +25,9 @@ export default {
         addidnum: '신분증번호를 입력하여주세요'
     },
     //用户设置
-    userSet:{
-        title:'계정설정',
-        tabArray:['개인정보','신분인증','배송주소','개인자산','재무기록']
+    userSet: {
+        title: '계정설정',
+        tabArray: ['개인정보', '신분인증', '배송주소', '개인자산', '재무기록']
     },
     //收货地址
     userAdress: {
@@ -62,7 +62,7 @@ export default {
         tredetype: '지불방식',
         moneycomes: '화폐원천',
         usermoney: '수수료료',
-        tableHeader:['코인 종류','수량','동결','사용가능','단가','총액','오프션']
+        tableHeader: ['코인 종류', '수량', '동결', '사용가능', '단가', '총액', '오프션']
 
     },
     //一键购买
@@ -84,7 +84,7 @@ export default {
     },
     //订单详情
     orderdetails: {
-        status:['미지급','거래완료','거래실패'],
+        status: ['미지급', '거래완료', '거래실패'],
         waitpay: '미지급',
         opentrade: '수주열기',
         cancleorderauto: '내불금 미결제, 자동 주문취소',
@@ -94,6 +94,8 @@ export default {
         usemoney: '수수료',
         charge: '거래단',
         num: '거래수량',
+        title: "取消订单",
+        cancleTip: "【主动取消】或【超时】自动取消达3次，或恶意取消达1次，当天禁止交易;当月累计6次，自第7次 开始，每取消1次，禁止交易2小时。如果您已向卖家付款，请千万不要取消订单",
         allmoney: '총금액',
         confirmmsg1: '결제카드의 소유자와 플랫폼의 실명확보해주세요.',
         confirmmsg2: '일치, 불일치하지 판매자는 돈을 넣지 않을 권리가 있습니다.',
@@ -102,15 +104,19 @@ export default {
         cancelorder: '주문취소',
         confirmtext: '确认支付',
         connect: '온라인 고객 서비스에 문의',
-        tip:'질문이 있으시면 고객 서비스에 호소하십시오.'
+        tip: '질문이 있으시면 고객 서비스에 호소하십시오.'
     },
     //取消订单
     cancleorder: {
-        back: '返回',
+        back: '돌아가다',
+        ordernum: '주문 번호',
         cancleorder: '주문취소',
         closeorder: '인수닫기',
         complaintext1: '만약 의문이 있으시면 고객센터에 진정하십시오.',
         orderdetails: '주문내역',
+        title: "提币提醒",
+        tipText: "您选择的网络是SLT币生态链Heco网络,确保您的提币地址支持Heco网络hrc20代币标准。如果对方平台不支持, 您的资产将会丢失。同时提醍您因Heco去中心化特性, Huobi Global特向您提醒使用第三方DAPP存在风险。请仔细阅读",
+        book: "《免责声明》",
         remindmsg1: '만약 돈을 이체했다면, 미확인 결제시스템은 자동으로 진행되기 때문에 채팅 인터페이스에서 상대방과 의사소통을 할 수 있습니다.',
         remindmsg2: '[주동 취소] 또는 [시간 초과] 3회시 자동 취소, 또는 악의적 취소 -회, 당일 거래 금지 : 판매자가 유효한 수납 방식을 제공하지 않아 주문 취소가 발생한 경우 고객 서비스에 청구하여 재판결할 수 있습니다.',
         remindmsg3: '이번 달 누계 6회로 7회차부터 1회 취소당 2시간 동안 거래가 금지된다.',
@@ -132,42 +138,42 @@ export default {
         text1: '온라인 결제 주문서 제출 후 15분 이내에 결제하지 않으면 주문서가 시스템으로 자동 취소됩니다. 빠른 결제 완료로 상품이 즉시 배송될 수 있도록, 재화 상품과 매장 배송 상품은 분리하여 보내드립니다.',
         gopay: '직접결제',
         goon: '계속쇼핑',
-        inStock:'재고',
-        outStock:'일시 품절',
-        goodsId:'스타일 번호',
-        goodsStyle:'양식',
-        delete:'삭제',
-        date:'발송 후 영업일 2-4일 후 배송 예정',
-        num:'수량'
+        inStock: '재고',
+        outStock: '일시 품절',
+        goodsId: '스타일 번호',
+        goodsStyle: '양식',
+        delete: '삭제',
+        date: '발송 후 영업일 2-4일 후 배송 예정',
+        num: '수량'
 
-        
+
     },
     //商品详细
-    goodsdetails:{
+    goodsdetails: {
         shopcar: '장바구니넣기',
-        goodsId:'스타일 번호',
+        goodsId: '스타일 번호',
     },
     //商城
-    shop:{
-        classify:'분류' ,
-        classifyTip:'다음 기준으로 필터링' ,
+    shop: {
+        classify: '분류',
+        classifyTip: '다음 기준으로 필터링',
     },
-    login:{
-        welcome:'SLT는 코인 구매 또는 비즈니스 문의를 환영합니다.',
-        logintext:'로그인',
-        username:'ID 입력하세요.',
-        userpsw:'비밀번호 입력하세요.',
-        forget:'비밀번호를 잊으 셨나요?',
-        goreigest:'즉시가입?',
-        login:'로그인'
+    login: {
+        welcome: 'SLT는 코인 구매 또는 비즈니스 문의를 환영합니다.',
+        logintext: '로그인',
+        username: 'ID 입력하세요.',
+        userpsw: '비밀번호 입력하세요.',
+        forget: '비밀번호를 잊으 셨나요?',
+        goreigest: '즉시가입?',
+        login: '로그인'
     },
-    regiest:{
-        welcome:'SLT는 코인 구매 또는 비즈니스 문의를 환영합니다.',
-        username:'ID 입력하세요.',
-        userpsw:'비밀번호 입력하세요.',
-        userres:'즉시가입',
-        get:'인증코드 받기',
-        regiest:'회원가입'
+    regiest: {
+        welcome: 'SLT는 코인 구매 또는 비즈니스 문의를 환영합니다.',
+        username: 'ID 입력하세요.',
+        userpsw: '비밀번호 입력하세요.',
+        userres: '즉시가입',
+        get: '인증코드 받기',
+        regiest: '회원가입'
     },
     //头部
     header: {
@@ -322,8 +328,8 @@ export default {
         joinText: "SLTcoin 팀은 코인 구매나 사업관련 어떠한 문의든지 환영 합니다.",
         namePlaceholder: "Name",
         emailPlaceholder: "Email",
-        net1: ["LT SLT Global","http://sltglobal.net"],
-        net2: ["tree Booktree","http://ubooktree.com"],
+        net1: ["LT SLT Global", "http://sltglobal.net"],
+        net2: ["tree Booktree", "http://ubooktree.com"],
         net3: ["☉문의 e-Mail：sltglobalcoin@gmail.com"],
         own: "© Smart Learning Technology Global 2020. All rights reserved.",
         submit: "SUBMIT",
@@ -341,42 +347,208 @@ export default {
         returnHome: '메인 화면으로 가기'
     },
     //OTC
-    otcTrade:{
-        tabBar:['자유거래','원 클릭 거래'],
-        buy:'구매',
-        sell:'판매',
-        title:'자유거래',
-        subTitle:'어많은 선택,자유거래',
-        tableHeader:['광고주','수량','한도','단가','지불방','거래','수수료'],
-        auth:'실명인증이 필요합니다.'
+    otcTrade: {
+        tabBar: ['자유거래', '원 클릭 거래'],
+        buy: '구매',
+        sell: '판매',
+        title: '자유거래',
+        subTitle: '어많은 선택,자유거래',
+        tableHeader: ['광고주', '수량', '한도', '단가', '지불방', '거래', '수수료'],
+        auth: '실명인증이 필요합니다.'
     },
     //钱包 提币、입금wallet
-    wallet:{
-        charge:'입금',
-        chinaName:'ChainName',
-        chargeAddress:'입금주소',
-        copyAddress:'주소복사',
-        confirm:'확인',
-        chargeTipArray:[
+    wallet: {
+        charge: '입금',
+        chinaName: 'ChainName',
+        chargeAddress: '입금주소',
+        copyAddress: '주소복사',
+        confirm: '확인',
+        chargeTipArray: [
             '최소입금수량:',
             '자금의 안전을 확보하기 위해 고객님의 계정 보안 정책이 변경되거나 비밀번호가 변경 될 경우 수동 검토를 실시하므로 직원이 전화 나 이메일로 연락을 드릴 때까지 기다려 주시기 바랍니다.',
             '정보가 봉인되거나 유출되지 않도록 컴퓨터와 브라우저가 안전한지 확인하십시오.',
             '언급하신 디지털 자산은 멀티 체인 자산입니다. 어떤 체인에서 출금을 선택하든 귀하가 소유 한 출금 페이지에 표시되는 디지털 자산의 총량이 해당 출금 횟수만큼 감소한다는 의미입니다.'
         ],
-        withdraw:'출금',
-        available:'유효한',
-        withdrawAddress:'출금주소',
-        num:'출금수량',
-        all:'전부',
-        serviceCharge:'수수료',
-        tip:'출금 작업이 완료되면 대상 주소에 해당하는 계정 소유자가 해당 자산의 소유권을 누릴 수 있습니다. 출금 작업 전 출금 주소 정보를주의 깊게 확인하여 출금이 자발적인지 확인하고 확인하십시오. 피라미드 계획, 불법 모금, 사기 및 기타 불법 상황이 관여하지 않으며, 속임을 조심하고, 불필요한 재산 손실을 방지합니다.',
-        withdrawTipArray:[
+        withdraw: '출금',
+        available: '유효한',
+        withdrawAddress: '출금주소',
+        num: '출금수량',
+        all: '전부',
+        serviceCharge: '수수료',
+        tip: '출금 작업이 완료되면 대상 주소에 해당하는 계정 소유자가 해당 자산의 소유권을 누릴 수 있습니다. 출금 작업 전 출금 주소 정보를주의 깊게 확인하여 출금이 자발적인지 확인하고 확인하십시오. 피라미드 계획, 불법 모금, 사기 및 기타 불법 상황이 관여하지 않으며, 속임을 조심하고, 불필요한 재산 손실을 방지합니다.',
+        withdrawTipArray: [
             '최소 출금 금액은:',
             '자금의 안전을 확보하기 위해 고객님의 계정 보안 정책이 변경되거나 비밀번호가 변경 될 경우 수동 검토를 실시하므로 직원이 전화 나 이메일로 연락을 드릴 때까지 기다려 주시기 바랍니다.',
             '정보가 봉인되거나 유출되지 않도록 컴퓨터와 브라우저가 안전한지 확인하십시오.',
             '언급하신 디지털 자산은 멀티 체인 자산입니다. 어떤 체인에서 출금을 선택하든 귀하가 소유 한 출금 페이지에 표시되는 디지털 자산의 총량이 해당 출금 횟수만큼 감소한다는 의미입니다.'
         ],
-        received:'도착수량'
+        received: '도착수량'
 
+    },
+
+
+    //----------------------------------------------------------------------------------
+
+    //移动提现
+    Mwithdraw: {
+        withdrawText: "提现",
+        btcText1: "BTC",
+        btcText2: "Bitcoin",
+        name: "链名称",
+        addr: "提币地址",
+        wNumber: "提币数量",
+        btnBoxText: "SLT",
+        all: "全部",
+        fee: "手续费:",
+        BTCNumber: "到账数量（BTC）",
+        title: "提币提醒",
+        btn: "确认",
+        tipText1: "您的提币操作-旦完成， 对应的资产所有权将由您变更为目标地址所对应的账户所有人享有，请您务必在提币操作前，仔细核对提币地址信息，确保提币属于自愿行为，并确认不涉及任何传销、非法集资、诈骗等违法情形，谨防上当受骗，避免造成不必要的财产损失。",
+        tipText2: ".最小提币数量为: 0.001 BTC.",
+        tipText3: ".为保障资金安全，当您账户安全策略变更、密码修改、我们会对提币进行人工审核，请耐心等待工作人员电话或邮件联系。",
+        tipText4: ".请务必确认电脑及浏览器安全，防止信息被篆改或泄露。",
+        toolTip: "下次不再提醒",
+        primary: "确定",
+        decal: "《免责声明》",
+        tipText: "您选择的网络是SLT币生态链Heco网络,确保您的提币地址支持Heco网络hrc20代币标准。如果对方平台不支持,您的资产将会丢失。同时提醍您因Heco去中心化特性,Huobi Global特向您提醒使用第三方DAPP存在风险。请仔细阅读",
+        book: "您只能向此地址充入SLT，其他资产充入SLT地址将无法找回。",
+    },
+    //移动充币
+    MtopUp: {
+        withdrawText: "充币",
+        btcText1: "BTC",
+        btcText2: "Bitcoin",
+        name: "链名称",
+        addr: "冲币地址",
+        wNumber: "冲币数量",
+        copyAddr: "复制地址",
+        btnBoxText: "SLT",
+        all: "全部",
+        fee: "手续费:",
+        searchPlaceholder: "搜索币种",
+        BTCNumber: "到账数量（BTC）",
+        btn: "确认",
+        tipText1: "使用USDT-TRC20地址充值需要1个网络确认才能到账，1个网络确认后才能提币。",
+        tipText2: ".最小提币数量为: 0.001 BTC.",
+        tipText3: ".为保障资金安全，当您账户安全策略变更、密码修改、我们会对提币进行人工审核，请耐心等待工作人员电话或邮件联系。",
+        tipText4: ".请务必确认电脑及浏览器安全，防止信息被篆改或泄露。",
+        toolTip: "不再提醒",
+        primary: "我已知晓",
+        tipText: "此地址只能充入SLT",
+        book: "您只能向此地址充入SLT，其他资产充入SLT地址将无法找回。",
+    },
+    positionRecord: {
+        detail: "查看详情",
+        time: "时间",
+        type: "类型",
+        number: "数量",
+        price: "单价",
+    },
+    //移动端支付成功
+    Mpaysucceed:{
+        succeed:'支付成功',
+        thanks:'感谢您的购买',
+        ordernum:'订单号',
+        paytype:'支付方式',
+        usermoney:'手续费',
+        chaege:'成交单价',
+        paynum:'成交数量',
+        look:'查看订单',
+        backindex:'返回首页'
+    },
+    //移动端确认订单
+    Mpayorder:{
+        back:'返回',
+        beforepay:'待支付',
+        open:'开启接单',
+        cancle:'内未付款，将自动取消订单',
+        paytype:'支付方式',
+        orderdetails:'订单详情',
+        ordernum:'订单号',
+        usermoney:'手续费',
+        chaege:'成交单价',
+        paynum:'成交数量',
+        allmoney:'总金额',
+        confirmtext1:'请确保付款卡所属人与平台实名信息',
+        confirmtext2:'一致，若不一致卖家有权不放币。请不要使用支付宝转银行卡等到账时间较长的付款方式;',
+        remindtext1:'如果您已向卖家付款，请千万不要取消订单。',
+        remindtext2:'您需要根据对方的收款方式通过微信/支付宝/银行卡等平台转账给对方，请认真核对对方的收款信息;转账时请勿备注任何信息，以免您的第三方账户被冻结;',
+        cancleorder:'取消订单',
+        confirmorder:'确认支付 ',
+        connect:'联系在线客服'
+    },
+    //移动端取消订单
+    Mcancleorder:{
+        back:'返回',
+        cancle:'取消订单',
+        close:'关闭接单',
+        question:'如有疑问请向客服申诉',
+        paytype:'支付方式',
+        orderdetails:'订单详情',
+        ordernum:'订单号',
+        usermoney:'手续费',
+        chaege:'成交单价',
+        paynum:'成交数量',
+        allmoney:'总金额',
+        remindtext1:'若您已经转账，由于未确认付款系统自动取消订单，您可以在聊天界面与对方进行沟通;',
+        remindtext2:'[主动取消]或[超时]自动取消3次，或恶意取消达-次，当天禁止 交易:由于卖家未提供有效收款方式导致订单取消，可向客服申 诉，重新判责',
+        remindtext3:'当月累计6次，自第7次开始，每取消1次，禁止交易2小时。',
+        connect:'向客服申诉'
+    },
+    //移动端确认订单弹窗
+    confirmorderpop:{
+        confirm:'确认购买',
+        charge:'单价',
+        num:'数量',
+        all:'总金额',
+        intype:'收款方式',
+        out:'退出',
+        gopay:'确认下单'
+    },
+    //移动端提醒认证弹窗
+    remindauth:{
+        goauth:'请完成身份认证',
+        remindtext1:'保护资产安全，及时接受账户动态',
+        personauth:'个人身份认证',
+        auth:'认证'
+    },
+    //移动端一键买卖
+    Mbuy:{
+        choose:'自选交易',
+        trade:'一键买卖',
+        value:'价值约',
+        willpay:'我将支付',
+        canuse:'可用资金',
+        willgain:'我将获得',
+        paytype:'支付方式',
+        buy:'购买',
+        willseal:'我将出售',
+        seal:'出售'
+    },
+    //移动端自选交易
+    Mtrade:{
+        buy:'购买',
+        seal:'出售',
+        num:'数量',
+        charge:'单价',
+        limit:'限额'
+    },
+    //移动端我的
+    usermsg:{
+        personcenter:'个人中心',
+        auth:'身份认证',
+        order:'订单',
+        localtionn:'位置',
+        address:'收货地址',
+        log:'财务记录',
+        out:'退出'
+    },
+    //移动端消息列表
+    msglist:{
+        msglist:'消息列表',
+        hidden:'隐藏已读',
+        allread:'全部标为已读',
+        details:'详情',
+        reply:'回复'
     }
 }

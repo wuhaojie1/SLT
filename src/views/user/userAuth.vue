@@ -31,7 +31,7 @@
                 </el-upload>
             </div>
             <div class="auth-button-con">
-                <div class="auth-button">{{$t('identifi.goidenrifi')}}</div>
+                <div class="auth-button" @click="userauth">{{$t('identifi.goidenrifi')}}</div>
             </div>
         </div>
     </div>
@@ -50,6 +50,9 @@
                 backimg:`${require('../../static/img/user/idcarddown.png')}`
             }
         },
+        mounted() {
+            // this.userauth();
+        },
         methods:{
             uploadfaceFile(file){
                 // let fileName = file.name;
@@ -64,6 +67,22 @@
                 this.back=true
                 // console.log(file)
                 // console.log(this.posterURL)
+            },
+            userauth(){
+                console.log('6666')
+                this.axios({
+                    url:'wx/user/auth',
+                    method:'post',
+                    params:{
+                        realName:'xxx',
+                        idcard:'511324xxxx',
+                        back:'back'
+                    }
+                }).then(res=>{
+                    console.log(res);
+                }).catch(err=>{
+                    console.log(err)
+                })
             }
             // beforeUpload(file){
             //     console.log(file)

@@ -5,15 +5,21 @@ Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
-        name: 'login',
+        name: 'initIndex',
         component: () =>
-            import ('../views/login/login.vue')
+            import ('../views/initPage/index.vue')
     },
     {
         path: '/index',
         name: 'index',
         component: () =>
             import ('../views/index/index.vue')
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () =>
+            import ('../views/login/login.vue')
     },
     {
         path: '/regiest',
@@ -313,6 +319,24 @@ const routes = [{
         component: () =>
             import ('../views/mobile/chat/index.vue')
     },
+    {
+        path: 'Mconfirmorder',
+        name: 'Mconfirmorder',
+        component: () =>
+            import ('../views/mobile/trade/payorder'),
+    },
+    {
+        path: 'Mcancleorder',
+        name: 'Mcancleorder',
+        component: () =>
+            import ('../views/mobile/trade/cancleorder'),
+    },
+    {
+        path: '/Mpaysucceed',
+        name: 'Mpaysucceed',
+        component: () =>
+            import ('../views/mobile/paysucceed/paysucceed.vue')
+    },
     //移动端我的
     {
         path: '/Musermsg',
@@ -334,6 +358,53 @@ const routes = [{
         component: () =>
             import ('../views/mobile/login/login.vue')
     },
+
+    //移动端记录
+    {
+        path: '/Mrecord',
+        name: 'Mrecord',
+        component: () =>
+            import ('../views/mobile/record/record.vue'),
+        children: [
+            //移动端位置
+            {
+                path: 'Mposition',
+                name: 'Mposition',
+                component: () =>
+                    import ('../views/mobile/position/position.vue')
+            },
+            //移动端商品交易
+            {
+                path: 'MDeal',
+                name: 'MDeal',
+                component: () =>
+                    import ('../views/mobile/deal/deal.vue')
+            },
+            //财务记录
+            {
+                path: 'Mtopup',
+                name: 'Mtopup',
+                component: () =>
+                    import ('../views/mobile/topup/topup.vue')
+            },
+            //OTC
+            {
+                path: 'Motc',
+                name: 'MOTC',
+                component: () =>
+                    import ('../views/mobile/otc/otc.vue')
+            },
+        ]
+    },
+
+
+    //移动端支付成功
+    {
+        path: '/Mpaysucceed',
+        name: 'Mpaysucceed',
+        component: () =>
+            import ('../views/mobile/paysucceed/paysucceed.vue')
+    }
 ]
 
 const router = new VueRouter({

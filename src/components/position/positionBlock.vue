@@ -39,6 +39,7 @@ export default {
 .positionBlock {
     .positionBlock-wrap {
         .positionBlock-content {
+            cursor: pointer;
             width: 300rem;
             height: 240rem;
             background: #F9FBFD;
@@ -67,6 +68,9 @@ export default {
                 margin-top: 68rem;
                 //text-align: center;
             }
+        }
+        .positionBlock-content:hover{
+            opacity: 0.7;
         }
 
         .color1 {

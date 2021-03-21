@@ -104,169 +104,138 @@ export default {
             clock: `${require('../../static/img/shoppingMall/clock.png')}`,
             blockItemList:[
                 {
-                    text: "北特里",
-                    number: "10/80",
+                    text: "북트리",
+                    number: "10/100",
                     color: "color1"
                 },
                 {
-                    text: "小说",
-                    number: "20/80",
+                    text: "소설",
+                    number: "20/100",
                     color: "color2"
                 },
                 {
-                    text: "经济/经营",
-                    number: "30/80",
+                    text: "시/에세이",
+                    number: "30/100",
                     color: "color3"
                 },
                 {
-                    text: "诗/散文",
-                    number: "40/80",
+                    text: "경제/경영",
+                    number: "40/100",
                     color: "color4"
                 },
                 {
-                    text: "计算机/IT",
-                    number: "20/80",
+                    text: "자기계발",
+                    number: "20/100",
                     color: "color5"
                 },
                 {
-                    text: "计算机/IT",
-                    number: "20/80",
+                    text: "정치/사회",
+                    number: "20/100",
                     color: "color6"
                 },
                 {
-                    text: "历史/文化",
-                    number: "20/80",
+                    text: "기술/공학",
+                    number: "20/100",
                     color: "color7"
                 },
                 {
-                    text: "语言",
-                    number: "20/80",
+                    text: "컴퓨터/IT",
+                    number: "20/100",
                     color: "color8"
                 },
                 {
-                    text: "北特里",
-                    number: "10/80",
+                    text: "참고서",
+                    number: "10/100",
                     color: "color1"
                 },
                 {
-                    text: "小说",
-                    number: "20/80",
+                    text: "철학",
+                    number: "20/100",
                     color: "color2"
                 },
                 {
-                    text: "经济/经营",
-                    number: "30/80",
+                    text: "과학",
+                    number: "30/100",
                     color: "color3"
                 },
                 {
-                    text: "诗/散文",
-                    number: "40/80",
+                    text: "심리학",
+                    number: "40/100",
                     color: "color4"
                 },
                 {
-                    text: "计算机/IT",
-                    number: "20/80",
+                    text: "종교",
+                    number: "20/100",
                     color: "color5"
                 },
                 {
-                    text: "计算机/IT",
-                    number: "20/80",
+                    text: "역사/문화",
+                    number: "20/100",
                     color: "color6"
                 },
                 {
-                    text: "历史/文化",
-                    number: "20/80",
+                    text: "언어",
+                    number: "20/100",
                     color: "color7"
                 },
                 {
-                    text: "语言",
-                    number: "20/80",
+                    text: "예술/대중문화",
+                    number: "20/100",
                     color: "color8"
                 },
                 {
-                    text: "北特里",
-                    number: "10/80",
+                    text: "건강",
+                    number: "10/100",
                     color: "color1"
                 },
                 {
-                    text: "小说",
-                    number: "20/80",
+                    text: "가정/육아",
+                    number: "20/100",
                     color: "color2"
                 },
                 {
-                    text: "经济/经营",
-                    number: "30/80",
+                    text: "여행",
+                    number: "30/100",
                     color: "color3"
                 },
                 {
-                    text: "诗/散文",
-                    number: "40/80",
+                    text: "요리",
+                    number: "40/100",
                     color: "color4"
                 },
                 {
-                    text: "计算机/IT",
-                    number: "20/80",
+                    text: "취미/실용/스포츠",
+                    number: "20/100",
                     color: "color5"
                 },
                 {
-                    text: "计算机/IT",
-                    number: "20/80",
+                    text: "잡지/만화",
+                    number: "20/100",
                     color: "color6"
-                },
-                {
-                    text: "历史/文化",
-                    number: "20/80",
-                    color: "color7"
-                },
-                {
-                    text: "语言",
-                    number: "20/80",
-                    color: "color8"
                 },
             ],
-            goodsList: [
-                [
-                    {
-                        img: `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name: "日式原木餐桌",
-                        // price: "￥299",
-                        show: false,
-                    },
-                    {
-                        img: `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name: "日式原木餐桌",
-                        // price: "￥299",
-                        show: false,
-                    },
-                    {
-                        img: `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name: "日式原木餐桌",
-                        // price: "￥299",
-                        show: false,
-                    },
-                ],
-                [
-                    {
-                        img: `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name: "日式原木餐桌",
-                        // price: "￥299",
-                        show: false,
-                    },
-                    {
-                        img: `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name: "日式原木餐桌",
-                        // price: "￥299",
-                        show: false,
-                    },
-                    {
-                        img: `${require('../../static/img/shoppingMall/book1.png')}`,
-                        name: "日式原木餐桌",
-                        // price: "￥299",
-                        show: false,
-                    },
-                ],
-
-            ],
+//             1.북트리
+// 2.소설
+// 3.시/에세이
+// 4.경제/경영
+// 5.자기계발
+// 6.정치/사회
+// 7.기술/공학
+// 8.컴퓨터/IT
+// 9.참고서
+// 10.철학
+// 11.과학
+// 12.심리학
+// 13.종교
+// 14.역사/문화
+// 15.언어
+// 16.예술/대중문화
+// 17. 건강
+// 18.가정/육아
+// 19.여행
+// 20.요리
+// 21.취미/실용/스포츠
+// 22.잡지/만화
 
             imgs: [
                 {
@@ -352,6 +321,7 @@ export default {
             .el-carousel__item {
                 /*display: flex;*/
                 /*position: relative;*/
+                cursor: pointer;
 
                 .textTip {
                     position: absolute;
@@ -367,6 +337,7 @@ export default {
                         position: relative;
                         width: 710rem;
                         margin: 0 auto;
+                        cursor: pointer;
 
                         .text1 {
                             width: 100%;

@@ -6,7 +6,7 @@
         <div class="index-content">
             <div class="index-content-wrap">
                 <div class="section1" :style="{ 'backgroundImage':'url('+ urlIcon +')' }">
-                    <div class="site-header">
+                    <!-- <div class="site-header"> -->
                         <!-- <div class="site-header-list">
                             <div class="site-header-item-img">
                                 <img :src="SLT_white" alt="" class="SLT_white_logo">
@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                         </div> -->
-                    </div>
+                    <!-- </div> -->
                     <div class="section1-content">
                         <div class="wpb-wrapper">
                             <div class="title1">
@@ -44,7 +44,7 @@
                             <div class="content">
                                 {{ $t('index').detail }}
                             </div>
-                            <div class="btn">
+                            <!-- <div class="btn">
                                 <div class="left">
                                     {{ $t('index').whitBook }}
                                 </div>
@@ -52,7 +52,14 @@
                                     <img src="../../static/img/index/pause.png" alt="" class="right-img">
                                     <h4>{{ $t('index').whitBookT }}</h4>
                                 </div>
-                            </div>
+                            </div> -->
+                            <!-- <div class="videoBox">
+                                 <video-player  class="video-player vjs-custom-skin"
+                                ref="videoPlayer"
+                                :playsinline="true"
+                                :options="playerOptions"
+                            ></video-player>
+                            </div> -->
                         </div>
                         <div class="ico">
                             <div class="ico-content">
@@ -232,28 +239,30 @@
                                 <div class="quesgtionBox">
                                     <div class="quesgtionBox-item1">
                                         <div class="quesgtionBox-item-top" @click="openBox('box1')">
-                                            <!-- <img class="quesgtionBox-item-img" src="" alt=""> -->
+                                            <img class="quesgtionBox-item-img add" v-if="!box1" :src="add" alt="">
+                                            <img class="quesgtionBox-item-img reduce" v-else :src="reduce" alt="">
                                             <div class="quesgtionBox-item-text">
                                                 {{ $t('index').aboutQuestion }}
                                             </div>
                                         </div>
-                                        <transition name="hidden-box1">
+                                        <!-- <transition name="hidden-box1"> -->
                                             <div class="hidden-box" v-show="box1">
                                                 <div class="hidden-box-item">
                                                     {{ $t('index').search }}
                                                 </div>
                                             </div>
-                                        </transition>
+                                        <!-- </transition> -->
 
                                     </div>
                                     <div class="quesgtionBox-item2">
                                         <div class="quesgtionBox-item-top" @click="openBox('box2')">
-                                            <!-- <img class="quesgtionBox-item-img" src="" alt=""> -->
+                                            <img class="quesgtionBox-item-img add" v-if="!box2" :src="add" alt="">
+                                            <img class="quesgtionBox-item-img reduce" v-else :src="reduce" alt="">
                                             <div class="quesgtionBox-item-text">
                                                 {{ $t('index').aboutQuestion }}
                                             </div>
                                         </div>
-                                        <transition name="hidden-box2">
+                                        <!-- <transition name="hidden-box2"> -->
                                             <div class="hidden-box" v-show="box2">
                                                 <div class="hidden-box-item">
                                                     {{ $t('index').connect }}
@@ -262,7 +271,7 @@
                                                     {{ $t('index').teamEmail }}
                                                 </div>
                                             </div>
-                                        </transition>
+                                        <!-- </transition> -->
                                     </div>
                                 </div>
                             </div>
@@ -664,7 +673,7 @@
                             <div class="Team-card-content">
                                 <div class="Team-card-content-list">
                                     <div class="Team-card-content-item"
-                                         v-for="(item, index) in members"
+                                         v-for="(item, index) in members1"
                                          :key="index">
                                         <MemberCard :name="item.name"
                                                     :position="item.position"
@@ -746,13 +755,13 @@
                 </div>
                 <div class="section11" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
                     <div class="section11-wrap">
-                        <div class="section11-wrap-title">
+                        <!-- <div class="section11-wrap-title">
                             {{ $t('index').join }}
                         </div>
                         <div class="section11-wrap-tip">
                             {{ $t('index').joinText }}
-                        </div>
-                        <div class="section11-wrap-btnBox">
+                        </div> -->
+                        <!-- <div class="section11-wrap-btnBox">
                             <div class="input-item">
                                 <input type="text" :placeholder="$t('index').namePlaceholder ">
                             </div>
@@ -762,7 +771,7 @@
                             <div class="btn">
                                 {{ $t('index').submit }}
                             </div>
-                        </div>
+                        </div> -->
                         <div class="url">
                             <div class="url-content">{{ $t('index').net1[0] }}<span>{{ $t('index').net1[1] }}</span></div>
                             <div class="url-content">{{ $t('index').net2[0] }}<span>{{ $t('index').net2[1] }}</span></div>
@@ -813,6 +822,8 @@ export default {
                 `${require('../../static/img/index/booktree_white.png')}`,
                 `${require('../../static/img/index/SLT_white.png')}`,
             ],
+            add: `${require('../../static/img/index/add.png')}`,
+            reduce: `${require('../../static/img/index/reduce.png')}`,
             members: [
                 {
                     name: "Bae Seunghwan",
@@ -834,31 +845,78 @@ export default {
                     position: "Web Development",
                     img: `${require('../../static/img/index/team_youhwanho-400x400.png')}`,
                 },
+
+
                 {
-                    name: "Bae Seunghwan",
-                    position: "CEO",
-                    img: `${require('../../static/img/index/baesh-400x400.png')}`,
+                    name: "Kim eunji",
+                    position: "Bigdata analysis, Graduate Northeastern University",
+                    img: `${require('../../static/img/index/team_iimeunji-400x400.png')}`,
                 },
                 {
-                    name: "Choi sungmin",
-                    position: "Planning, CEO of CRADLEKOREA",
-                    img: `${require('../../static/img/index/team_choism-400x400.png')}`,
+                    name: "Yu seungjun",
+                    position: "Strategic Planning, Executive Direct of Energy Korea",
+                    img: `${require('../../static/img/index/team_yusj-400x400.png')}`,
                 },
                 {
-                    name: "Choi kyoungyong",
-                    position: "Marketing, Former Director of Altwell",
-                    img: `${require('../../static/img/index/team_choikg-400x400.png')}`,
+                    name: "Jung jiyeon",
+                    position: "CMO, Former CMO of BROWN Edu.",
+                    img: `${require('../../static/img/index/team_jungjy-400x400.png')}`,
+                },
+
+                {
+                    name: "Tonnam Choi",
+                    position: "CIO",
+                    img: `${require('../../static/img/index/team_tonnam-400x400.png')}`,
                 },
                 {
-                    name: "You hwanho",
-                    position: "Web Development",
-                    img: `${require('../../static/img/index/team_youhwanho-400x400.png')}`,
+                    name: "Kim TG",
+                    position: "Director of Blockchain Research Institute",
+                    img: `${require('../../static/img/index/team_kimtg-400x400.png')}`,
+                },
+            ],
+             
+            members1:[
+                {
+                    name: "Jun sukgu",
+                    position: "ChFC Total Financial Asset Manager",
+                    img: `${require('../../static/img/index/team_junsg-400x400.png')}`,
                 },
                 {
-                    name: "You hwanho",
-                    position: "Web Development",
-                    img: `${require('../../static/img/index/team_youhwanho-400x400.png')}`,
+                    name: "Lee chungsung",
+                    position: "Ph.D of Engineering Ph.D candidate of Tokyo University",
+                    img: `${require('../../static/img/index/team_leecs-400x400.png')}`,
                 },
+                {
+                    name: "Lee gwiseong",
+                    position: "CPA of One-G Accounting Group",
+                    img: `${require('../../static/img/index/team_leegs-400x400.png')}`,
+                },
+                {
+                    name: "Kim bonghun",
+                    position: "Ph.D of Economics",
+                    img: `${require('../../static/img/index/team_kimbh-400x400.png')}`,
+                },
+                {
+                    name: "Jo jaehyuck",
+                    position: "Ph.D of Computer Sciences Professor of Soongsil University",
+                    img: `${require('../../static/img/index/team_jojy-400x400.png')}`,
+                },
+                {
+                    name: "Kim jongwoo",
+                    position: "Lawyer of Lawfirm Seyang",
+                    img: `${require('../../static/img/index/team_kimjw-400x400.png')}`,
+                },
+                {
+                    name: "Yun johun",
+                    position: "Member of Blockchain Law Society Lawyer of Lawfirm Seyang",
+                    img: `${require('../../static/img/index/team_yunjh-400x400.png')}`,
+                },
+                {
+                    name: "Kim hwoikwang",
+                    position: "Ph.D , Professor",
+                    img: `${require('../../static/img/index/ad_kimhk-400x400.png')}`,
+                },
+
             ],
 
             showSticky: true,
@@ -873,17 +931,43 @@ export default {
                 width: '80rem',
                 height: '60rem',
             },
+            // 视频播放
+            playerOptions: {
+                playbackRates: [0.7, 1.0, 1.5, 2.0], //播放速度
+                autoplay: true, //如果true,浏览器准备好时开始回放。
+                muted: false, // 默认情况下将会消除任何音频。
+                loop: false, // 导致视频一结束就重新开始。
+                preload: 'auto', // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
+                language: 'zh-CN',
+                aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+                fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
+                sources: [{
+                    type: "",
+                    src: 'http://vjs.zencdn.net/v/oceans.mp4'//url地址          
+                // src: "" //url地址
+                }],
+                poster: "", //你的封面地址
+                // width: document.documentElement.clientWidth,
+                notSupportedMessage: '此视频暂无法播放，请稍后再试', //允许覆盖Video.js无法播放媒体源时显示的默认信息。
+                controlBar: {
+                    timeDivider: false,
+                    durationDisplay: false,
+                    remainingTimeDisplay: false,
+                    fullscreenToggle: false  //全屏按钮
+                }
+            },
+            
         }
     },
-    watch: {
-        /*scrollTop(v) {
-            if (v > 240) {
-                this.showSticky = true;
-            } else {
-                this.showSticky = false;
-            }
-        }*/
-    },
+    // watch: {
+    //     /*scrollTop(v) {
+    //         if (v > 240) {
+    //             this.showSticky = true;
+    //         } else {
+    //             this.showSticky = false;
+    //         }
+    //     }*/
+    // },
     mounted() {
         window.addEventListener('scroll', this.handleScroll, true);
         this.myEcharts();
@@ -934,12 +1018,12 @@ export default {
                         radius: '90%',
                         center: ['35%', '50%'], //图的位置，距离左跟上的位置
                         data: [
-                            {value: 30, name: '생태기금'},
-                            {value: 20, name: '비축기금'},
-                            {value: 15, name: '마케팅'},
-                            {value: 15, name: '고문&개발팀'},
-                            {value: 10, name: '엔젤투자'},
-                            {value: 10, name: 'IEO&사모펀드'}
+                            {value: 30, name: '30% 생태기금'},
+                            {value: 20, name: '20% 비축기금'},
+                            {value: 15, name: '15% 마케팅'},
+                            {value: 15, name: '15% 고문&개발팀'},
+                            {value: 10, name: '10% 엔젤투자'},
+                            {value: 10, name: '10% IEO&사모펀드'}
                         ],
                         emphasis: {
                             itemStyle: {
@@ -1033,6 +1117,7 @@ export default {
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
+                overflow: hidden;
 
                 .site-header {
                     width: 1170rem;
@@ -1079,7 +1164,7 @@ export default {
                 .section1-content {
                     margin: 0 auto;
                     width: 1170rem;
-                    margin-top: 40rem;
+                    margin-top: 120rem;
                     position: relative;
 
                     .wpb-wrapper {
@@ -1116,6 +1201,13 @@ export default {
                             visibility: visible;
                             margin-bottom: 40rem;
 
+                        }
+                        .videoBox{
+                            width: 480rem;
+                            height: 240rem;
+                            background: #000000;
+                            opacity: 0.8;
+                            border-radius: 10rem;
                         }
 
                         .btn {
@@ -1163,7 +1255,7 @@ export default {
                         height: 565rem;
                         background-color: rgba(1, 1, 25, 0.55);
                         right: 50rem;
-                        top: -120rem;
+                        top: 0rem;
                         padding: 35rem;
 
                         .ico-content {
@@ -2288,7 +2380,7 @@ export default {
             }
 
             .section9 {
-                height: 2743rem;
+                height: 2343rem;
                 background-color: #041b63;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -2542,7 +2634,7 @@ export default {
             }
 
             .section11 {
-                height: 764rem;
+                height: 380zrem;
                 background-color: #041b63;
                 background-position: center;
                 background-repeat: no-repeat;

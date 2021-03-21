@@ -9,11 +9,11 @@
                          :key="index" @click="changeitem1(index)">{{item}}</div>
                 </div>
                 <div class="pay" v-if="currentindex1==0">
-                    <div class="value-text">1ETH价值约</div>
+                    <div class="value-text">1ETH{{this.$t('Mbuy.value')}}</div>
                     <div class="value-num">308,500.00SLT</div>
                     <div class="paycon">
                         <div class="paycon-left">
-                            <div class="left-text1">我将支付</div>
+                            <div class="left-text1">{{this.$t('Mbuy.willpay')}}</div>
                             <div class="left-text2">0.00</div>
                         </div>
                         <div class="paycon-right">
@@ -29,11 +29,11 @@
                         <div class="connect-img-con">
                             <img class="connect-img" src="../../../static/img/trade/connect.png"  alt="">
                         </div>
-                        <div class="money">可用资金0.000</div>
+                        <div class="money">{{this.$t('Mbuy.canuse')}}0.000</div>
                     </div>
                     <div class="getcon">
                         <div class="paycon-left">
-                            <div class="left-text1">我将获得~</div>
+                            <div class="left-text1">{{this.$t('Mbuy.willgain')}}~</div>
                             <div class="left-text2">0.00</div>
                         </div>
                         <div class="paycon-right">
@@ -43,7 +43,7 @@
                             <div class="right-text1">SLT</div>
                         </div>
                     </div>
-                    <div class="pay-text">支付方式</div>
+                    <div class="pay-text">{{this.$t('Mbuy.paytype')}}</div>
                     <div class="pay-way">
                         <div class="coinmsg-con">
                             <img class="coin-img" src="../../../static/img/buy/ETH.png" alt="">
@@ -53,14 +53,16 @@
                             <img class="arrow-down-img" src="" alt="">
                         </div>
                     </div>
-                    <div class="pay-button">购买SLT</div>
+                    <div class="pay-button" @click="popup">{{this.$t('Mbuy.buy')}}SLT</div>
+                    <remindauth v-if="popout"></remindauth>
+                    <confirmorder v-if="false"></confirmorder>
                 </div>
                 <div class="seal" v-if="currentindex1==1">
-                    <div class="value-text">1ETH价值约</div>
+                    <div class="value-text">1ETH{{this.$t('Mbuy.value')}}</div>
                     <div class="value-num">308,500.00SLT</div>
                     <div class="paycon">
                         <div class="paycon-left">
-                            <div class="left-text1">我将出售</div>
+                            <div class="left-text1">{{this.$t('Mbuy.willseal')}}</div>
                             <div class="left-text2">0.00</div>
                         </div>
                         <div class="paycon-right">
@@ -76,11 +78,11 @@
                         <div class="connect-img-con">
                             <img class="connect-img" src="../../../static/img/trade/connect.png"  alt="">
                         </div>
-                        <div class="money">可用资金0.000</div>
+                        <div class="money">{{this.$t('Mbuy.canuse')}}0.000</div>
                     </div>
                     <div class="getcon">
                         <div class="paycon-left">
-                            <div class="left-text1">我将获得~</div>
+                            <div class="left-text1">{{this.$t('Mbuy.willgain')}}~</div>
                             <div class="left-text2">0.00</div>
                         </div>
                         <div class="paycon-right">
@@ -90,7 +92,7 @@
                             <div class="right-text1">ETH</div>
                         </div>
                     </div>
-                    <div class="pay-text">支付方式</div>
+                    <div class="pay-text">{{this.$t('Mbuy.paytype')}}</div>
                     <div class="pay-way">
                         <div class="coinmsg-con">
                             <img class="coin-img" src="../../../static/img/buy/ETH.png" alt="">
@@ -100,7 +102,8 @@
                             <img class="arrow-down-img" src="" alt="">
                         </div>
                     </div>
-                    <div class="pay-button">出售SLT</div>
+                    <div class="pay-button" @click="popup">{{this.$t('Mbuy.seal')}}SLT</div>
+                    <remindauth v-if="popout"></remindauth>
                 </div>
             </div>
         </div>
@@ -108,17 +111,24 @@
 </template>
 
 <script>
+    import confirmorder from "../../../components/pop/confirmorder";
+    import remindauth from "../../../components/pop/remindauth";
     export default {
         name: "Mbuy",
+        components:{remindauth,confirmorder},
         data(){
             return{
                 tradetextarr:['购买','出售'],
-                currentindex1:0
+                currentindex1:0,
+                popout:false
             }
         },
         methods:{
             changeitem1(index){
                 this.currentindex1 = index
+            },
+            popup(){
+                this.popout = true
             }
         }
     }
