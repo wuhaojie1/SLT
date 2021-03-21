@@ -425,6 +425,7 @@ export default {
         btnBoxText: "SLT",
         all: "全部",
         fee: "手续费:",
+        searchPlaceholder: "搜索币种",
         BTCNumber: "到账数量（BTC）",
         btn: "确认",
         tipText1: "使用USDT-TRC20地址充值需要1个网络确认才能到账，1个网络确认后才能提币。",

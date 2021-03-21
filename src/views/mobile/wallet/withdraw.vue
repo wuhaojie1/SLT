@@ -183,7 +183,7 @@ export default {
     // components: {VueQr, /*ThemeStickyHeader*/},
     data() {
         return {
-            dialogVisible: true,
+            dialogVisible: false,
             sltlogo: `${require('@/static/img/index/sltlogo_60x120_white.png')}`,
             down: `${require('@/static/img/login/down.png')}`,
             tip: `${require('@/static/img/login/tip.png')}`,
