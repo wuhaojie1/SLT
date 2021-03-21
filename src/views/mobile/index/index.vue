@@ -4,8 +4,7 @@
                     <ThemeStickyHeader v-if="showSticky" class="ThemeStickyHeader"></ThemeStickyHeader>
                 </transition>-->
         <PageHeader :isShowRight="true"
-                    :isHome="true"
-                    @clickCallback="clickCallback"></PageHeader>
+                    :isHome="true"></PageHeader>
 
         <div class="index-content">
             <div class="index-content-wrap">
@@ -924,6 +923,12 @@ export default {
                     position: "전) (주) 국제자산관리 이사   현)    (주) 트레이드엑스 대표",
                     img: `${require('@/static/img/index/preson.jpg')}`,
                 },
+                {
+                    name: "만종스페이스 이사",
+                    position: "전 혁신산업개발 대표이사",
+                    img: `${require('@/static/img/index/person1.jpg')}`,
+                },
+
 
             ],
 

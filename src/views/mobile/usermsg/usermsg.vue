@@ -1,5 +1,5 @@
 <template>
-    <div id="usermsg">
+    <div id="usermsg" class="usermsg">
         <PageHeader :isShowRight="true"></PageHeader>
         <div class="msg-con">
             <div class="base-user-msg-con">
@@ -84,16 +84,18 @@
 </script>
 
 <style scoped lang="less">
-#usermsg{
+.usermsg{
     width: 750rem;
-    height: calc(100vh - 184rem);
+    // height: calc(100vh - 184rem);
     /*padding-bottom: 88rem;*/
+    
     .msg-con{
         width: 750rem;
-        height: calc(100vh - 274rem);
+        // height: calc(100vh - 274rem);
         background-color: #FFFFFF;
         border-top: 1rem solid #FFFFFF;
         .base-user-msg-con{
+            margin-top: 88rem;
             width: 750rem;
             height: 169rem;
             border-bottom: 1rem solid #FFFFFF;

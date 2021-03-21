@@ -3,7 +3,7 @@
         <div v-if="isHome==false" @click="backHandel" class="back">
             <img style="width:17rem;height:28rem" src="../../../static/img/index/back.png" alt="">
         </div>
-        <div class="logo" :style="'margin-left:'+(isHome?0:35)+'rem'">
+        <div class="logo" :style="'margin-left:'+(35)+'rem'">
             <img style="width:80rem;height:42rem;" src="../../../static/img/index/Technology.png" alt="">
         </div>
         <div v-if="isShowRight" class="dropmenu">
@@ -60,27 +60,32 @@ export default {
             itemList: [
                 {
                     code: 0,
-                    text: this.$t('dropmenu.home'),
+                    text: this.$t('header.tabbar')[0],
                     name: "Mindex",
                 },
                 {
                     code: 1,
-                    text: this.$t('dropmenu.mall'),
+                    text: this.$t('header.tabbar')[2],
                     name: "Mmall",
                 },
                 {
                     code: 2,
-                    text: this.$t('dropmenu.otc'),
+                    text: this.$t('header.tabbar')[4],
                     name: "Mbuy",
                 },
                 {
                     code: 3,
-                    text: this.$t('dropmenu.pos'),
-                    name: "Mposition",
+                    text: this.$t('header.tabbar')[3],
+                    name: "MpositionTrade",
                 },
                 {
                     code: 4,
-                    text: this.$t('dropmenu.userCenter'),
+                    text: this.$t('header.tabbar')[1],
+                    name: "MwhitPaper",
+                },
+                {
+                    code: 5,
+                    text: this.$t('userInfo.userCenter'),
                     name: "Musermsg",
                 },
             ]
@@ -93,7 +98,11 @@ export default {
         },
         //点击回调
         clickItem(e) {
-            this.$emit('clickCallback', e)
+            console.log(e)
+            this.$router.push({
+                name:e.name
+            })
+            // this.$emit('clickCallback', e)
         }
     }
 }
@@ -101,11 +110,14 @@ export default {
 
 <style lang='less'>
 .pageHeader {
+    position: fixed;
+    width:100%;
     height: 88rem;
     background-color: #02031e;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 9;
 
     .user {
         width: 38rem;

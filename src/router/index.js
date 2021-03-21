@@ -298,41 +298,41 @@ const routes = [{
         name: 'Mbuy',
         component: () =>
             import ('../views/mobile/trade/exchange.vue'),
-        children: [
-            //自选交易
-            {
-                path: 'MTrade',
-                name: 'MTrade',
-                component: () =>
-                    import ('../views/mobile/trade/trade')
-            },
-            //一键买卖
-            {
-                path: 'Mdeal',
-                name: 'Mdeal',
-                component: () =>
-                    import ('../views/mobile/trade/deal'),
-            },
-            {
-                path: 'Mconfirmorder',
-                name: 'Mconfirmorder',
-                component: () =>
-                    import ('../views/mobile/trade/payorder'),
-            },
-            {
-                path: 'Mcancleorder',
-                name: 'Mcancleorder',
-                component: () =>
-                    import ('../views/mobile/trade/cancleorder'),
-            },
-            //订单详情
-            {
-                path: 'MorderDetail',
-                name: 'MorderDetail',
-                component: () =>
-                    import ('../views/mobile/trade/orderDetail.vue'),
-            },
-        ]
+        // children: [
+        //     //自选交易
+        //     {
+        //         path: 'MTrade',
+        //         name: 'MTrade',
+        //         component: () =>
+        //             import ('../views/mobile/trade/trade')
+        //     },
+        //     //一键买卖
+        //     {
+        //         path: 'Mdeal',
+        //         name: 'Mdeal',
+        //         component: () =>
+        //             import ('../views/mobile/trade/deal'),
+        //     },
+        //     {
+        //         path: 'Mconfirmorder',
+        //         name: 'Mconfirmorder',
+        //         component: () =>
+        //             import ('../views/mobile/trade/payorder'),
+        //     },
+        //     {
+        //         path: 'Mcancleorder',
+        //         name: 'Mcancleorder',
+        //         component: () =>
+        //             import ('../views/mobile/trade/cancleorder'),
+        //     },
+        //     //订单详情
+        //     {
+        //         path: 'MorderDetail',
+        //         name: 'MorderDetail',
+        //         component: () =>
+        //             import ('../views/mobile/trade/orderDetail.vue'),
+        //     },
+        // ]
     },
     //移动端聊天
     {
@@ -428,7 +428,23 @@ const routes = [{
         name: 'Mpaysucceed',
         component: () =>
             import ('../views/mobile/paysucceed/paysucceed.vue')
-    }
+    },
+    //位置模块
+    
+    {
+        path: '/MpositionTrade',
+        name: 'MpositionTrade',
+        component: () =>
+            import ('../views/mobile/positionTrade/index.vue')
+    },
+    //白皮书
+    
+    {
+        path: '/MwhitPaper',
+        name: 'MwhitPaper',
+        component: () =>
+            import ('../views/mobile/whitPaper/index.vue')
+    },
 ]
 
 const router = new VueRouter({

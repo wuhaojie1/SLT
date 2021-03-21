@@ -1,7 +1,6 @@
 <template>
     <div id="Mmall">
         <Mheader :isShowRight="true"
-                 :isHome="true"
                  @clickCallback="clickCallback"></Mheader>
         <div class="banner">
             <img class="bannerimg" src="../../../static/img/shoppingMall/banner.png" alt="">
@@ -31,7 +30,7 @@
                 <div class="text2">{{item.charge}}</div>
             </div>
         </div>
-        <div class="copyright">
+        <!-- <div class="copyright">
             <img class="img" src="../../../static/img/shoppingMall/copyright.png" alt="">
             <span class="text">SLT 2021 {{this.$t('Mmall.copyright')}}</span>
         </div>
@@ -48,7 +47,7 @@
         </div>
         <div class="goshopcart" @click="toPage('MshoppingCart')">
             <img class="img" src="../../../static/img/chatorshopcart/shopcart.png" alt="">
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -62,23 +61,23 @@
                 goodslist:[
                     {
                         goodsimg:`${require('../../../static/img/shoppingMall/chair.png')}`,
-                        goodsname:'日式原木餐桌',
-                        charge:'￥299'
+                        goodsname:'goods',
+                        charge:'299 SLT'
                     },
                     {
                         goodsimg:`${require('../../../static/img/shoppingMall/chair.png')}`,
-                        goodsname:'日式原木餐桌',
-                        charge:'￥299'
+                        goodsname:'goods',
+                        charge:'299 SLT'
                     },
                     {
                         goodsimg:`${require('../../../static/img/shoppingMall/chair.png')}`,
-                        goodsname:'日式原木餐桌',
-                        charge:'￥299'
+                        goodsname:'goods',
+                        charge:'299 SLT'
                     },
                     {
                         goodsimg:`${require('../../../static/img/shoppingMall/chair.png')}`,
-                        goodsname:'日式原木餐桌',
-                        charge:'￥299'
+                        goodsname:'goods',
+                        charge:'299 SLT'
                     }
                 ]
             }
@@ -101,6 +100,7 @@
 
 <style scoped lang="less">
 #Mmall {
+    
     .goshopcart{
         width: 90rem;
         height: 90rem;
@@ -116,10 +116,14 @@
         }
     }
     .banner{
+        overflow: hidden;
+        
+        box-sizing: border-box;
         position: relative;
         width: 750rem;
-        height: 420rem;
+        height: auto;
         .bannerimg{
+            margin-top: 88rem;
             width: 750rem;
             height: 420rem;
         }
@@ -130,7 +134,7 @@
             color: #FFFFFF;
             position: absolute;
             left: 129rem;
-            top: 120rem;
+            top: 208rem;
         }
         .text2{
             font-size: 26rem;
@@ -139,7 +143,7 @@
             color: #FFFFFF;
             position: absolute;
             left: 129rem;
-            top: 147rem;
+            top: 235rem;
         }
         .text3{
             font-size: 26rem;
@@ -148,7 +152,7 @@
             color: #FFFFFF;
             position: absolute;
             left: 129rem;
-            top: 188rem;
+            top: 276rem;
         }
         .text4{
             font-size: 12rem;
@@ -157,7 +161,7 @@
             color: #C5C5C5;
             position: absolute;
             left: 129rem;
-            top: 228rem;
+            top: 316rem;
         }
         .text5{
             width: 150rem;
@@ -171,7 +175,7 @@
             line-height: 38rem;
             position: absolute;
             left: 129rem;
-            top: 264rem;
+            top: 362rem;
         }
     }
     .type{
