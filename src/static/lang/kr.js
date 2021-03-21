@@ -560,4 +560,17 @@ export default {
         position: "位置购买记录",
         deal: "商品交易记录",
     },
+    //移动端商城
+    Mmall:{
+        select:'筛选',
+        copyright:'版权所有',
+        right:'电子营业执照',
+        beian:'备案'
+    },
+    //移动端登录
+    Mlogin:{
+        login:'登录',
+        inphone:'请输入您的手机号码',
+        inpsw:'请输入您的密码'
+    }
 }

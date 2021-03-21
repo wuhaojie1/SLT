@@ -10,11 +10,11 @@
             <div class="text5">BUY NOW</div>
         </div>
         <div class="type">
-            <span class="text">北特里</span>
+            <span class="text">xxx</span>
             <span class="num">(100)</span>
         </div>
         <div class="choose">
-            <div class="text">筛选</div>
+            <div class="text">{{this.$t('Mmall.select')}}</div>
             <img class="img" src="../../../static/img/shoppingMall/choose.png" alt="">
         </div>
         <div class="goodslist">
@@ -30,18 +30,21 @@
         </div>
         <div class="copyright">
             <img class="img" src="../../../static/img/shoppingMall/copyright.png" alt="">
-            <span class="text">SLT 2021 版权所有</span>
+            <span class="text">SLT 2021 {{this.$t('Mmall.copyright')}}</span>
         </div>
         <div class="police1">
             <img class="img" src="../../../static/img/shoppingMall/police1.png" alt="">
-            <span class="text">电子营业执照</span>
+            <span class="text">{{this.$t('Mmall.right')}}</span>
         </div>
         <div class="police2">
             <img class="img" src="../../../static/img/shoppingMall/police2.png" alt="">
-            <span class="text">备案 5250530000050号</span>
+            <span class="text">{{this.$t('Mmall.beian')}} 5250530000050</span>
         </div>
         <div class="bottomimg">
             <img class="img" src="../../../static/img/shoppingMall/bottomimg.png" alt="">
+        </div>
+        <div class="goshopcart">
+            <img class="img" src="../../../static/img/chatorshopcart/shopcart.png" alt="">
         </div>
     </div>
 </template>
@@ -82,6 +85,20 @@
 
 <style scoped lang="less">
 #Mmall {
+    .goshopcart{
+        width: 90rem;
+        height: 90rem;
+        background-color: #00B9FE;
+        position: fixed;
+        right: 35rem;
+        bottom: 116rem;
+        border-radius: 50%;
+        .img{
+            width: 44rem;
+            height: 44rem;
+            margin-top: 23rem;
+        }
+    }
     .banner{
         position: relative;
         width: 750rem;

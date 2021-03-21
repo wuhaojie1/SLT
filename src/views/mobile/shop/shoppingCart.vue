@@ -66,11 +66,18 @@
             </div>
         </div>
 
-        <div class="customer">
-            <img style="width:46rem;height:46rem" src="../../../static/img/shop/wangwang.png" alt="">
-        </div>
+<!--        <div class="customer">-->
+<!--            <img style="width:46rem;height:46rem" src="../../../static/img/shop/wangwang.png" alt="">-->
+<!--        </div>-->
 
         <Add ref="add"></Add>
+        <div class="gochat">
+            <img class="img" src="../../../static/img/chatorshopcart/chet.png" alt="">
+        </div>
+
+        <div class="goshopcart">
+            <img class="img" src="../../../static/img/chatorshopcart/shopcart.png" alt="">
+        </div>
     </div>
 </template>
 
@@ -104,6 +111,37 @@ export default {
     font-family: Source Han Sans CN;
     min-height: 100vh;
     background-color: #f3f5f7;
+    .goshopcart{
+        width: 90rem;
+        height: 90rem;
+        background-color: #00B9FE;
+        position: fixed;
+        right: 35rem;
+        bottom: 116rem;
+        border-radius: 50%;
+        .img{
+            width: 44rem;
+            height: 44rem;
+            margin-top: 23rem;
+            margin-left: 23rem;
+        }
+    }
+    .gochat{
+        width: 90rem;
+        height: 90rem;
+        background-color: #000000;
+        opacity: 0.75;
+        position: fixed;
+        right: 35rem;
+        bottom: 222rem;
+        border-radius: 50%;
+        .img{
+            width: 44rem;
+            height: 44rem;
+            margin-top: 23rem;
+            margin-left: 23rem;
+        }
+    }
     .carTop{
         background: #FFFFFF;
         box-shadow: 0rem 5rem 10rem 0rem rgba(153, 153, 153, 0.1);
