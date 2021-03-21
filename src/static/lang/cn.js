@@ -1,7 +1,8 @@
 export default {
-    
+
     //个人资料
     userInfo: {
+        userCenter: '个人中心',
         basemsg: '基本信息',
         phonenum: '手机号',
         userID: '用户ID',
@@ -26,9 +27,9 @@ export default {
         addidnum: '请输入您的身份证号'
     },
     //用户设置
-    userSet:{
-        title:'账户设置',
-        tabArray:['个人信息','身份认证','收货地址','个人资产','财务记录']
+    userSet: {
+        title: '账户设置',
+        tabArray: ['个人信息', '身份认证', '收货地址', '个人资产', '财务记录']
     },
     //收货地址
     userAdress: {
@@ -63,7 +64,7 @@ export default {
         tredetype: '支付方式',
         moneycomes: '货币来源',
         usermoney: '手续费',
-        tableHeader:['币种','数量','冻结','可用','单价','总额','操作']
+        tableHeader: ['币种', '数量', '冻结', '可用', '单价', '总额', '操作']
 
     },
     //一键购买
@@ -85,7 +86,7 @@ export default {
     },
     //订单详情
     orderdetails: {
-        status:['待支付','交易成功','交易失败'],
+        status: ['待支付', '交易成功', '交易失败'],
         waitpay: '待支付',
         opentrade: '开启接单',
         cancleorderauto: '内未付款，将自动取消订单',
@@ -103,7 +104,7 @@ export default {
         cancelorder: '取消订单',
         confirmtext: '确认支付',
         connect: '联系在线客服',
-        tip:'如有疑问请向客服申诉'
+        tip: '如有疑问请向客服申诉'
     },
     //取消订单
     cancleorder: {
@@ -133,42 +134,42 @@ export default {
         text1: '在线支付订单提交之后15分钟内未付款，订单将被系统自动取消，请您尽快完成支付以确保商品能及时送达,有货商品和门店配货商品是分开寄出。',
         gopay: '立即结算',
         goon: '继续购物',
-        inStock:'有货',
-        outStock:'暂时缺货',
-        goodsId:'款号',
-        goodsStyle:'款式',
-        delete:'删除',
-        date:'预计发货后2-4个工作日送达',
-        num:'数量'
+        inStock: '有货',
+        outStock: '暂时缺货',
+        goodsId: '款号',
+        goodsStyle: '款式',
+        delete: '删除',
+        date: '预计发货后2-4个工作日送达',
+        num: '数量'
 
-        
+
     },
     //商品详细
-    goodsdetails:{
+    goodsdetails: {
         shopcar: '加入购物车',
-        goodsId:'款号',
+        goodsId: '款号',
     },
     //商城
-    shop:{
-        classify:'分类' ,
-        classifyTip:'按下列条件筛选' ,
+    shop: {
+        classify: '分类',
+        classifyTip: '按下列条件筛选',
     },
-    login:{
-        welcome:'团队欢迎任何代购币购买或者业务查询。',
-        logintext:'用户登录',
-        username:'请输入您的用户名',
-        userpsw:'请输入您的密码',
-        forget:'忘记密码?',
-        goreigest:'立即注册?',
-        login:'登录'
+    login: {
+        welcome: '团队欢迎任何代购币购买或者业务查询。',
+        logintext: '用户登录',
+        username: '请输入您的用户名',
+        userpsw: '请输入您的密码',
+        forget: '忘记密码?',
+        goreigest: '立即注册?',
+        login: '登录'
     },
-    regiest:{
-        welcome:'团队欢迎任何代购币购买或者业务查询。',
-        username:'请输入您的用户名',
-        userpsw:'请输入您的密码',
-        userres:'立即注册',
-        get:'获取验证码',
-        regiest:'注册'
+    regiest: {
+        welcome: '团队欢迎任何代购币购买或者业务查询。',
+        username: '请输入您的用户名',
+        userpsw: '请输入您的密码',
+        userres: '立即注册',
+        get: '获取验证码',
+        regiest: '注册'
     },
     //头部
     header: {
@@ -323,8 +324,8 @@ export default {
         joinText: "SLTcoin团队欢迎任何代币购买或业务查询。",
         namePlaceholder: "Name",
         emailPlaceholder: "Email",
-        net1: ["LT SLT Global","http://sltglobal.net"],
-        net2: ["tree Booktree","http://ubooktree.com"],
+        net1: ["LT SLT Global", "http://sltglobal.net"],
+        net2: ["tree Booktree", "http://ubooktree.com"],
         net3: ["☉查询电子邮件：sltglobalcoin@gmail.com"],
         own: "© Smart Learning Technology Global 2020. All rights reserved.",
         submit: "提交",
@@ -342,42 +343,42 @@ export default {
         returnHome: '返回首页'
     },
     //OTC
-    otcTrade:{
-        tabBar:['自选交易','一键买卖'],
-        buy:'购买',
-        sell:'出售',
-        title:'自选交易',
-        subTitle:'更多选择，自由交易',
-        tableHeader:['广告方','数量','限额','单价','支付方式','交易','手续费'],
-        auth:'需实名认证'
+    otcTrade: {
+        tabBar: ['自选交易', '一键买卖'],
+        buy: '购买',
+        sell: '出售',
+        title: '自选交易',
+        subTitle: '更多选择，自由交易',
+        tableHeader: ['广告方', '数量', '限额', '单价', '支付方式', '交易', '手续费'],
+        auth: '需实名认证'
     },
     //钱包 提币、充币wallet
-    wallet:{
-        charge:'充币',
-        chinaName:'链名称',
-        chargeAddress:'充币地址',
-        copyAddress:'复制地址',
-        confirm:'确认',
-        chargeTipArray:[
+    wallet: {
+        charge: '充币',
+        chinaName: '链名称',
+        chargeAddress: '充币地址',
+        copyAddress: '复制地址',
+        confirm: '确认',
+        chargeTipArray: [
             '最小充币数量为:',
             '为保障资金安全，当您账户安全策略变更、密码修改、我们会进行人工审核，请耐心等待工作人员电话或邮件联系。',
             '请务必确认电脑及浏览器安全，防止信息被篆改或泄露。',
             '您所提的数字资产为- -币多链资产，无论您选择从哪个链上提出，均意味着您所拥有的该提币页面展示的数字资产总量减少相应的提出数量。'
         ],
-        withdraw:'提币',
-        available:'可用',
-        withdrawAddress:'提币地址',
-        num:'提币数量',
-        all:'全部',
-        serviceCharge:'手续费',
-        tip:'您的提币操作-旦完成， 对应的资产所有权将由您变更为目标地址所对应的账户所有人享有，请您务必在提币操作前，仔细核对提币地址信息，确保提币属于自愿行为，并确认不涉及任何传销、非法集资、诈骗等违法情形，谨防上当受骗，避免造成不必要的财产损失。',
-        withdrawTipArray:[
+        withdraw: '提币',
+        available: '可用',
+        withdrawAddress: '提币地址',
+        num: '提币数量',
+        all: '全部',
+        serviceCharge: '手续费',
+        tip: '您的提币操作-旦完成， 对应的资产所有权将由您变更为目标地址所对应的账户所有人享有，请您务必在提币操作前，仔细核对提币地址信息，确保提币属于自愿行为，并确认不涉及任何传销、非法集资、诈骗等违法情形，谨防上当受骗，避免造成不必要的财产损失。',
+        withdrawTipArray: [
             '最小提币数量为:',
             '为保障资金安全，当您账户安全策略变更、密码修改、我们会进行人工审核，请耐心等待工作人员电话或邮件联系。',
             '请务必确认电脑及浏览器安全，防止信息被篆改或泄露。',
             '您所提的数字资产为- -币多链资产，无论您选择从哪个链上提出，均意味着您所拥有的该提币页面展示的数字资产总量减少相应的提出数量。'
         ],
-        received:'到账数量'
+        received: '到账数量'
 
     },
 }

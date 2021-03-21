@@ -309,7 +309,26 @@ const routes = [{
                 name: 'Mdeal',
                 component: () =>
                     import ('../views/mobile/trade/deal'),
-            }
+            },
+            {
+                path: 'Mconfirmorder',
+                name: 'Mconfirmorder',
+                component: () =>
+                    import ('../views/mobile/trade/payorder'),
+            },
+            {
+                path: 'Mcancleorder',
+                name: 'Mcancleorder',
+                component: () =>
+                    import ('../views/mobile/trade/cancleorder'),
+            },
+            //订单详情
+            {
+                path: 'MorderDetail',
+                name: 'MorderDetail',
+                component: () =>
+                    import ('../views/mobile/trade/orderDetail.vue'),
+            },
         ]
     },
     //移动端聊天
@@ -319,18 +338,7 @@ const routes = [{
         component: () =>
             import ('../views/mobile/chat/index.vue')
     },
-    {
-        path: 'Mconfirmorder',
-        name: 'Mconfirmorder',
-        component: () =>
-            import ('../views/mobile/trade/payorder'),
-    },
-    {
-        path: 'Mcancleorder',
-        name: 'Mcancleorder',
-        component: () =>
-            import ('../views/mobile/trade/cancleorder'),
-    },
+
     {
         path: '/Mpaysucceed',
         name: 'Mpaysucceed',

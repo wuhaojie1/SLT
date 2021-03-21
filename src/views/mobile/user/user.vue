@@ -2,10 +2,10 @@
     <div class="user">
         <PageHeader></PageHeader>
         <div class="userHeader">
-            <span class="headerLeft">个人中心</span>
+            <span class="headerLeft">{{$t('userInfo.userCenter')}}</span>
             <img style="width:24rem;height:14rem;" src="../../../static/img/user/arrowdown.png" alt="">
         </div>
-        <div class="infoTitle">基本信息</div>
+        <div class="infoTitle">{{$t('userInfo.basemsg')}}</div>
         <ul class="infoBox">
             <li v-for="item in list" :key="item.text" class="infoItem">
                 <div class="itemLeft">{{item.text}}</div>
