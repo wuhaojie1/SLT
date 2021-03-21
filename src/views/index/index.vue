@@ -836,6 +836,23 @@ export default {
                     img: `${require('../../static/img/index/team_choism-400x400.png')}`,
                 },
                 {
+                    name: "Kim TG",
+                    position: "Director of Blockchain Research Institute",
+                    img: `${require('../../static/img/index/team_kimtg-400x400.png')}`,
+                },
+                {
+                    name: "Jung jiyeon",
+                    position: "CMO, Former CMO of BROWN Edu.",
+                    img: `${require('../../static/img/index/team_jungjy-400x400.png')}`,
+                },
+                {
+                    name: "Kim eunji",
+                    position: "Bigdata analysis, Graduate Northeastern University",
+                    img: `${require('../../static/img/index/team_iimeunji-400x400.png')}`,
+                },
+
+                
+                {
                     name: "Choi kyoungyong",
                     position: "Marketing, Former Director of Altwell",
                     img: `${require('../../static/img/index/team_choikg-400x400.png')}`,
@@ -847,32 +864,21 @@ export default {
                 },
 
 
-                {
-                    name: "Kim eunji",
-                    position: "Bigdata analysis, Graduate Northeastern University",
-                    img: `${require('../../static/img/index/team_iimeunji-400x400.png')}`,
-                },
-                {
-                    name: "Yu seungjun",
-                    position: "Strategic Planning, Executive Direct of Energy Korea",
-                    img: `${require('../../static/img/index/team_yusj-400x400.png')}`,
-                },
-                {
-                    name: "Jung jiyeon",
-                    position: "CMO, Former CMO of BROWN Edu.",
-                    img: `${require('../../static/img/index/team_jungjy-400x400.png')}`,
-                },
+                
+                // {
+                //     name: "Yu seungjun",
+                //     position: "Strategic Planning, Executive Direct of Energy Korea",
+                //     img: `${require('../../static/img/index/team_yusj-400x400.png')}`,
+                // },
+                
 
                 {
                     name: "Tonnam Choi",
                     position: "CIO",
                     img: `${require('../../static/img/index/team_tonnam-400x400.png')}`,
                 },
-                {
-                    name: "Kim TG",
-                    position: "Director of Blockchain Research Institute",
-                    img: `${require('../../static/img/index/team_kimtg-400x400.png')}`,
-                },
+                
+                
             ],
              
             members1:[
@@ -915,6 +921,11 @@ export default {
                     name: "Kim hwoikwang",
                     position: "Ph.D , Professor",
                     img: `${require('../../static/img/index/ad_kimhk-400x400.png')}`,
+                },
+                {
+                    name: "전) 기업은행근무",
+                    position: "전) (주) 국제자산관리 이사   현)    (주) 트레이드엑스 대표",
+                    img: `${require('@/static/img/index/preson.jpg')}`,
                 },
 
             ],
