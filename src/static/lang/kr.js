@@ -544,7 +544,7 @@ export default {
         hidden:'隐藏已读',
         allread:'全部标为已读',
         details:'详情',
-        reply:'回复'
+        reply:'回复',
         noData: "暂无数据",
     }
 }
