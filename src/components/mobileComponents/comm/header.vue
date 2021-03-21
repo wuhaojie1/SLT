@@ -1,6 +1,11 @@
 <template>
     <div class="pageHeader">
-        <img style="width:80rem;height:42rem;" src="../../../static/img/index/Technology.png" alt="">
+        <div v-if="isHome==true" @click="backHandel" class="back">
+            <img  style="width:17rem;height:28rem" src="../../../static/img/index/back.png" alt="">
+        </div>
+        <div class="logo" :style="'margin-left:'+(isHome?0:35)+'rem'">
+            <img style="width:80rem;height:42rem;" src="../../../static/img/index/Technology.png" alt="">
+        </div>
         <img v-if="isShowRight" :class="[(rightIcon==true)?'user':'list']" :src="((rightIcon==true)?user.src:list.src)" alt="">
     </div>
 </template>
@@ -17,6 +22,11 @@ export default {
         rightIcon:{
             type:Boolean,
             dafault:false
+        },
+        //是否为首页
+        isHome:{
+            type:Boolean,
+            default:false
         }
     },
     data(){
@@ -32,6 +42,13 @@ export default {
                 height:'20rem'
             }
         }
+    },
+    methods:{
+        //回退
+        backHandel(){
+            console.log('回退');
+            this.$router.go(-1);
+        }
     }
 }
 </script>
@@ -40,17 +57,30 @@ export default {
 .pageHeader{
     height: 88rem;
     background-color: #02031e;
-    padding: 0rem 35rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     .user{
         width: 38rem;
         height: 42rem;
+        margin: 35rem;
     }
     .list{
         width: 27rem;
         height: 20rem;
+        margin: 35rem;
+    }
+    .back{
+        height: 100%;
+        width: 70rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logo{
+        flex-grow: 1;
+        text-align: left;
+
     }
 }
 </style>

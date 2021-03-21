@@ -795,12 +795,16 @@
 <script>
 import TopBar from "@/components/header/topBar";
 import TimeCard from "@/components/index/timeCard";
-import ThemeStickyHeader from "@/components/header/themeStickyHeader";
+// import ThemeStickyHeader from "@/components/header/themeStickyHeader";
 import MemberCard from "@/components/index/memberCard";
 
 export default {
     name: "index",
-    components: {MemberCard, ThemeStickyHeader, TimeCard, TopBar},
+    components: {
+        MemberCard, 
+        // ThemeStickyHeader, 
+        TimeCard, 
+        TopBar},
     data() {
         return {
             SLT_white: `${require('@/static/img/index/SLT_white.png')}`,

@@ -3,49 +3,49 @@
         <div class="content">
             <div class="goback">
                 <img class="backimg" src="../../../static/img/buy/up.png" alt="">
-                <div class="backtext">返回</div>
+                <div class="backtext">{{$t('orderdetails.back')}}</div>
             </div>
             <div class="status">
-                <div class="status-text1">订单详情</div>
-                <div class="open">待接单</div>
+                <div class="status-text1">{{$t('orderdetails.orderdetail')}}</div>
+                <div class="open">{{$t('orderdetails.waitOrder')}}</div>
             </div>
             <div class="tiptext">
-                <span class="texts">如有疑问请向客服申诉</span>
+                <span class="texts">{{$t('orderdetails.tip')}}</span>
             </div>
             <div class="line1"></div>
             <div class="paytype">
-                <div class="paytext">支付方式</div>
+                <div class="paytext">{{$t('orderdetails.paytype')}}</div>
                 <div class="paycoin">
                     <img class="payimg" src="../../../static/img/buy/MSLT.png" alt="">
                     <div class="paycointext">ETH</div>
                 </div>
             </div>
             <div class="paydetails">
-                <div class="details-text">订单详情</div>
+                <div class="details-text">{{$t('orderdetails.orderdetail')}}</div>
                 <img class="detailsimg" src="../../../static/img/buy/downarrow.png" alt="">
             </div>
             <div class="orderitem">
-                <div class="orderitem-left">订单号</div>
+                <div class="orderitem-left">{{$t('orderdetails.ordernum')}}</div>
                 <div class="orderitem-right">2013256156156156</div>
             </div>
             <div class="orderitem">
-                <div class="orderitem-left">手续费</div>
+                <div class="orderitem-left">{{$t('orderdetails.hadfree')}}</div>
                 <div class="orderitem-right">0.001SLT</div>
             </div>
             <div class="orderitem">
-                <div class="orderitem-left">成交单价</div>
+                <div class="orderitem-left">{{$t('orderdetails.charge')}}</div>
                 <div class="orderitem-right">100SLT</div>
             </div>
             <div class="orderitem">
-                <div class="orderitem-left">成交数量</div>
+                <div class="orderitem-left">{{$t('orderdetails.num')}}</div>
                 <div class="orderitem-right">1000</div>
             </div>
             <div class="line1"></div>
             <div class="orderitem">
-                <div class="orderitem-left">总金额</div>
+                <div class="orderitem-left">{{$t('orderdetails.allmoney')}}</div>
                 <div class="active">1000ETH</div>
             </div>
-            <div class="connect">联系在线客服</div>
+            <div class="connect">{{$t('orderdetails.connect')}}</div>
         </div>
     </div>
 </template>

@@ -2,36 +2,36 @@
     <div class="user">
         <PageHeader></PageHeader>
         <div class="userHeader">
-            <span class="headerLeft">收货地址</span>
+            <span class="headerLeft">{{$t('userAdress.userAdresstext')}}</span>
             <img style="width:24rem;height:14rem;" src="../../../static/img/user/arrowdown.png" alt="">
         </div>
-        <div class="infoTitle">地址</div>
+        <div class="infoTitle">{{$t('userAdress.addressTitle')}}</div>
         <ul class="infoBox">
             <li v-for="item in list" :key="item.text" class="infoItem">
-                <div class="itemLeft">{{item.text}}</div>
+                <div class="itemLeft">{{item.text}}:</div>
                 <input v-model="item.val" class="itemCenter" type="text" :placeholder="item.place">
                 <img v-if="item.isArrow" class="itemRight" style="width:12rem;height:20rem;" :src="require('../../../static/img/user/arrowgrey.png')" alt="">
             </li>
         </ul>
-        <div class="saveBtn">保存</div>
+        <div class="saveBtn">{{$t('userAdress.save')}}</div>
 
         <div class="checkBox">
-            <div @click="checked=!checked" class="check"><i style="color:#00B4FC" v-show="checked" class="el-icon-check"></i></div><div class="checkText">设置默认地址</div>
+            <div @click="checked=!checked" class="check"><i style="color:#00B4FC" v-show="checked" class="el-icon-check"></i></div><div class="checkText">{{$t('userAdress.defaultaddress')}}</div>
         </div>
         <div class="cell">
             <img style="width:18rem;height:18rem" src="../../../static/img/user/tips.png" alt="">
-            <span>已保存两个地址</span>
+            <span>{{$t('userAdress.savedAddr')}}</span>
         </div>
         <div class="addr">
             <ul>
-                <li>四川省成都市双流区华阳街道</li>
-                <li><span>瑞升 橡树华府五单元1401</span> <img style="width:30rem;height:32rem" src="../../../static/img/user/edit.png" alt=""></li>
-                <li><span>李歪歪</span><span>130****3556</span></li>
+                <li>{{$t('userAdress.sichuan')}}</li>
+                <li><span>{{$t('userAdress.userAddr')}}</span> <img style="width:30rem;height:32rem" src="../../../static/img/user/edit.png" alt=""></li>
+                <li><span>{{$t('userAdress.userName')}}</span><span>130****3556</span></li>
             </ul>
             <ul>
-                <li>四川省成都市双流区华阳街道</li>
-                <li><span>瑞升 橡树华府五单元1401</span> <img style="width:30rem;height:32rem" src="../../../static/img/user/edit.png" alt=""></li>
-                <li><span>李歪歪</span><span>130****3556</span></li>
+                <li>{{$t('userAdress.sichuan')}}</li>
+                <li><span>{{$t('userAdress.userAddr')}}</span> <img style="width:30rem;height:32rem" src="../../../static/img/user/edit.png" alt=""></li>
+                <li><span>{{$t('userAdress.userName')}}</span><span>130****3556</span></li>
             </ul>
         </div>
         <BottomBar></BottomBar>
@@ -49,11 +49,11 @@ export default {
     data(){
         return{
             list:[
-                {text:'收货人信息:',val:'',isArrow:false,place:'请输入收货人姓名'},
-                {text:'地址信息:',val:'',isArrow:true,place:'请输入省/市/区/街道'},
-                {text:'详情地址:',val:'',isArrow:true,place:'请输入详细地址信息，如小区,门牌号'},
-                {text:'邮政编码:',val:'',isArrow:true,place:'请输入邮政编码'},
-                {text:'手机号码:',val:'',isArrow:true,place:'请输入手机号码'}
+                {text:this.$t('userAdress.name'),val:'',isArrow:false,place:this.$t('userAdress.pleaseName')},
+                {text:this.$t('userAdress.Adressmsg'),val:'',isArrow:true,place:this.$t('userAdress.pleaseStreet')},
+                {text:this.$t('userAdress.msgdetail'),val:'',isArrow:true,place:this.$t('userAdress.pleaseAddr')},
+                {text:this.$t('userAdress.mailnum'),val:'',isArrow:true,place:this.$t('userAdress.pleaseCode')},
+                {text:this.$t('userAdress.phonenum'),val:'',isArrow:true,place:this.$t('userAdress.pleasePhone')}
             ],
             checked:false
         }

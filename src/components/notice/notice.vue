@@ -2,15 +2,13 @@
     <div class="notice">
         <div class="mask"></div>
         <div class="noticeBox">
-            <div class="title">公告通知</div>
+            <div class="title">{{$t('notice.title')}}</div>
             <div class="content">
-                <div class="contentTitle">挖宝游戏上线了！</div>
-                <div class="contentText">2月25日至3月5日，报名并参与SLT币
-                合约狂欢节活动，即可参与瓜分1000
-                USDT奖励。
+                <div class="contentTitle">{{$t('notice.text')}}</div>
+                <div class="contentText">{{$t('notice.content')}}
                 </div>
             </div>
-            <div class="btn">我知道了</div>
+            <div class="btn">{{$t('notice.iknow')}}</div>
         </div>
     </div>
 </template>

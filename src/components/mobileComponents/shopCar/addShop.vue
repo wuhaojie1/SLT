@@ -3,7 +3,7 @@
         <div @click="closeModal" class="addMask"></div>
         <div class="addModal">
             <div class="modalTop">
-                <div>已加入购物车</div>
+                <div>{{$t('shopcar.already')}}</div>
                 <img @click="closeModal" style="width:34rem;height:rem" src="../../../static/img/index/cross.png" alt="">
             </div>
             <div class="modalCenter">
@@ -11,16 +11,16 @@
                     <img src="../../../static/img/shop/carDmo2.png" alt="">
                 </div>
                 <ul class="centerRight">
-                    <li>北欧简约多色铁艺灯具</li>
-                    <li>款号652000 0XJDBM  9095</li>
-                    <li>产品颜色：雾霾蓝</li>
-                    <li>产品尺寸：240X240</li>
+                    <li>{{$t('shopcar.goodsName')}}</li>
+                    <li>{{$t('shopcar.styleNum')}}</li>
+                    <li>{{$t('shopcar.color')}}</li>
+                    <li>{{$t('shopcar.size')}}</li>
                     <li>￥4,200</li>
                 </ul>
             </div>
             <div class="modalBottom">
-                <div class="addBtn">加入购物车</div>
-                <div class="nextBtn">继续购买</div>
+                <div class="addBtn">{{$t('shopcar.addShop')}}</div>
+                <div class="nextBtn">{{$t('shopcar.goon')}}</div>
             </div>
         </div>
     </div>

@@ -12,7 +12,14 @@ export default {
         weman: '女',
         secret: '保密',
         birthday: '生日',
-        idnum: '身份证号'
+        idnum: '身份证号',
+        userName: '用户名',
+        education: '教育程度',
+        industry: '所在行业',
+        pleaseSelect: '请选择',
+        pleaseInput: '请输入',
+        save: '保存',
+        exit: '退出'
     },
     //身份认证
     identifi: {
@@ -24,7 +31,11 @@ export default {
         goidenrifi: '认证',
         finish: '已完成认证',
         addname: '请输入您的姓名',
-        addidnum: '请输入您的身份证号'
+        addidnum: '请输入您的身份证号',
+        trueInfo: '真实信息',
+        uploadCard: '上传身份证',
+        inputTrueName: '请输入真实身份证号',
+        auth: '认证'
     },
     //用户设置
     userSet: {
@@ -46,11 +57,23 @@ export default {
         op: '操作',
         delete: '删除',
         change: '修改',
-        address: '默认地址'
+        address: '默认地址',
+        addressTitle: '地址',
+        pleaseName: '请输入收货人姓名',
+        pleaseStreet: '请输入省/市/区/街道',
+        pleaseAddr: '请输入详细地址信息，如小区,门牌号',
+        pleaseCode: '请输入邮政编码',
+        pleasePhone: "请输入手机号码",
+        savedAddr: '已保存两个地址',
+        sichuan: '四川省成都市双流区华阳街道',
+        userAddr: '瑞升 橡树华府五单元1401',
+        userName: '李歪歪'
+
     },
     //个人资产
     personasset: {
         all: '总资产',
+        total: '总计',
         in: '提币',
         out: '充币',
         remind: '检查访问网址、开后二次验证、不要给声称是SLT的工作人员转账或透露密码等信息。',
@@ -59,6 +82,8 @@ export default {
         accoutarr: ["全部来源", "充币", "出售", "接单"],
         moneytype: '币种',
         num: '数量',
+        blance: '资产账户',
+        account: '账户',
         amount: '总额',
         charge: '单价',
         tredetype: '支付方式',
@@ -104,7 +129,47 @@ export default {
         cancelorder: '取消订单',
         confirmtext: '确认支付',
         connect: '联系在线客服',
-        tip: '如有疑问请向客服申诉'
+        tip: '如有疑问请向客服申诉',
+        back: '返回',
+        waitOrder: '待接单',
+        hadfree: '手续费',
+
+    },
+    //我的订单
+    myorder: {
+        myorder: "我的订单",
+        inoutOrder: '购买/出售的订单',
+        shop: '购买',
+        place: '大荣交易所',
+        wait: "待接单",
+        heade: ['数量', '冻结', '总额'],
+        haddfee: '手续费'
+    },
+    //聊天
+    chat: {
+        chatName: '大荣交易所',
+        preChat: '以上聊天记录',
+        big: "大",
+        customMsg: '您好，有什么可以帮您？',
+        userMsg: '我想问一下，这个币？',
+        time: '下午 17:38',
+        send: '发送',
+        place: '请输入你想说的话...'
+    },
+    //待接单
+    waitOrder: {
+        wait: '待接单',
+        tip: '对方接单前请勿付款，对方接单后您可查看收款方式',
+        waitTime: "等待对方接单18:52",
+        chat: '点击下方联系卖家，与对方聊一聊，接单更快',
+        cancel: '无责取消',
+        contact: '联系卖家',
+        seller: "卖家信息",
+        orderDetail: '订单详情',
+        total: "总价",
+        price: '订单详情',
+        num: '数量',
+        orderNum: '订单号'
     },
     //取消订单
     cancleorder: {
@@ -140,14 +205,43 @@ export default {
         goodsStyle: '款式',
         delete: '删除',
         date: '预计发货后2-4个工作日送达',
-        num: '数量'
-
+        num: '数量',
+        safety: '安全支付',
+        myCar: '我的购物车',
+        goodsName: "北欧简约多色铁艺灯具",
+        styleNum: '款号652000 0XJDBM 9095',
+        color: '产品颜色: 雾霾蓝',
+        size: '产品尺寸: 240X240',
+        orderTotal: '订单小计',
+        selected: '已选2件商品',
+        goodsTotal: '商品总计',
+        shipping: "运费",
+        frees: '免费',
+        amount: '总金额',
+        sett: '立即结算',
+        carry: '继续购物',
+        paytype: '支付方式',
+        expres: "配送服务",
+        already: '已加入购物车',
+        addShop: '加入购物车'
 
     },
     //商品详细
     goodsdetails: {
         shopcar: '加入购物车',
         goodsId: '款号',
+        title: '商品详情页',
+        goodsName: '北欧简约多色铁艺灯具',
+        color: '颜色',
+        smog: '雾霾蓝',
+        size: '尺码',
+        sizeList: '尺码表',
+        detail: '产品细节',
+        detail1: '标准板型',
+        detail2: '42%亚麻，29%马海毛，29%材质',
+        detail3: '不可烘干',
+        paytype: '支付方式',
+        expres: '配送方式'
     },
     //商城
     shop: {
@@ -381,4 +475,13 @@ export default {
         received: '到账数量'
 
     },
+    //公告组件
+    notice: {
+        title: '公告通知',
+        text: '挖宝游戏上线了！',
+        content: `2月25日至3月5日，报名并参与SLT币
+        合约狂欢节活动，即可参与瓜分1000
+        USDT奖励。`,
+        iknow: '我知道了'
+    }
 }

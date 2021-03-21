@@ -4,32 +4,32 @@
         <div class="chatBox">
             <div class="chatTop">
                 <img style="width:14rem;height:24rem" src="../../../static/img/chat/arrowleft.png" alt="">
-                <div>大荣交易所</div>
+                <div>{{$t('chat.chatName')}}</div>
             </div>
             <div class="chatContent">
-                <div class="tips">以上聊天记录</div>
+                <div class="tips">{{$t('chat.preChat')}}</div>
                 <div class="leftChat">
-                    <div class="avatar">大</div>
-                    <div class="leftMessageBox">您好，有什么可以帮您？
+                    <div class="avatar">{{$t('chat.big')}}</div>
+                    <div class="leftMessageBox">{{$t('chat.customMsg')}}
                         <img class="arrow" src="../../../static/img/chat/greyarrow.png" alt="">
                     </div>
                 </div>
                 <div class="rightChat">
                     <div class="rightMessageBox">
-                        我想问一下，这个币？
+                        {{$t('chat.userMsg')}}
                         <img class="arrow" src="../../../static/img/chat/bluearrow.png" alt="">
                     </div>
                     <div class="avatar">
                         <img style="width:68rem;height:68rem" src="../../../static/img/chat/avatar.png" alt="">
                     </div>
                 </div>
-                <div class="tips">下午 17:38</div>
+                <div class="tips">{{$t('chat.time')}}</div>
             </div>
             <div class="chatInput">
                 <div class="input">
-                    <input type="text" placeholder="请输入你想说的话...">
+                    <input type="text" :placeholder="$t('chat.place')">
                 </div>
-                <div class="send">发送</div>
+                <div class="send">{{$t('chat.send')}}</div>
             </div>
         </div>
         <Notice></Notice>

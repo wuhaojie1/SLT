@@ -1,37 +1,37 @@
 <template>
     <div class="wait">
         <PageHeader :isShowRight="true" :rightIcon="true"></PageHeader>
-        <div class="waitTop">待接单</div>
+        <div class="waitTop">{{$t('waitOrder.wait')}}</div>
         <div class="tips">
             <img style="width:26rem;height:26rem" src="../../../static/img/index/tips.png" alt="">
-            <div>对方接单前请勿付款，对方接单后您可查看收款方式</div>
+            <div>{{$t('waitOrder.tip')}}</div>
         </div>
         <div class="timing">
             <div class="timingTop">
-                <div>等待对方接单18:52</div>
-                <div>点击下方联系卖家，与对方聊一聊，接单更快</div>
+                <div>{{$t('waitOrder.waitTime')}}</div>
+                <div>{{$t('waitOrder.chat')}}</div>
             </div>
             <div class="timingBottom">
                 <div class="item">
                     <img style="width:44rem;height:44rem" src="../../../static/img/order/cross.png" alt="">
-                    <div>无责取消</div>
+                    <div>{{$t('waitOrder.cancel')}}</div>
                 </div>
                 <div class="item">
                     <img style="width:44rem;height:44rem" src="../../../static/img/order/wang.png" alt="">
-                    <div>联系卖家</div>
+                    <div>{{$t('waitOrder.contact')}}</div>
                 </div>
                 <div class="item">
                     <img style="width:44rem;height:44rem" src="../../../static/img/order/user.png" alt="">
-                    <div>卖家信息</div>
+                    <div>{{$t('waitOrder.seller')}}</div>
                 </div>
             </div>
         </div>
         <ul class="detail">
-            <li>订单详情</li>
-            <li><span>总价</span><span>￥300,000.00</span></li>
-            <li><span>价格</span><span>￥6.55</span></li>
-            <li><span>数量</span><span>1,000.000</span></li>
-            <li><span>订单号</span><span>5252854123511125</span></li>
+            <li>{{$t('waitOrder.orderDetail')}}</li>
+            <li><span>{{$t('waitOrder.total')}}</span><span>￥300,000.00</span></li>
+            <li><span>{{$t('waitOrder.price')}}</span><span>￥6.55</span></li>
+            <li><span>{{$t('waitOrder.num')}}</span><span>1,000.000</span></li>
+            <li><span>{{$t('waitOrder.orderNum')}}</span><span>5252854123511125</span></li>
         </ul>
     </div>
 </template>

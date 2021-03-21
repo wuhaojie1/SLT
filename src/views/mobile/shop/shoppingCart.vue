@@ -3,10 +3,10 @@
         <PageHeader :isShowRight="true" :rightIcon="false"></PageHeader>
         <div class="carTop">
             <img style="width:27rem;height:38rem" src="../../../static/img/shop/lock.png" alt="">
-            <div class="carTitle">安全支付</div>
+            <div class="carTitle">{{$t('shopcar.safety')}}</div>
         </div>
         <div class="carBox">
-            <div class="boxTitle">我的购物车<span>({{2}})</span></div>
+            <div class="boxTitle">{{$t('shopcar.myCar')}}<span>({{2}})</span></div>
             <ul class="itemBox" v-for="item in list" :key="item.src">
                 <li class="item">
                     <div class="itemTop">
@@ -14,14 +14,14 @@
                             <img style="width:100%" :src="item.src" alt="">
                         </div>
                         <div class="topRight">
-                            <div class="itemTitle"><span>北欧简约多色铁艺灯具</span></div>
+                            <div class="itemTitle"><span>{{$t('shopcar.goodsName')}}</span></div>
                             <img style="width:37rem;height:40rem" src="../../../static/img/shop/remove.png" alt="">
                         </div>
                     </div>
                     <div class="itemCenter">
-                        <div>款号652000 0XJDBM 9095</div>
-                        <div>产品颜色: 雾霾蓝</div>
-                        <div>产品尺寸: 240X240</div>
+                        <div>{{$t('shopcar.styleNum')}}</div>
+                        <div>{{$t('shopcar.color')}}</div>
+                        <div>{{$t('shopcar.size')}}</div>
                     </div>
                     <div class="itemBottom">
                         <div class="bottomLeft">
@@ -35,34 +35,34 @@
         </div>
         <ul class="total">
             <li>
-                <div class="itemLeft">订单小计:</div>
-                <div class="itemRight">已选2件商品</div>
+                <div class="itemLeft">{{$t('shopcar.orderTotal')}}:</div>
+                <div class="itemRight">{{$t('shopcar.selected')}}</div>
             </li>
             <li>
-                <div class="itemLeft">商品总计:</div>
+                <div class="itemLeft">{{$t('shopcar.goodsTotal')}}:</div>
                 <div class="itemRight">¥5,400</div>
             </li>
             <li>
-                <div class="itemLeft">运费:</div>
-                <div class="itemRight">免费</div>
+                <div class="itemLeft">{{$t('shopcar.shipping')}}:</div>
+                <div class="itemRight">{{$t('shopcar.frees')}}</div>
             </li>
             <li>
-                <div class="itemLeft">总金额:</div>
+                <div class="itemLeft">{{$t('shopcar.amount')}}:</div>
                 <div class="itemRight">¥5,400</div>
             </li>
         </ul>
 
-        <div @click="open" class="settlement">立即结算</div>
-        <div class="continue">继续购物</div>
+        <div @click="open" class="settlement">{{$t('shopcar.sett')}}</div>
+        <div class="continue">{{$t('shopcar.carry')}}</div>
 
         <div class="bottomBar">
             <div class="barItem">
                 <img style="width:43rem;height:42rem" src="../../../static/img/shop/wallet.png" alt="">
-                <div>支付方式</div>
+                <div>{{$t('shopcar.paytype')}}</div>
             </div>
             <div class="barItem">
                 <img style="width:51rem;height:42rem" src="../../../static/img/shop/car.png" alt="">
-                <div>配送服务</div>
+                <div>{{$t('shopcar.expres')}}</div>
             </div>
         </div>
 

@@ -7,13 +7,13 @@
         </div>
         <div class="infoTitle">{{$t('userInfo.basemsg')}}</div>
         <ul class="infoBox">
-            <li v-for="item in list" :key="item.text" class="infoItem">
+            <li v-for="(item,index) in list" :key="item.text" class="infoItem">
                 <div class="itemLeft">{{item.text}}</div>
-                <div :style="'color:'+((item.text=='真实姓名:'||item.val=='请输入'||item.val=='请选择')?'#9AA5B5':'#444444')" class="itemCenter">{{item.val}}</div>
-                <img v-if="item.isArrow" class="itemRight" style="width:12rem;height:20rem;" :src="require((item.val=='请输入'||item.val=='请选择')?'../../../static/img/user/arrowgrey.png':'../../../static/img/user/arrowdart.png')" alt="">
+                <div :style="'color:'+((index==2||index==5||index==6||index==7)?'#9AA5B5':'#444444')" class="itemCenter">{{item.val}}</div>
+                <img v-if="item.isArrow" class="itemRight" style="width:12rem;height:20rem;" :src="require((index==6||index==7||index==5)?'../../../static/img/user/arrowgrey.png':'../../../static/img/user/arrowdart.png')" alt="">
             </li>
         </ul>
-        <div class="saveBtn">保存</div>
+        <div class="saveBtn">{{$t('userInfo.save')}}</div>
         <BottomBar></BottomBar>
         <Tabbar></Tabbar>
     </div>
@@ -32,14 +32,14 @@ export default {
     data(){
         return{
             list:[
-                {text:'用户名:',val:'13028143776',isArrow:true},
-                {text:'用ID:',val:'JCJDVJDS',isArrow:false},
-                {text:'真实姓名:',val:'*王**.',isArrow:false},
-                {text:'性别:',val:'女',isArrow:true},
-                {text:'生日:',val:'1988.10.20',isArrow:true},
-                {text:'教育程度:',val:'请选择',isArrow:true},
-                {text:'所在行业:',val:'请选择',isArrow:true},
-                {text:'身份证号:',val:'请输入',isArrow:true}
+                {text:this.$t('userInfo.userName'),val:'13028143776',isArrow:true},
+                {text:this.$t('userInfo.userID'),val:'JCJDVJDS',isArrow:false},
+                {text:this.$t('userInfo.truename'),val:'*王**.',isArrow:false},
+                {text:this.$t('userInfo.sex'),val:this.$t('userInfo.weman'),isArrow:true},
+                {text:this.$t('userInfo.birthday'),val:'1988.10.20',isArrow:true},
+                {text:this.$t('userInfo.education'),val:this.$t('userInfo.pleaseSelect'),isArrow:true},
+                {text:this.$t('userInfo.industry'),val:this.$t('userInfo.pleaseSelect'),isArrow:true},
+                {text:this.$t('userInfo.idnum'),val:this.$t('userInfo.pleaseInput'),isArrow:true}
             ]
         }
     }

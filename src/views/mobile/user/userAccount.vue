@@ -1,10 +1,10 @@
 <template>
     <div class="asset">
         <PageHeader></PageHeader>
-        <div class="assetTop">总资产</div>
+        <div class="assetTop">{{$t('personasset.all')}}</div>
         <div class="total">
             <div class="totalText">
-                <div>总计</div>
+                <div>{{$t('personasset.total')}}</div>
                 <img style="width:34rem;height:23rem" src="../../../static/img/user/eye.png" alt="">
             </div>
             <div class="totalNum">
@@ -12,32 +12,32 @@
                 <div>≈0.00 ETH</div>
             </div>
             <div class="totalBtn">
-                <div>充值</div>
-                <div>提币</div>
+                <div>{{$t('personasset.out')}}</div>
+                <div>{{$t('personasset.in')}}</div>
             </div>
-            <div class="accountText">资产账户</div>
+            <div class="accountText">{{$t('personasset.blance')}}</div>
         </div>
 
         <div class="accountBox">
-            <div class="boxTitle">账户<img style="width:24rem;height:24rem" src="../../../static/img/user/tipswhite.png" alt=""></div>
+            <div class="boxTitle">{{$t('personasset.account')}}<img style="width:24rem;height:24rem" src="../../../static/img/user/tipswhite.png" alt=""></div>
             <ul class="table">
                 <li class="theader">
                     <div><img style="width:38rem;38rem" src="../../../static/img/user/icon1.png" alt=""> SLT</div>
                 </li>
                 <li class="item">
-                    <div>数量</div>
-                    <div>冻结</div>
-                    <div>总额</div>
+                    <div>{{$t('personasset.tableHeader')[1]}}</div>
+                    <div>{{$t('personasset.tableHeader')[2]}}</div>
+                    <div>{{$t('personasset.tableHeader')[5]}}</div>
                 </li>
                  <li class="item">
                     <div>22:00  03/06</div>
-                    <div>冻结</div>
+                    <div>{{$t('personasset.tableHeader')[2]}}</div>
                     <div>0,000.003</div>
                 </li>
                  <li class="item">
                     <div>ETH</div>
                     <div></div>
-                    <div>0.03% <span>手续费</span></div>
+                    <div>0.03% <span>{{$t('personasset.usermoney')}}</span></div>
                 </li>
             </ul>
         </div>

@@ -1,24 +1,24 @@
 <template>
     <div class="order">
         <PageHeader :isShowRight="true" :rightIcon="true"></PageHeader>
-        <div class="orderTop">我的订单</div>
+        <div class="orderTop">{{$t('myorder.myorder')}}</div>
         <div class="menuTitle">
-            <div>购买/出售的订单</div>
+            <div>{{$t('myorder.inoutOrder')}}</div>
             <img style="width:24rem;height:14rem" src="../../../static/img/user/arrowdown.png" alt="">
         </div>
         <ul class="orderTabel">
-            <li>购买<span>SLT</span></li>
+            <li>{{$t('myorder.shop')}}<span>SLT</span></li>
             <li></li>
-            <li>待接单 <img style="width:12rem;height:20rem;margin-left:11rem" src="../../../static/img/user/arrowgrey.png" alt=""></li>
-            <li>时间</li>
-            <li>数量</li>
-            <li>交易金额</li>
+            <li>{{$t('myorder.wait')}} <img style="width:12rem;height:20rem;margin-left:11rem" src="../../../static/img/user/arrowgrey.png" alt=""></li>
+            <li>{{$t('myorder.heade')[0]}}</li>
+            <li>{{$t('myorder.heade')[1]}}</li>
+            <li>{{$t('myorder.heade')[2]}}</li>
             <li>22:00  03/06</li>
             <li>1,000,000</li>
             <li>300,000.00</li>
-            <li>大荣交易所</li>
+            <li>{{$t('myorder.place')}}</li>
             <li></li>
-            <li>手续费 10%</li>
+            <li>{{$t('myorder.haddfee')}} 10%</li>
         </ul>
     </div>
 </template>

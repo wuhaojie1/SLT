@@ -1,11 +1,11 @@
 <template>
     <div class="detailBox">
         <PageHeader :isShowRight="true"></PageHeader>
-        <div class="header">商品详情页</div>
+        <div class="header">{{$t('goodsdetails.title')}}</div>
         <div class="goodsTop">
             <div class="goodsTitle">
                 <img style="width:44rem;height:39rem" src="../../../static/img/goodsdetails/arrowLeft.png" alt="">
-                <div>北欧简约多色铁艺灯具</div>
+                <div>{{$t('goodsdetails.goodsName')}}</div>
             </div>
             <div class="goodsPrice">
                 <div>￥4,200</div>
@@ -24,15 +24,15 @@
         </mt-swipe>
         <ul class="param">
             <li class="paramItem">
-                <div class="itemLeft">颜色</div>
+                <div class="itemLeft">{{$t('goodsdetails.color')}}</div>
                 <div class="itemCenter">
-                    <div>雾霾蓝</div>
+                    <div>{{$t('goodsdetails.smog')}}</div>
                     <div class="circle"></div>
                 </div>
                 <img class="arrow" src="../../../static/img/user/arrow.png" alt="">
             </li>
             <li class="paramItem">
-                <div class="itemLeft">尺码</div>
+                <div class="itemLeft">{{$t('goodsdetails.size')}}</div>
                 <div class="itemCenter">
                     <div class="size">240x240</div>
                 </div>
@@ -42,27 +42,27 @@
                 <div class="itemLeft"></div>
                 <div class="itemCenter">
                     <img class="rule" style="width:42rem;height:42rem" src="../../../static/img/goodsdetails/roole.png" alt="">
-                    <div>尺码表</div>
+                    <div>{{$t('goodsdetails.sizeList')}}</div>
                 </div>
             </li>
         </ul>
-        <div class="addBtn">加入购物车</div>
+        <div class="addBtn">{{$t('goodsdetails.shopcar')}}</div>
         <div class="details">
-            <div class="detailTitle">产品细节</div>
+            <div class="detailTitle">{{$t('goodsdetails.detail')}}</div>
             <ul>
-                <li><span></span>标准板型</li>
-                <li><span></span>42%亚麻，29%马海毛，29%材质</li>
-                <li><span></span>不可烘干</li>
+                <li><span></span>{{$t('goodsdetails.detail1')}}</li>
+                <li><span></span>{{$t('goodsdetails.detail2')}}</li>
+                <li><span></span>{{$t('goodsdetails.detail3')}}</li>
             </ul>
         </div>
         <div class="bottomBar">
             <div class="barItem">
                 <img style="width:43rem;height:42rem" src="../../../static/img/shop/wallet.png" alt="">
-                <div>支付方式</div>
+                <div>{{$t('goodsdetails.paytype')}}</div>
             </div>
             <div class="barItem">
                 <img style="width:51rem;height:42rem" src="../../../static/img/shop/car.png" alt="">
-                <div>配送服务</div>
+                <div>{{$t('goodsdetails.expres')}}</div>
             </div>
         </div>
 

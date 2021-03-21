@@ -6,7 +6,7 @@
                 <div>130****3775</div>
                 <div>ID: JCJDVJD5</div>
             </div>
-            <div class="topRight">退出</div>
+            <div class="topRight">{{$t('userInfo.exit')}}</div>
         </div>
         <!-- <div class="bottom">
             <div class="bottomLeft">
@@ -32,6 +32,7 @@ export default {
     background-color: #FAFAFA;
     padding: 45rem 35rem 28rem 35rem;
     border-bottom: solid 1rem #F2F3F4;
+    height: 100rem;
     .top{
         display: flex;
         // border-bottom: solid 1rem #E4E7ED;
