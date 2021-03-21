@@ -1,5 +1,5 @@
 <template>
-    <div class="positionBlock">
+    <div @click="clickItemHandel" class="positionBlock">
         <div class="positionBlock-wrap">
             <div class="positionBlock-content" :class="blockItem.color">
                 <div class="text">
@@ -21,6 +21,15 @@ export default {
             type: Object,
             default: () => {
             }
+        },
+        clickItem:{
+            type:Function,
+            default:()=>()=>{}
+        }
+    },
+    methods:{
+        clickItemHandel(){
+            this.$emit('clickItem',this.blockItem)
         }
     }
 }

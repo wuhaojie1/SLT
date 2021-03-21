@@ -2,29 +2,45 @@
     <div class="asset">
         <PageHeader></PageHeader>
         <div class="assetTop">总资产</div>
-        <div class="assetCenter">
-            <div class="top">
-                <div class="left">
-                    <div>SLT账户</div>
-                    <div>总资产折合(ETH)</div>
-                </div>
-                <img style="width:38rem;height28rem" src="../../../static/img/user/eyes.png" alt="">
+        <div class="total">
+            <div class="totalText">
+                <div>总计</div>
+                <img style="width:34rem;height:23rem" src="../../../static/img/user/eye.png" alt="">
             </div>
-            <div class="bottom">
-                <div>1.00000000</div>
-                <div>≈0.00ETH</div>
+            <div class="totalNum">
+                <div>1.00000000<span>SLT</span></div>
+                <div>≈0.00 ETH</div>
             </div>
+            <div class="totalBtn">
+                <div>充值</div>
+                <div>提币</div>
+            </div>
+            <div class="accountText">资产账户</div>
         </div>
-        <ul class="assetBottom">
-            <li class="item">
-                <div class="itemLeft">充币</div>
-                <img style="width:12rem;height:20rem" src="../../../static/img/user/arrowdart.png" alt="">
-            </li>
-            <li class="item">
-                <div class="itemLeft">提币</div>
-                <img style="width:12rem;height:20rem" src="../../../static/img/user/arrowdart.png" alt="">
-            </li>
-        </ul>
+
+        <div class="accountBox">
+            <div class="boxTitle">账户<img style="width:24rem;height:24rem" src="../../../static/img/user/tipswhite.png" alt=""></div>
+            <ul class="table">
+                <li class="theader">
+                    <div><img style="width:38rem;38rem" src="../../../static/img/user/icon1.png" alt=""> SLT</div>
+                </li>
+                <li class="item">
+                    <div>数量</div>
+                    <div>冻结</div>
+                    <div>总额</div>
+                </li>
+                 <li class="item">
+                    <div>22:00  03/06</div>
+                    <div>冻结</div>
+                    <div>0,000.003</div>
+                </li>
+                 <li class="item">
+                    <div>ETH</div>
+                    <div></div>
+                    <div>0.03% <span>手续费</span></div>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -50,71 +66,167 @@ export default {
         box-shadow: 0rem 5rem 10rem 0rem rgba(153, 153, 153, 0.1);
 
     }
-    .assetCenter{
-        width: 680rem;
-        height: 247rem;
-        background: #041037;
-        border-radius: 20rem 20rem 0rem 0rem;
-        margin: 35rem auto 0 auto;
-        padding: 35rem;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .top{
+    .total{
+        padding: 49rem 35rem 35rem 35rem;
+        border-bottom: solid 1rem #E4E7ED;
+        .totalText{
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .left{
-                div:nth-child(1){
-                    font-size: 30rem;
-                    font-family: Source Han Sans CN;
-                    font-weight: 500;
-                    color: #FFFFFF;
-
-                }
-                div:nth-child(2){
-                    font-size: 20rem;
-                    font-family: Source Han Sans CN;
-                    font-weight: 400;
-                    color: #77AFE7;
-                    margin-top: 15rem;
-
-                }
+            font-size: 30rem;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: #444444;
+            padding-bottom: 39rem;
+            img{
+                margin-left: 24rem;
             }
+
         }
-        .bottom{
+        .totalNum{
             div:nth-child(1){
                 font-size: 40rem;
                 font-family: FZDaHei-B02S;
                 font-weight: 400;
-                color: #FFFFFF;
-
+                color: #444444;
+                span{
+                    font-size: 26rem;
+                    font-family: Source Han Sans CN;
+                    font-weight: 500;
+                    color: #666666;
+                    padding-left: 11rem;
+                }
             }
             div:nth-child(2){
                 font-size: 20rem;
                 font-family: Source Han Sans CN;
                 font-weight: 400;
                 color: #77AFE7;
-                margin-top: 14rem;
-
+                padding: 16rem 0rem 35rem 0rem;
             }
         }
-
-    }
-    .assetBottom{
-        list-style: none;
-        margin: 0;
-        padding: 5rem 36rem;
-        li{
+        .totalBtn{
             display: flex;
-            justify-content: space-between;
-            padding: 34rem 0;
-            border-bottom: solid 1rem #e4e7ed;
+            div{
+                width: 200rem;
+                height: 88rem;
+                border-radius: 4rem;
+                text-align: center;
+                line-height: 88rem;
+                font-size: 32rem;
+                font-family: Source Han Sans CN;
+                font-weight: 400;
+                
+            }
+            div:nth-child(1){
+                background: #00B4FC;
+                border: 1rem solid #00B4FC;
+                color: #FFFFFF;
+            }
+            div:nth-child(2){
+                background: #FFFFFF;
+                border: 2rem solid #E4E7ED;
+                margin-left: 15rem;
+                color: #444444;
+            }
+            
         }
-        li:last-child{
-            border: none;
+        .accountText{
+            font-size: 28rem;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: #444444;
+            padding-top: 79rem;
         }
     }
+
+    .accountBox{
+        padding: 38rem 35rem;
+        .boxTitle{
+            font-size: 20rem;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: #444444;
+            display: flex;
+            align-items: center;
+            img{
+                margin-left: 10rem;
+            }
+        
+        }
+        .table{
+            list-style: none;
+            height: 252rem;
+            background: #FFFFFF;
+            border: 1rem solid #E4E7ED;
+            margin-top: 35rem;
+            .theader{
+                height: 72rem;
+                background: #F8FAFC;
+                border-bottom: 1rem solid #E4E7ED;
+                display: flex;
+                align-items: center;
+                padding: 0rem 25rem;
+                box-sizing: border-box;
+                div{
+                    display: flex;
+                    align-items: center;
+                    img{
+                        margin-right: 10rem;
+                    }
+                }
+            }
+            .item{
+                display: flex;
+                justify-content: space-between;
+                font-family: Source Han Sans CN;
+                padding: 0rem 27rem;
+                div:nth-child(1){
+                    width: 38%;
+                }
+                div:nth-child(2){
+                    width: 32%;
+                }
+                div:nth-child(3){
+                    width: 30%;
+                    text-align: right;
+                }
+            }
+            .item:nth-child(2){
+                padding: 30rem 27rem 0rem 27rem;
+                div{
+                    font-size: 24rem;
+                    font-weight: 400;
+                    color: #9AA5B5;
+                }
+            }
+            .item:nth-child(3){
+                padding: 23rem 27rem;
+                div{
+                    // border: solid 1rem red;
+                }
+            }
+            .item:nth-child(4){
+                div:nth-child(1){
+                    font-size: 28rem;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #7A96F5;
+
+                }
+                div:nth-child(3){
+                    span{
+                       font-size: 14rem; 
+                    }
+
+                }
+                div{
+                    font-size: 28rem;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #444444;
+                }
+            }
+        }
+    }
+    
 }
 </style>

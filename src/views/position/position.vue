@@ -71,7 +71,7 @@
                                             </div>
                                         </div>-->
                     <div class="goods-box-list">
-                        <PositionBlock v-for="(item, index) in blockItemList"
+                        <PositionBlock @clickItem="toTypeDetail" v-for="(item, index) in typeList"
                                        :key="index"
                                        :blockItem="item"
                                        class="positionBlock"></PositionBlock>
@@ -290,7 +290,11 @@ export default {
                     p: "안전한 주차와 정성스러운 서비스로 고객만족을 우선으로 생각합니다",*/
                 },
             ],
+            typeList:[]
         }
+    },
+    mounted(){
+        this.getData();
     },
     methods: {
         enters(index, childIndex) {
@@ -303,6 +307,30 @@ export default {
             this.$router.push({
                 name: name
             })
+        },
+        //获取产品类别
+        getData(){
+            this.axios({
+                url:'wx/position/list',
+                method:'get'
+            }).then((res)=>{
+                if(res.errno==0){
+                    this.typeList = res.data.map(ele=>{
+                        let radom = Math.floor(Math.random()*10-2)
+                        ele.text = ele.categoryName;
+                        ele.number = `${ele.lastCount}/${ele.totalCount}`
+                        ele.color = `color${radom}`
+                        return ele
+                    })
+                }
+            }).catch((err)=>{
+                console.log(err);
+            })
+        },
+        //查看类别详情
+        toTypeDetail(item){
+            console.log(item);
+            this.$router.push({})
         }
     }
 }

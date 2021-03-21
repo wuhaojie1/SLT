@@ -8,7 +8,7 @@
             </div>
             <div class="topRight">退出</div>
         </div>
-        <div class="bottom">
+        <!-- <div class="bottom">
             <div class="bottomLeft">
                 <img style="width:28rem;height:27rem" src="../../../static/img/index/compute.png" alt="">
                 <div>电脑版</div>
@@ -17,7 +17,7 @@
                 <div>简体中文</div>
                 <img style="width:16rem;height:11rem" src="../../../static/img/index/triangle.png" alt="">
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -34,7 +34,7 @@ export default {
     border-bottom: solid 1rem #F2F3F4;
     .top{
         display: flex;
-        border-bottom: solid 1rem #E4E7ED;
+        // border-bottom: solid 1rem #E4E7ED;
         padding-bottom: 40rem;
         img{
             width: 64rem;

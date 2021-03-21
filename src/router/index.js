@@ -100,10 +100,10 @@ const routes = [{
             import ('../views/mobile/shop/shoppingCart.vue')
     },
     {
-        path:'/treasurelog',
-        name:'treasurelog',
-        component:()=>
-            import('../views/treasurelog/treasurelog.vue')
+        path: '/treasurelog',
+        name: 'treasurelog',
+        component: () =>
+            import ('../views/treasurelog/treasurelog.vue')
     },
     {
         path: '/user',
@@ -190,6 +190,20 @@ const routes = [{
         component: () =>
             import ('../views/order/order.vue')
 
+    },
+    //移动端订单
+    {
+        path: '/Morder',
+        name: 'Morder',
+        component: () =>
+            import ('../views/mobile/order/order.vue')
+    },
+    //移动端待接单
+    {
+        path: '/MwaitOrder',
+        name: 'MwaitOrder',
+        component: () =>
+            import ('../views/mobile/order/waitOrder.vue')
     },
     //充值
     {
@@ -289,8 +303,15 @@ const routes = [{
                 name: 'Mdeal',
                 component: () =>
                     import ('../views/mobile/trade/deal'),
-            },
+            }
         ]
+    },
+    //移动端聊天
+    {
+        path: '/Mchat',
+        name: 'Mchat',
+        component: () =>
+            import ('../views/mobile/chat/index.vue')
     },
     //移动端我的
     {

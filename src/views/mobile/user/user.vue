@@ -15,16 +15,19 @@
         </ul>
         <div class="saveBtn">保存</div>
         <BottomBar></BottomBar>
+        <Tabbar></Tabbar>
     </div>
 </template>
 
 <script>
 import PageHeader from '../../../components/mobileComponents/comm/header.vue';
 import BottomBar from '../../../components/mobileComponents/user/bottomBar.vue';
+import Tabbar from '../../../components/mobileComponents/tabbar/tabbar.vue';
 export default {
     components:{
         PageHeader,
-        BottomBar
+        BottomBar,
+        Tabbar
     },
     data(){
         return{
