@@ -9,7 +9,10 @@
                     <div class="userid">ID:JCJDVJDS</div>
                 </div>
             </div>
-            <div class="self-center" v-for="item in usermsgarr" :key="item.index">
+            <div class="self-center"
+                 v-for="item in usermsgarr"
+                 :key="item.index"
+                 @click="toPage(item.namePath)">
                 <div class="self-center-text">{{item.name}}</div>
                 <img class="self-center-img" :src="item.img" alt="">
             </div>
@@ -29,33 +32,52 @@
                 usermsgarr:[
                     {
                         name:this.$t('usermsg.personcenter'),
-                        img:`${require('../../../static/img/user/arrow.png')}`
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "Muser",
                     },
                     {
                         name:this.$t('usermsg.auth'),
-                        img:`${require('../../../static/img/user/arrow.png')}`
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "MuserAuth",
                     },
-                    {
+                   /* {
                         name:'OTC',
-                        img:`${require('../../../static/img/user/arrow.png')}`
-                    },
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "",
+                    },*/
+                    /*{
+                        name:this.$t('usermsg.order'),
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "",
+                    },*/
+                    /*{
+                        name:this.$t('usermsg.localtionn'),
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "",
+                    },*/
                     {
                         name:this.$t('usermsg.order'),
-                        img:`${require('../../../static/img/user/arrow.png')}`
-                    },
-                    {
-                        name:this.$t('usermsg.localtionn'),
-                        img:`${require('../../../static/img/user/arrow.png')}`
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "MuserAccount",
                     },
                     {
                         name:this.$t('usermsg.address'),
-                        img:`${require('../../../static/img/user/arrow.png')}`
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "MuserAddress",
                     },
                     {
                         name:this.$t('usermsg.log'),
-                        img:`${require('../../../static/img/user/arrow.png')}`
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "Mrecord",
                     }
                 ]
+            }
+        },
+        methods: {
+            toPage(name){
+                this.$router.push({
+                    name: name,
+                })
             }
         }
     }

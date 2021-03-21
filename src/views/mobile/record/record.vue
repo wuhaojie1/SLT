@@ -2,7 +2,7 @@
     <div class="record">
 <!--        <Mheader :isShowRight="true"></Mheader>-->
         <PageHeader :isShowRight="true"
-                    :isHome="true"
+                    :isHome="false"
                     @clickCallback="clickCallback"></PageHeader>
         <RecordDrop @toPage="toPage"></RecordDrop>
         <router-view></router-view>
@@ -21,7 +21,9 @@ export default {
         return {}
     },
     mounted() {
-
+        this.$router.push({
+            name: "Mposition",
+        })
     },
     methods: {
         toPage(item) {

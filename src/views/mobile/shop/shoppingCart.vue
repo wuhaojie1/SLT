@@ -1,6 +1,8 @@
 <template>
     <div class="car">
-        <PageHeader :isShowRight="true" :rightIcon="false"></PageHeader>
+        <PageHeader :isShowRight="true"
+                    :rightIcon="false"
+                    @clickCallback="clickCallback"></PageHeader>
         <div class="carTop">
             <img style="width:27rem;height:38rem" src="../../../static/img/shop/lock.png" alt="">
             <div class="carTitle">{{$t('shopcar.safety')}}</div>
@@ -98,6 +100,12 @@ export default {
         }
     },
     methods:{
+        clickCallback(item){
+            // console.log(item)
+            this.$router.push({
+                name: item.name,
+            })
+        },
         open(){
             this.$refs.add.openModal();
         }

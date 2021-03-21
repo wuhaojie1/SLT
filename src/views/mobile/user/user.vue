@@ -1,7 +1,7 @@
 <template>
     <div class="user">
         <PageHeader :isShowRight="true"
-                    :isHome="true"
+                    :isHome="false"
                     @clickCallback="clickCallback"></PageHeader>
         <div class="userBox">
             <div class="userHeader">

@@ -81,7 +81,7 @@ export default {
                 {
                     code: 4,
                     text: this.$t('dropmenu.userCenter'),
-                    name: "Muser",
+                    name: "Musermsg",
                 },
             ]
         }

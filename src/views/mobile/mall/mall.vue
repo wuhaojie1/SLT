@@ -22,7 +22,8 @@
         <div class="goodslist">
             <div class="goodsitem"
                  v-for="item in goodslist"
-                 :key="item.index">
+                 :key="item.index"
+                 @click="toPage('Mgoodsdetails')">
                 <div class="imgcon">
                     <img class="img" :src="item.goodsimg" alt="">
                 </div>
@@ -45,7 +46,7 @@
         <div class="bottomimg">
             <img class="img" src="../../../static/img/shoppingMall/bottomimg.png" alt="">
         </div>
-        <div class="goshopcart">
+        <div class="goshopcart" @click="toPage('MshoppingCart')">
             <img class="img" src="../../../static/img/chatorshopcart/shopcart.png" alt="">
         </div>
     </div>
@@ -89,6 +90,11 @@
                     name: item.name,
                 })
             },
+            toPage(name){
+                this.$router.push({
+                    name: name,
+                })
+            }
         }
     }
 </script>

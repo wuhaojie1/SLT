@@ -605,8 +605,9 @@ export default {
     usermsg:{
         personcenter:'个人中心',
         auth:'身份认证',
-        order:'订单',
+        // order:'订单',
         localtionn:'位置',
+        order:'个人资产',
         address:'收货地址',
         log:'财务记录',
         out:'退出'

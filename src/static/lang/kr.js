@@ -527,7 +527,7 @@ export default {
     usermsg:{
         personcenter:'个人中心',
         auth:'身份认证',
-        order:'订单',
+        order:'个人资产',
         localtionn:'位置',
         address:'收货地址',
         log:'财务记录',
