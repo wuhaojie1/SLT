@@ -352,6 +352,13 @@ const routes = [{
         component: () =>
             import ('../views/mobile/usermsg/usermsg.vue')
     },
+    //移动端首页
+    {
+        path: '/Mindex',
+        name: 'Mindex',
+        component: () =>
+            import ('../views/mobile/index/index.vue')
+    },
     //移动端消息列表
     {
         path: '/Mmsglist',

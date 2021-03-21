@@ -14,7 +14,7 @@
                     <div class="noData-content">
                         <img :src="noData" alt="">
                         <div class="text">
-                            暂无数据
+                            {{ $t('positionRecord.noData') }}
                         </div>
                     </div>
                 </div>

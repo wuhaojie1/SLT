@@ -11,7 +11,7 @@ html, body, img, dl, dt, dd,ol, ul, li, form, table, tbody, tr, th, td,p ,button
 #app{
   width: 100%;
   height: 100%;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
   /* background: darkblue; */
 }
 i,del,s,u,em{
