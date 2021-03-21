@@ -1,7 +1,7 @@
 <template>
     <div class="record">
         <Mheader></Mheader>
-        <RecordDrop @toPage="toPage" ></RecordDrop>
+        <RecordDrop @toPage="toPage"></RecordDrop>
         <router-view></router-view>
     </div>
 </template>
@@ -16,8 +16,11 @@ export default {
     data() {
         return {}
     },
+    mounted() {
+
+    },
     methods: {
-        toPage(item){
+        toPage(item) {
             console.log(item)
             this.$router.push({
                 name: item.name

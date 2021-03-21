@@ -38,7 +38,7 @@ export default {
                 },
                 {
                     text: "OTC交易记录",
-                    name: "",
+                    name: "MOTC",
                 },
                 {
                     text: "位置购买记录",
@@ -51,7 +51,7 @@ export default {
             ],
             chooseItem:{
                 text: "充币记录",
-                name: "",
+                name: "Mtopup",
             }
         }
     },

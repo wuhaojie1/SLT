@@ -362,6 +362,12 @@ const routes = [
                     import ('../views/mobile/topup/topup.vue')
             },
             //OTC
+            {
+                path: 'Motc',
+                name: 'MOTC',
+                component: () =>
+                    import ('../views/mobile/otc/otc.vue')
+            },
         ]
     },
 
