@@ -1,33 +1,36 @@
 <template>
     <div class="user">
         <PageHeader></PageHeader>
-        <div class="userHeader">
-            <span class="headerLeft">{{$t('userInfo.userCenter')}}</span>
-            <img style="width:24rem;height:14rem;" src="../../../static/img/user/arrowdown.png" alt="">
+        <div class="userBox">
+            <div class="userHeader">
+                <span class="headerLeft">{{$t('userInfo.userCenter')}}</span>
+                <img style="width:24rem;height:14rem;" src="../../../static/img/user/arrowdown.png" alt="">
+            </div>
+            <div class="infoTitle">{{$t('userInfo.basemsg')}}</div>
+            <ul class="infoBox">
+                <li v-for="(item,index) in list" :key="item.text" class="infoItem">
+                    <div class="itemLeft">{{item.text}}</div>
+                    <div :style="'color:'+((index==2||index==5||index==6||index==7)?'#9AA5B5':'#444444')" class="itemCenter">{{item.val}}</div>
+                    <img v-if="item.isArrow" class="itemRight" style="width:12rem;height:20rem;" :src="require((index==6||index==7||index==5)?'../../../static/img/user/arrowgrey.png':'../../../static/img/user/arrowdart.png')" alt="">
+                </li>
+            </ul>
+            <div class="saveBtn">{{$t('userInfo.save')}}</div>
         </div>
-        <div class="infoTitle">{{$t('userInfo.basemsg')}}</div>
-        <ul class="infoBox">
-            <li v-for="(item,index) in list" :key="item.text" class="infoItem">
-                <div class="itemLeft">{{item.text}}</div>
-                <div :style="'color:'+((index==2||index==5||index==6||index==7)?'#9AA5B5':'#444444')" class="itemCenter">{{item.val}}</div>
-                <img v-if="item.isArrow" class="itemRight" style="width:12rem;height:20rem;" :src="require((index==6||index==7||index==5)?'../../../static/img/user/arrowgrey.png':'../../../static/img/user/arrowdart.png')" alt="">
-            </li>
-        </ul>
-        <div class="saveBtn">{{$t('userInfo.save')}}</div>
+        
         <BottomBar></BottomBar>
-        <Tabbar></Tabbar>
+        <!-- <Tabbar></Tabbar> -->
     </div>
 </template>
 
 <script>
 import PageHeader from '../../../components/mobileComponents/comm/header.vue';
 import BottomBar from '../../../components/mobileComponents/user/bottomBar.vue';
-import Tabbar from '../../../components/mobileComponents/tabbar/tabbar.vue';
+// import Tabbar from '../../../components/mobileComponents/tabbar/tabbar.vue';
 export default {
     components:{
         PageHeader,
         BottomBar,
-        Tabbar
+        // Tabbar
     },
     data(){
         return{
@@ -49,80 +52,84 @@ export default {
 <style lang='less' scoped>
 .user{
     text-align: left;
-    .userHeader{
-        width: 750rem;
-        height: 88rem;
-        background: #FFFFFF;
-        box-shadow: 0rem 5rem 10rem 0rem rgba(153, 153, 153, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0rem 36rem;
-        box-sizing: border-box;
-
-        .headerLeft{
-            width: 121rem;
-            height: 29rem;
-            font-size: 30rem;
-            font-family: Source Han Sans CN;
-            font-weight: 400;
-            color: #333333;
-            line-height: 37rem;
-
-        }
-    }
-    .infoTitle{
-        width: 129rem;
-        height: 31rem;
-        font-size: 32rem;
-        font-family: Source Han Sans CN;
-        font-weight: 500;
-        color: #333333;
-        padding: 40rem 0rem 40rem 36rem;
-
-    }
-    .infoBox{
-        .infoItem{
+    .userBox{
+        height: calc(100vh - 88rem - 176rem);
+         .userHeader{
+            width: 750rem;
+            height: 88rem;
+            background: #FFFFFF;
+            box-shadow: 0rem 5rem 10rem 0rem rgba(153, 153, 153, 0.1);
             display: flex;
-            justify-content: space-between;
-            padding: 34rem 34rem;
             align-items: center;
-            font-size: 28rem;
+            justify-content: space-between;
+            padding: 0rem 36rem;
+            box-sizing: border-box;
+
+            .headerLeft{
+                width: 121rem;
+                height: 29rem;
+                font-size: 30rem;
+                font-family: Source Han Sans CN;
+                font-weight: 400;
+                color: #333333;
+                line-height: 37rem;
+
+            }
+        }
+        .infoTitle{
+            width: 129rem;
+            height: 31rem;
+            font-size: 32rem;
             font-family: Source Han Sans CN;
-            font-weight: 400;
-            color: #444444;
-            .itemLeft{
+            font-weight: 500;
+            color: #333333;
+            padding: 40rem 0rem 40rem 36rem;
 
+        }
+        .infoBox{
+            .infoItem{
+                display: flex;
+                justify-content: space-between;
+                padding: 34rem 34rem;
+                align-items: center;
+                font-size: 28rem;
+                font-family: Source Han Sans CN;
+                font-weight: 400;
+                color: #444444;
+                .itemLeft{
+
+                }
+                .itemCenter{
+                    flex-grow: 1;
+                    text-align: right;
+                }
+                .itemRight{
+                    margin-left: 18rem;
+                }
             }
-            .itemCenter{
-                flex-grow: 1;
-                text-align: right;
+            .infoItem:nth-child(5){
+                padding-bottom: 60rem;
+                border-bottom: solid 15rem #F2F6FA;
             }
-            .itemRight{
-                margin-left: 18rem;
+            .infoItem:nth-child(6){
+                padding-top: 60rem;
             }
         }
-        .infoItem:nth-child(5){
-            padding-bottom: 60rem;
-            border-bottom: solid 15rem #F2F6FA;
-        }
-        .infoItem:nth-child(6){
-            padding-top: 60rem;
+        .saveBtn{
+            width: 670rem;
+            height: 88rem;
+            background: #00B4FC;
+            border-radius: 10rem;
+            font-size: 34rem;
+            font-family: Source Han Sans CN;
+            font-weight: 500;
+            color: #FFFFFF;
+            text-align: center;
+            line-height: 88rem;
+            margin: 79rem auto 61rem auto;
+
         }
     }
-    .saveBtn{
-        width: 670rem;
-        height: 88rem;
-        background: #00B4FC;
-        border-radius: 10rem;
-        font-size: 34rem;
-        font-family: Source Han Sans CN;
-        font-weight: 500;
-        color: #FFFFFF;
-        text-align: center;
-        line-height: 88rem;
-        margin: 79rem auto 61rem auto;
-
-    }
+   
 }
 </style>

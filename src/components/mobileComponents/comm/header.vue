@@ -6,7 +6,19 @@
         <div class="logo" :style="'margin-left:'+(isHome?0:35)+'rem'">
             <img style="width:80rem;height:42rem;" src="../../../static/img/index/Technology.png" alt="">
         </div>
-        <img v-if="isShowRight" :class="[(rightIcon==true)?'user':'list']" :src="((rightIcon==true)?user.src:list.src)" alt="">
+        <div v-if="isShowRight" class="dropmenu">
+            <el-dropdown trigger="click">
+                <img  :class="[(rightIcon==true)?'user':'list']" :src="((rightIcon==true)?user.src:list.src)" alt="">
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>首页</el-dropdown-item>
+                    <el-dropdown-item>商城</el-dropdown-item>
+                    <el-dropdown-item>位置</el-dropdown-item>
+                    <el-dropdown-item>OTC</el-dropdown-item>
+                    <el-dropdown-item>个人中心</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+        </div>
+        
     </div>
 </template>
 
