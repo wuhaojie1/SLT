@@ -29,28 +29,28 @@ export default {
             downarrow: `${require('@/static/img/buy/downarrow.png')}`,
             recordDropList: [
                 {
-                    text: "充币记录",
+                    text: this.$t("TopUp.topUp"),
                     name: "Mtopup",
                 },
                 {
-                    text: "提币记录",
+                    text: this.$t("TopUp.withdraw"),
                     name: "",
                 },
                 {
-                    text: "OTC交易记录",
+                    text: this.$t("TopUp.OTC"),
                     name: "MOTC",
                 },
                 {
-                    text: "位置购买记录",
+                    text: this.$t("TopUp.position"),
                     name: "Mposition",
                 },
                 {
-                    text: "商品交易记录",
+                    text: this.$t("TopUp.deal"),
                     name: "MDeal",
                 },
             ],
             chooseItem:{
-                text: "充币记录",
+                text: this.$t("TopUp.topUp"),
                 name: "Mtopup",
             }
         }
@@ -71,6 +71,7 @@ export default {
 <style scoped lang="less">
 .recordDrop {
     .recordDrop-content {
+        position: relative;
         .recordDrop-item {
             width: 750rem;
             height: 88rem;
@@ -99,7 +100,10 @@ export default {
         }
 
         .recordDrop-list {
+            position: absolute;
+            z-index: 5;
             text-align: left;
+            background: #fff;
 
             .recordDrop-list-item {
                 box-sizing: border-box;

@@ -35,26 +35,26 @@
                         {{ selectedCoin.name }} <span>{{ selectedCoin.tip }}</span>
                     </div>
                     <!--                    充币多币-->
-                    <!--                    <div class="coinList"
-                                             v-show="showCoins">
-                                            <div class="searchBox">
-                                                <img :src="searchImg" alt="" class="searchImg">
-                                                <input type="text" :placeholder="searchPlaceholder">
-                                            </div>
-                                            <div class="coinList-content">
-                                                <div class="coinList-content-list">
-                                                    <div class="coinList-content-item"
-                                                         v-for="item in coinKindList"
-                                                         :key="item.id"
-                                                         @click="selectCoin(item)">
-                                                        <div class="name">{{ item.name }}</div>
-                                                        <div class="tip">{{ item.tip }}</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>-->
+                    <div class="coinList"
+                         v-show="showCoins">
+                        <div class="searchBox">
+                            <img :src="searchImg" alt="" class="searchImg">
+                            <input type="text" :placeholder="searchPlaceholder">
+                        </div>
+                        <div class="coinList-content">
+                            <div class="coinList-content-list">
+                                <div class="coinList-content-item"
+                                     v-for="item in coinKindList"
+                                     :key="item.id"
+                                     @click="selectCoin(item)">
+                                    <div class="name">{{ item.name }}</div>
+                                    <div class="tip">{{ item.tip }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!--                    订单下拉-->
-                    <div class="order"
+<!--                    <div class="order"
                          v-show="showCoins">
                         <div class="order-content">
                             <div class="order-content-item"
@@ -63,14 +63,14 @@
                                  @click="chooseOrder(item)">
                                 {{ item.text }}
                             </div>
-                            <!--                            <div class="order-content-item">
+                            &lt;!&ndash;                            <div class="order-content-item">
                                                             买入
                                                         </div>
                                                         <div class="order-content-item">
                                                             卖出
-                                                        </div>-->
+                                                        </div>&ndash;&gt;
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="topUp-content-wrap">
                     <div class="topUp-content-wrap-title">
@@ -178,7 +178,7 @@ export default {
     components: {VueQr, /*ThemeStickyHeader*/},
     data() {
         return {
-            showCoins: true,
+            showCoins: false,
             dialogVisible: false,
             selectedCoin: {
                 name: "BTC ",
