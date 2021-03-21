@@ -53,7 +53,9 @@
                             <img class="arrow-down-img" src="" alt="">
                         </div>
                     </div>
-                    <div class="pay-button">购买SLT</div>
+                    <div class="pay-button" @click="popup">购买SLT</div>
+                    <remindauth v-if="popout"></remindauth>
+                    <confirmorder v-if="false"></confirmorder>
                 </div>
                 <div class="seal" v-if="currentindex1==1">
                     <div class="value-text">1ETH价值约</div>
@@ -100,7 +102,8 @@
                             <img class="arrow-down-img" src="" alt="">
                         </div>
                     </div>
-                    <div class="pay-button">出售SLT</div>
+                    <div class="pay-button" @click="popup">出售SLT</div>
+                    <remindauth v-if="popout"></remindauth>
                 </div>
             </div>
         </div>
@@ -108,17 +111,24 @@
 </template>
 
 <script>
+    import confirmorder from "../../../components/pop/confirmorder";
+    import remindauth from "../../../components/pop/remindauth";
     export default {
         name: "Mbuy",
+        components:{remindauth,confirmorder},
         data(){
             return{
                 tradetextarr:['购买','出售'],
-                currentindex1:0
+                currentindex1:0,
+                popout:false
             }
         },
         methods:{
             changeitem1(index){
                 this.currentindex1 = index
+            },
+            popup(){
+                this.popout = true
             }
         }
     }

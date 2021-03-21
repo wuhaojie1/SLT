@@ -291,7 +291,25 @@ const routes = [
                 component: () =>
                     import ('../views/mobile/trade/deal'),
             },
+            {
+                path: 'Mconfirmorder',
+                name: 'Mconfirmorder',
+                component: () =>
+                    import ('../views/mobile/trade/payorder'),
+            },
+            {
+                path: 'Mcancleorder',
+                name: 'Mcancleorder',
+                component: () =>
+                    import ('../views/mobile/trade/cancleorder'),
+            }
         ]
+    },
+    {
+        path: '/Mpaysucceed',
+        name: 'Mpaysucceed',
+        component: () =>
+            import ('../views/mobile/paysucceed/paysucceed.vue')
     },
     //移动端我的
     {
