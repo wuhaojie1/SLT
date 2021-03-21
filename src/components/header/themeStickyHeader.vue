@@ -2,7 +2,7 @@
     <div class="themeStickyHeader">
         <div class="themeStickyHeader-wrap">
             <div class="left">
-                <img :src="sltlogo" alt="">
+                <img @click="topage('index')" :src="sltlogo" alt="">
             </div>
             <div class="right">
                 <div class="right-text-list">
