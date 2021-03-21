@@ -4,9 +4,9 @@
             <div class="SLTimg-con">
                 <img class="STLimg" src="../../static/img/index/sltlogo_60x120_white.png" alt="">
             </div>
-            <div class="user-img-con">
-                <img class="user-img" src="../../static/img/index/userIcon.png" alt="">
-            </div>
+<!--            <div class="user-img-con">-->
+<!--                <img class="user-img" src="../../static/img/index/userIcon.png" alt="">-->
+<!--            </div>-->
         </div>
     </div>
 </template>

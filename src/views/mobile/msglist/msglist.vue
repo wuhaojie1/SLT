@@ -2,9 +2,9 @@
     <div id="msglist">
         <Mheader></Mheader>
         <div class="msg-head">
-            <div class="msg-head-text">消息列表</div>
-            <div class="hide"><input type="checkbox" class="checkbox">隐藏已读</div>
-            <div class="allread">全部标为已读</div>
+            <div class="msg-head-text">{{this.$t('msglist.msglist')}}</div>
+            <div class="hide"><input type="checkbox" class="checkbox">{{this.$t('msglist.hidden')}}</div>
+            <div class="allread">{{this.$t('msglist.allread')}}</div>
         </div>
         <div v-for="item in msgarr" :key="item.index">
             <msgitem :msgitem="item"></msgitem>
@@ -22,15 +22,14 @@
             return{
                 msgarr:[
                     {
-                        name:'挖宝游戏已上线呀！！！',
-                        detail:'2月25日至3月5日，报名并参与SLT币合约狂欢节活动，即可参与瓜分10000USDT奖励。' +
-                            '活动一︰邀请 好友注册并开通USDT本位永续合约，双方完成任意 金额的USDT.!',
+                        name:'xxxxxxx！！！',
+                        detail:'xxxxxxx',
                         time:'2021-02-25 11:20:45',
                         flag:false
                     },
                     {
-                        name:'大荣交易所',
-                        detail:'可以买哟',
+                        name:'xxxxx',
+                        detail:'xxxxxx',
                         time:'2021-02-25 11:20:45',
                         flag: true
                     }

@@ -17,11 +17,11 @@
             return{
                 tradetypearr:[
                     {
-                        text:'自选交易',
+                        text:this.$t('Mbuy.choose'),
                         name:'MTrade'
                     },
                     {
-                        text:'一键买卖',
+                        text:this.$t('Mbuy.trade'),
                         name:'Mdeal'
                     }
                     ],

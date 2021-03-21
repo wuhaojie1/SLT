@@ -2,28 +2,28 @@
     <div class="trade-item-con">
         <div class="trade-org">
             <div class="trade-org-img">
-                <div class="trade-org-text">大</div>
+                <div class="trade-org-text">xx</div>
             </div>
-            <div class="trade-org-name">trade center(1329|99%)</div>
+            <div class="trade-org-name">xxxxx{{dealitem.name}})</div>
         </div>
         <div class="num-con">
-            <div class="num-con-left">数量:1.159935SLT</div>
-            <div class="num-con-right">单价</div>
+            <div class="num-con-left">{{this.$t('Mtrade.num')}}:{{dealitem.num}}SLT</div>
+            <div class="num-con-right">{{this.$t('Mtrade.charge')}}</div>
         </div>
         <div class="limit-con">
-            <div class="limit-num">限额：40,000.00-387,481.00 ETH</div>
-            <div class="charge-num" v-if="dealitem.buyitem">334,260.75 ETH</div>
-            <div class="charge-num-seal" v-else>334,260.75 ETH</div>
+            <div class="limit-num">{{this.$t('Mtrade.limit')}}:{{dealitem.limit}}ETH</div>
+            <div class="charge-num" v-if="dealitem.buyitem">{{dealitem.limitnum}} ETH</div>
+            <div class="charge-num-seal" v-else>{{dealitem.chargenum}} ETH</div>
         </div>
         <div class="coin-con">
             <div class="coin-img-con">
                 <img class="coin-img" src="../../static/img/buy/ETH.png" alt="">
             </div>
             <div class="buy-button" v-if="dealitem.buyitem">
-                购买SLT
+                {{this.$t('Mtrade.buy')}}SLT
             </div>
             <div class="seal-button" v-else>
-                出售SLT
+                {{this.$t('Mtrade.seal')}}SLT
             </div>
         </div>
     </div>
@@ -76,6 +76,8 @@
                 color: #444444;
                 float: left;
                 margin-top: 9rem;
+                text-align: left;
+                margin-left: 11rem;
             }
         }
         .num-con{

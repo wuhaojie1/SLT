@@ -511,6 +511,44 @@ export default {
         remindtext1:'保护资产安全，及时接受账户动态',
         personauth:'个人身份认证',
         auth:'认证'
-
+    },
+    //移动端一键买卖
+    Mbuy:{
+        choose:'自选交易',
+        trade:'一键买卖',
+        value:'价值约',
+        willpay:'我将支付',
+        canuse:'可用资金',
+        willgain:'我将获得',
+        paytype:'支付方式',
+        buy:'购买',
+        willseal:'我将出售',
+        seal:'出售'
+    },
+    //移动端自选交易
+    Mtrade:{
+        buy:'购买',
+        seal:'出售',
+        num:'数量',
+        charge:'单价',
+        limit:'限额'
+    },
+    //移动端我的
+    usermsg:{
+        personcenter:'个人中心',
+        auth:'身份认证',
+        order:'订单',
+        localtionn:'位置',
+        address:'收货地址',
+        log:'财务记录',
+        out:'退出'
+    },
+    //移动端消息列表
+    msglist:{
+        msglist:'消息列表',
+        hidden:'隐藏已读',
+        allread:'全部标为已读',
+        details:'详情',
+        reply:'回复'
     }
 }

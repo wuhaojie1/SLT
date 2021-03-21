@@ -13,7 +13,7 @@
                 <div class="self-center-text">{{item.name}}</div>
                 <img class="self-center-img" :src="item.img" alt="">
             </div>
-            <div class="out-button">退出</div>
+            <div class="out-button">{{this.$t('usermsg.out')}}</div>
         </div>
     </div>
 </template>
@@ -27,31 +27,31 @@
             return{
                 usermsgarr:[
                     {
-                        name:'个人中心',
+                        name:this.$t('usermsg.personcenter'),
                         img:`${require('../../../static/img/user/arrow.png')}`
                     },
                     {
-                        name:'身份认证',
+                        name:this.$t('usermsg.auth'),
                         img:`${require('../../../static/img/user/arrow.png')}`
                     },
                     {
-                        name:'个人中心',
+                        name:'OTC',
                         img:`${require('../../../static/img/user/arrow.png')}`
                     },
                     {
-                        name:'资产',
+                        name:this.$t('usermsg.order'),
                         img:`${require('../../../static/img/user/arrow.png')}`
                     },
                     {
-                        name:'订单',
+                        name:this.$t('usermsg.localtionn'),
                         img:`${require('../../../static/img/user/arrow.png')}`
                     },
                     {
-                        name:'买币',
+                        name:this.$t('usermsg.address'),
                         img:`${require('../../../static/img/user/arrow.png')}`
                     },
                     {
-                        name:'收货地址',
+                        name:this.$t('usermsg.log'),
                         img:`${require('../../../static/img/user/arrow.png')}`
                     }
                 ]
@@ -63,23 +63,23 @@
 <style scoped lang="less">
 #usermsg{
     width: 750rem;
-    height: calc(100vh - 186rem);
+    height: calc(100vh - 184rem);
     /*padding-bottom: 88rem;*/
     .msg-con{
         width: 750rem;
         height: calc(100vh - 274rem);
-        background-color: #02031E;
-        border-top: 1rem solid #000000;
+        background-color: #FFFFFF;
+        border-top: 1rem solid #FFFFFF;
         .base-user-msg-con{
             width: 750rem;
             height: 169rem;
-            border-bottom: 1rem solid #000000;
+            border-bottom: 1rem solid #FFFFFF;
             display: flex;
             justify-content: flex-start;
             .user-img{
                 width: 88rem;
                 height: 88rem;
-                background-color: #fff;
+                background-color: #000000;
                 margin-left: 40rem;
                 margin-top: 40rem;
                 border-radius: 88rem;
@@ -98,7 +98,7 @@
                     font-size: 32rem;
                     font-family: Source Han Sans CN;
                     font-weight: 500;
-                    color: #FFFFFF;
+                    color: #000000;
                     margin-top: 9rem;
                 }
                 .userid{

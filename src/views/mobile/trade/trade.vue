@@ -22,45 +22,41 @@
         components:{dealitem},
         data(){
             return{
-                tradearr:['购买','出售'],
+                tradearr:[this.$t('Mtrade.buy'),this.$t('Mtrade.seal')],
                 currentindex:0,
                 buyarr:[
                     {
-                        name:'trade center(1329|99%)',
-                        num:'数量:1.159935SLT',
-                        charge:'单价',
-                        limit:'限额：40,000.00-387,481.00 ETH',
-                        limitnum:'334,260.75 ETH',
-                        chargenum:'334,260.75 ETH',
+                        name:'(1329|99%)',
+                        num:'1.159935SLT',
+                        limit:'40,000.00-387,481.00',
+                        limitnum:'334,260.75',
+                        chargenum:'334,260.75',
                         buyitem:true
                     },
                     {
-                        name:'trade center(1329|99%)',
-                        num:'数量:1.159935SLT',
-                        charge:'单价',
-                        limit:'限额：40,000.00-387,481.00 ETH',
-                        limitnum:'334,260.75 ETH',
-                        chargenum:'334,260.75 ETH',
+                        name:'(1329|99%)',
+                        num:'1.159935SLT',
+                        limit:'40,000.00-387,481.00',
+                        limitnum:'334,260.75',
+                        chargenum:'334,260.75',
                         buyitem:true
                     }
                 ],
                 sealarr:[
                     {
-                        name:'trade center(1329|99%)',
-                        num:'数量:1.159935SLT',
-                        charge:'单价',
-                        limit:'限额：40,000.00-387,481.00 ETH',
-                        limitnum:'334,260.75 ETH',
-                        chargenum:'334,260.75 ETH',
+                        name:'(1329|99%)',
+                        num:'1.159935SLT',
+                        limit:'40,000.00-387,481.00',
+                        limitnum:'334,260.75',
+                        chargenum:'334,260.75',
                         buyitem:false
                     },
                     {
-                        name:'trade center(1329|99%)',
-                        num:'数量:1.159935SLT',
-                        charge:'单价',
-                        limit:'限额：40,000.00-387,481.00 ETH',
-                        limitnum:'334,260.75 ETH',
-                        chargenum:'334,260.75 ETH',
+                        name:'(1329|99%)',
+                        num:'1.159935SLT',
+                        limit:'40,000.00-387,481.00',
+                        limitnum:'334,260.75',
+                        chargenum:'334,260.75',
                         buyitem:false
                     }
                 ]

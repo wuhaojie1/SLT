@@ -3,7 +3,7 @@
         <div class="msgitem-con">
             <div class="head">
                 <div class="msg-name"> <div class="dot" v-show="msgitem.flag"></div> {{msgitem.name}}</div>
-                <div class="detail">{{msgitem.flag?'回复':'详情'}}</div>
+                <div class="detail">{{msgitem.flag?this.$t('msglist.reply'):this.$t('msglist.details')}}</div>
             </div>
             <div class="content">
                 {{msgitem.detail}}</div>
