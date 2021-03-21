@@ -10,11 +10,11 @@
             <el-dropdown trigger="click">
                 <img  :class="[(rightIcon==true)?'user':'list']" :src="((rightIcon==true)?user.src:list.src)" alt="">
                 <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item>首页</el-dropdown-item>
-                    <el-dropdown-item>商城</el-dropdown-item>
+                    <el-dropdown-item v-for="item in itemList" @click="clickItem(item)"  :key="item.code">{{item.text}}</el-dropdown-item>
+                    <!-- <el-dropdown-item>商城</el-dropdown-item>
                     <el-dropdown-item>位置</el-dropdown-item>
                     <el-dropdown-item>OTC</el-dropdown-item>
-                    <el-dropdown-item>个人中心</el-dropdown-item>
+                    <el-dropdown-item>个人中心</el-dropdown-item> -->
                 </el-dropdown-menu>
             </el-dropdown>
         </div>
@@ -53,14 +53,23 @@ export default {
                 src:require('../../../static/img/shop/list.png'),
                 wdith:'27rem',
                 height:'20rem'
-            }
+            },
+            itemList:[
+                {code:0,text:this.$t('dropmenu.home')},
+                {code:1,text:this.$t('dropmenu.mall')},
+                {code:2,text:this.$t('dropmenu.otc')},
+                {code:3,text:this.$t('dropmenu.pos')},
+                {code:4,text:this.$t('dropmenu.userCenter')},
+            ]
         }
     },
     methods:{
         //回退
         backHandel(){
-            console.log('回退');
             this.$router.go(-1);
+        },
+        clickItem(){
+            console.log('执行了');
         }
     }
 }
