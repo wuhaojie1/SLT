@@ -106,6 +106,13 @@ const routes = [
         component: () =>
             import ('../views/mobile/shop/shoppingCart.vue')
     },
+    //移动端商城
+    {
+        path: '/Mmall',
+        name: 'Mmall',
+        component: () =>
+            import ('../views/mobile/mall/mall.vue')
+    },
     {
         path:'/treasurelog',
         name:'treasurelog',
