@@ -851,7 +851,7 @@ export default {
                     img: `${require('../../static/img/index/team_iimeunji-400x400.png')}`,
                 },
 
-                
+
                 {
                     name: "Choi kyoungyong",
                     position: "Marketing, Former Director of Altwell",
@@ -1016,7 +1016,7 @@ export default {
                 },
                 legend: {
                     orient: 'vertical',
-                    left: '450rem',
+                    left: '350rem',
                     top: 'center',
                     textStyle: {
                         color: '#ffffff',
