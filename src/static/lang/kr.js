@@ -4,7 +4,7 @@ export default {
         title: '계정설정',
         tabArray: ['개인정보', '신분인증', '배송주소', '개인자산', '재무기록']
     },
-    
+
     //个人资料
     userInfo: {
         basemsg: '기본정보',
@@ -63,7 +63,7 @@ export default {
         tredetype: '지불방식',
         moneycomes: '화폐원천',
         usermoney: '수수료료',
-        tableHeader:['코인 종류','수량','동결','사용가능','단가','총액','오프션']
+        tableHeader: ['코인 종류', '수량', '동결', '사용가능', '단가', '총액', '오프션']
 
     },
     //一键购买
@@ -141,7 +141,7 @@ export default {
         date:'발송 후 영업일 2-4일 후 배송 예정',
         num:'수량'
 
-        
+
     },
     //商品详细
     goodsdetails:{
@@ -545,5 +545,6 @@ export default {
         allread:'全部标为已读',
         details:'详情',
         reply:'回复'
+        noData: "暂无数据",
     }
 }
