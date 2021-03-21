@@ -65,7 +65,7 @@ export default {
 }
 </script>
 
-<style lang='less' scoped>
+<style lang='less'>
 .pageHeader{
     height: 88rem;
     background-color: #02031e;
@@ -94,5 +94,17 @@ export default {
         text-align: left;
 
     }
+    .dropdown{
+       
+    }
+}
+
+ /deep/.el-dropdown-menu{
+    color: #02031e;
+    background-color: #02031e !important;
+}
+
+.popper__arrow::after{
+    // background-color: red;
 }
 </style>
