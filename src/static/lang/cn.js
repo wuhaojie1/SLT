@@ -143,7 +143,10 @@ export default {
         place: '大荣交易所',
         wait: "待接单",
         heade: ['数量', '冻结', '总额'],
-        haddfee: '手续费'
+        haddfee: '手续费',
+        all: "全部方向的订单",
+        buy: "买入",
+        sell: "卖出",
     },
     //聊天
     chat: {
