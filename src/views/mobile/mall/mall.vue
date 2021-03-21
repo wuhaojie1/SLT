@@ -1,6 +1,8 @@
 <template>
     <div id="Mmall">
-        <Mheader :isShowRight="true"></Mheader>
+        <Mheader :isShowRight="true"
+                 :isHome="true"
+                 @clickCallback="clickCallback"></Mheader>
         <div class="banner">
             <img class="bannerimg" src="../../../static/img/shoppingMall/banner.png" alt="">
             <div class="text1">2021</div>
@@ -79,6 +81,14 @@
                     }
                 ]
             }
+        },
+        methods: {
+            clickCallback(item){
+                // console.log(item)
+                this.$router.push({
+                    name: item.name,
+                })
+            },
         }
     }
 </script>

@@ -1,22 +1,28 @@
 <template>
     <div class="user">
-        <PageHeader></PageHeader>
+        <PageHeader :isShowRight="true"
+                    :isHome="true"
+                    @clickCallback="clickCallback"></PageHeader>
         <div class="userBox">
             <div class="userHeader">
-                <span class="headerLeft">{{$t('userInfo.userCenter')}}</span>
+                <span class="headerLeft">{{ $t('userInfo.userCenter') }}</span>
                 <img style="width:24rem;height:14rem;" src="../../../static/img/user/arrowdown.png" alt="">
             </div>
-            <div class="infoTitle">{{$t('userInfo.basemsg')}}</div>
+            <div class="infoTitle">{{ $t('userInfo.basemsg') }}</div>
             <ul class="infoBox">
                 <li v-for="(item,index) in list" :key="item.text" class="infoItem">
-                    <div class="itemLeft">{{item.text}}</div>
-                    <div :style="'color:'+((index==2||index==5||index==6||index==7)?'#9AA5B5':'#444444')" class="itemCenter">{{item.val}}</div>
-                    <img v-if="item.isArrow" class="itemRight" style="width:12rem;height:20rem;" :src="require((index==6||index==7||index==5)?'../../../static/img/user/arrowgrey.png':'../../../static/img/user/arrowdart.png')" alt="">
+                    <div class="itemLeft">{{ item.text }}</div>
+                    <div :style="'color:'+((index==2||index==5||index==6||index==7)?'#9AA5B5':'#444444')"
+                         class="itemCenter">{{ item.val }}
+                    </div>
+                    <img v-if="item.isArrow" class="itemRight" style="width:12rem;height:20rem;"
+                         :src="require((index==6||index==7||index==5)?'../../../static/img/user/arrowgrey.png':'../../../static/img/user/arrowdart.png')"
+                         alt="">
                 </li>
             </ul>
-            <div class="saveBtn">{{$t('userInfo.save')}}</div>
+            <div class="saveBtn">{{ $t('userInfo.save') }}</div>
         </div>
-        
+
         <BottomBar></BottomBar>
         <!-- <Tabbar></Tabbar> -->
     </div>
@@ -27,34 +33,44 @@ import PageHeader from '../../../components/mobileComponents/comm/header.vue';
 import BottomBar from '../../../components/mobileComponents/user/bottomBar.vue';
 // import Tabbar from '../../../components/mobileComponents/tabbar/tabbar.vue';
 export default {
-    components:{
+    components: {
         PageHeader,
         BottomBar,
         // Tabbar
     },
-    data(){
-        return{
-            list:[
-                {text:this.$t('userInfo.userName'),val:'13028143776',isArrow:true},
-                {text:this.$t('userInfo.userID'),val:'JCJDVJDS',isArrow:false},
-                {text:this.$t('userInfo.truename'),val:'*王**.',isArrow:false},
-                {text:this.$t('userInfo.sex'),val:this.$t('userInfo.weman'),isArrow:true},
-                {text:this.$t('userInfo.birthday'),val:'1988.10.20',isArrow:true},
+    data() {
+        return {
+            list: [
+                {text: this.$t('userInfo.userName'), val: '13028143776', isArrow: true},
+                {text: this.$t('userInfo.userID'), val: 'JCJDVJDS', isArrow: false},
+                {text: this.$t('userInfo.truename'), val: '*王**.', isArrow: false},
+                {text: this.$t('userInfo.sex'), val: this.$t('userInfo.weman'), isArrow: true},
+                {text: this.$t('userInfo.birthday'), val: '1988.10.20', isArrow: true},
                 // {text:this.$t('userInfo.education'),val:this.$t('userInfo.pleaseSelect'),isArrow:true},
                 // {text:this.$t('userInfo.industry'),val:this.$t('userInfo.pleaseSelect'),isArrow:true},
-                {text:this.$t('userInfo.idnum'),val:this.$t('userInfo.pleaseInput'),isArrow:true}
+                {text: this.$t('userInfo.idnum'), val: this.$t('userInfo.pleaseInput'), isArrow: true}
             ]
         }
-    }
+    },
+    methods: {
+        clickCallback(item){
+            // console.log(item)
+            this.$router.push({
+                name: item.name,
+            })
+        },
+    },
 }
 </script>
 
 <style lang='less' scoped>
-.user{
+.user {
     text-align: left;
-    .userBox{
+
+    .userBox {
         height: calc(100vh - 88rem - 176rem);
-         .userHeader{
+
+        .userHeader {
             width: 750rem;
             height: 88rem;
             background: #FFFFFF;
@@ -65,7 +81,7 @@ export default {
             padding: 0rem 36rem;
             box-sizing: border-box;
 
-            .headerLeft{
+            .headerLeft {
                 width: 121rem;
                 height: 29rem;
                 font-size: 30rem;
@@ -76,7 +92,8 @@ export default {
 
             }
         }
-        .infoTitle{
+
+        .infoTitle {
             width: 129rem;
             height: 31rem;
             font-size: 32rem;
@@ -86,8 +103,9 @@ export default {
             padding: 40rem 0rem 40rem 36rem;
 
         }
-        .infoBox{
-            .infoItem{
+
+        .infoBox {
+            .infoItem {
                 display: flex;
                 justify-content: space-between;
                 padding: 34rem 34rem;
@@ -96,26 +114,32 @@ export default {
                 font-family: Source Han Sans CN;
                 font-weight: 400;
                 color: #444444;
-                .itemLeft{
+
+                .itemLeft {
 
                 }
-                .itemCenter{
+
+                .itemCenter {
                     flex-grow: 1;
                     text-align: right;
                 }
-                .itemRight{
+
+                .itemRight {
                     margin-left: 18rem;
                 }
             }
-            .infoItem:nth-child(5){
+
+            .infoItem:nth-child(5) {
                 padding-bottom: 60rem;
                 border-bottom: solid 15rem #F2F6FA;
             }
-            .infoItem:nth-child(6){
+
+            .infoItem:nth-child(6) {
                 padding-top: 60rem;
             }
         }
-        .saveBtn{
+
+        .saveBtn {
             width: 670rem;
             height: 88rem;
             background: #00B4FC;
@@ -130,6 +154,6 @@ export default {
 
         }
     }
-   
+
 }
 </style>

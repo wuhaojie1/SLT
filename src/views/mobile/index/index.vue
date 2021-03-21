@@ -4,7 +4,8 @@
                     <ThemeStickyHeader v-if="showSticky" class="ThemeStickyHeader"></ThemeStickyHeader>
                 </transition>-->
         <PageHeader :isShowRight="true"
-                    :isHome="true"></PageHeader>
+                    :isHome="true"
+                    @clickCallback="clickCallback"></PageHeader>
 
         <div class="index-content">
             <div class="index-content-wrap">
@@ -980,6 +981,12 @@ export default {
         this.myEcharts();
     },
     methods: {
+        clickCallback(item){
+            // console.log(item)
+            this.$router.push({
+                name: item.name,
+            })
+        },
         //监听滚动条事件
         handleScroll() {
             //获取设备高度
