@@ -379,5 +379,5 @@ export default {
         ],
         received:'到账数量'
 
-    }
+    },
 }

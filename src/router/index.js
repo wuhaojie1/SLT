@@ -332,6 +332,13 @@ const routes = [
         component: () =>
             import ('../views/mobile/login/login.vue')
     },
+    //移动端支付成功
+    {
+        path: '/Mpaysucceed',
+        name: 'Mpaysucceed',
+        component: () =>
+            import ('../views/mobile/paysucceed/paysucceed.vue')
+    }
 ]
 
 const router = new VueRouter({

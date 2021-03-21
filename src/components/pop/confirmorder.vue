@@ -3,23 +3,23 @@
         <div class="content">
             <div class="content-center">
                 <div class="text1-con">
-                    <div class="text1">确定购买</div>
+                    <div class="text1">{{this.$t('confirmorderpop.confirm')}}</div>
                     <img class="img" src="" alt="">
                 </div>
                 <div class="text2-con">
-                    <div class="text2">单价</div>
+                    <div class="text2">{{this.$t('confirmorderpop.charge')}}</div>
                     <div class="charge">326,231,263ETH</div>
                 </div>
                 <div class="text3-con">
-                    <div class="text3">数量</div>
+                    <div class="text3">{{this.$t('confirmorderpop.num')}}</div>
                     <div class="num">0.00001SLT</div>
                 </div>
                 <div class="text4-con">
-                    <div class="text4">总金额</div>
+                    <div class="text4">{{this.$t('confirmorderpop.all')}}</div>
                     <div class="all">10ETH</div>
                 </div>
                 <div class="text5-con">
-                    <div class="text5">收款方式</div>
+                    <div class="text5">{{this.$t('confirmorderpop.intype')}}</div>
                     <div class="in">
 <!--                        <img class="img5" src="" alt="">-->
                         <div class="text5-1">ETH</div>
@@ -27,8 +27,8 @@
                 </div>
                 <div class="line"></div>
                 <div class="towbutton">
-                    <div class="out">退出</div>
-                    <div class="confirm">确认下单</div>
+                    <div class="out">{{this.$t('confirmorderpop.out')}}</div>
+                    <div class="confirm">{{this.$t('confirmorderpop.gopay')}}</div>
                 </div>
             </div>
         </div>

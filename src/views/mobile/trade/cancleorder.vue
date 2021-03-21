@@ -3,72 +3,70 @@
         <div class="content">
             <div class="goback">
                 <img class="backimg" src="../../../static/img/buy/up.png" alt="">
-                <div class="backtext">返回</div>
+                <div class="backtext">{{this.$t('Mcancleorder.back')}}</div>
             </div>
             <div class="status">
                 <img class="colse" src="../../../static/img/buy/close.png" alt="">
-                <div class="status-text1">订单取消</div>
+                <div class="status-text1">{{this.$t('Mcancleorder.cancle')}}</div>
                 <div class="imgcon">
                     <img class="img" src="../../../static/img/buy/smallcolse.png" alt="">
                 </div>
-                <div class="colostrade">关闭接单</div>
+                <div class="colostrade">{{this.$t('Mcancleorder.close')}}</div>
             </div>
             <div class="tiptext">
 <!--                <span class="time">14:45</span>-->
-                <span class="texts">如有疑问请向客服申诉</span>
+                <span class="texts">{{this.$t('Mcancleorder.question')}}</span>
             </div>
             <div class="line1"></div>
             <div class="paytype">
-                <div class="paytext">支付方式</div>
+                <div class="paytext">{{this.$t('Mcancleorder.paytype')}}</div>
                 <div class="paycoin">
                     <img class="payimg" src="../../../static/img/buy/MSLT.png" alt="">
                     <div class="paycointext">ETH</div>
                 </div>
             </div>
             <div class="paydetails">
-                <div class="details-text">订单详情</div>
+                <div class="details-text">{{this.$t('Mcancleorder.orderdetails')}}</div>
                 <img class="detailsimg" src="../../../static/img/buy/downarrow.png" alt="">
             </div>
             <div class="orderitem">
-                <div class="orderitem-left">订单号</div>
+                <div class="orderitem-left">{{this.$t('Mcancleorder.ordernum')}}</div>
                 <div class="orderitem-right">2013256156156156</div>
             </div>
             <div class="orderitem">
-                <div class="orderitem-left">手续费</div>
+                <div class="orderitem-left">{{this.$t('Mcancleorder.usermoney')}}</div>
                 <div class="orderitem-right">0.001SLT</div>
             </div>
             <div class="orderitem">
-                <div class="orderitem-left">成交单价</div>
+                <div class="orderitem-left">{{this.$t('Mcancleorder.chaege')}}</div>
                 <div class="orderitem-right">100SLT</div>
             </div>
             <div class="orderitem">
-                <div class="orderitem-left">成交数量</div>
+                <div class="orderitem-left">{{this.$t('Mcancleorder.paynum')}}</div>
                 <div class="orderitem-right">1000</div>
             </div>
             <div class="line1"></div>
             <div class="orderitem">
-                <div class="orderitem-left">总金额</div>
+                <div class="orderitem-left">{{this.$t('Mcancleorder.allmoney')}}</div>
                 <div class="active">1000ETH</div>
             </div>
             <div class="reminds">
                 <div class="remind-item1">
                     <div class="dot"></div>
                     <div class="remind-text">
-                        若您已经转账，由于未确认付款系统自动取消订单，
-                        您可以在 聊天界面与对方进行沟通;
+                        {{this.$t('Mcancleorder.remindtext1')}}
                     </div>
                 </div>
                 <div class="remind-item2">
                     <div class="dot"></div>
                     <div class="remind-text">
-                        [主动取消]或[超时]自动取消3次，或恶意取消达-次，
-                        当天禁止 交易:由于卖家未提供有效收款方式导致订单取消，可向客服申 诉，重新判责
+                        {{this.$t('Mcancleorder.remindtext2')}}
                     </div>
                 </div>
                 <div class="remind-item3">
                     <div class="dot"></div>
                     <div class="remind-text">
-                        当月累计6次，自第7次开始，每取消1次，禁止交易2小时。
+                        {{this.$t('Mcancleorder.remindtext3')}}
                     </div>
                 </div>
             </div>
@@ -76,7 +74,7 @@
 <!--                <div class="cancle">取消订单</div>-->
 <!--                <div class="confirm">确认支付 45s</div>-->
 <!--            </div>-->
-            <div class="connect">向客服申诉</div>
+            <div class="connect">{{this.$t('Mcancleorder.connect')}}</div>
         </div>
     </div>
 </template>

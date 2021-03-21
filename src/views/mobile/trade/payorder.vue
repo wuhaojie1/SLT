@@ -3,79 +3,76 @@
         <div class="content">
             <div class="goback">
                 <img class="backimg" src="../../../static/img/buy/up.png" alt="">
-                <div class="backtext">返回</div>
+                <div class="backtext">{{this.$t('Mpayorder.back')}}</div>
             </div>
             <div class="status">
-                <div class="status-text1">待支付</div>
-                <div class="open">开启接单</div>
+                <div class="status-text1">{{this.$t('Mpayorder.beforepay')}}</div>
+                <div class="open">{{this.$t('Mpayorder.open')}}</div>
                 <img class="rightimg" src="../../../static/img/buy/open.png" alt="">
             </div>
             <div class="tiptext">
                 <span class="time">14:45</span>
-                <span class="texts">内未付款，将自动取消订单</span>
+                <span class="texts">{{this.$t('Mpayorder.cancle')}}</span>
             </div>
             <div class="line1"></div>
             <div class="paytype">
-                <div class="paytext">支付方式</div>
+                <div class="paytext">{{this.$t('Mpayorder.paytype')}}</div>
                 <div class="paycoin">
                     <img class="payimg" src="../../../static/img/buy/MSLT.png" alt="">
                     <div class="paycointext">ETH</div>
                 </div>
             </div>
             <div class="paydetails">
-                <div class="details-text">订单详情</div>
+                <div class="details-text">{{this.$t('Mpayorder.orderdetails')}}</div>
                 <img class="detailsimg" src="../../../static/img/buy/downarrow.png" alt="">
             </div>
             <div class="orderitem">
-                <div class="orderitem-left">订单号</div>
+                <div class="orderitem-left">{{this.$t('Mpayorder.ordernum')}}</div>
                 <div class="orderitem-right">2013256156156156</div>
             </div>
             <div class="orderitem">
-                <div class="orderitem-left">手续费</div>
+                <div class="orderitem-left">{{this.$t('Mpayorder.usermoney')}}</div>
                 <div class="orderitem-right">0.001SLT</div>
             </div>
             <div class="orderitem">
-                <div class="orderitem-left">成交单价</div>
+                <div class="orderitem-left">{{this.$t('Mpayorder.chaege')}}</div>
                 <div class="orderitem-right">100SLT</div>
             </div>
             <div class="orderitem">
-                <div class="orderitem-left">成交数量</div>
+                <div class="orderitem-left">{{this.$t('Mpayorder.paynum')}}</div>
                 <div class="orderitem-right">1000</div>
             </div>
             <div class="line1"></div>
             <div class="orderitem">
-                <div class="orderitem-left">总金额</div>
+                <div class="orderitem-left">{{this.$t('Mpayorder.allmoney')}}</div>
                 <div class="active">1000ETH</div>
             </div>
             <div class="reminds">
                 <div class="remind-item1">
                     <div class="dot"></div>
                     <div class="remind-text">
-                        请确保付款卡所属人与平台实名信息(王亚萍)一致，
-                        若不一致卖家有权不放币。
-                        请不要使用支付宝转银行卡等到账时间较长的 付款方式;
+                        {{this.$t('Mpayorder.confirmtext1')}}(name)
+                        {{this.$t('Mpayorder.confirmtext2')}}
                     </div>
                 </div>
                 <div class="remind-item2">
                     <div class="dot"></div>
                     <div class="remind-text">
-                        如果您已向卖家付款，请千万不要取消订单。
+                        {{this.$t('Mpayorder.remindtext1')}}
                     </div>
                 </div>
                 <div class="remind-item3">
                     <div class="dot"></div>
                     <div class="remind-text">
-                        您需要根据对方的收款方式通过微信/支付宝/银行卡等平台转账
-                        给对方，请认真核对对方的收款信息;转账时请勿备注任何信息，
-                        以免您的第三方账户被冻结;
+                        {{this.$t('Mpayorder.remindtext2')}}
                     </div>
                 </div>
             </div>
             <div class="buttons">
-                <div class="cancle">取消订单</div>
-                <div class="confirm">确认支付 45s</div>
+                <div class="cancle">{{this.$t('Mpayorder.cancleorder')}}</div>
+                <div class="confirm">{{this.$t('Mpayorder.confirmorder')}} 45s</div>
             </div>
-            <div class="connect">联系在线客服</div>
+            <div class="connect">{{this.$t('Mpayorder.connect')}}</div>
         </div>
     </div>
 </template>

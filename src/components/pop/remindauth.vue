@@ -2,13 +2,13 @@
     <div id="remindauth">
         <div class="content">
             <div class="center-con">
-                <div class="text1">请完成身份认证</div>
+                <div class="text1">{{this.$t('remindauth.goauth')}}</div>
 <!--                <img src="" alt="">-->
-                <div class="text2">保护资产安全，及时接受账户动态</div>
+                <div class="text2">{{this.$t('remindauth.remindtext1')}}</div>
                 <div class="line1"></div>
-                <div class="text3">个人身份认证</div>
+                <div class="text3">{{this.$t('remindauth.personauth')}}</div>
                 <div class="line2"></div>
-                <div class="button">认证</div>
+                <div class="button">{{this.$t('remindauth.auth')}}</div>
             </div>
         </div>
     </div>
