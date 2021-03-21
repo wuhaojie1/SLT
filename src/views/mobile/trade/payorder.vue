@@ -74,12 +74,39 @@
             </div>
             <div class="connect">{{this.$t('Mpayorder.connect')}}</div>
         </div>
+        <el-dialog :visible.sync="dialogVisible"
+                   width="680rem"
+                   :center="false"
+                   class="elDialogBox"
+                   :title="title"
+                   top="30vh">
+            <div class="tipText">
+                <div class="text">
+                    {{ $t('orderdetails.cancleTip') }}
+                </div>
+            </div>
+            <div class="btn">
+                <el-button
+                    @click="dialogVisible = false">不，谢谢</el-button>
+                <el-button type="primary"
+                           @click="cancleComfirm">确认取消</el-button>
+            </div>
+        </el-dialog>
     </div>
 </template>
 
 <script>
     export default {
-        name: "payorder"
+        name: "payorder",
+        data() {
+            return {
+                dialogVisible: true,
+                title: this.$t('orderdetails.title'),
+            }
+        },
+        methods: {
+
+        }
     }
 </script>
 
@@ -133,7 +160,7 @@
                 height: 32rem;
                 background: #E4F7FE;
                 opacity: 0.76;
-                border-radius: 4px;
+                border-radius: 4rem;
                 float: left;
                 margin-top: 7rem;
                 margin-left: 9rem;

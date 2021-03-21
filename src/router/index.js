@@ -6,6 +6,12 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
+        name: 'initIndex',
+        component: () =>
+            import ('../views/initPage/index.vue')
+    },
+    {
+        path: '/index',
         name: 'index',
         component: () =>
             import ('../views/index/index.vue')
@@ -332,6 +338,46 @@ const routes = [
         component: () =>
             import ('../views/mobile/login/login.vue')
     },
+
+    //移动端记录
+    {
+        path: '/Mrecord',
+        name: 'Mrecord',
+        component: () =>
+            import ('../views/mobile/record/record.vue'),
+        children: [
+            //移动端位置
+            {
+                path: 'Mposition',
+                name: 'Mposition',
+                component: () =>
+                    import ('../views/mobile/position/position.vue')
+            },
+            //移动端商品交易
+            {
+                path: 'MDeal',
+                name: 'MDeal',
+                component: () =>
+                    import ('../views/mobile/deal/deal.vue')
+            },
+            //财务记录
+            {
+                path: 'Mtopup',
+                name: 'Mtopup',
+                component: () =>
+                    import ('../views/mobile/topup/topup.vue')
+            },
+            //OTC
+            {
+                path: 'Motc',
+                name: 'MOTC',
+                component: () =>
+                    import ('../views/mobile/otc/otc.vue')
+            },
+        ]
+    },
+
+
     //移动端支付成功
     {
         path: '/Mpaysucceed',

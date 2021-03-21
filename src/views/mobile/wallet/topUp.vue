@@ -34,22 +34,41 @@
                     <div class="btc-text">
                         {{ selectedCoin.name }} <span>{{ selectedCoin.tip }}</span>
                     </div>
-                    <div class="coinList"
+                    <!--                    充币多币-->
+                    <!--                    <div class="coinList"
+                                             v-show="showCoins">
+                                            <div class="searchBox">
+                                                <img :src="searchImg" alt="" class="searchImg">
+                                                <input type="text" :placeholder="searchPlaceholder">
+                                            </div>
+                                            <div class="coinList-content">
+                                                <div class="coinList-content-list">
+                                                    <div class="coinList-content-item"
+                                                         v-for="item in coinKindList"
+                                                         :key="item.id"
+                                                         @click="selectCoin(item)">
+                                                        <div class="name">{{ item.name }}</div>
+                                                        <div class="tip">{{ item.tip }}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                    <!--                    订单下拉-->
+                    <div class="order"
                          v-show="showCoins">
-                        <div class="searchBox">
-                            <img :src="searchImg" alt="" class="searchImg">
-                            <input type="text" :placeholder="searchPlaceholder">
-                        </div>
-                        <div class="coinList-content">
-                            <div class="coinList-content-list">
-                                <div class="coinList-content-item"
-                                     v-for="item in coinKindList"
-                                     :key="item.id"
-                                     @click="selectCoin(item)">
-                                    <div class="name">{{ item.name }}</div>
-                                    <div class="tip">{{ item.tip }}</div>
-                                </div>
+                        <div class="order-content">
+                            <div class="order-content-item"
+                                 v-for="(item,index) in orderList"
+                                 :key="index"
+                                 @click="chooseOrder(item)">
+                                {{ item.text }}
                             </div>
+                            <!--                            <div class="order-content-item">
+                                                            买入
+                                                        </div>
+                                                        <div class="order-content-item">
+                                                            卖出
+                                                        </div>-->
                         </div>
                     </div>
                 </div>
@@ -229,7 +248,20 @@ export default {
                     tip: "VEN",
                 },
             ],
-            searchPlaceholder: this.$t(''),
+            orderList: [
+                {
+                    text: "全部方向的订单",
+                },
+                {
+                    text: "买入",
+                },
+                {
+                    text: "卖出",
+                },
+            ],
+            chooseOrderItem:{
+                text: "全部方向的订单",
+            },
             config: {
                 value: 'TFBpBaswdZnyZewS9zTimjtGpb11rhhLx',//显示的值、跳转的地址
                 // imagePath: require('../assets/logo.png')//中间logo的地址，require必要
@@ -251,6 +283,9 @@ export default {
         },
         selectCoin(item) {
             this.selectedCoin = item
+        },
+        chooseOrder(item){
+            this.chooseOrderItem = item
         }
     }
 }
@@ -405,13 +440,44 @@ export default {
                                 }
                             }
 
-                            .coinList-content-item:hover .coinList-content-item.active {
+                            .coinList-content-item:hover .coinList-content-item:active {
                                 background: #F2F6FA;
 
                                 .name {
                                     color: #00B4FC;
                                 }
                             }
+                        }
+                    }
+                }
+
+                .order {
+                    width: 680rem;
+                    height: 236rem;
+                    background: #FFFFFF;
+                    border: 1rem solid #E4E7ED;
+                    box-shadow: 0rem 5rem 25rem 0rem rgba(153, 153, 153, 0.25);
+                    box-sizing: border-box;
+                    padding: 10rem 0;
+                    position: absolute;
+                    top: 68rem;
+                    z-index: 5;
+
+                    .order-content {
+                        .order-content-item {
+                            text-align: left;
+                            font-size: 28rem;
+                            font-weight: 400;
+                            color: #444444;
+                            width: 680rem;
+                            height: 72rem;
+                            line-height: 72rem;
+                            box-sizing: border-box;
+                            padding-left: 36rem;
+                        }
+
+                        .order-content-item:active {
+                            background: #F2F6FA;
                         }
                     }
                 }
