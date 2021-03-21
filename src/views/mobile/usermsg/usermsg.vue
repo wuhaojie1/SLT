@@ -1,6 +1,6 @@
 <template>
     <div id="usermsg">
-        <Mheader></Mheader>
+        <PageHeader :isShowRight="true"></PageHeader>
         <div class="msg-con">
             <div class="base-user-msg-con">
                 <div class="user-img"></div>
@@ -19,10 +19,11 @@
 </template>
 
 <script>
-    import Mheader from "../../../components/header/Mheader";
+    // import Mheader from "../../../components/header/Mheader";
+    import PageHeader from "@/components/mobileComponents/comm/header";
     export default {
         name: "usermsg",
-        components:{Mheader},
+        components:{PageHeader},
         data(){
             return{
                 usermsgarr:[

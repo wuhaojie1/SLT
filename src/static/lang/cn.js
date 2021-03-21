@@ -486,5 +486,178 @@ export default {
         合约狂欢节活动，即可参与瓜分1000
         USDT奖励。`,
         iknow: '我知道了'
-    }
+    },
+    //----------------------------------------------------------------------------------
+
+    //移动提现
+    Mwithdraw: {
+        withdrawText: "提现",
+        btcText1: "BTC",
+        btcText2: "Bitcoin",
+        name: "链名称",
+        addr: "提币地址",
+        wNumber: "提币数量",
+        btnBoxText: "SLT",
+        all: "全部",
+        fee: "手续费:",
+        BTCNumber: "到账数量（BTC）",
+        title: "提币提醒",
+        btn: "确认",
+        tipText1: "您的提币操作-旦完成， 对应的资产所有权将由您变更为目标地址所对应的账户所有人享有，请您务必在提币操作前，仔细核对提币地址信息，确保提币属于自愿行为，并确认不涉及任何传销、非法集资、诈骗等违法情形，谨防上当受骗，避免造成不必要的财产损失。",
+        tipText2: ".最小提币数量为: 0.001 BTC.",
+        tipText3: ".为保障资金安全，当您账户安全策略变更、密码修改、我们会对提币进行人工审核，请耐心等待工作人员电话或邮件联系。",
+        tipText4: ".请务必确认电脑及浏览器安全，防止信息被篆改或泄露。",
+        toolTip: "下次不再提醒",
+        primary: "确定",
+        decal: "《免责声明》",
+        tipText: "您选择的网络是SLT币生态链Heco网络,确保您的提币地址支持Heco网络hrc20代币标准。如果对方平台不支持,您的资产将会丢失。同时提醍您因Heco去中心化特性,Huobi Global特向您提醒使用第三方DAPP存在风险。请仔细阅读",
+        book: "您只能向此地址充入SLT，其他资产充入SLT地址将无法找回。",
+    },
+    //移动充币
+    MtopUp: {
+        withdrawText: "充币",
+        btcText1: "BTC",
+        btcText2: "Bitcoin",
+        name: "链名称",
+        addr: "冲币地址",
+        wNumber: "冲币数量",
+        copyAddr: "复制地址",
+        btnBoxText: "SLT",
+        all: "全部",
+        fee: "手续费:",
+        searchPlaceholder: "搜索币种",
+        BTCNumber: "到账数量（BTC）",
+        btn: "确认",
+        tipText1: "使用USDT-TRC20地址充值需要1个网络确认才能到账，1个网络确认后才能提币。",
+        tipText2: ".最小提币数量为: 0.001 BTC.",
+        tipText3: ".为保障资金安全，当您账户安全策略变更、密码修改、我们会对提币进行人工审核，请耐心等待工作人员电话或邮件联系。",
+        tipText4: ".请务必确认电脑及浏览器安全，防止信息被篆改或泄露。",
+        toolTip: "不再提醒",
+        primary: "我已知晓",
+        tipText: "此地址只能充入SLT",
+        book: "您只能向此地址充入SLT，其他资产充入SLT地址将无法找回。",
+    },
+    positionRecord: {
+        detail: "查看详情",
+        time: "时间",
+        type: "类型",
+        number: "数量",
+        price: "单价",
+        noData: "暂无数据"
+    },
+    //移动端支付成功
+    Mpaysucceed:{
+        succeed:'支付成功',
+        thanks:'感谢您的购买',
+        ordernum:'订单号',
+        paytype:'支付方式',
+        usermoney:'手续费',
+        chaege:'成交单价',
+        paynum:'成交数量',
+        look:'查看订单',
+        backindex:'返回首页'
+    },
+    //移动端确认订单
+    Mpayorder:{
+        back:'返回',
+        beforepay:'待支付',
+        open:'开启接单',
+        cancle:'内未付款，将自动取消订单',
+        paytype:'支付方式',
+        orderdetails:'订单详情',
+        ordernum:'订单号',
+        usermoney:'手续费',
+        chaege:'成交单价',
+        paynum:'成交数量',
+        allmoney:'总金额',
+        confirmtext1:'请确保付款卡所属人与平台实名信息',
+        confirmtext2:'一致，若不一致卖家有权不放币。请不要使用支付宝转银行卡等到账时间较长的付款方式;',
+        remindtext1:'如果您已向卖家付款，请千万不要取消订单。',
+        remindtext2:'您需要根据对方的收款方式通过微信/支付宝/银行卡等平台转账给对方，请认真核对对方的收款信息;转账时请勿备注任何信息，以免您的第三方账户被冻结;',
+        cancleorder:'取消订单',
+        confirmorder:'确认支付 ',
+        connect:'联系在线客服'
+    },
+    //移动端取消订单
+    Mcancleorder:{
+        back:'返回',
+        cancle:'取消订单',
+        close:'关闭接单',
+        question:'如有疑问请向客服申诉',
+        paytype:'支付方式',
+        orderdetails:'订单详情',
+        ordernum:'订单号',
+        usermoney:'手续费',
+        chaege:'成交单价',
+        paynum:'成交数量',
+        allmoney:'总金额',
+        remindtext1:'若您已经转账，由于未确认付款系统自动取消订单，您可以在聊天界面与对方进行沟通;',
+        remindtext2:'[主动取消]或[超时]自动取消3次，或恶意取消达-次，当天禁止 交易:由于卖家未提供有效收款方式导致订单取消，可向客服申 诉，重新判责',
+        remindtext3:'当月累计6次，自第7次开始，每取消1次，禁止交易2小时。',
+        connect:'向客服申诉'
+    },
+    //移动端确认订单弹窗
+    confirmorderpop:{
+        confirm:'确认购买',
+        charge:'单价',
+        num:'数量',
+        all:'总金额',
+        intype:'收款方式',
+        out:'退出',
+        gopay:'确认下单'
+    },
+    //移动端提醒认证弹窗
+    remindauth:{
+        goauth:'请完成身份认证',
+        remindtext1:'保护资产安全，及时接受账户动态',
+        personauth:'个人身份认证',
+        auth:'认证'
+    },
+    //移动端一键买卖
+    Mbuy:{
+        choose:'自选交易',
+        trade:'一键买卖',
+        value:'价值约',
+        willpay:'我将支付',
+        canuse:'可用资金',
+        willgain:'我将获得',
+        paytype:'支付方式',
+        buy:'购买',
+        willseal:'我将出售',
+        seal:'出售'
+    },
+    //移动端自选交易
+    Mtrade:{
+        buy:'购买',
+        seal:'出售',
+        num:'数量',
+        charge:'单价',
+        limit:'限额'
+    },
+    //移动端我的
+    usermsg:{
+        personcenter:'个人中心',
+        auth:'身份认证',
+        order:'订单',
+        localtionn:'位置',
+        address:'收货地址',
+        log:'财务记录',
+        out:'退出'
+    },
+    //移动端消息列表
+    msglist:{
+        msglist:'消息列表',
+        hidden:'隐藏已读',
+        allread:'全部标为已读',
+        details:'详情',
+        reply:'回复',
+        noData: "暂无数据",
+    },
+    TopUp: {
+        topUp: "充币记录",
+        withdraw: "提币记录",
+        OTC: "OTC交易记录",
+        position: "位置购买记录",
+        deal: "商品交易记录",
+    },
 }
