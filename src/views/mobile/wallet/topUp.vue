@@ -5,7 +5,7 @@
             <img :src="userIcon" alt="" class="userIcon">
         </div>
         <div class="header-title">
-            <div class="text">充币</div>
+            <div class="text">{{ $t('MtopUp.withdrawText') }}</div>
         </div>
         <!--<ThemeStickyHeader></ThemeStickyHeader>-->
         <div class="topUp-wrap">
@@ -54,12 +54,12 @@
                         <img :src="down" alt="">
                     </div>
                     <div class="btc-text">
-                        BTC <span>Bitcoin</span>
+                        {{ $t('MtopUp.btcText1') }} <span>{{ $t('MtopUp.btcText2') }}</span>
                     </div>
                 </div>
                 <div class="topUp-content-wrap">
                     <div class="topUp-content-wrap-title">
-                        链名称
+                        {{ $t('MtopUp.name') }}
                     </div>
                     <div class="linkList">
                         <div class="linkList-item"
@@ -74,7 +74,7 @@
 
                     <div class="withdraw-addr">
                         <div class="withdraw-addr-title">
-                            <div class="text">提币地址</div>
+                            <div class="text">{{ $t('MtopUp.addr') }}</div>
 <!--                            <div class="text">推荐使用<span>SLT</span>钱包 提币BTC</div>-->
                         </div>
                         <div class="withdraw-input">
@@ -82,11 +82,11 @@
                         </div>
                     </div>
                     <div class="addr-content">
-                        <div class="addrSLT">SLT</div>
+                        <div class="addrSLT">{{ $t('MtopUp.btnBoxText') }}</div>
                         <div class="text">TFBpBaswdZnyZewS9zTimjt</div>
                     </div>
                     <div class="copy">
-                        复制地址
+                        {{ $t('MtopUp.copyAddr') }}
                     </div>
                     <div class="QRCode">
                         <VueQr :text="config.value"
@@ -98,21 +98,22 @@
                     <div class="tip">
                         <img :src="tip" alt="" class="img">
                         <div class="text">
-                            使用USDT-TRC20地址充值需要1个网络确认才能到账，1个
-                            网络确认后才能提币。
+                            {{$t('MtopUp.tipText1')}}
                         </div>
                     </div>
                     <div class="btn" @click="openTip">
-                        确认
+                        {{ $t('MtopUp.btn') }}
                     </div>
 
                     <div class="tipText">
                         <ul>
-                            <li>.最小提币数量为: 0.001 BTC.</li>
-                            <li>.为保障资金安全，当您账户安全策略变更、密码修改、我们会
-                                对提币进行人工审核，请耐心等待工作人员电话或邮件联系。
+                            <li>
+                                {{ $t('MtopUp.tipText2') }}
                             </li>
-                            <li>.请务必确认电脑及浏览器安全，防止信息被篆改或泄露。</li>
+                            <li>
+                                {{ $t('MtopUp.tipText3') }}
+                            </li>
+                            <li>{{ $t('MtopUp.tipText4') }}</li>
                         </ul>
                     </div>
                 </div>
@@ -130,22 +131,22 @@
                         <img :src="tipImg" alt="" class="tipImg">
                     </div>
                     <div class="text">
-                        {{ $t('Mwithdraw.tipText') }}
+                        {{ $t('MtopUp.tipText') }}
                     </div>
 
                 </div>
 
                 <div class="text">
-                    {{ $t('Mwithdraw.book') }}
+                    {{ $t('MtopUp.book') }}
                 </div>
             </div>
             <div class="toolTip">
-                <input type="checkBox"><span> {{ $t('Mwithdraw').toolTip }}</span>
+                <input type="checkBox"><span> {{ $t('MtopUp').toolTip }}</span>
             </div>
             <div class="btn">
                 <el-button type="primary"
                            class="el-btn"
-                           @click="comfirm"> {{ $t('Mwithdraw').primary }}
+                           @click="comfirm"> {{ $t('MtopUp').primary }}
                 </el-button>
             </div>
         </el-dialog>

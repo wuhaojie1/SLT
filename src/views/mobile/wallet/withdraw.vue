@@ -109,7 +109,7 @@
                     </div>
                     <div class="fee">
                         {{ $t('Mwithdraw.fee') }}
-                         <span>30%</span>
+                        <span>30%</span>
                     </div>
                     <div class="number">
                         {{ $t('Mwithdraw.BTCNumber') }}
@@ -146,23 +146,18 @@
             </div>
         </div>
         <!--        <Bottom></Bottom>-->
-<!--        <el-dialog :visible.sync="dialogVisible"
+        <el-dialog :visible.sync="dialogVisible"
                    width="680rem"
                    :center="false"
+                   :title="title"
                    class="elDialogBox"
                    top="30vh">
             <div class="tipText">
                 <div class="title">
-                    <div class="img">
-                        <img :src="tipImg" alt="" class="tipImg">
-                    </div>
                     <div class="text">
                         {{ $t('Mwithdraw.tipText') }}
+                        <span>{{ $t('Mwithdraw.decal') }}</span>
                     </div>
-                </div>
-
-                <div class="text">
-                    {{ $t('Mwithdraw.book') }}
                 </div>
             </div>
             <div class="toolTip">
@@ -170,10 +165,11 @@
             </div>
             <div class="btn">
                 <el-button type="primary"
+                           class="elBtn"
                            @click="cancleComfirm"> {{ $t('Mwithdraw').primary }}
                 </el-button>
             </div>
-        </el-dialog>-->
+        </el-dialog>
     </div>
 </template>
 
@@ -193,6 +189,7 @@ export default {
             tip: `${require('@/static/img/login/tip.png')}`,
             userIcon: `${require('@/static/img/index/userIcon.png')}`,
             coinIndex: 0,
+            title: this.$t('Mwithdraw.title'),
             tipImg: `${require('@/static/img/wallet/hint.png')}`,
             // title: this.$t('Mwithdraw'),
             coinList: [
@@ -568,6 +565,45 @@ export default {
     .elDialogBox {
         text-align: left;
 
+        .tipText {
+            .title {
+                .text {
+                    font-size: 28rem;
+                    font-weight: 400;
+                    color: #666666;
+                    line-height: 42rem;
+
+                    span {
+                        color: #00B9FE;
+                    }
+                }
+            }
+        }
+
+        .toolTip {
+            margin-top: 30rem;
+            display: flex;
+            align-items: center;
+
+            input {
+
+            }
+
+            span {
+                margin-left: 13rem;
+            }
+        }
+
+        .btn {
+            text-align: right;
+            margin-top: 30rem;
+
+            .elBtn {
+                text-align: center;
+                width: 160rem;
+                height: 88rem;
+            }
+        }
     }
 
     /*.topUp-wrap {
@@ -1113,5 +1149,10 @@ export default {
             }
         }
     }*/
+}
+</style>
+<style>
+.elDialogBox .el-dialog__body {
+    padding: 30rem 35rem;
 }
 </style>
