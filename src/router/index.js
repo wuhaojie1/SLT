@@ -98,20 +98,6 @@ const routes = [{
         component: () =>
             import ('../views/shop/shoppingCart.vue')
     },
-    //移动端购物车
-    {
-        path: '/MshoppingCart',
-        name: 'MshoppingCart',
-        component: () =>
-            import ('../views/mobile/shop/shoppingCart.vue')
-    },
-    //移动端商城
-    {
-        path: '/Mmall',
-        name: 'Mmall',
-        component: () =>
-            import ('../views/mobile/mall/mall.vue')
-    },
     {
         path: '/treasurelog',
         name: 'treasurelog',
@@ -161,34 +147,7 @@ const routes = [{
             },
         ]
     },
-    //移动端个人中心
-    {
-        path: '/Muser',
-        name: 'Muser',
-        component: () =>
-            import ('../views/mobile/user/user.vue')
-    },
-    //移动端收货地址
-    {
-        path: '/MuserAddress',
-        name: 'MuserAddress',
-        component: () =>
-            import ('../views/mobile/user/userAddress.vue')
-    },
-    //移动端身份认证
-    {
-        path: '/MuserAuth',
-        name: 'MuserAuth',
-        component: () =>
-            import ('../views/mobile/user/userAuth.vue')
-    },
-    //移动端个人资产
-    {
-        path: '/MuserAccount',
-        name: 'MuserAccount',
-        component: () =>
-            import ('../views/mobile/user/userAccount.vue')
-    },
+
     //消息
     {
         path: '/message',
@@ -204,20 +163,6 @@ const routes = [{
             import ('../views/order/order.vue')
 
     },
-    //移动端订单
-    {
-        path: '/Morder',
-        name: 'Morder',
-        component: () =>
-            import ('../views/mobile/order/order.vue')
-    },
-    //移动端待接单
-    {
-        path: '/MwaitOrder',
-        name: 'MwaitOrder',
-        component: () =>
-            import ('../views/mobile/order/waitOrder.vue')
-    },
     //充值
     {
         path: '/topUp',
@@ -231,13 +176,6 @@ const routes = [{
         name: 'withdraw',
         component: () =>
             import ('../views/wallet/withdraw.vue')
-    },
-    //移动端提现
-    {
-        path: '/Mwithdraw',
-        name: 'Mwithdraw',
-        component: () =>
-            import ('../views/mobile/wallet/withdraw.vue')
     },
     //商品详情
     {
@@ -282,6 +220,57 @@ const routes = [{
         component: () =>
             import ('../views/paymentSuccess/paymentSuccess.vue')
     },
+
+    // ===================================================
+    //移动端个人中心
+    {
+        path: '/Muser',
+        name: 'Muser',
+        component: () =>
+            import ('../views/mobile/user/user.vue')
+    },
+    //移动端订单
+    {
+        path: '/Morder',
+        name: 'Morder',
+        component: () =>
+            import ('../views/mobile/order/order.vue')
+    },
+    //移动端购物车
+    {
+        path: '/MshoppingCart',
+        name: 'MshoppingCart',
+        component: () =>
+            import ('../views/mobile/shop/shoppingCart.vue')
+    },
+    //移动端商城
+    {
+        path: '/Mmall',
+        name: 'Mmall',
+        component: () =>
+            import ('../views/mobile/mall/mall.vue')
+    },
+    //移动端收货地址
+    {
+        path: '/MuserAddress',
+        name: 'MuserAddress',
+        component: () =>
+            import ('../views/mobile/user/userAddress.vue')
+    },
+    //移动端身份认证
+    {
+        path: '/MuserAuth',
+        name: 'MuserAuth',
+        component: () =>
+            import ('../views/mobile/user/userAuth.vue')
+    },
+    //移动端个人资产
+    {
+        path: '/MuserAccount',
+        name: 'MuserAccount',
+        component: () =>
+            import ('../views/mobile/user/userAccount.vue')
+    },
     //移动端充值
     {
         path: '/MtopUp',
@@ -295,6 +284,13 @@ const routes = [{
         name: 'Mwithdraw',
         component: () =>
             import ('../views/mobile/wallet/withdraw.vue')
+    },
+    //移动端待接单
+    {
+        path: '/MwaitOrder',
+        name: 'MwaitOrder',
+        component: () =>
+            import ('../views/mobile/order/waitOrder.vue')
     },
     //移动端买卖
     {
@@ -418,7 +414,13 @@ const routes = [{
             },
         ]
     },
-
+    //移动端提现
+        {
+            path: '/Mwithdraw',
+            name: 'Mwithdraw',
+            component: () =>
+                import ('../views/mobile/wallet/withdraw.vue')
+        },
 
     //移动端支付成功
     {
