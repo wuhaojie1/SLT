@@ -84,7 +84,7 @@ export default {
     },
     //订单详情
     orderdetails: {
-        status: ['미지급', '거래완료', '거래실패'],
+        status:['미지급','거래완료','거래실패'],
         waitpay: '미지급',
         opentrade: '수주열기',
         cancleorderauto: '내불금 미결제, 자동 주문취소',
@@ -559,5 +559,5 @@ export default {
         OTC: "OTC交易记录",
         position: "位置购买记录",
         deal: "商品交易记录",
-    }
+    },
 }

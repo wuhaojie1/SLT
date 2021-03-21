@@ -24,6 +24,7 @@
 
 <script>
 export default {
+    name: "pageHeader",
     props:{
         //是否显示右侧图标
         isShowRight:{
