@@ -1,38 +1,40 @@
 <template>
     <div class="index">
-<!--        <transition name="slide-fade-Y">
-            <ThemeStickyHeader v-if="showSticky" class="ThemeStickyHeader"></ThemeStickyHeader>
-        </transition>-->
+        <!--        <transition name="slide-fade-Y">
+                    <ThemeStickyHeader v-if="showSticky" class="ThemeStickyHeader"></ThemeStickyHeader>
+                </transition>-->
+        <PageHeader :isShowRight="true"
+                    :isHome="true"></PageHeader>
 
         <div class="index-content">
             <div class="index-content-wrap">
                 <div class="section1" :style="{ 'backgroundImage':'url('+ urlIcon +')' }">
                     <!-- <div class="site-header"> -->
-                        <!-- <div class="site-header-list">
-                            <div class="site-header-item-img">
-                                <img :src="SLT_white" alt="" class="SLT_white_logo">
+                    <!-- <div class="site-header-list">
+                        <div class="site-header-item-img">
+                            <img :src="SLT_white" alt="" class="SLT_white_logo">
+                        </div>
+                        <div class="site-header-text-list">
+                            <div class="site-header-item">
+                                <div class="text">INTRO</div>
                             </div>
-                            <div class="site-header-text-list">
-                                <div class="site-header-item">
-                                    <div class="text">INTRO</div>
-                                </div>
-                                <div class="site-header-item">
-                                    <div class="text">ABOUT</div>
-                                </div>
-                                <div class="site-header-item">
-                                    <div class="text">SLT BENEFITS</div>
-                                </div>
-                                <div class="site-header-item">
-                                    <div class="text">ICO FACTS</div>
-                                </div>
-                                <div class="site-header-item">
-                                    <div class="text">TEAM</div>
-                                </div>
-                                <div class="site-header-item">
-                                    <div class="text">ROADMAP</div>
-                                </div>
+                            <div class="site-header-item">
+                                <div class="text">ABOUT</div>
                             </div>
-                        </div> -->
+                            <div class="site-header-item">
+                                <div class="text">SLT BENEFITS</div>
+                            </div>
+                            <div class="site-header-item">
+                                <div class="text">ICO FACTS</div>
+                            </div>
+                            <div class="site-header-item">
+                                <div class="text">TEAM</div>
+                            </div>
+                            <div class="site-header-item">
+                                <div class="text">ROADMAP</div>
+                            </div>
+                        </div>
+                    </div> -->
                     <!-- </div> -->
                     <div class="section1-content">
                         <!-- <div class="wpb-wrapper">
@@ -45,24 +47,24 @@
                             <div class="content">
                                 {{ $t('index').detail }}
                             </div> -->
-                            <!-- <div class="btn">
-                                <div class="left">
-                                    {{ $t('index').whitBook }}
-                                </div>
-                                <div class="right">
-                                    <img src="@/static/img/index/pause.png" alt="" class="right-img">
-                                    <h4>{{ $t('index').whitBookT }}</h4>
-                                </div>
-                            </div> -->
-                            <!-- <div class="videoBox">
-                                 <video-player  class="video-player vjs-custom-skin"
-                                ref="videoPlayer"
-                                :playsinline="true"
-                                :options="playerOptions"
-                            ></video-player>
-                            </div> -->
+                        <!-- <div class="btn">
+                            <div class="left">
+                                {{ $t('index').whitBook }}
+                            </div>
+                            <div class="right">
+                                <img src="@/static/img/index/pause.png" alt="" class="right-img">
+                                <h4>{{ $t('index').whitBookT }}</h4>
+                            </div>
+                        </div> -->
+                        <!-- <div class="videoBox">
+                             <video-player  class="video-player vjs-custom-skin"
+                            ref="videoPlayer"
+                            :playsinline="true"
+                            :options="playerOptions"
+                        ></video-player>
+                        </div> -->
                         <!-- </div> -->
-                       <div class="ico">
+                        <div class="ico">
                             <div class="ico-content">
                                 <div class="ico-content-title">
                                     {{ $t('index').Ends }}
@@ -165,7 +167,8 @@
                             <div class="section3-item-right">
                                 <div class="section3-item-box">
                                     <div class="img">
-                                        <img src="@/static/img/index/application.png" alt="" class="section3-item-box-img">
+                                        <img src="@/static/img/index/application.png" alt=""
+                                             class="section3-item-box-img">
                                     </div>
                                     <div class="text">
                                         <div class="title">
@@ -247,11 +250,11 @@
                                                 {{ $t('index').aboutQuestion }}
                                             </div>
                                         </div>
-                                            <div class="hidden-box" v-show="box1">
-                                                <div class="hidden-box-item">
-                                                    {{ $t('index').search }}
-                                                </div>
+                                        <div class="hidden-box" v-show="box1">
+                                            <div class="hidden-box-item">
+                                                {{ $t('index').search }}
                                             </div>
+                                        </div>
 
                                     </div>
                                     <div class="quesgtionBox-item2">
@@ -262,14 +265,14 @@
                                                 {{ $t('index').aboutQuestion }}
                                             </div>
                                         </div>
-                                            <div class="hidden-box" v-show="box2">
-                                                <div class="hidden-box-item">
-                                                    {{ $t('index').connect }}
-                                                </div>
-                                                <div class="hidden-box-item">
-                                                    {{ $t('index').teamEmail }}
-                                                </div>
+                                        <div class="hidden-box" v-show="box2">
+                                            <div class="hidden-box-item">
+                                                {{ $t('index').connect }}
                                             </div>
+                                            <div class="hidden-box-item">
+                                                {{ $t('index').teamEmail }}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -701,7 +704,9 @@
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div class="timeline-badge "
-                                     style="background-color:#1e73be">{{ $t('index').Mar }}<span>{{ $t('index').year1 }}</span>
+                                     style="background-color:#1e73be">{{ $t('index').Mar }}<span>{{
+                                        $t('index').year1
+                                    }}</span>
                                     <div class=" " style="background-color:#1e73be"></div>
                                 </div>
                                 <div class="timeline-panel">
@@ -711,7 +716,9 @@
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-badge "
-                                     style="background-color:#81d742">{{ $t('index').May }}<span>{{ $t('index').year1 }}</span>
+                                     style="background-color:#81d742">{{ $t('index').May }}<span>{{
+                                        $t('index').year1
+                                    }}</span>
                                     <div class=" " style="background-color:#81d742"></div>
                                 </div>
                                 <div class="timeline-panel">
@@ -720,7 +727,9 @@
                                 </div>
                             </div>
                             <div class="timeline-item">
-                                <div class="timeline-badge " style="background-color:#eeee22">{{ $t('index').Jun }}<span>{{ $t('index').year1 }}</span>
+                                <div class="timeline-badge " style="background-color:#eeee22">{{
+                                        $t('index').Jun
+                                    }}<span>{{ $t('index').year1 }}</span>
                                     <div class=" " style="background-color:#eeee22"></div>
                                 </div>
                                 <div class="timeline-panel">
@@ -741,7 +750,9 @@
                                 </div>
                             </div>
                             <div class="timeline-item">
-                                <div class="timeline-badge " style="background-color:#faa732">{{ $t('index').Mar }}<span>{{ $t('index').year2 }}</span>
+                                <div class="timeline-badge " style="background-color:#faa732">{{
+                                        $t('index').Mar
+                                    }}<span>{{ $t('index').year2 }}</span>
                                     <div class=" " style="background-color:#faa732"></div>
                                 </div>
                                 <div class="timeline-panel">
@@ -755,8 +766,10 @@
                 <div class="section11" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
                     <div class="section11-wrap">
                         <div class="url">
-                            <div class="url-content">{{ $t('index').net1[0] }}<span>{{ $t('index').net1[1] }}</span></div>
-                            <div class="url-content">{{ $t('index').net2[0] }}<span>{{ $t('index').net2[1] }}</span></div>
+                            <div class="url-content">{{ $t('index').net1[0] }}<span>{{ $t('index').net1[1] }}</span>
+                            </div>
+                            <div class="url-content">{{ $t('index').net2[0] }}<span>{{ $t('index').net2[1] }}</span>
+                            </div>
                             <div class="url-content email">{{ $t('index').net3[0] }}</div>
                         </div>
                         <div class="logo-icon">
@@ -778,11 +791,12 @@
 import TimeCard from "@/components/index/mTimeCard";
 // import ThemeStickyHeader from "@/components/header/themeStickyHeader";
 import MemberCard from "@/components/index/memberCard";
+import PageHeader from "@/components/mobileComponents/comm/header";
 
 export default {
     name: "index",
     // components: {MemberCard, TimeCard, TopBar},
-    components: { TimeCard,MemberCard},
+    components: {PageHeader, TimeCard, MemberCard},
     data() {
         return {
             SLT_white: `${require('@/static/img/index/SLT_white.png')}`,
@@ -834,7 +848,7 @@ export default {
                     img: `${require('@/static/img/index/team_iimeunji-400x400.png')}`,
                 },
 
-                
+
                 {
                     name: "Choi kyoungyong",
                     position: "Marketing, Former Director of Altwell",
@@ -847,24 +861,23 @@ export default {
                 },
 
 
-                
                 // {
                 //     name: "Yu seungjun",
                 //     position: "Strategic Planning, Executive Direct of Energy Korea",
                 //     img: `${require('@/static/img/index/team_yusj-400x400.png')}`,
                 // },
-                
+
 
                 {
                     name: "Tonnam Choi",
                     position: "CIO",
                     img: `${require('@/static/img/index/team_tonnam-400x400.png')}`,
                 },
-                
-                
+
+
             ],
-             
-            members1:[
+
+            members1: [
                 {
                     name: "Jun sukgu",
                     position: "ChFC Total Financial Asset Manager",
@@ -938,7 +951,7 @@ export default {
                 sources: [{
                     type: "",
                     src: 'http://vjs.zencdn.net/v/oceans.mp4'//url地址          
-                // src: "" //url地址
+                    // src: "" //url地址
                 }],
                 poster: "", //你的封面地址
                 // width: document.documentElement.clientWidth,
@@ -950,7 +963,7 @@ export default {
                     fullscreenToggle: false  //全屏按钮
                 }
             },
-            
+
         }
     },
     // watch: {
@@ -1197,7 +1210,8 @@ export default {
                             margin-bottom: 40rem;
 
                         }
-                        .videoBox{
+
+                        .videoBox {
                             width: 480rem;
                             height: 240rem;
                             background: #000000;
@@ -1294,7 +1308,7 @@ export default {
                                 background: #00B4FC;
                                 line-height: 80rem;
                                 margin-bottom: 21rem;
-                                margin:  0 auto 20rem;
+                                margin: 0 auto 20rem;
                                 cursor: pointer;
                             }
 
@@ -1625,12 +1639,14 @@ export default {
                                     width: 100%;
                                     height: auto;
                                     overflow: hidden;
-                                    img{
+
+                                    img {
                                         // position: absolute;
                                         width: 120%;
-                                        height: auto; 
+                                        height: auto;
                                         margin: 0 auto;
                                     }
+
                                     /*width: 100%;*/
                                     /*height: 100%;*/
                                     /*background-size: cover;*/
@@ -1667,7 +1683,7 @@ export default {
                             // display: flex;
                             // flex-direction: column;
                             // justify-content: center;
-                            margin:  0 auto;
+                            margin: 0 auto;
 
 
                             .text1 {
@@ -1694,7 +1710,7 @@ export default {
                                     padding: 25rem;
                                     position: relative;
                                     // margin-bottom: 21rem;
-                                    margin:  0 auto 20rem;
+                                    margin: 0 auto 20rem;
 
                                     .quesgtionBox-item-top {
                                         display: flex;
@@ -1742,7 +1758,7 @@ export default {
                                     /*align-items: center;*/
                                     padding: 25rem;
                                     position: relative;
-                                    margin:  0 auto 20rem;
+                                    margin: 0 auto 20rem;
 
                                     .quesgtionBox-item-top {
                                         display: flex;
@@ -1976,7 +1992,7 @@ export default {
                             .plan-list {
                                 margin-left: 15rem;
                                 margin-bottom: 35rem;
-                                list-style:none;
+                                list-style: none;
 
                                 .plan-item {
                                     line-height: 32rem;
@@ -1985,7 +2001,7 @@ export default {
                                     color: #89c1f9;
                                     font-size: 16rem;
                                     opacity: 1;
-                                    list-style:none
+                                    list-style: none
                                     // visibility: visible;
                                 }
                             }
