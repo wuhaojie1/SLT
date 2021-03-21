@@ -800,11 +800,7 @@ import MemberCard from "@/components/index/memberCard";
 
 export default {
     name: "index",
-    components: {
-        MemberCard, 
-        // ThemeStickyHeader, 
-        TimeCard, 
-        TopBar},
+    components: {MemberCard, TimeCard, TopBar},
     data() {
         return {
             SLT_white: `${require('@/static/img/index/SLT_white.png')}`,
@@ -833,93 +829,104 @@ export default {
                 {
                     name: "Bae Seunghwan",
                     position: "CEO",
-                    img: `${require('@/static/img/index/baesh-400x400.png')}`,
+                    img: `${require('../../../static/img/index/baesh-400x400.png')}`,
                 },
                 {
                     name: "Choi sungmin",
                     position: "Planning, CEO of CRADLEKOREA",
-                    img: `${require('@/static/img/index/team_choism-400x400.png')}`,
-                },
-                {
-                    name: "Choi kyoungyong",
-                    position: "Marketing, Former Director of Altwell",
-                    img: `${require('@/static/img/index/team_choikg-400x400.png')}`,
-                },
-                {
-                    name: "You hwanho",
-                    position: "Web Development",
-                    img: `${require('@/static/img/index/team_youhwanho-400x400.png')}`,
-                },
-
-
-                {
-                    name: "Kim eunji",
-                    position: "Bigdata analysis, Graduate Northeastern University",
-                    img: `${require('@/static/img/index/team_iimeunji-400x400.png')}`,
-                },
-                {
-                    name: "Yu seungjun",
-                    position: "Strategic Planning, Executive Direct of Energy Korea",
-                    img: `${require('@/static/img/index/team_yusj-400x400.png')}`,
-                },
-                {
-                    name: "Jung jiyeon",
-                    position: "CMO, Former CMO of BROWN Edu.",
-                    img: `${require('@/static/img/index/team_jungjy-400x400.png')}`,
-                },
-
-                {
-                    name: "Tonnam Choi",
-                    position: "CIO",
-                    img: `${require('@/static/img/index/team_tonnam-400x400.png')}`,
+                    img: `${require('../../../static/img/index/team_choism-400x400.png')}`,
                 },
                 {
                     name: "Kim TG",
                     position: "Director of Blockchain Research Institute",
-                    img: `${require('@/static/img/index/team_kimtg-400x400.png')}`,
+                    img: `${require('../../../static/img/index/team_kimtg-400x400.png')}`,
                 },
+                {
+                    name: "Jung jiyeon",
+                    position: "CMO, Former CMO of BROWN Edu.",
+                    img: `${require('../../../static/img/index/team_jungjy-400x400.png')}`,
+                },
+                {
+                    name: "Kim eunji",
+                    position: "Bigdata analysis, Graduate Northeastern University",
+                    img: `${require('../../../static/img/index/team_iimeunji-400x400.png')}`,
+                },
+
+                
+                {
+                    name: "Choi kyoungyong",
+                    position: "Marketing, Former Director of Altwell",
+                    img: `${require('../../../static/img/index/team_choikg-400x400.png')}`,
+                },
+                {
+                    name: "You hwanho",
+                    position: "Web Development",
+                    img: `${require('../../../static/img/index/team_youhwanho-400x400.png')}`,
+                },
+
+
+                
+                // {
+                //     name: "Yu seungjun",
+                //     position: "Strategic Planning, Executive Direct of Energy Korea",
+                //     img: `${require('../../../static/img/index/team_yusj-400x400.png')}`,
+                // },
+                
+
+                {
+                    name: "Tonnam Choi",
+                    position: "CIO",
+                    img: `${require('../../../static/img/index/team_tonnam-400x400.png')}`,
+                },
+                
+                
             ],
              
             members1:[
                 {
                     name: "Jun sukgu",
                     position: "ChFC Total Financial Asset Manager",
-                    img: `${require('@/static/img/index/team_junsg-400x400.png')}`,
+                    img: `${require('../../../static/img/index/team_junsg-400x400.png')}`,
                 },
                 {
                     name: "Lee chungsung",
                     position: "Ph.D of Engineering Ph.D candidate of Tokyo University",
-                    img: `${require('@/static/img/index/team_leecs-400x400.png')}`,
+                    img: `${require('../../../static/img/index/team_leecs-400x400.png')}`,
                 },
                 {
                     name: "Lee gwiseong",
                     position: "CPA of One-G Accounting Group",
-                    img: `${require('@/static/img/index/team_leegs-400x400.png')}`,
+                    img: `${require('../../../static/img/index/team_leegs-400x400.png')}`,
                 },
                 {
                     name: "Kim bonghun",
                     position: "Ph.D of Economics",
-                    img: `${require('@/static/img/index/team_kimbh-400x400.png')}`,
+                    img: `${require('../../../static/img/index/team_kimbh-400x400.png')}`,
                 },
                 {
                     name: "Jo jaehyuck",
                     position: "Ph.D of Computer Sciences Professor of Soongsil University",
-                    img: `${require('@/static/img/index/team_jojy-400x400.png')}`,
+                    img: `${require('../../../static/img/index/team_jojy-400x400.png')}`,
                 },
                 {
                     name: "Kim jongwoo",
                     position: "Lawyer of Lawfirm Seyang",
-                    img: `${require('@/static/img/index/team_kimjw-400x400.png')}`,
+                    img: `${require('../../../static/img/index/team_kimjw-400x400.png')}`,
                 },
                 {
                     name: "Yun johun",
                     position: "Member of Blockchain Law Society Lawyer of Lawfirm Seyang",
-                    img: `${require('@/static/img/index/team_yunjh-400x400.png')}`,
+                    img: `${require('../../../static/img/index/team_yunjh-400x400.png')}`,
                 },
                 {
                     name: "Kim hwoikwang",
                     position: "Ph.D , Professor",
-                    img: `${require('@/static/img/index/ad_kimhk-400x400.png')}`,
+                    img: `${require('../../../static/img/index/ad_kimhk-400x400.png')}`,
+                },
+                {
+                    name: "전) 기업은행근무",
+                    position: "전) (주) 국제자산관리 이사   현)    (주) 트레이드엑스 대표",
+                    img: `${require('@/static/img/index/preson.jpg')}`,
                 },
 
             ],

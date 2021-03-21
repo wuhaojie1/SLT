@@ -16,7 +16,7 @@
 
                 if (htmlWidth <= 800) {
                     that.$router.push({
-                        name: "index",
+                        name: "Mindex",
                     })
                     // htmlWidth = 750;
                     // htmlDom.style.fontSize = `${(htmlWidth / 750)}px`;
