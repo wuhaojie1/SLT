@@ -25,9 +25,9 @@ export default {
         addidnum: '신분증번호를 입력하여주세요'
     },
     //用户设置
-    userSet:{
-        title:'계정설정',
-        tabArray:['개인정보','신분인증','배송주소','개인자산','재무기록']
+    userSet: {
+        title: '계정설정',
+        tabArray: ['개인정보', '신분인증', '배송주소', '개인자산', '재무기록']
     },
     //收货地址
     userAdress: {
@@ -62,7 +62,7 @@ export default {
         tredetype: '지불방식',
         moneycomes: '화폐원천',
         usermoney: '수수료료',
-        tableHeader:['코인 종류','수량','동결','사용가능','단가','총액','오프션']
+        tableHeader: ['코인 종류', '수량', '동결', '사용가능', '단가', '총액', '오프션']
 
     },
     //一键购买
@@ -84,7 +84,7 @@ export default {
     },
     //订单详情
     orderdetails: {
-        status:['미지급','거래완료','거래실패'],
+        status: ['미지급', '거래완료', '거래실패'],
         waitpay: '미지급',
         opentrade: '수주열기',
         cancleorderauto: '내불금 미결제, 자동 주문취소',
@@ -104,12 +104,12 @@ export default {
         cancelorder: '주문취소',
         confirmtext: '确认支付',
         connect: '온라인 고객 서비스에 문의',
-        tip:'질문이 있으시면 고객 서비스에 호소하십시오.'
+        tip: '질문이 있으시면 고객 서비스에 호소하십시오.'
     },
     //取消订单
     cancleorder: {
         back: '돌아가다',
-        ordernum:'주문 번호',
+        ordernum: '주문 번호',
         cancleorder: '주문취소',
         closeorder: '인수닫기',
         complaintext1: '만약 의문이 있으시면 고객센터에 진정하십시오.',
@@ -138,42 +138,42 @@ export default {
         text1: '온라인 결제 주문서 제출 후 15분 이내에 결제하지 않으면 주문서가 시스템으로 자동 취소됩니다. 빠른 결제 완료로 상품이 즉시 배송될 수 있도록, 재화 상품과 매장 배송 상품은 분리하여 보내드립니다.',
         gopay: '직접결제',
         goon: '계속쇼핑',
-        inStock:'재고',
-        outStock:'일시 품절',
-        goodsId:'스타일 번호',
-        goodsStyle:'양식',
-        delete:'삭제',
-        date:'발송 후 영업일 2-4일 후 배송 예정',
-        num:'수량'
+        inStock: '재고',
+        outStock: '일시 품절',
+        goodsId: '스타일 번호',
+        goodsStyle: '양식',
+        delete: '삭제',
+        date: '발송 후 영업일 2-4일 후 배송 예정',
+        num: '수량'
 
-        
+
     },
     //商品详细
-    goodsdetails:{
+    goodsdetails: {
         shopcar: '장바구니넣기',
-        goodsId:'스타일 번호',
+        goodsId: '스타일 번호',
     },
     //商城
-    shop:{
-        classify:'분류' ,
-        classifyTip:'다음 기준으로 필터링' ,
+    shop: {
+        classify: '분류',
+        classifyTip: '다음 기준으로 필터링',
     },
-    login:{
-        welcome:'SLT는 코인 구매 또는 비즈니스 문의를 환영합니다.',
-        logintext:'로그인',
-        username:'ID 입력하세요.',
-        userpsw:'비밀번호 입력하세요.',
-        forget:'비밀번호를 잊으 셨나요?',
-        goreigest:'즉시가입?',
-        login:'로그인'
+    login: {
+        welcome: 'SLT는 코인 구매 또는 비즈니스 문의를 환영합니다.',
+        logintext: '로그인',
+        username: 'ID 입력하세요.',
+        userpsw: '비밀번호 입력하세요.',
+        forget: '비밀번호를 잊으 셨나요?',
+        goreigest: '즉시가입?',
+        login: '로그인'
     },
-    regiest:{
-        welcome:'SLT는 코인 구매 또는 비즈니스 문의를 환영합니다.',
-        username:'ID 입력하세요.',
-        userpsw:'비밀번호 입력하세요.',
-        userres:'즉시가입',
-        get:'인증코드 받기',
-        regiest:'회원가입'
+    regiest: {
+        welcome: 'SLT는 코인 구매 또는 비즈니스 문의를 환영합니다.',
+        username: 'ID 입력하세요.',
+        userpsw: '비밀번호 입력하세요.',
+        userres: '즉시가입',
+        get: '인증코드 받기',
+        regiest: '회원가입'
     },
     //头部
     header: {
@@ -328,8 +328,8 @@ export default {
         joinText: "SLTcoin 팀은 코인 구매나 사업관련 어떠한 문의든지 환영 합니다.",
         namePlaceholder: "Name",
         emailPlaceholder: "Email",
-        net1: ["LT SLT Global","http://sltglobal.net"],
-        net2: ["tree Booktree","http://ubooktree.com"],
+        net1: ["LT SLT Global", "http://sltglobal.net"],
+        net2: ["tree Booktree", "http://ubooktree.com"],
         net3: ["☉문의 e-Mail：sltglobalcoin@gmail.com"],
         own: "© Smart Learning Technology Global 2020. All rights reserved.",
         submit: "SUBMIT",
@@ -347,42 +347,42 @@ export default {
         returnHome: '메인 화면으로 가기'
     },
     //OTC
-    otcTrade:{
-        tabBar:['자유거래','원 클릭 거래'],
-        buy:'구매',
-        sell:'판매',
-        title:'자유거래',
-        subTitle:'어많은 선택,자유거래',
-        tableHeader:['광고주','수량','한도','단가','지불방','거래','수수료'],
-        auth:'실명인증이 필요합니다.'
+    otcTrade: {
+        tabBar: ['자유거래', '원 클릭 거래'],
+        buy: '구매',
+        sell: '판매',
+        title: '자유거래',
+        subTitle: '어많은 선택,자유거래',
+        tableHeader: ['광고주', '수량', '한도', '단가', '지불방', '거래', '수수료'],
+        auth: '실명인증이 필요합니다.'
     },
     //钱包 提币、입금wallet
-    wallet:{
-        charge:'입금',
-        chinaName:'ChainName',
-        chargeAddress:'입금주소',
-        copyAddress:'주소복사',
-        confirm:'확인',
-        chargeTipArray:[
+    wallet: {
+        charge: '입금',
+        chinaName: 'ChainName',
+        chargeAddress: '입금주소',
+        copyAddress: '주소복사',
+        confirm: '확인',
+        chargeTipArray: [
             '최소입금수량:',
             '자금의 안전을 확보하기 위해 고객님의 계정 보안 정책이 변경되거나 비밀번호가 변경 될 경우 수동 검토를 실시하므로 직원이 전화 나 이메일로 연락을 드릴 때까지 기다려 주시기 바랍니다.',
             '정보가 봉인되거나 유출되지 않도록 컴퓨터와 브라우저가 안전한지 확인하십시오.',
             '언급하신 디지털 자산은 멀티 체인 자산입니다. 어떤 체인에서 출금을 선택하든 귀하가 소유 한 출금 페이지에 표시되는 디지털 자산의 총량이 해당 출금 횟수만큼 감소한다는 의미입니다.'
         ],
-        withdraw:'출금',
-        available:'유효한',
-        withdrawAddress:'출금주소',
-        num:'출금수량',
-        all:'전부',
-        serviceCharge:'수수료',
-        tip:'출금 작업이 완료되면 대상 주소에 해당하는 계정 소유자가 해당 자산의 소유권을 누릴 수 있습니다. 출금 작업 전 출금 주소 정보를주의 깊게 확인하여 출금이 자발적인지 확인하고 확인하십시오. 피라미드 계획, 불법 모금, 사기 및 기타 불법 상황이 관여하지 않으며, 속임을 조심하고, 불필요한 재산 손실을 방지합니다.',
-        withdrawTipArray:[
+        withdraw: '출금',
+        available: '유효한',
+        withdrawAddress: '출금주소',
+        num: '출금수량',
+        all: '전부',
+        serviceCharge: '수수료',
+        tip: '출금 작업이 완료되면 대상 주소에 해당하는 계정 소유자가 해당 자산의 소유권을 누릴 수 있습니다. 출금 작업 전 출금 주소 정보를주의 깊게 확인하여 출금이 자발적인지 확인하고 확인하십시오. 피라미드 계획, 불법 모금, 사기 및 기타 불법 상황이 관여하지 않으며, 속임을 조심하고, 불필요한 재산 손실을 방지합니다.',
+        withdrawTipArray: [
             '최소 출금 금액은:',
             '자금의 안전을 확보하기 위해 고객님의 계정 보안 정책이 변경되거나 비밀번호가 변경 될 경우 수동 검토를 실시하므로 직원이 전화 나 이메일로 연락을 드릴 때까지 기다려 주시기 바랍니다.',
             '정보가 봉인되거나 유출되지 않도록 컴퓨터와 브라우저가 안전한지 확인하십시오.',
             '언급하신 디지털 자산은 멀티 체인 자산입니다. 어떤 체인에서 출금을 선택하든 귀하가 소유 한 출금 페이지에 표시되는 디지털 자산의 총량이 해당 출금 횟수만큼 감소한다는 의미입니다.'
         ],
-        received:'도착수량'
+        received: '도착수량'
 
     },
 
@@ -391,7 +391,7 @@ export default {
 
     //移动提现
     Mwithdraw: {
-        withdrawText:"提现",
+        withdrawText: "提现",
         btcText1: "BTC",
         btcText2: "Bitcoin",
         name: "链名称",
@@ -415,7 +415,7 @@ export default {
     },
     //移动充币
     MtopUp: {
-        withdrawText:"充币",
+        withdrawText: "充币",
         btcText1: "BTC",
         btcText2: "Bitcoin",
         name: "链名称",
@@ -436,5 +436,12 @@ export default {
         primary: "我已知晓",
         tipText: "此地址只能充入SLT",
         book: "您只能向此地址充入SLT，其他资产充入SLT地址将无法找回。",
+    },
+    positionRecord: {
+        detail: "查看详情",
+        time: "时间",
+        type: "类型",
+        number: "数量",
+        price: "单价",
     }
 }

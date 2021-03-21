@@ -8,15 +8,15 @@
                         {{ recordItem.title }}
                     </div>
                     <div class="detail">
-                        查看详情
+                        {{ $t('positionRecord.detail') }}
                     </div>
                 </div>
                 <div class="content">
                     <table class="table">
                         <tr class="table-title">
-                            <th class="time">时间</th>
-                            <th class="type">类型</th>
-                            <th class="number">数量</th>
+                            <th class="time">{{ $t('positionRecord.time') }}</th>
+                            <th class="type">{{ $t('positionRecord.type') }}</th>
+                            <th class="number">{{ $t('positionRecord.number') }}</th>
 <!--                            <th class="price">单价</th>-->
                         </tr>
                         <tr class="table-data">
