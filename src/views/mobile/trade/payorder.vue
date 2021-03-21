@@ -72,17 +72,44 @@
                 </div>
             </div>
             <div class="buttons">
-                <div class="cancle">取消订单</div>
+                <div class="cancle" @click="dialogVisible = true">取消订单</div>
                 <div class="confirm">确认支付 45s</div>
             </div>
             <div class="connect">联系在线客服</div>
         </div>
+        <el-dialog :visible.sync="dialogVisible"
+                   width="680rem"
+                   :center="false"
+                   class="elDialogBox"
+                   :title="title"
+                   top="30vh">
+            <div class="tipText">
+                <div class="text">
+                    {{ $t('orderdetails.cancleTip') }}
+                </div>
+            </div>
+            <div class="btn">
+                <el-button
+                    @click="dialogVisible = false">不，谢谢</el-button>
+                <el-button type="primary"
+                           @click="cancleComfirm">确认取消</el-button>
+            </div>
+        </el-dialog>
     </div>
 </template>
 
 <script>
     export default {
-        name: "payorder"
+        name: "payorder",
+        data() {
+            return {
+                dialogVisible: true,
+                title: this.$t('orderdetails.title'),
+            }
+        },
+        methods: {
+
+        }
     }
 </script>
 
@@ -136,7 +163,7 @@
                 height: 32rem;
                 background: #E4F7FE;
                 opacity: 0.76;
-                border-radius: 4px;
+                border-radius: 4rem;
                 float: left;
                 margin-top: 7rem;
                 margin-left: 9rem;
@@ -373,5 +400,32 @@
             margin-top: 25rem;
         }
     }
+
+    .elDialogBox {
+        text-align: left;
+
+        .tipText {
+            padding: 40rem 35rem;
+            border-bottom: 1rem solid #E4E7ED;
+            border-top: 1rem solid #E4E7ED;
+
+            .text {
+                font-size: 28rem;
+                font-weight: 400;
+                color: #111111;
+                line-height: 42rem;
+            }
+        }
+
+        .btn {
+            padding: 30rem 25rem;
+            text-align: right;
+        }
+    }
+}
+</style>
+<style>
+.elDialogBox .el-dialog__body {
+    padding: 0;
 }
 </style>
