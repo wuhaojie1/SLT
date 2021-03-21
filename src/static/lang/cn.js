@@ -42,6 +42,14 @@ export default {
         title: '账户设置',
         tabArray: ['个人信息', '身份认证', '收货地址', '个人资产', '财务记录']
     },
+    //下拉菜单
+    dropmenu: {
+        home: "首页",
+        mall: '商城',
+        otc: 'OTC',
+        pos: '位置',
+        userCenter: '个人中心'
+    },
     //收货地址
     userAdress: {
         userAdresstext: '收货地址',
