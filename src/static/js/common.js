@@ -192,10 +192,10 @@ export const DateFunc = {
         //   ((seconds == 0) ? "" : seconds+"秒");
        
         return {
-            day:((days == 0) ? "" : days),
-            hours:((hours == 0) ? "" : days),
-            minutes:((minutes == 0) ? "" : minutes),
-            seconds:((seconds == 0) ? "" : seconds)
+            day:((days < 10) ? "0"+days : String(days)),
+            hours:((hours < 10) ? "0"+hours : String(hours)),
+            minutes:((minutes < 10) ? "0"+minutes : String(minutes)),
+            seconds:((seconds < 10) ? "0"+seconds : String(seconds))
 
         };
        

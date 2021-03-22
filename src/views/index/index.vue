@@ -1011,6 +1011,7 @@ export default {
             let dateDiffIncludeToday = DateFunc.twoTimeInterval(tomorrowDate,endData);
             this.dateObj = dateDiffIncludeToday;
             let that = this;
+            // console.log(dateDiffIncludeToday)
             setTimeout(() => {
                 that.getDate()
             }, 1000);
