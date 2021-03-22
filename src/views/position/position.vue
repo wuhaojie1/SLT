@@ -71,7 +71,7 @@
                                             </div>
                                         </div>-->
                     <div class="goods-box-list">
-                        <PositionBlock @clickItem="toTypeDetail" v-for="(item, index) in blockItemList"
+                        <PositionBlock @clickItem="toTypeDetail" v-for="(item, index) in typeList"
                                        :key="index"
                                        :blockItem="item"
                                        class="positionBlock"></PositionBlock>
@@ -88,7 +88,6 @@
 import ThemeStickyHeader from "../../components/header/themeStickyHeader";
 import Bottom from "../../components/bottom/bottom";
 import PositionBlock from "@/components/position/positionBlock";
-
 export default {
     name: "shoppingMall",
     components: {PositionBlock, Bottom, ThemeStickyHeader},
@@ -265,6 +264,9 @@ export default {
     mounted(){
         this.getData();
     },
+    computed:{
+        
+    },
     methods: {
         enters(index, childIndex) {
             this.goodsList[index][childIndex].show = true;
@@ -298,8 +300,8 @@ export default {
         },
         //查看类别详情
         toTypeDetail(item){
-            console.log(item);
-            this.$router.push({})
+            this.localStorage.set('curPostType',JSON.stringify(item))
+            this.$router.push({path:'/localdetails'})
         }
     }
 }

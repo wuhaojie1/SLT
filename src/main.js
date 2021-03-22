@@ -9,7 +9,8 @@ import echarts from 'echarts';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from './static/js/axios';
-import VideoPlayer from 'vue-video-player'
+import VideoPlayer from 'vue-video-player';
+import store from './store.js';
 require('video.js/dist/video-js.css')
 require('vue-video-player/src/custom-theme.css')
 
@@ -24,7 +25,7 @@ Vue.use(VideoPlayer)
 
 const i18n = new VueI18n({
     // locale: localStorage.get('langMsg') ? localStorage.get('langMsg').name : 'zh-CN',
-    locale: 'ko-KR',
+    locale: 'zh-CN',
     messages: {
         'zh-CN': lang.cn,
         "ko-KR": lang.kr,
@@ -67,5 +68,6 @@ setHtmlFontSize();
 new Vue({
     i18n,
     router,
+    store,
     render: h => h(App)
 }).$mount('#app')

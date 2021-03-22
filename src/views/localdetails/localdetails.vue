@@ -3,36 +3,37 @@
         <themeStickyHeader></themeStickyHeader>
         <div class="bar">
             <img class="backbtn" src="" alt="">
-            <div class="bartext">小说{{$t('positionDetail.detail')}}</div>
+            <div class="bartext">{{curPostType.categoryName}}{{$t('positionDetail.detail')}}</div>
         </div>
         <div class="con">
             <div class="in-con">
                 <div class="con-left">
-                    <div class="img-con">
+                    <!-- <div class="img-con">
                         <img class="img" src="../../static/img/localdetails/goodsimg.png" alt="">
-                    </div>
-                    <div class="goods_name">小说</div>
+                    </div> -->
+                    <PositionBlock :blockItem="curPostType" class="positionBlock"></PositionBlock>
+                    <div class="goods_name">{{curPostType.categoryName}}</div>
                 </div>
                 <div class="con-right">
-                    <div class="local-name">小说类{{$t('positionDetail.position')}}</div>
+                    <div class="local-name">{{curPostType.categoryName}}类{{$t('positionDetail.position')}}</div>
                     <div class="charge-con">
                         <div class="charge-text">{{$t('positionDetail.price')}}</div>
-                        <div class="charge-num">￥1200</div>
+                        <div class="charge-num">￥{{curPostType.price}}</div>
                     </div>
                     <div class="income-con">
                         <div class="income-text1">{{$t('positionDetail.get')}}</div>
-                        <div class="income-text2">有货，每个位置平均收入在100%</div>
+                        <div class="income-text2">{{curPostType.text}}</div>
                     </div>
                     <div class="seal-local">
                         <div class="seal-local-text">{{$t('positionDetail.sell')}}</div>
                         <div class="seal-num">
-                            <div class="seal-num-text">{{$t('positionDetail.num')}}: 10</div>
+                            <div class="seal-num-text">{{$t('positionDetail.num')}}: {{curPostType.costCount}}</div>
                         </div>
                     </div>
                     <div class="residue-local">
                         <div class="residue-local-text">{{$t('positionDetail.remain')}}</div>
                         <div class="residue-num">
-                            <div class="residue-num-text">{{$t('positionDetail.num')}}: 10</div>
+                            <div class="residue-num-text">{{$t('positionDetail.num')}}: {{curPostType.lastCount}}</div>
                         </div>
                     </div>
                     <div class="line"></div>
@@ -48,9 +49,23 @@
 
 <script>
     import themeStickyHeader from "../../components/header/themeStickyHeader";
+    import PositionBlock from "@/components/position/positionBlock";
     export default {
         name: "localdetails",
-        components:{themeStickyHeader}
+        components:{themeStickyHeader,PositionBlock},
+        data(){
+            return{
+                curPostType:''
+            }
+        },
+        mounted(){
+            if(this.localStorage.get('curPostType')){
+                this.curPostType = JSON.parse(this.localStorage.get('curPostType'))
+            }
+        },
+        methods:{
+
+        }
     }
 </script>
 
