@@ -68,7 +68,7 @@ export default {
             },
             dataList: [
                 // {
-                //     name: '王**',
+                //     name: '상**',
                 //     address: '成都市 郫都区 中心大道二段',
                 //     daddress: '致远居8号楼8243',
                 //     code: '000000',
@@ -76,7 +76,7 @@ export default {
                 //     useaddress: true
                 // },
                 // {
-                //     name: '李**',
+                //     name: '상**',
                 //     address: '成都市 郫都区 中心大道二段',
                 //     daddress: '致远居8号楼8247',
                 //     code: '000001',

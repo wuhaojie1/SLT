@@ -11,15 +11,15 @@
             <div class="login-box">
                 <div class="phone">
                     <img :src="user" alt="" class="img">
-                    <input type="text" class="input" placeholder="请输入手机号">
+                    <input type="text" class="input" :placeholder="this.$t('Mlogin.inpsw')">
                 </div>
                 <div class="password">
                     <img :src="lock" alt="" class="img">
-                    <input type="text" class="input" placeholder="请输入密码">
+                    <input type="text" class="input" :placeholder="this.$t('Mlogin.inphone')">
                 </div>
             </div>
             <div class="loginBtn">
-                <div class="btn">登录</div>
+                <div class="btn">{{this.$t('Mlogin.login')}}</div>
             </div>
             <!--            <div class="tip">已有账号，<span>立即登录</span></div>-->
         </div>
@@ -103,6 +103,7 @@
                         padding-left: 88rem;
                         width: 100%;
                         height: 100%;
+                        color: #fff;
                     }
 
                     .img {

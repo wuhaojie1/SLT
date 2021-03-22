@@ -1,5 +1,5 @@
 <template>
-    <div id="usermsg">
+    <div id="usermsg" class="usermsg">
         <PageHeader :isShowRight="true"></PageHeader>
         <div class="msg-con">
             <div class="base-user-msg-con">
@@ -9,7 +9,10 @@
                     <div class="userid">ID:JCJDVJDS</div>
                 </div>
             </div>
-            <div class="self-center" v-for="item in usermsgarr" :key="item.index">
+            <div class="self-center"
+                 v-for="item in usermsgarr"
+                 :key="item.index"
+                 @click="toPage(item.namePath)">
                 <div class="self-center-text">{{item.name}}</div>
                 <img class="self-center-img" :src="item.img" alt="">
             </div>
@@ -29,49 +32,70 @@
                 usermsgarr:[
                     {
                         name:this.$t('usermsg.personcenter'),
-                        img:`${require('../../../static/img/user/arrow.png')}`
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "Muser",
                     },
                     {
                         name:this.$t('usermsg.auth'),
-                        img:`${require('../../../static/img/user/arrow.png')}`
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "MuserAuth",
                     },
-                    {
+                   /* {
                         name:'OTC',
-                        img:`${require('../../../static/img/user/arrow.png')}`
-                    },
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "",
+                    },*/
+                    /*{
+                        name:this.$t('usermsg.order'),
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "",
+                    },*/
+                    /*{
+                        name:this.$t('usermsg.localtionn'),
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "",
+                    },*/
                     {
                         name:this.$t('usermsg.order'),
-                        img:`${require('../../../static/img/user/arrow.png')}`
-                    },
-                    {
-                        name:this.$t('usermsg.localtionn'),
-                        img:`${require('../../../static/img/user/arrow.png')}`
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "MuserAccount",
                     },
                     {
                         name:this.$t('usermsg.address'),
-                        img:`${require('../../../static/img/user/arrow.png')}`
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "MuserAddress",
                     },
                     {
                         name:this.$t('usermsg.log'),
-                        img:`${require('../../../static/img/user/arrow.png')}`
+                        img:`${require('../../../static/img/user/arrow.png')}`,
+                        namePath: "Mrecord",
                     }
                 ]
+            }
+        },
+        methods: {
+            toPage(name){
+                this.$router.push({
+                    name: name,
+                })
             }
         }
     }
 </script>
 
 <style scoped lang="less">
-#usermsg{
+.usermsg{
     width: 750rem;
-    height: calc(100vh - 184rem);
+    // height: calc(100vh - 184rem);
     /*padding-bottom: 88rem;*/
+    
     .msg-con{
         width: 750rem;
-        height: calc(100vh - 274rem);
+        // height: calc(100vh - 274rem);
         background-color: #FFFFFF;
         border-top: 1rem solid #FFFFFF;
         .base-user-msg-con{
+            margin-top: 88rem;
             width: 750rem;
             height: 169rem;
             border-bottom: 1rem solid #FFFFFF;

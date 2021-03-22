@@ -43,13 +43,13 @@ export default {
         tabArray: ['个人信息', '身份认证', '收货地址', '个人资产', '财务记录']
     },
     //下拉菜单
-    dropmenu: {
-        home: "首页",
-        mall: '商城',
-        otc: 'OTC',
-        pos: '位置',
-        userCenter: '个人中心'
-    },
+    // dropmenu: {
+    //     home: "首页",
+    //     mall: '商城',
+    //     otc: 'OTC',
+    //     pos: '位置',
+    //     userCenter: '个人中心'
+    // },
     //收货地址
     userAdress: {
         userAdresstext: '收货地址',
@@ -139,7 +139,7 @@ export default {
         connect: '联系在线客服',
         tip: '如有疑问请向客服申诉',
         back: '返回',
-        waitOrder: '待接单',
+        waitOrder: '待支付',
         hadfree: '手续费',
 
     },
@@ -210,71 +210,42 @@ export default {
         text1: '在线支付订单提交之后15分钟内未付款，订单将被系统自动取消，请您尽快完成支付以确保商品能及时送达,有货商品和门店配货商品是分开寄出。',
         gopay: '立即结算',
         goon: '继续购物',
-        inStock: '有货',
-        outStock: '暂时缺货',
-        goodsId: '款号',
-        goodsStyle: '款式',
-        delete: '删除',
-        date: '预计发货后2-4个工作日送达',
-        num: '数量',
-        safety: '安全支付',
-        myCar: '我的购物车',
-        goodsName: "北欧简约多色铁艺灯具",
-        styleNum: '款号652000 0XJDBM 9095',
-        color: '产品颜色: 雾霾蓝',
-        size: '产品尺寸: 240X240',
-        orderTotal: '订单小计',
-        selected: '已选2件商品',
-        goodsTotal: '商品总计',
-        shipping: "运费",
-        frees: '免费',
-        amount: '总金额',
-        sett: '立即结算',
-        carry: '继续购物',
-        paytype: '支付方式',
-        expres: "配送服务",
-        already: '已加入购物车',
-        addShop: '加入购物车'
+        inStock:'有货',
+        outStock:'暂时缺货',
+        goodsId:'款号',
+        goodsStyle:'款式',
+        delete:'删除',
+        date:'预计发货后2-4个工作日送达',
+        num:'数量'
+
 
     },
     //商品详细
-    goodsdetails: {
+    goodsdetails:{
         shopcar: '加入购物车',
-        goodsId: '款号',
-        title: '商品详情页',
-        goodsName: '北欧简约多色铁艺灯具',
-        color: '颜色',
-        smog: '雾霾蓝',
-        size: '尺码',
-        sizeList: '尺码表',
-        detail: '产品细节',
-        detail1: '标准板型',
-        detail2: '42%亚麻，29%马海毛，29%材质',
-        detail3: '不可烘干',
-        paytype: '支付方式',
-        expres: '配送方式'
+        goodsId:'款号',
     },
     //商城
-    shop: {
-        classify: '分类',
-        classifyTip: '按下列条件筛选',
+    shop:{
+        classify:'分类' ,
+        classifyTip:'按下列条件筛选' ,
     },
-    login: {
-        welcome: '团队欢迎任何代购币购买或者业务查询。',
-        logintext: '用户登录',
-        username: '请输入您的用户名',
-        userpsw: '请输入您的密码',
-        forget: '忘记密码?',
-        goreigest: '立即注册?',
-        login: '登录'
+    login:{
+        welcome:'团队欢迎任何代购币购买或者业务查询。',
+        logintext:'用户登录',
+        username:'请输入您的用户名',
+        userpsw:'请输入您的密码',
+        forget:'忘记密码?',
+        goreigest:'立即注册?',
+        login:'登录'
     },
-    regiest: {
-        welcome: '团队欢迎任何代购币购买或者业务查询。',
-        username: '请输入您的用户名',
-        userpsw: '请输入您的密码',
-        userres: '立即注册',
-        get: '获取验证码',
-        regiest: '注册'
+    regiest:{
+        welcome:'团队欢迎任何代购币购买或者业务查询。',
+        username:'请输入您的用户名',
+        userpsw:'请输入您的密码',
+        userres:'立即注册',
+        get:'获取验证码',
+        regiest:'注册'
     },
     //头部
     header: {
@@ -429,8 +400,8 @@ export default {
         joinText: "SLTcoin团队欢迎任何代币购买或业务查询。",
         namePlaceholder: "Name",
         emailPlaceholder: "Email",
-        net1: ["LT SLT Global", "http://sltglobal.net"],
-        net2: ["tree Booktree", "http://ubooktree.com"],
+        net1: ["LT SLT Global","http://sltglobal.net"],
+        net2: ["tree Booktree","http://ubooktree.com"],
         net3: ["☉查询电子邮件：sltglobalcoin@gmail.com"],
         own: "© Smart Learning Technology Global 2020. All rights reserved.",
         submit: "提交",
@@ -448,55 +419,44 @@ export default {
         returnHome: '返回首页'
     },
     //OTC
-    otcTrade: {
-        tabBar: ['自选交易', '一键买卖'],
-        buy: '购买',
-        sell: '出售',
-        title: '自选交易',
-        subTitle: '更多选择，自由交易',
-        tableHeader: ['广告方', '数量', '限额', '单价', '支付方式', '交易', '手续费'],
-        auth: '需实名认证'
+    otcTrade:{
+        tabBar:['自选交易','一键买卖'],
+        buy:'购买',
+        sell:'出售',
+        title:'自选交易',
+        subTitle:'',
+        tableHeader:['广告方','数量','限额','单价','支付方式','交易','手续费'],
+        auth:'需实名认证'
     },
     //钱包 提币、充币wallet
-    wallet: {
-        charge: '充币',
-        chinaName: '链名称',
-        chargeAddress: '充币地址',
-        copyAddress: '复制地址',
-        confirm: '确认',
-        chargeTipArray: [
+    wallet:{
+        charge:'充币',
+        chinaName:'链名称',
+        chargeAddress:'充币地址',
+        copyAddress:'复制地址',
+        confirm:'确认',
+        chargeTipArray:[
             '最小充币数量为:',
             '为保障资金安全，当您账户安全策略变更、密码修改、我们会进行人工审核，请耐心等待工作人员电话或邮件联系。',
             '请务必确认电脑及浏览器安全，防止信息被篆改或泄露。',
             '您所提的数字资产为- -币多链资产，无论您选择从哪个链上提出，均意味着您所拥有的该提币页面展示的数字资产总量减少相应的提出数量。'
         ],
-        withdraw: '提币',
-        available: '可用',
-        withdrawAddress: '提币地址',
-        num: '提币数量',
-        all: '全部',
-        serviceCharge: '手续费',
-        tip: '您的提币操作-旦完成， 对应的资产所有权将由您变更为目标地址所对应的账户所有人享有，请您务必在提币操作前，仔细核对提币地址信息，确保提币属于自愿行为，并确认不涉及任何传销、非法集资、诈骗等违法情形，谨防上当受骗，避免造成不必要的财产损失。',
-        withdrawTipArray: [
+        withdraw:'提币',
+        available:'可用',
+        withdrawAddress:'提币地址',
+        num:'提币数量',
+        all:'全部',
+        serviceCharge:'手续费',
+        tip:'您的提币操作-旦完成， 对应的资产所有权将由您变更为目标地址所对应的账户所有人享有，请您务必在提币操作前，仔细核对提币地址信息，确保提币属于自愿行为，并确认不涉及任何传销、非法集资、诈骗等违法情形，谨防上当受骗，避免造成不必要的财产损失。',
+        withdrawTipArray:[
             '最小提币数量为:',
             '为保障资金安全，当您账户安全策略变更、密码修改、我们会进行人工审核，请耐心等待工作人员电话或邮件联系。',
             '请务必确认电脑及浏览器安全，防止信息被篆改或泄露。',
             '您所提的数字资产为- -币多链资产，无论您选择从哪个链上提出，均意味着您所拥有的该提币页面展示的数字资产总量减少相应的提出数量。'
         ],
-        received: '到账数量'
+        received:'到账数量'
 
     },
-    //公告组件
-    notice: {
-        title: '公告通知',
-        text: '挖宝游戏上线了！',
-        content: `2月25日至3月5日，报名并参与SLT币
-        合约狂欢节活动，即可参与瓜分1000
-        USDT奖励。`,
-        iknow: '我知道了'
-    },
-    //----------------------------------------------------------------------------------
-
     //移动提现
     Mwithdraw: {
         withdrawText: "提现",
@@ -551,7 +511,6 @@ export default {
         type: "类型",
         number: "数量",
         price: "单价",
-        noData: "暂无数据"
     },
     //移动端支付成功
     Mpaysucceed:{
@@ -646,8 +605,9 @@ export default {
     usermsg:{
         personcenter:'个人中心',
         auth:'身份认证',
-        order:'订单',
+        // order:'订单',
         localtionn:'位置',
+        order:'个人资产',
         address:'收货地址',
         log:'财务记录',
         out:'退出'
@@ -660,6 +620,28 @@ export default {
         details:'详情',
         reply:'回复',
         noData: "暂无数据",
+    },
+    //移动端商城
+    Mmall:{
+        select:'筛选',
+        copyright:'版权所有',
+        right:'电子营业执照',
+        beian:'备案'
+    },
+    //移动端登录
+    Mlogin:{
+        login:'登录',
+        inphone:'请输入您的手机号码',
+        inpsw:'请输入您的密码'
+    },
+    //公告组件
+    notice: {
+        title: '公告通知',
+        text: '挖宝游戏上线了！',
+        content: `2月25日至3月5日，报名并参与SLT币
+        合约狂欢节活动，即可参与瓜分1000
+        USDT奖励。`,
+        iknow: '我知道了'
     },
     TopUp: {
         topUp: "充币记录",

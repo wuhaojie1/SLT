@@ -70,16 +70,16 @@
                                     <div class="ico-content-date-list">
                                         <TimeCard class="TimeCard"
                                                   :date="'DAY'"
-                                                  :number="'09'"></TimeCard>
+                                                  :number="dateObj.day"></TimeCard>
                                         <TimeCard class="TimeCard"
                                                   :date="'HR'"
-                                                  :number="'09'"></TimeCard>
+                                                  :number="dateObj.hours"></TimeCard>
                                         <TimeCard class="TimeCard"
                                                   :date="'MIN'"
-                                                  :number="'09'"></TimeCard>
+                                                  :number="dateObj.minutes"></TimeCard>
                                         <TimeCard class="TimeCard"
                                                   :date="'SEC'"
-                                                  :number="'09'"></TimeCard>
+                                                  :number="dateObj.seconds"></TimeCard>
                                     </div>
                                 </div>
                                 <div class="ico-content-text">
@@ -181,7 +181,7 @@
                                     </div>
                                     <div class="text">
                                         <div class="title">
-
+                                            {{ $t('index').safeguardTitle }}
                                         </div>
                                         <div class="content">
                                             {{ $t('index').safeguardText }}
@@ -468,29 +468,31 @@
                             <div class="left">
                                 <div class="left-box">
                                     <div class="time-box">
+
+                                                  
                                         <TimeCard class="TimeCard"
                                                   :dateStyle="dateStyle"
                                                   :numberStyle="numberStyle"
                                                   :date="'DAY'"
-                                                  :number="'09'">
+                                                  :number="dateObj.day">
                                         </TimeCard>
                                         <TimeCard class="TimeCard"
                                                   :dateStyle="dateStyle"
                                                   :numberStyle="numberStyle"
                                                   :date="'HR'"
-                                                  :number="'09'">
+                                                  :number="dateObj.hours">
                                         </TimeCard>
                                         <TimeCard class="TimeCard"
                                                   :dateStyle="dateStyle"
                                                   :numberStyle="numberStyle"
                                                   :date="'MIN'"
-                                                  :number="'09'">
+                                                  :number="dateObj.minutes">
                                         </TimeCard>
                                         <TimeCard class="TimeCard"
                                                   :dateStyle="dateStyle"
                                                   :numberStyle="numberStyle"
                                                   :date="'SEC'"
-                                                  :number="'09'">
+                                                  :number="dateObj.seconds">
                                         </TimeCard>
                                     </div>
                                     <div class="tip">
@@ -579,9 +581,13 @@
                                     </div>
                                     <div class="recommend-item-top">
                                         <div class="title">{{ $t('index').whitBook }}</div>
-                                        <div class="text"></div>
+                                        <!-- 한국어 English 中文 日本语 -->
+                                        <div class="text">한국어</div>
+                                        <div class="text">English</div>
+                                        <div class="text">中文</div>
+                                        <div class="text">日本语</div>
                                     </div>
-                                    <div class="content">
+                                    <!-- <div class="content">
                                         <div class="content-list">
                                             <div class="content-item">
                                                 {{ $t('index').Korean }}
@@ -590,7 +596,7 @@
                                                 {{ $t('index').Chinese }}
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="recommend-item">
                                     <div class="imgBox">
@@ -796,6 +802,7 @@ import TopBar from "../../components/header/topBar";
 import TimeCard from "../../components/index/timeCard";
 import ThemeStickyHeader from "../../components/header/themeStickyHeader";
 import MemberCard from "../../components/index/memberCard";
+import {DateFunc} from '@/static/js/common.js';
 
 export default {
     name: "index",
@@ -851,7 +858,7 @@ export default {
                     img: `${require('../../static/img/index/team_iimeunji-400x400.png')}`,
                 },
 
-                
+
                 {
                     name: "Choi kyoungyong",
                     position: "Marketing, Former Director of Altwell",
@@ -883,9 +890,29 @@ export default {
              
             members1:[
                 {
-                    name: "Jun sukgu",
-                    position: "ChFC Total Financial Asset Manager",
-                    img: `${require('../../static/img/index/team_junsg-400x400.png')}`,
+                    name: "Yun johun",
+                    position: "Member of Blockchain Law Society Lawyer of Lawfirm Seyang",
+                    img: `${require('../../static/img/index/team_yunjh-400x400.png')}`,
+                },
+                {
+                    name: "Kim jongwoo",
+                    position: "Lawyer of Lawfirm Seyang",
+                    img: `${require('../../static/img/index/team_kimjw-400x400.png')}`,
+                },
+                {
+                    name: "Kim bonghun",
+                    position: "Ph.D of Economics",
+                    img: `${require('../../static/img/index/team_kimbh-400x400.png')}`,
+                },
+                {
+                    name: "Kim hwoikwang",
+                    position: "Ph.D , Professor",
+                    img: `${require('../../static/img/index/ad_kimhk-400x400.png')}`,
+                },
+                {
+                    name: "Jo jaehyuck",
+                    position: "Ph.D of Computer Sciences Professor of Soongsil University",
+                    img: `${require('../../static/img/index/team_jojy-400x400.png')}`,
                 },
                 {
                     name: "Lee chungsung",
@@ -898,34 +925,20 @@ export default {
                     img: `${require('../../static/img/index/team_leegs-400x400.png')}`,
                 },
                 {
-                    name: "Kim bonghun",
-                    position: "Ph.D of Economics",
-                    img: `${require('../../static/img/index/team_kimbh-400x400.png')}`,
+                    name: "Jun sukgu",
+                    position: "ChFC Total Financial Asset Manager",
+                    img: `${require('../../static/img/index/team_junsg-400x400.png')}`,
                 },
-                {
-                    name: "Jo jaehyuck",
-                    position: "Ph.D of Computer Sciences Professor of Soongsil University",
-                    img: `${require('../../static/img/index/team_jojy-400x400.png')}`,
-                },
-                {
-                    name: "Kim jongwoo",
-                    position: "Lawyer of Lawfirm Seyang",
-                    img: `${require('../../static/img/index/team_kimjw-400x400.png')}`,
-                },
-                {
-                    name: "Yun johun",
-                    position: "Member of Blockchain Law Society Lawyer of Lawfirm Seyang",
-                    img: `${require('../../static/img/index/team_yunjh-400x400.png')}`,
-                },
-                {
-                    name: "Kim hwoikwang",
-                    position: "Ph.D , Professor",
-                    img: `${require('../../static/img/index/ad_kimhk-400x400.png')}`,
-                },
+                
                 {
                     name: "전) 기업은행근무",
                     position: "전) (주) 국제자산관리 이사   현)    (주) 트레이드엑스 대표",
                     img: `${require('@/static/img/index/preson.jpg')}`,
+                },
+                {
+                    name: "만종스페이스 이사",
+                    position: "전 혁신산업개발 대표이사",
+                    img: `${require('@/static/img/index/person1.jpg')}`,
                 },
 
             ],
@@ -967,6 +980,12 @@ export default {
                     fullscreenToggle: false  //全屏按钮
                 }
             },
+            dateObj:{
+                day:"00",
+                hours:"00",
+                minutes:"00",
+                seconds:"00"
+            }
             
         }
     },
@@ -982,8 +1001,21 @@ export default {
     mounted() {
         window.addEventListener('scroll', this.handleScroll, true);
         this.myEcharts();
+        this.getDate()
     },
     methods: {
+        getDate(){
+            // let resultDate = new Date();
+            let tomorrowDate = DateFunc.tomorrowDate()
+            let endData = '2021-06-28 00:00:00'
+            let dateDiffIncludeToday = DateFunc.twoTimeInterval(tomorrowDate,endData);
+            this.dateObj = dateDiffIncludeToday;
+            let that = this;
+            // console.log(dateDiffIncludeToday)
+            setTimeout(() => {
+                that.getDate()
+            }, 1000);
+        },
         //监听滚动条事件
         handleScroll() {
             //获取设备高度
@@ -1016,7 +1048,7 @@ export default {
                 },
                 legend: {
                     orient: 'vertical',
-                    left: '450rem',
+                    left: '350rem',
                     top: 'center',
                     textStyle: {
                         color: '#ffffff',

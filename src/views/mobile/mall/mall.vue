@@ -1,6 +1,7 @@
 <template>
     <div id="Mmall">
-        <Mheader :isShowRight="true"></Mheader>
+        <Mheader :isShowRight="true"
+                 @clickCallback="clickCallback"></Mheader>
         <div class="banner">
             <img class="bannerimg" src="../../../static/img/shoppingMall/banner.png" alt="">
             <div class="text1">2021</div>
@@ -10,17 +11,18 @@
             <div class="text5">BUY NOW</div>
         </div>
         <div class="type">
-            <span class="text">北特里</span>
+            <span class="text">xxx</span>
             <span class="num">(100)</span>
         </div>
         <div class="choose">
-            <div class="text">筛选</div>
+            <div class="text">{{this.$t('Mmall.select')}}</div>
             <img class="img" src="../../../static/img/shoppingMall/choose.png" alt="">
         </div>
         <div class="goodslist">
             <div class="goodsitem"
                  v-for="item in goodslist"
-                 :key="item.index">
+                 :key="item.index"
+                 @click="toPage('Mgoodsdetails')">
                 <div class="imgcon">
                     <img class="img" :src="item.goodsimg" alt="">
                 </div>
@@ -28,21 +30,24 @@
                 <div class="text2">{{item.charge}}</div>
             </div>
         </div>
-        <div class="copyright">
+        <!-- <div class="copyright">
             <img class="img" src="../../../static/img/shoppingMall/copyright.png" alt="">
-            <span class="text">SLT 2021 版权所有</span>
+            <span class="text">SLT 2021 {{this.$t('Mmall.copyright')}}</span>
         </div>
         <div class="police1">
             <img class="img" src="../../../static/img/shoppingMall/police1.png" alt="">
-            <span class="text">电子营业执照</span>
+            <span class="text">{{this.$t('Mmall.right')}}</span>
         </div>
         <div class="police2">
             <img class="img" src="../../../static/img/shoppingMall/police2.png" alt="">
-            <span class="text">备案 5250530000050号</span>
+            <span class="text">{{this.$t('Mmall.beian')}} 5250530000050</span>
         </div>
         <div class="bottomimg">
             <img class="img" src="../../../static/img/shoppingMall/bottomimg.png" alt="">
         </div>
+        <div class="goshopcart" @click="toPage('MshoppingCart')">
+            <img class="img" src="../../../static/img/chatorshopcart/shopcart.png" alt="">
+        </div> -->
     </div>
 </template>
 
@@ -56,25 +61,38 @@
                 goodslist:[
                     {
                         goodsimg:`${require('../../../static/img/shoppingMall/chair.png')}`,
-                        goodsname:'日式原木餐桌',
-                        charge:'￥299'
+                        goodsname:'goods',
+                        charge:'299 SLT'
                     },
                     {
                         goodsimg:`${require('../../../static/img/shoppingMall/chair.png')}`,
-                        goodsname:'日式原木餐桌',
-                        charge:'￥299'
+                        goodsname:'goods',
+                        charge:'299 SLT'
                     },
                     {
                         goodsimg:`${require('../../../static/img/shoppingMall/chair.png')}`,
-                        goodsname:'日式原木餐桌',
-                        charge:'￥299'
+                        goodsname:'goods',
+                        charge:'299 SLT'
                     },
                     {
                         goodsimg:`${require('../../../static/img/shoppingMall/chair.png')}`,
-                        goodsname:'日式原木餐桌',
-                        charge:'￥299'
+                        goodsname:'goods',
+                        charge:'299 SLT'
                     }
                 ]
+            }
+        },
+        methods: {
+            clickCallback(item){
+                // console.log(item)
+                this.$router.push({
+                    name: item.name,
+                })
+            },
+            toPage(name){
+                this.$router.push({
+                    name: name,
+                })
             }
         }
     }
@@ -82,11 +100,30 @@
 
 <style scoped lang="less">
 #Mmall {
+    
+    .goshopcart{
+        width: 90rem;
+        height: 90rem;
+        background-color: #00B9FE;
+        position: fixed;
+        right: 35rem;
+        bottom: 116rem;
+        border-radius: 50%;
+        .img{
+            width: 44rem;
+            height: 44rem;
+            margin-top: 23rem;
+        }
+    }
     .banner{
+        overflow: hidden;
+        
+        box-sizing: border-box;
         position: relative;
         width: 750rem;
-        height: 420rem;
+        height: auto;
         .bannerimg{
+            margin-top: 88rem;
             width: 750rem;
             height: 420rem;
         }
@@ -97,7 +134,7 @@
             color: #FFFFFF;
             position: absolute;
             left: 129rem;
-            top: 120rem;
+            top: 208rem;
         }
         .text2{
             font-size: 26rem;
@@ -106,7 +143,7 @@
             color: #FFFFFF;
             position: absolute;
             left: 129rem;
-            top: 147rem;
+            top: 235rem;
         }
         .text3{
             font-size: 26rem;
@@ -115,7 +152,7 @@
             color: #FFFFFF;
             position: absolute;
             left: 129rem;
-            top: 188rem;
+            top: 276rem;
         }
         .text4{
             font-size: 12rem;
@@ -124,7 +161,7 @@
             color: #C5C5C5;
             position: absolute;
             left: 129rem;
-            top: 228rem;
+            top: 316rem;
         }
         .text5{
             width: 150rem;
@@ -138,7 +175,7 @@
             line-height: 38rem;
             position: absolute;
             left: 129rem;
-            top: 264rem;
+            top: 362rem;
         }
     }
     .type{

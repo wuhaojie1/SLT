@@ -1,41 +1,43 @@
 <template>
     <div class="index">
-<!--        <transition name="slide-fade-Y">
-            <ThemeStickyHeader v-if="showSticky" class="ThemeStickyHeader"></ThemeStickyHeader>
-        </transition>-->
+        <!--        <transition name="slide-fade-Y">
+                    <ThemeStickyHeader v-if="showSticky" class="ThemeStickyHeader"></ThemeStickyHeader>
+                </transition>-->
+        <PageHeader :isShowRight="true"
+                    :isHome="true"></PageHeader>
 
         <div class="index-content">
             <div class="index-content-wrap">
                 <div class="section1" :style="{ 'backgroundImage':'url('+ urlIcon +')' }">
                     <!-- <div class="site-header"> -->
-                        <!-- <div class="site-header-list">
-                            <div class="site-header-item-img">
-                                <img :src="SLT_white" alt="" class="SLT_white_logo">
+                    <!-- <div class="site-header-list">
+                        <div class="site-header-item-img">
+                            <img :src="SLT_white" alt="" class="SLT_white_logo">
+                        </div>
+                        <div class="site-header-text-list">
+                            <div class="site-header-item">
+                                <div class="text">INTRO</div>
                             </div>
-                            <div class="site-header-text-list">
-                                <div class="site-header-item">
-                                    <div class="text">INTRO</div>
-                                </div>
-                                <div class="site-header-item">
-                                    <div class="text">ABOUT</div>
-                                </div>
-                                <div class="site-header-item">
-                                    <div class="text">SLT BENEFITS</div>
-                                </div>
-                                <div class="site-header-item">
-                                    <div class="text">ICO FACTS</div>
-                                </div>
-                                <div class="site-header-item">
-                                    <div class="text">TEAM</div>
-                                </div>
-                                <div class="site-header-item">
-                                    <div class="text">ROADMAP</div>
-                                </div>
+                            <div class="site-header-item">
+                                <div class="text">ABOUT</div>
                             </div>
-                        </div> -->
+                            <div class="site-header-item">
+                                <div class="text">SLT BENEFITS</div>
+                            </div>
+                            <div class="site-header-item">
+                                <div class="text">ICO FACTS</div>
+                            </div>
+                            <div class="site-header-item">
+                                <div class="text">TEAM</div>
+                            </div>
+                            <div class="site-header-item">
+                                <div class="text">ROADMAP</div>
+                            </div>
+                        </div>
+                    </div> -->
                     <!-- </div> -->
                     <div class="section1-content">
-                        <div class="wpb-wrapper">
+                        <!-- <div class="wpb-wrapper">
                             <div class="title1">
                                 {{ $t('index').name }}
                             </div>
@@ -44,25 +46,25 @@
                             </div>
                             <div class="content">
                                 {{ $t('index').detail }}
+                            </div> -->
+                        <!-- <div class="btn">
+                            <div class="left">
+                                {{ $t('index').whitBook }}
                             </div>
-                            <!-- <div class="btn">
-                                <div class="left">
-                                    {{ $t('index').whitBook }}
-                                </div>
-                                <div class="right">
-                                    <img src="@/static/img/index/pause.png" alt="" class="right-img">
-                                    <h4>{{ $t('index').whitBookT }}</h4>
-                                </div>
-                            </div> -->
-                            <!-- <div class="videoBox">
-                                 <video-player  class="video-player vjs-custom-skin"
-                                ref="videoPlayer"
-                                :playsinline="true"
-                                :options="playerOptions"
-                            ></video-player>
-                            </div> -->
-                        </div>
-<!--                        <div class="ico">
+                            <div class="right">
+                                <img src="@/static/img/index/pause.png" alt="" class="right-img">
+                                <h4>{{ $t('index').whitBookT }}</h4>
+                            </div>
+                        </div> -->
+                        <!-- <div class="videoBox">
+                             <video-player  class="video-player vjs-custom-skin"
+                            ref="videoPlayer"
+                            :playsinline="true"
+                            :options="playerOptions"
+                        ></video-player>
+                        </div> -->
+                        <!-- </div> -->
+                        <div class="ico">
                             <div class="ico-content">
                                 <div class="ico-content-title">
                                     {{ $t('index').Ends }}
@@ -71,22 +73,22 @@
                                     <div class="ico-content-date-list">
                                         <TimeCard class="TimeCard"
                                                   :date="'DAY'"
-                                                  :number="'09'"></TimeCard>
+                                                  :number="dateObj.day"></TimeCard>
                                         <TimeCard class="TimeCard"
                                                   :date="'HR'"
-                                                  :number="'09'"></TimeCard>
+                                                  :number="dateObj.hours"></TimeCard>
                                         <TimeCard class="TimeCard"
                                                   :date="'MIN'"
-                                                  :number="'09'"></TimeCard>
+                                                  :number="dateObj.minutes"></TimeCard>
                                         <TimeCard class="TimeCard"
                                                   :date="'SEC'"
-                                                  :number="'09'"></TimeCard>
+                                                  :number="dateObj.seconds"></TimeCard>
                                     </div>
                                 </div>
                                 <div class="ico-content-text">
                                     {{ $t('index').salesEnds }}
                                 </div>
-                                <div class="ico-content-btn" @click="topage('buy')">
+                                <div class="ico-content-btn" @click="topage('Mbuy')">
                                     {{ $t('index').buyBtn }}
                                 </div>
                                 <div class="money">
@@ -116,7 +118,7 @@
                                     <img :src="master" alt="">
                                 </div>
                             </div>
-                        </div>-->
+                        </div>
                     </div>
                 </div>
                 <div class="section2">
@@ -158,14 +160,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="section3-item">
+                        <!-- <div class="section3-item">
                             <img :src="section3ItemImg" alt="" class="section3ItemImg">
-                        </div>
+                        </div> -->
                         <div class="section3-item">
                             <div class="section3-item-right">
                                 <div class="section3-item-box">
                                     <div class="img">
-                                        <img src="@/static/img/index/application.png" alt="" class="section3-item-box-img">
+                                        <img src="@/static/img/index/application.png" alt=""
+                                             class="section3-item-box-img">
                                     </div>
                                     <div class="text">
                                         <div class="title">
@@ -182,7 +185,7 @@
                                     </div>
                                     <div class="text">
                                         <div class="title">
-
+                                            {{ $t('index').safeguardTitle }}
                                         </div>
                                         <div class="content">
                                             {{ $t('index').safeguardText }}
@@ -193,6 +196,8 @@
                         </div>
                     </div>
                 </div>
+
+
                 <div class="section4">
                     <div class="section4-content1">
                         <div class="section4-content1-wrap">
@@ -207,12 +212,11 @@
                                     <div class="content">
                                         {{ $t('index').SLTCoinText }}
                                     </div>
-                                    <div class="video">
-                                        <!--                                        <img src="" alt="" class="video-img">-->
+                                    <!-- <div class="video">
                                         <h4>
                                             {{ $t('index').videoText }}
                                         </h4>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="section4-content1-box1-right">
 
@@ -246,13 +250,11 @@
                                                 {{ $t('index').aboutQuestion }}
                                             </div>
                                         </div>
-                                        <!-- <transition name="hidden-box1"> -->
-                                            <div class="hidden-box" v-show="box1">
-                                                <div class="hidden-box-item">
-                                                    {{ $t('index').search }}
-                                                </div>
+                                        <div class="hidden-box" v-show="box1">
+                                            <div class="hidden-box-item">
+                                                {{ $t('index').search }}
                                             </div>
-                                        <!-- </transition> -->
+                                        </div>
 
                                     </div>
                                     <div class="quesgtionBox-item2">
@@ -263,16 +265,14 @@
                                                 {{ $t('index').aboutQuestion }}
                                             </div>
                                         </div>
-                                        <!-- <transition name="hidden-box2"> -->
-                                            <div class="hidden-box" v-show="box2">
-                                                <div class="hidden-box-item">
-                                                    {{ $t('index').connect }}
-                                                </div>
-                                                <div class="hidden-box-item">
-                                                    {{ $t('index').teamEmail }}
-                                                </div>
+                                        <div class="hidden-box" v-show="box2">
+                                            <div class="hidden-box-item">
+                                                {{ $t('index').connect }}
                                             </div>
-                                        <!-- </transition> -->
+                                            <div class="hidden-box-item">
+                                                {{ $t('index').teamEmail }}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -352,16 +352,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="right">
+                        <!-- <div class="right">
                             <img :src="booktree" alt="" class="right-img">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="section6">
                     <div class="section6-wrap">
-                        <div class="left">
+                        <!-- <div class="left">
                             <img :src="life" alt="" class="left-img">
-                        </div>
+                        </div> -->
                         <div class="right">
                             <div class="right-wrap">
                                 <div class="tip">
@@ -396,9 +396,9 @@
                                         {{ $t('index').tokenList[7] }}
                                     </li>
                                 </ul>
-                                <div class="btn">
+                                <!-- <div class="btn">
                                     {{ $t('index').searchBtn }}
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -459,14 +459,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="section7-content2-wrap">
+                    <!-- <div class="section7-content2-wrap">
                         <div class="section7-content2"></div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="section8">
                     <div class="section8-wrap">
                         <div class="top">
-                            <div class="left">
+                            <!-- <div class="left">
                                 <div class="left-box">
                                     <div class="time-box">
                                         <TimeCard class="TimeCard"
@@ -516,7 +516,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="right">
                                 <div class="right-content">
                                     <div class="title">{{ $t('index').Howtobuy }}</div>
@@ -580,9 +580,13 @@
                                     </div>
                                     <div class="recommend-item-top">
                                         <div class="title">{{ $t('index').whitBook }}</div>
-                                        <div class="text"></div>
+                                         <!-- 한국어 English 中文 日本语 -->
+                                        <div class="text">한국어</div>
+                                        <div class="text">English</div>
+                                        <div class="text">中文</div>
+                                        <div class="text">日本语</div>
                                     </div>
-                                    <div class="content">
+                                    <!-- <div class="content">
                                         <div class="content-list">
                                             <div class="content-item">
                                                 {{ $t('index').Korean }}
@@ -591,7 +595,7 @@
                                                 {{ $t('index').Chinese }}
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="recommend-item">
                                     <div class="imgBox">
@@ -703,7 +707,9 @@
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div class="timeline-badge "
-                                     style="background-color:#1e73be">{{ $t('index').Mar }}<span>{{ $t('index').year1 }}</span>
+                                     style="background-color:#1e73be">{{ $t('index').Mar }}<span>{{
+                                        $t('index').year1
+                                    }}</span>
                                     <div class=" " style="background-color:#1e73be"></div>
                                 </div>
                                 <div class="timeline-panel">
@@ -713,7 +719,9 @@
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-badge "
-                                     style="background-color:#81d742">{{ $t('index').May }}<span>{{ $t('index').year1 }}</span>
+                                     style="background-color:#81d742">{{ $t('index').May }}<span>{{
+                                        $t('index').year1
+                                    }}</span>
                                     <div class=" " style="background-color:#81d742"></div>
                                 </div>
                                 <div class="timeline-panel">
@@ -722,7 +730,9 @@
                                 </div>
                             </div>
                             <div class="timeline-item">
-                                <div class="timeline-badge " style="background-color:#eeee22">{{ $t('index').Jun }}<span>{{ $t('index').year1 }}</span>
+                                <div class="timeline-badge " style="background-color:#eeee22">{{
+                                        $t('index').Jun
+                                    }}<span>{{ $t('index').year1 }}</span>
                                     <div class=" " style="background-color:#eeee22"></div>
                                 </div>
                                 <div class="timeline-panel">
@@ -743,7 +753,9 @@
                                 </div>
                             </div>
                             <div class="timeline-item">
-                                <div class="timeline-badge " style="background-color:#faa732">{{ $t('index').Mar }}<span>{{ $t('index').year2 }}</span>
+                                <div class="timeline-badge " style="background-color:#faa732">{{
+                                        $t('index').Mar
+                                    }}<span>{{ $t('index').year2 }}</span>
                                     <div class=" " style="background-color:#faa732"></div>
                                 </div>
                                 <div class="timeline-panel">
@@ -756,26 +768,11 @@
                 </div>
                 <div class="section11" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
                     <div class="section11-wrap">
-                        <!-- <div class="section11-wrap-title">
-                            {{ $t('index').join }}
-                        </div>
-                        <div class="section11-wrap-tip">
-                            {{ $t('index').joinText }}
-                        </div> -->
-                        <!-- <div class="section11-wrap-btnBox">
-                            <div class="input-item">
-                                <input type="text" :placeholder="$t('index').namePlaceholder ">
-                            </div>
-                            <div class="input-item">
-                                <input type="email" :placeholder="$t('index').emailPlaceholder ">
-                            </div>
-                            <div class="btn">
-                                {{ $t('index').submit }}
-                            </div>
-                        </div> -->
                         <div class="url">
-                            <div class="url-content">{{ $t('index').net1[0] }}<span>{{ $t('index').net1[1] }}</span></div>
-                            <div class="url-content">{{ $t('index').net2[0] }}<span>{{ $t('index').net2[1] }}</span></div>
+                            <div class="url-content">{{ $t('index').net1[0] }}<span>{{ $t('index').net1[1] }}</span>
+                            </div>
+                            <div class="url-content">{{ $t('index').net2[0] }}<span>{{ $t('index').net2[1] }}</span>
+                            </div>
                             <div class="url-content email">{{ $t('index').net3[0] }}</div>
                         </div>
                         <div class="logo-icon">
@@ -788,19 +785,22 @@
                 </div>
             </div>
         </div>
-        <TopBar></TopBar>
+        <!-- <TopBar></TopBar> -->
     </div>
 </template>
 
 <script>
-import TopBar from "@/components/header/topBar";
-import TimeCard from "@/components/index/timeCard";
+// import TopBar from "@/components/header/topBar";
+import TimeCard from "@/components/index/mTimeCard";
 // import ThemeStickyHeader from "@/components/header/themeStickyHeader";
 import MemberCard from "@/components/index/memberCard";
+import {DateFunc} from '@/static/js/common.js';
+import PageHeader from "@/components/mobileComponents/comm/header";
 
 export default {
     name: "index",
-    components: {MemberCard, TimeCard, TopBar},
+    // components: {MemberCard, TimeCard, TopBar},
+    components: {PageHeader, TimeCard, MemberCard},
     data() {
         return {
             SLT_white: `${require('@/static/img/index/SLT_white.png')}`,
@@ -820,8 +820,8 @@ export default {
                 `${require('@/static/img/index/SLT_white.png')}`,
                 `${require('@/static/img/index/booktree_white.png')}`,
                 `${require('@/static/img/index/SLT_white.png')}`,
-                `${require('@/static/img/index/booktree_white.png')}`,
-                `${require('@/static/img/index/SLT_white.png')}`,
+                // `${require('@/static/img/index/booktree_white.png')}`,
+                // `${require('@/static/img/index/SLT_white.png')}`,
             ],
             add: `${require('@/static/img/index/add.png')}`,
             reduce: `${require('@/static/img/index/reduce.png')}`,
@@ -829,104 +829,109 @@ export default {
                 {
                     name: "Bae Seunghwan",
                     position: "CEO",
-                    img: `${require('../../../static/img/index/baesh-400x400.png')}`,
+                    img: `${require('@/static/img/index/baesh-400x400.png')}`,
                 },
                 {
                     name: "Choi sungmin",
                     position: "Planning, CEO of CRADLEKOREA",
-                    img: `${require('../../../static/img/index/team_choism-400x400.png')}`,
+                    img: `${require('@/static/img/index/team_choism-400x400.png')}`,
                 },
                 {
                     name: "Kim TG",
                     position: "Director of Blockchain Research Institute",
-                    img: `${require('../../../static/img/index/team_kimtg-400x400.png')}`,
+                    img: `${require('@/static/img/index/team_kimtg-400x400.png')}`,
                 },
                 {
                     name: "Jung jiyeon",
                     position: "CMO, Former CMO of BROWN Edu.",
-                    img: `${require('../../../static/img/index/team_jungjy-400x400.png')}`,
+                    img: `${require('@/static/img/index/team_jungjy-400x400.png')}`,
                 },
                 {
                     name: "Kim eunji",
                     position: "Bigdata analysis, Graduate Northeastern University",
-                    img: `${require('../../../static/img/index/team_iimeunji-400x400.png')}`,
+                    img: `${require('@/static/img/index/team_iimeunji-400x400.png')}`,
                 },
 
-                
+
                 {
                     name: "Choi kyoungyong",
                     position: "Marketing, Former Director of Altwell",
-                    img: `${require('../../../static/img/index/team_choikg-400x400.png')}`,
+                    img: `${require('@/static/img/index/team_choikg-400x400.png')}`,
                 },
                 {
                     name: "You hwanho",
                     position: "Web Development",
-                    img: `${require('../../../static/img/index/team_youhwanho-400x400.png')}`,
+                    img: `${require('@/static/img/index/team_youhwanho-400x400.png')}`,
                 },
 
 
-                
                 // {
                 //     name: "Yu seungjun",
                 //     position: "Strategic Planning, Executive Direct of Energy Korea",
-                //     img: `${require('../../../static/img/index/team_yusj-400x400.png')}`,
+                //     img: `${require('@/static/img/index/team_yusj-400x400.png')}`,
                 // },
-                
+
 
                 {
                     name: "Tonnam Choi",
                     position: "CIO",
-                    img: `${require('../../../static/img/index/team_tonnam-400x400.png')}`,
+                    img: `${require('@/static/img/index/team_tonnam-400x400.png')}`,
                 },
-                
-                
+
+
             ],
-             
+
             members1:[
                 {
-                    name: "Jun sukgu",
-                    position: "ChFC Total Financial Asset Manager",
-                    img: `${require('../../../static/img/index/team_junsg-400x400.png')}`,
-                },
-                {
-                    name: "Lee chungsung",
-                    position: "Ph.D of Engineering Ph.D candidate of Tokyo University",
-                    img: `${require('../../../static/img/index/team_leecs-400x400.png')}`,
-                },
-                {
-                    name: "Lee gwiseong",
-                    position: "CPA of One-G Accounting Group",
-                    img: `${require('../../../static/img/index/team_leegs-400x400.png')}`,
-                },
-                {
-                    name: "Kim bonghun",
-                    position: "Ph.D of Economics",
-                    img: `${require('../../../static/img/index/team_kimbh-400x400.png')}`,
-                },
-                {
-                    name: "Jo jaehyuck",
-                    position: "Ph.D of Computer Sciences Professor of Soongsil University",
-                    img: `${require('../../../static/img/index/team_jojy-400x400.png')}`,
+                    name: "Yun johun",
+                    position: "Member of Blockchain Law Society Lawyer of Lawfirm Seyang",
+                    img: `${require('@/static/img/index/team_yunjh-400x400.png')}`,
                 },
                 {
                     name: "Kim jongwoo",
                     position: "Lawyer of Lawfirm Seyang",
-                    img: `${require('../../../static/img/index/team_kimjw-400x400.png')}`,
+                    img: `${require('@/static/img/index/team_kimjw-400x400.png')}`,
                 },
                 {
-                    name: "Yun johun",
-                    position: "Member of Blockchain Law Society Lawyer of Lawfirm Seyang",
-                    img: `${require('../../../static/img/index/team_yunjh-400x400.png')}`,
+                    name: "Kim bonghun",
+                    position: "Ph.D of Economics",
+                    img: `${require('@/static/img/index/team_kimbh-400x400.png')}`,
                 },
                 {
                     name: "Kim hwoikwang",
                     position: "Ph.D , Professor",
-                    img: `${require('../../../static/img/index/ad_kimhk-400x400.png')}`,
+                    img: `${require('@/static/img/index/ad_kimhk-400x400.png')}`,
                 },
+                {
+                    name: "Jo jaehyuck",
+                    position: "Ph.D of Computer Sciences Professor of Soongsil University",
+                    img: `${require('@/static/img/index/team_jojy-400x400.png')}`,
+                },
+                {
+                    name: "Lee chungsung",
+                    position: "Ph.D of Engineering Ph.D candidate of Tokyo University",
+                    img: `${require('@/static/img/index/team_leecs-400x400.png')}`,
+                },
+                {
+                    name: "Lee gwiseong",
+                    position: "CPA of One-G Accounting Group",
+                    img: `${require('@/static/img/index/team_leegs-400x400.png')}`,
+                },
+                {
+                    name: "Jun sukgu",
+                    position: "ChFC Total Financial Asset Manager",
+                    img: `${require('@/static/img/index/team_junsg-400x400.png')}`,
+                },
+                
                 {
                     name: "전) 기업은행근무",
                     position: "전) (주) 국제자산관리 이사   현)    (주) 트레이드엑스 대표",
                     img: `${require('@/static/img/index/preson.jpg')}`,
+                },
+                {
+                    name: "만종스페이스 이사",
+                    position: "전 혁신산업개발 대표이사",
+                    img: `${require('@/static/img/index/person1.jpg')}`,
                 },
 
             ],
@@ -956,7 +961,7 @@ export default {
                 sources: [{
                     type: "",
                     src: 'http://vjs.zencdn.net/v/oceans.mp4'//url地址          
-                // src: "" //url地址
+                    // src: "" //url地址
                 }],
                 poster: "", //你的封面地址
                 // width: document.documentElement.clientWidth,
@@ -968,7 +973,13 @@ export default {
                     fullscreenToggle: false  //全屏按钮
                 }
             },
-            
+            dateObj:{
+                day:"00",
+                hours:"00",
+                minutes:"00",
+                seconds:"00"
+            }
+
         }
     },
     // watch: {
@@ -983,8 +994,26 @@ export default {
     mounted() {
         window.addEventListener('scroll', this.handleScroll, true);
         this.myEcharts();
+        this.getDate()
     },
     methods: {
+        getDate(){
+            // let resultDate = new Date();
+            let tomorrowDate = DateFunc.tomorrowDate()
+            let endData = '2021-06-28 00:00:00'
+            let dateDiffIncludeToday = DateFunc.twoTimeInterval(tomorrowDate,endData);
+            this.dateObj = dateDiffIncludeToday;
+            let that = this;
+            setTimeout(() => {
+                that.getDate()
+            }, 1000);
+        },
+        clickCallback(item){
+            // console.log(item)
+            this.$router.push({
+                name: item.name,
+            })
+        },
         //监听滚动条事件
         handleScroll() {
             //获取设备高度
@@ -1017,7 +1046,7 @@ export default {
                 },
                 legend: {
                     orient: 'vertical',
-                    left: '450rem',
+                    left: '220rem',
                     top: 'center',
                     textStyle: {
                         color: '#ffffff',
@@ -1028,7 +1057,7 @@ export default {
                         // name: '访问来源',
                         type: 'pie',
                         radius: '90%',
-                        center: ['35%', '50%'], //图的位置，距离左跟上的位置
+                        center: ['25%', '50%'], //图的位置，距离左跟上的位置
                         data: [
                             {value: 30, name: '30% 생태기금'},
                             {value: 20, name: '20% 비축기금'},
@@ -1215,7 +1244,8 @@ export default {
                             margin-bottom: 40rem;
 
                         }
-                        .videoBox{
+
+                        .videoBox {
                             width: 480rem;
                             height: 240rem;
                             background: #000000;
@@ -1270,7 +1300,7 @@ export default {
                         margin: 0 auto;
                         //right: 50rem;
                         //top: 0rem;
-                        padding: 35rem;
+                        padding: 50rem;
 
                         .ico-content {
 
@@ -1305,13 +1335,14 @@ export default {
                             }
 
                             .ico-content-btn {
-                                height: 48rem;
-                                width: 100%;
+                                height: 80rem;
+                                width: 80%;
                                 border-radius: 2em;
                                 color: #fff;
                                 background: #00B4FC;
-                                line-height: 48rem;
+                                line-height: 80rem;
                                 margin-bottom: 21rem;
+                                margin: 0 auto 20rem;
                                 cursor: pointer;
                             }
 
@@ -1354,11 +1385,11 @@ export default {
                                 .bar {
                                     /*top: 26rem;*/
                                     position: relative;
-                                    height: 24rem;
+                                    height: 30rem;
                                     width: 100%;
                                     background: #fff;
                                     margin-top: 3rem;
-                                    border-radius: 2rem;
+                                    border-radius: 6rem;
 
                                     .rate {
                                         position: absolute;
@@ -1367,12 +1398,13 @@ export default {
                                         height: 100%;
                                         top: 0;
                                         left: 0;
+                                        border-radius: 6rem;
                                     }
 
                                     .text {
                                         position: absolute;
                                         color: #fff;
-                                        line-height: 24rem;
+                                        line-height: 30rem;
                                         top: 0;
                                         left: 12rem;
                                         font-size: 12rem;
@@ -1392,8 +1424,8 @@ export default {
                                 img {
                                     background: rgb(130, 133, 157);
                                     border-radius: 3rem;
-                                    width: 52rem;
-                                    height: 30rem;
+                                    width: auto;
+                                    height: 60rem;
                                 }
                             }
 
@@ -1405,14 +1437,16 @@ export default {
 
             .section2 {
                 background-color: #061649;
-                height: 150rem;
+                height: auto;
 
                 .section2-list {
                     display: flex;
                     align-items: center;
                     justify-content: space-around;
-                    width: 1170rem;
+                    width: 100%;
                     margin: 0 auto;
+                    padding: 40rem;
+                    box-sizing: border-box;
 
                     .section2-item {
                         opacity: 0.6;
@@ -1431,6 +1465,7 @@ export default {
             }
 
             .section3 {
+                padding-top: 40rem;
                 height: 860rem;
                 width: 100%;
                 background-color: #041b63;
@@ -1439,7 +1474,7 @@ export default {
                 background-size: cover;
 
                 .section3-list {
-                    width: 1170rem;
+                    width: 100%;
                     margin: 0 auto;
                     display: flex;
                     /*align-items: center;*/
@@ -1512,18 +1547,18 @@ export default {
             }
 
             .section4 {
-                height: 2156rem;
+                height: 2320rem;
                 width: 100%;
                 background-color: #061649;
                 box-sizing: border-box;
 
                 .section4-content1 {
-                    height: 1476rem;
+                    height: 1276rem;
                     width: 100%;
                     box-sizing: border-box;
 
                     .section4-content1-wrap {
-                        width: 1140rem;
+                        width: 100%;
                         margin: 0 auto;
                         height: 100%;
                         box-sizing: border-box;
@@ -1539,11 +1574,11 @@ export default {
                             display: flex;
 
                             .section4-content1-box1-left {
-                                width: 570rem;
+                                width: 100%;
                                 height: 100%;
                                 text-align: left;
                                 box-sizing: border-box;
-                                padding: 0 85.5rem 0 15rem;
+                                padding: 0 85.5rem 0 50rem;
 
                                 .title {
                                     font-size: 14rem;
@@ -1556,12 +1591,14 @@ export default {
                                     margin-block-end: 1em;
                                     margin-inline-start: 0;
                                     margin-inline-end: 0;
+                                    text-align: center;
                                 }
 
                                 .question {
                                     font-size: 36rem;
                                     color: #fff;
                                     margin-bottom: 15rem;
+                                    text-align: center;
                                 }
 
                                 .content {
@@ -1575,6 +1612,7 @@ export default {
                                     margin-inline-start: 0;
                                     margin-inline-end: 0;
                                     line-height: 1.68421053em;
+                                    text-align: center;
                                 }
 
                                 .video {
@@ -1593,10 +1631,10 @@ export default {
 
                             }
 
-                            .section4-content1-box1-right {
-                                width: 570rem;
-                                height: 100%;
-                            }
+                            // .section4-content1-box1-right {
+                            //     width: 570rem;
+                            //     height: 100%;
+                            // }
                         }
 
                         .section4-content1-box2 {
@@ -1605,7 +1643,7 @@ export default {
                             width: 100%;
                             text-align: center;
                             margin: 100rem 0;
-                            padding-top: 40rem;
+                            padding: 40rem;
 
                             .section4-content1-content {
                                 .content-text1 {
@@ -1632,6 +1670,17 @@ export default {
                                 }
 
                                 .content-img {
+                                    width: 100%;
+                                    height: auto;
+                                    overflow: hidden;
+
+                                    img {
+                                        // position: absolute;
+                                        width: 120%;
+                                        height: auto;
+                                        margin: 0 auto;
+                                    }
+
                                     /*width: 100%;*/
                                     /*height: 100%;*/
                                     /*background-size: cover;*/
@@ -1653,21 +1702,22 @@ export default {
                     background-size: cover;
                     box-sizing: border-box;
                     padding: 100rem 0;
-                    display: flex;
-                    align-items: center;
+                    // display: flex;
+                    // align-items: center;
 
                     .section4-content2-wrap {
-                        width: 1140rem;
+                        width: 100%;
                         margin: 0 auto;
                         height: 100%;
-                        display: flex;
+                        // display: flex;
 
                         .left {
-                            text-align: left;
-                            width: 570rem;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
+                            text-align: center;
+                            width: 100%;
+                            // display: flex;
+                            // flex-direction: column;
+                            // justify-content: center;
+                            margin: 0 auto;
 
 
                             .text1 {
@@ -1693,7 +1743,8 @@ export default {
                                     /*align-items: center;*/
                                     padding: 25rem;
                                     position: relative;
-                                    margin-bottom: 21rem;
+                                    // margin-bottom: 21rem;
+                                    margin: 0 auto 20rem;
 
                                     .quesgtionBox-item-top {
                                         display: flex;
@@ -1741,7 +1792,7 @@ export default {
                                     /*align-items: center;*/
                                     padding: 25rem;
                                     position: relative;
-                                    margin-bottom: 21rem;
+                                    margin: 0 auto 20rem;
 
                                     .quesgtionBox-item-top {
                                         display: flex;
@@ -1783,10 +1834,11 @@ export default {
                         }
 
                         .right {
-                            width: 570rem;
-                            text-align: left;
+                            width: 100%;
+                            text-align: center;
                             box-sizing: border-box;
-                            padding: 0 15rem;
+                            padding: 0 25rem;
+                            margin-top: 100rem;
 
 
                             .title {
@@ -1797,11 +1849,14 @@ export default {
                                 font-size: 16rem;
                                 opacity: 1;
                                 visibility: visible;
+                                width: 100%;
+                                padding: 0 60rem;
+                                box-sizing: border-box;
                                 margin-bottom: 35rem;
                             }
 
                             .echarts-box {
-                                width: 540rem;
+                                width: 100%;
                                 height: 335rem;
 
                                 #echartsBox {
@@ -1817,25 +1872,25 @@ export default {
             .section5 {
                 background: #061649;
                 width: 100%;
-                height: 721rem;
+                height: 771rem;
                 background-position: 0 0;
                 background-repeat: repeat;
 
                 .section5-wrap {
-                    width: 1140rem;
+                    width: 100%;
                     height: 100%;
                     margin: 0 auto;
-                    display: flex;
-                    padding: 100rem 0;
+                    // display: flex;
+                    padding: 100rem 30rem;
                     box-sizing: border-box;
 
                     .left {
-                        width: 760rem;
+                        width: 100%;
                         height: 100%;
 
                         .left-wrap {
                             padding: 0 15rem;
-                            text-align: left;
+                            text-align: center;
 
                             .left-wrap-item1 {
                                 font-size: 14rem;
@@ -1928,32 +1983,32 @@ export default {
             .section6 {
                 background: #061649;
                 width: 100%;
-                height: 717rem;
+                height: 570rem;
 
                 .section6-wrap {
                     height: 567rem;
                     margin: 0 auto;
-                    width: 1140rem;
+                    width: 100%;
                     box-sizing: border-box;
-                    display: flex;
+                    // display: flex;
 
-                    .left {
-                        margin-right: 15rem;
+                    // .left {
+                    //     margin-right: 15rem;
 
-                        .left-img {
-                            width: 640rem;
-                            height: 568rem;
-                        }
-                    }
+                    //     .left-img {
+                    //         width: 640rem;
+                    //         height: 568rem;
+                    //     }
+                    // }
 
                     .right {
-                        text-align: left;
-                        width: 570rem;
+                        text-align: center;
+                        width: 100%;
                         height: 100%;
-                        padding: 0 15rem;
+                        padding: 60rem 15rem 0;
                         box-sizing: border-box;
-                        display: flex;
-                        align-items: center;
+                        // display: flex;
+                        // align-items: center;
 
                         .right-wrap {
                             .tip {
@@ -1971,6 +2026,7 @@ export default {
                             .plan-list {
                                 margin-left: 15rem;
                                 margin-bottom: 35rem;
+                                list-style: none;
 
                                 .plan-item {
                                     line-height: 32rem;
@@ -1979,7 +2035,8 @@ export default {
                                     color: #89c1f9;
                                     font-size: 16rem;
                                     opacity: 1;
-                                    visibility: visible;
+                                    list-style: none
+                                    // visibility: visible;
                                 }
                             }
 
@@ -2014,7 +2071,7 @@ export default {
 
                 .section7-content1-wrap {
                     width: 100%;
-                    height: 596rem;
+                    height: 1700rem;
                     background-color: #041b63;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -2022,7 +2079,7 @@ export default {
                     box-sizing: border-box;
 
                     .section7-content1 {
-                        width: 1140rem;
+                        width: 100%;
                         height: 436rem;
                         padding-top: 80rem;
                         margin: 0 auto;
@@ -2045,18 +2102,19 @@ export default {
                         }
 
                         .section7-content1-cards {
-                            display: flex;
-                            justify-content: space-between;
+                            // display: flex;
+                            // justify-content: space-between;
 
                             .section7-content1-cards-item {
-                                width: 255rem;
-                                height: 248rem;
+                                width: 350rem;
+                                height: 300rem;
                                 /*background-color: #fff;*/
                                 box-shadow: 0 10rem 30rem rgb(1 1 25 / 10%);
                                 /*opacity: 0.1;*/
                                 border-radius: 5rem;
                                 box-sizing: border-box;
                                 padding: 55rem 40rem;
+                                margin: 20rem auto 40rem;
 
 
                                 .title {
@@ -2128,7 +2186,7 @@ export default {
                 box-sizing: border-box;
 
                 .section8-wrap {
-                    width: 1140rem;
+                    width: 100%;
                     margin: 0 auto;
                     height: 100%;
                     box-sizing: border-box;
@@ -2321,20 +2379,22 @@ export default {
                         height: 389rem;
                         width: 100%;
                         box-sizing: border-box;
-                        padding: 45rem 0 60rem 0;
+                        padding: 45rem 30rem 60rem;
 
                         .recommend-list {
                             width: 100%;
                             height: 100%;
-                            display: flex;
-                            justify-content: space-between;
+                            // display: flex;
+                            // justify-content: space-between;
                             box-sizing: border-box;
 
                             .recommend-item {
                                 box-sizing: border-box;
                                 position: relative;
-                                width: 285rem;
+                                width: 50%;
                                 padding: 0 15rem;
+                                float: left;
+                                height: 200rem;
 
                                 .imgBox {
                                     position: absolute;
@@ -2347,7 +2407,7 @@ export default {
 
                                 .recommend-item-top {
                                     min-height: 64rem;
-                                    margin-bottom: 40rem;
+                                    // margin-bottom: 40rem;
                                     padding-left: 52rem;
                                     box-sizing: border-box;
 
@@ -2394,14 +2454,14 @@ export default {
             }
 
             .section9 {
-                height: 2343rem;
+                height: auto;
                 background-color: #041b63;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
 
                 .section9-wrap {
-                    width: 1140rem;
+                    width: 100%;
                     margin: 0 auto;
                     height: 100%;
                     padding: 100rem 0 60rem 0;
@@ -2462,7 +2522,7 @@ export default {
 
                                 .Team-card-content-item {
                                     margin-bottom: 30rem;
-                                    width: 285rem;
+                                    width: 50%;
                                     box-sizing: border-box;
                                 }
 
@@ -2478,7 +2538,7 @@ export default {
                 height: 1159rem;
 
                 .section10-wrap {
-                    width: 1140rem;
+                    width: 100%;
                     margin: 0 auto;
                     height: 100%;
                     padding: 100rem 0;
@@ -2516,7 +2576,7 @@ export default {
                     }
 
                     .timeline {
-                        width: 1095rem;
+                        width: 100%;
                         height: 710rem;
                         box-sizing: border-box;
                         padding: 20rem 0 20rem;
@@ -2539,7 +2599,7 @@ export default {
                                 line-height: 12rem;
                                 text-align: center;
                                 position: absolute;
-                                left: 50%;
+                                left: 650rem;
                                 margin-left: -35rem;
                                 z-index: 100;
                                 border-radius: 50%;
@@ -2550,7 +2610,7 @@ export default {
                                 span {
                                     font-size: 14rem;
                                     display: block;
-                                    line-height: 16rem;
+                                    line-height: 20rem;
                                 }
 
                                 div {
@@ -2578,6 +2638,7 @@ export default {
                                 border: 1rem solid #eee;
                                 box-shadow: 0 10rem 30rem rgb(1 1 25 / 10%);
                                 box-sizing: border-box;
+                                margin-left: 80rem;
 
                                 .description {
                                     span {
@@ -2611,27 +2672,27 @@ export default {
                             }
                         }
 
-                        .timeline-item:nth-child(2n) {
+                        // .timeline-item:nth-child(2n) {
 
-                            .timeline-panel:before {
-                                border-left-width: 0;
-                                border-right-width: 15rem;
-                                left: -15rem;
-                                right: auto;
-                            }
+                        //     .timeline-panel:before {
+                        //         border-left-width: 0;
+                        //         border-right-width: 15rem;
+                        //         left: -15rem;
+                        //         right: auto;
+                        //     }
 
-                            .timeline-panel:after {
-                                border-left-width: 0;
-                                border-right-width: 14rem;
-                                left: -14rem;
-                                right: auto;
-                            }
+                        //     .timeline-panel:after {
+                        //         border-left-width: 0;
+                        //         border-right-width: 14rem;
+                        //         left: -14rem;
+                        //         right: auto;
+                        //     }
 
-                            .timeline-panel {
-                                float: right;
-                            }
+                        //     .timeline-panel {
+                        //         float: right;
+                        //     }
 
-                        }
+                        // }
                     }
 
                     .timeline:before {
@@ -2641,21 +2702,21 @@ export default {
                         content: " ";
                         width: 3rem;
                         background-color: #ddd;
-                        left: 50%;
+                        left: 650rem;
                         margin-left: -1.5rem;
                     }
                 }
             }
 
             .section11 {
-                height: 380zrem;
+                height: 380rem;
                 background-color: #041b63;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
 
                 .section11-wrap {
-                    width: 1140rem;
+                    width: 100%;
                     margin: 0 auto;
                     height: 100%;
                     padding: 80rem 0 60rem 0;

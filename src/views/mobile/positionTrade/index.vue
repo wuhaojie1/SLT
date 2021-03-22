@@ -1,10 +1,11 @@
 <template>
     <div class="shoppingMall">
-        <ThemeStickyHeader></ThemeStickyHeader>
+        <PageHeader :isShowRight="true"
+                    @clickCallback="clickCallback"></PageHeader>
         <div class="shoppingMall-wrap">
             <div class="content-carousel">
                 <el-carousel indicator-position="none"
-                             height="700rem"
+                             height="450rem"
                              :interval="interval">
                     <el-carousel-item v-for="(item,index) in imgs" :key="index">
                         <div class="textTip">
@@ -80,28 +81,29 @@
                 </div>
             </div>
         </div>
-        <Bottom></Bottom>
+        <!-- <Bottom></Bottom> -->
     </div>
 </template>
 
 <script>
-import ThemeStickyHeader from "../../components/header/themeStickyHeader";
-import Bottom from "../../components/bottom/bottom";
-import PositionBlock from "@/components/position/positionBlock";
+// import ThemeStickyHeader from "../../components/header/themeStickyHeader";
+// import Bottom from "@/components/bottom/bottom";
+import PositionBlock from "@/components/position/MpositionBlock";
+import PageHeader from "@/components/mobileComponents/comm/header";
 
 export default {
     name: "shoppingMall",
-    components: {PositionBlock, Bottom, ThemeStickyHeader},
+    components: {PositionBlock,PageHeader},
     data() {
         return {
             interval: 7000,
-            icon: `${require('../../static/img/shoppingMall/icon.png')}`,
-            headset: `${require('../../static/img/shoppingMall/headset.png')}`,
-            radio: `${require('../../static/img/shoppingMall/radio.png')}`,
-            packageImg: `${require('../../static/img/shoppingMall/package.png')}`,
-            chair: `${require('../../static/img/shoppingMall/chair.png')}`,
-            dining: `${require('../../static/img/shoppingMall/dining-table.png')}`,
-            clock: `${require('../../static/img/shoppingMall/clock.png')}`,
+            icon: `${require('@/static/img/shoppingMall/icon.png')}`,
+            headset: `${require('@/static/img/shoppingMall/headset.png')}`,
+            radio: `${require('@/static/img/shoppingMall/radio.png')}`,
+            packageImg: `${require('@/static/img/shoppingMall/package.png')}`,
+            chair: `${require('@/static/img/shoppingMall/chair.png')}`,
+            dining: `${require('@/static/img/shoppingMall/dining-table.png')}`,
+            clock: `${require('@/static/img/shoppingMall/clock.png')}`,
             blockItemList:[
                 {
                     text: "북트리",
@@ -239,25 +241,25 @@ export default {
 
             imgs: [
                 {
-                    img: `${require('../../static/img/position/position.png')}`,
+                    img: `${require('@/static/img/position/mposition.png')}`,
                     /*h2: "신세계 주차대행 서비스",
                     p: "안전한 주차와 정성스러운 서비스로 고객만족을 우선으로 생각합니다",*/
                 },
-                {
-                    img: `${require('../../static/img/position/position.png')}`,
-                    /*h2: "신세계 주차대행 서비스",
-                    p: "안전한 주차와 정성스러운 서비스로 고객만족을 우선으로 생각합니다",*/
-                },
-                {
-                    img: `${require('../../static/img/position/position.png')}`,
-                    /*h2: "신세계 주차대행 서비스",
-                    p: "안전한 주차와 정성스러운 서비스로 고객만족을 우선으로 생각합니다",*/
-                },
-                {
-                    img: `${require('../../static/img/position/position.png')}`,
-                    /*h2: "신세계 주차대행 서비스",
-                    p: "안전한 주차와 정성스러운 서비스로 고객만족을 우선으로 생각합니다",*/
-                },
+                // {
+                //     img: `${require('@/static/img/position/position.png')}`,
+                //     /*h2: "신세계 주차대행 서비스",
+                //     p: "안전한 주차와 정성스러운 서비스로 고객만족을 우선으로 생각합니다",*/
+                // },
+                // {
+                //     img: `${require('@/static/img/position/position.png')}`,
+                //     /*h2: "신세계 주차대행 서비스",
+                //     p: "안전한 주차와 정성스러운 서비스로 고객만족을 우선으로 생각합니다",*/
+                // },
+                // {
+                //     img: `${require('@/static/img/position/position.png')}`,
+                //     /*h2: "신세계 주차대행 서비스",
+                //     p: "안전한 주차와 정성스러운 서비스로 고객만족을 우선으로 생각합니다",*/
+                // },
             ],
             typeList:[]
         }
@@ -313,20 +315,24 @@ export default {
 
     .shoppingMall-wrap {
         width: 100%;
-        margin: 75rem 0 0 0;
+        margin: 0 0 0 0;
         box-sizing: border-box;
         min-height: calc(100vh - 75rem - 200rem);
 
         .content-carousel {
+            margin-top: 88rem;
+            overflow: hidden;
             .el-carousel__item {
                 /*display: flex;*/
                 /*position: relative;*/
                 cursor: pointer;
+                
 
                 .textTip {
                     position: absolute;
                     width: 100%;
                     height: 100%;
+                    z-index: 99;
                     //display: flex;
                     //flex-direction: column;
                     //align-items: center;
@@ -342,19 +348,19 @@ export default {
                         .text1 {
                             width: 100%;
                             position: absolute;
-                            font-size: 159rem;
+                            font-size: 60rem;
                             font-weight: 500;
                             color: #FEFFFF;
-                            top: 190rem;
+                            top: 130rem;
                         }
 
                         .text2 {
                             width: 100%;
                             position: absolute;
-                            font-size: 43rem;
+                            font-size: 18rem;
                             font-weight: bold;
                             color: #FEFEFF;
-                            top: 390rem;
+                            top: 220rem;
                         }
 
                         .text3 {
@@ -366,7 +372,7 @@ export default {
                             font-weight: 400;
                             color: #FFFFFF;
                             left: 86rem;
-                            top: 460rem;
+                            top: 260rem;
                         }
                     }
 
@@ -374,15 +380,16 @@ export default {
                 }
 
                 img {
-                    width: 100%;
-                    height: 900rem;
+                    width: 120%;
+                    transform: translateX(-9%);
+                    // height: 900rem;
                 }
             }
         }
 
         .new-goods {
             margin: 0 auto;
-            width: 1200rem;
+            width: 100%;
             padding-top: 89rem;
 
             .new-goods-title {
@@ -513,10 +520,10 @@ export default {
             //margin-top: 69rem;
             //margin-bottom: 257rem;
             //width: 1170rem;
-            margin: 49rem auto 257rem;
+            margin: 49rem auto 100rem;
 
             .goods-box-wrap {
-                width: 1600rem;
+                width: 100%;
                 margin: 0 auto;
                 //display: flex;
                 //flex-wrap: wrap;
@@ -526,11 +533,15 @@ export default {
                 //justify-content: space-between;
 
                 .goods-box-list {
+                    padding: 0 30rem;
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
                     .positionBlock {
                         float: left;
                         //margin-left: 20rem;
-                        padding-right: 20rem;
-                        margin-top: 20rem;
+                        // padding-right: 10rem;
+                        margin-top: 10rem;
                     }
                     .positionBlock:first-child {
                         margin-left: 0;

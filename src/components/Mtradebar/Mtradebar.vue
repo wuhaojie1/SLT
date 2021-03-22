@@ -3,7 +3,7 @@
         <div class="tradetype-con">
             <div :class="index==currentindex?'active':'trade-itme'"
                  v-for="(item,index) in tradetypearr"
-                 :key="index" @click="changeitem(index,item.name)">{{item.text}}</div>
+                 :key="index" @click="changeitem(index,item)">{{item.text}}</div>
             <div v-if="currentindex==1" class="line1"></div>
             <div v-if="currentindex==0" class="line2"></div>
         </div>
@@ -29,15 +29,16 @@
             }
         },
         methods:{
-            changeitem(index,name){
+            changeitem(index,item){
                 this.currentindex = index;
-                this.Topage(name)
+                // this.Topage(item.name)
+                this.$emit('changeitem',item)
             },
-            Topage(name){
-                this.$router.push({
-                    name: name
-                })
-            }
+            // Topage(name){
+            //     this.$router.push({
+            //         name: name
+            //     })
+            // }
         }
     }
 </script>
