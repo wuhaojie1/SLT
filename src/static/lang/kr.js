@@ -214,6 +214,11 @@ export default {
         classify:'카테고리' ,
         classifyTip:'다음 기준으로 필터링' ,
     },
+    //用户设置
+    userSet: {
+        title: '계 정 설정',
+        tabArray: ['개인 정보', '신분 인증', '수령 주소', '개인 자산', '재무 기록']
+    },
     login:{
         welcome:'SLT는 코인 구매 또는 비즈니스 문의를 환영합니다.',
         logintext:'로그인',
