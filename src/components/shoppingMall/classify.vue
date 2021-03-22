@@ -15,12 +15,12 @@
                          :class="selected === index ? 'active' : '' "
                          @click="addItem(index,item)">
                         <div class="content">
-                            <div class="text">DEMO{{ index }}</div>
-                            <!-- <div class="text">{{ item.name }}</div> -->
-<!--                            <div class="icon">
+<!--                            <div class="text">DEMO{{ index }}</div>-->
+                            <div class="text">{{ item.name }}</div>
+                            <div class="icon">
                                 <img :src="minus" alt="" class="minus" v-if="itemIndexes.includes(index)">
                                 <img :src="plus" alt="" class="plus" v-if="!itemIndexes.includes(index)">
-                            </div>-->
+                            </div>
                         </div>
 
                     </div>

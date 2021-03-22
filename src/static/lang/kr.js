@@ -1,7 +1,7 @@
 export default {
     //个人资料
     userInfo: {
-        userCenter: '个人中心',
+        userCenter: '개인센터',
         basemsg: '기본정보',
         phonenum: '전화번호',
         userID: 'ID',
@@ -12,11 +12,11 @@ export default {
         secret: '비밀',
         birthday: '생일',
         idnum: '신분증번호',
-        userName: '用户名',
-        pleaseSelect: '请选择',
-        pleaseInput: '请输入',
-        save: '保存',
-        exit: '退出'
+        userName: 'ID',
+        pleaseSelect: '선택',
+        pleaseInput: '입력하세요',
+        save: '저장',
+        exit: '탈퇴'
     },
     //신분인증
     identifi: {
@@ -123,45 +123,45 @@ export default {
     },
     //我的订单
     myorder: {
-        myorder: "我的订单",
-        inoutOrder: '购买/出售的订单',
-        shop: '购买',
-        place: '大荣交易所',
-        wait: "待接单",
-        heade: ['数量', '冻结', '总额'],
-        haddfee: '手续费',
-        all: "全部方向的订单",
-        buy: "买入",
-        sell: "卖出",
+        myorder: "나의 주문 ",
+        inoutOrder: '구매/판매주문',
+        shop: '구매',
+        place: '거래소',
+        wait: "주문 대기",
+        heade: ['수량', '동결', '총액'],
+        haddfee: '수수료',
+        all: "전부방향의 주문",
+        buy: "구매",
+        sell: "판매",
     },
     //聊天
     chat: {
         chatName: '*****',
-        preChat: '以上聊天记录',
+        preChat: '채팅 기록',
         big: "*****",
         customMsg: '*****',
         userMsg: '*****',
         time: '*****',
-        send: '发送',
-        place: '请输入你想说的话...'
+        send: '보내기',
+        place: '하고 싶은 말을 입력하세요...'
     },
     waitOrder: {
-        wait: '待接单',
-        tip: '对方接单前请勿付款，对方接单后您可查看收款方式',
-        waitTime: "等待对方接单",
-        chat: '点击下方联系卖家，与对方聊一聊，接单更快',
-        cancel: '无责取消',
-        contact: '联系卖家',
-        seller: "卖家信息",
-        orderDetail: '订单详情',
-        total: "总价",
-        price: '订单详情',
-        num: '数量',
-        orderNum: '订单号'
+        wait: '주문 대기',
+        tip: '상대방이 주문을 수락하기 전에 결제하지 마십시오. 상대방이 주문을 수락 한 후 결제 수단을 확인할 수 있습니다.',
+        waitTime: "상대방 주문 대기",
+        chat: '판매자에게 연락하고, 상대방과 채팅하고, 주문을 더 빨리 받으려면 아래를 클릭하세요.',
+        cancel: '취소',
+        contact: '판매자 연결',
+        seller: "판매자 정보",
+        orderDetail: '주문 내역',
+        total: "총가",
+        price: '주문내역',
+        num: '수량',
+        orderNum: '주문번호'
     },
     //取消오다
     cancleorder: {
-        back: '返回',
+        back: '돌아가기',
         cancleorder: '주문취소',
         closeorder: '인수닫기',
         complaintext1: '만약 의문이 있으시면 고객센터에 진정하십시오.',
@@ -195,7 +195,7 @@ export default {
         date:'발송 후 영업일 2-4일 후 배송 예정',
         num:'수량'
 
-        
+
     },
     //商品详细
     goodsdetails:{
@@ -542,7 +542,7 @@ export default {
         allmoney:'총금액',
         remindtext1:'이미 송금 한 경우 결제 시스템이오다를 자동 취소하지 않았기 때문에 채팅 인터페이스에서 상대방과 대화 할 수 있습니다.;',
         remindtext2:'[자동 취소] 또는 [타임 아웃] 자동 취소 3 회 또는 악의적 인 취소는 당일까지 금지됩니다. 거래 : 판매자가 유효한 수납 방식을 제공하지 않아오다 취소, 고객 서비스에 이의를 제기 할 수 있습니다. 재심',
-        remindtext3:'当月累计6次，自第7次开始，每取消1次，禁止交易2小时。',
+        remindtext3:'매월 총 6 회, 7 회부터 시작하여 취소 할 때마다 2 시간 동안 거래가 금지됩니다.',
         connect:'고객 서비스에 호소'
     },
     //移动端확인오다弹窗
@@ -558,7 +558,7 @@ export default {
     //移动端提醒인증弹窗
     remindauth:{
         goauth:'请完成신분인증',
-        remindtext1:'保护资产安全，及时接受账户动态',
+        remindtext1:'자산 보안을 보호하고 적시에 계정 역학을 수용합니다.',
         personauth:'个人신분인증',
         auth:'인증'
     },

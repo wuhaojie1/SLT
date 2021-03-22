@@ -44,8 +44,8 @@
                 <div class="goods-list">
                     <div class="goods-list-title">
                         <div class="text">
-                            <!-- <span class="titleName">{{ titleItem.name }}</span> -->
-                            <span class="titleName">DEMO</span>
+                             <span class="titleName">{{ titleItem.name }}</span>
+<!--                            <span class="titleName">DEMO</span>-->
                             <span class="titleNumber">({{ goodsTotal }})</span>
                         </div>
                     </div>
@@ -60,8 +60,8 @@
                                     <img :src="childItem.img" alt="">
                                 </div>
                                 <div class="text">
-                                    <!-- <div class="bookName">{{ childItem.name }}</div> -->
-                                    <div class="bookName">DEMO</div>
+                                     <div class="bookName">{{ childItem.name }}</div>
+<!--                                    <div class="bookName">DEMO</div>-->
                                     <div class="price">{{ childItem.price }}</div>
                                 </div>
                             </router-link>
@@ -194,7 +194,7 @@ export default {
             }).then((res) => {
                 // eslint-disable-next-line no-debugger
                 // debugger
-                // console.log(res)
+                console.log(res)
                 let data = res.data
                 if (res.errno === 0) {
                     this.filterList = data.categoryList;
@@ -209,6 +209,7 @@ export default {
             })
         },
         getGoodsById(id) {
+            console.log(id)
             let getData = {
                 categoryId: id,
             }
@@ -219,7 +220,7 @@ export default {
             }).then((res) => {
                 // eslint-disable-next-line no-debugger
                 // debugger
-                // console.log(res)
+                console.log(res)
 
                 let data = res.data
                 if (res.errno === 0) {
@@ -229,7 +230,10 @@ export default {
                     for(let i=0;i<data.list.length;i+=4){
                         tempArray.push(data.list.slice(i,i+4));
                     }
+                    // console.log(data.filterCategoryList)
+                    // tempArray.push(data.filterCategoryList)
                     this.books = tempArray;
+                    // console.log(tempArray)
 
                     // filterCategoryList: [{id: 1005007, name: "锅具", keywords: "", desc: "一口好锅，炖煮生活一日三餐", pid: 1005001,…},…]
                     // limit: 10

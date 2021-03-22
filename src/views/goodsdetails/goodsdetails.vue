@@ -118,9 +118,9 @@
                 currentindex:0,
                 showitem:false,
                 goodsmsg:{
-                    goodsId:0,
-                    number:0,
-                    productId:0,
+                    goodsId:1008007,
+                    number:7,
+                    productId:1008000,
                 },
                 goodsDetail:{}
             }
@@ -152,11 +152,11 @@
             },
             getPostData(){
                 let goodsId = this.goodsmsg.goodsId;
-                // let number = this.goodsmsg.number;
-                let productId = 0;
+                let number = this.goodsmsg.number;
+                let productId = this.goodsmsg.productId;
                 let PostData = {
                     goodsId:goodsId,
-                    // number:number,
+                    number:number,
                     productId:productId
                 }
                 return PostData
@@ -165,8 +165,8 @@
                 this.axios({
                     url:'wx/goods/detail',
                     method:'get',
-                    params:{
-                        id:1152008
+                    params: {
+                        id:1008007
                     }
                 }).then((res)=>{
                     console.log(res);

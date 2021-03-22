@@ -4,18 +4,16 @@
         <div class="auth-content">
             <div class="name-con">
                 <div class="name-text">{{$t('identifi.truename')}}:</div>
-                <input type="text" :placeholder="$t('identifi.addname')" class="name-input">
+                <input type="text" v-model="realname" :placeholder="$t('identifi.addname')" class="name-input">
             </div>
             <div class="num-con">
                 <div class="num-text">{{$t('identifi.idnum')}}:</div>
-                <input type="text" :placeholder="$t('identifi.addidnum')" class="num-input">
+                <input type="text" max="18" v-model="idcard" :placeholder="$t('identifi.addidnum')" class="num-input">
             </div>
             <div class="face-text">{{$t('identifi.uploadface')}}</div>
             <div class="foce-con">
-                <el-upload :on-success="handleAvatarSuccess"
-                           :before-upload="beforeUpload"
-                            action="123"
-                           :on-change="uploadfaceFile"
+                <el-upload  action="123"
+                            :on-change="uploadfaceFile"
                             accept="image/jpeg,image/png,image/jpg">
                     <img style="{width: 314rem;height: 219rem;}" :src="face?faceURL:faceimg" alt="">
                 </el-upload>
@@ -47,7 +45,9 @@
                 face:false,
                 back:false,
                 faceimg:`${require('../../static/img/user/idcardup.png')}`,
-                backimg:`${require('../../static/img/user/idcarddown.png')}`
+                backimg:`${require('../../static/img/user/idcarddown.png')}`,
+                realname:'',
+                idcard:''
             }
         },
         mounted() {
@@ -69,20 +69,26 @@
                 // console.log(this.posterURL)
             },
             userauth(){
-                console.log('6666')
+                let PostData = this.getPostData()
                 this.axios({
                     url:'wx/user/auth',
                     method:'post',
-                    params:{
-                        realName:'xxx',
-                        idcard:'511324xxxx',
-                        back:'back'
-                    }
+                    params:PostData
                 }).then(res=>{
                     console.log(res);
+                    this.$t('identifi').goidenrifi = res.errmsg;
                 }).catch(err=>{
                     console.log(err)
                 })
+            },
+            getPostData(){
+                let PostData = {
+                    realName:this.realName,
+                    idcard:this.idcard,
+                    back:this.backURL,
+                    forword:this.faceURL
+                }
+                return PostData
             }
             // beforeUpload(file){
             //     console.log(file)
