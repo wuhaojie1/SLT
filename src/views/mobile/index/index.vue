@@ -73,16 +73,16 @@
                                     <div class="ico-content-date-list">
                                         <TimeCard class="TimeCard"
                                                   :date="'DAY'"
-                                                  :number="'09'"></TimeCard>
+                                                  :number="dateObj.day"></TimeCard>
                                         <TimeCard class="TimeCard"
                                                   :date="'HR'"
-                                                  :number="'09'"></TimeCard>
+                                                  :number="dateObj.hours"></TimeCard>
                                         <TimeCard class="TimeCard"
                                                   :date="'MIN'"
-                                                  :number="'09'"></TimeCard>
+                                                  :number="dateObj.minutes"></TimeCard>
                                         <TimeCard class="TimeCard"
                                                   :date="'SEC'"
-                                                  :number="'09'"></TimeCard>
+                                                  :number="dateObj.seconds"></TimeCard>
                                     </div>
                                 </div>
                                 <div class="ico-content-text">
@@ -794,6 +794,7 @@
 import TimeCard from "@/components/index/mTimeCard";
 // import ThemeStickyHeader from "@/components/header/themeStickyHeader";
 import MemberCard from "@/components/index/memberCard";
+import {DateFunc} from '@/static/js/common.js';
 import PageHeader from "@/components/mobileComponents/comm/header";
 
 export default {
@@ -972,6 +973,12 @@ export default {
                     fullscreenToggle: false  //全屏按钮
                 }
             },
+            dateObj:{
+                day:"00",
+                hours:"00",
+                minutes:"00",
+                seconds:"00"
+            }
 
         }
     },
@@ -987,8 +994,20 @@ export default {
     mounted() {
         window.addEventListener('scroll', this.handleScroll, true);
         this.myEcharts();
+        this.getDate()
     },
     methods: {
+        getDate(){
+            // let resultDate = new Date();
+            let tomorrowDate = DateFunc.tomorrowDate()
+            let endData = '2021-06-28 00:00:00'
+            let dateDiffIncludeToday = DateFunc.twoTimeInterval(tomorrowDate,endData);
+            this.dateObj = dateDiffIncludeToday;
+            let that = this;
+            setTimeout(() => {
+                that.getDate()
+            }, 1000);
+        },
         clickCallback(item){
             // console.log(item)
             this.$router.push({
