@@ -201,11 +201,23 @@ export default {
     goodsdetails:{
         shopcar: '장바구니넣기',
         goodsId:'스타일 번호',
+        title:'상품 상세',
+        color:'색깔',
+        size:'치수',
+        sizeList:'사이즈 표',
+        detail:'제품 디 테 일',
+        paytype:'지불 방식',
+        expres:'배달 서비스'
     },
     //商城
     shop:{
         classify:'카테고리' ,
         classifyTip:'다음 기준으로 필터링' ,
+    },
+    //用户设置
+    userSet: {
+        title: '계 정 설정',
+        tabArray: ['개인 정보', '신분 인증', '수령 주소', '개인 자산', '재무 기록']
     },
     login:{
         welcome:'SLT는 코인 구매 또는 비즈니스 문의를 환영합니다.',
