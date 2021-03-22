@@ -18,20 +18,20 @@
         <div class="checkBox">
             <div @click="checked=!checked" class="check"><i style="color:#00B4FC" v-show="checked" class="el-icon-check"></i></div><div class="checkText">{{$t('userAdress.defaultaddress')}}</div>
         </div>
-        <div class="cell">
+        <!-- <div class="cell">
             <img style="width:18rem;height:18rem" src="../../../static/img/user/tips.png" alt="">
             <span>{{$t('userAdress.savedAddr')}}</span>
-        </div>
+        </div> -->
         <div class="addr">
             <ul>
-                <li>{{$t('userAdress.sichuan')}}</li>
-                <li><span>{{$t('userAdress.userAddr')}}</span> <img style="width:30rem;height:32rem" src="../../../static/img/user/edit.png" alt=""></li>
-                <li><span>{{$t('userAdress.userName')}}</span><span>130****3556</span></li>
+                <li>xxxx</li>
+                <li><span>xxxxxx</span> <img style="width:30rem;height:32rem" src="../../../static/img/user/edit.png" alt=""></li>
+                <li><span>xxxxxx</span><span>130****3556</span></li>
             </ul>
             <ul>
-                <li>{{$t('userAdress.sichuan')}}</li>
-                <li><span>{{$t('userAdress.userAddr')}}</span> <img style="width:30rem;height:32rem" src="../../../static/img/user/edit.png" alt=""></li>
-                <li><span>{{$t('userAdress.userName')}}</span><span>130****3556</span></li>
+                <li>xxxx</li>
+                <li><span>xxxxxx</span> <img style="width:30rem;height:32rem" src="../../../static/img/user/edit.png" alt=""></li>
+                <li><span>xxxxxx</span><span>130****3556</span></li>
             </ul>
         </div>
         <BottomBar></BottomBar>
@@ -50,7 +50,7 @@ export default {
         return{
             list:[
                 {text:this.$t('userAdress.name'),val:'',isArrow:false,place:this.$t('userAdress.pleaseName')},
-                {text:this.$t('userAdress.Adressmsg'),val:'',isArrow:true,place:this.$t('userAdress.pleaseStreet')},
+                // {text:this.$t('userAdress.Adressmsg'),val:'',isArrow:true,place:this.$t('userAdress.pleaseStreet')},
                 {text:this.$t('userAdress.msgdetail'),val:'',isArrow:true,place:this.$t('userAdress.pleaseAddr')},
                 {text:this.$t('userAdress.mailnum'),val:'',isArrow:true,place:this.$t('userAdress.pleaseCode')},
                 {text:this.$t('userAdress.phonenum'),val:'',isArrow:true,place:this.$t('userAdress.pleasePhone')}

@@ -139,7 +139,7 @@ export default {
         connect: '联系在线客服',
         tip: '如有疑问请向客服申诉',
         back: '返回',
-        waitOrder: '待接单',
+        waitOrder: '待支付',
         hadfree: '手续费',
 
     },
@@ -424,7 +424,7 @@ export default {
         buy:'购买',
         sell:'出售',
         title:'自选交易',
-        subTitle:'更多选择，自由交易',
+        subTitle:'',
         tableHeader:['广告方','数量','限额','单价','支付方式','交易','手续费'],
         auth:'需实名认证'
     },

@@ -321,6 +321,7 @@ export default {
 
         .content-carousel {
             margin-top: 88rem;
+            overflow: hidden;
             .el-carousel__item {
                 /*display: flex;*/
                 /*position: relative;*/

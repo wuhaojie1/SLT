@@ -1,6 +1,7 @@
 export default {
     //个人资料
     userInfo: {
+        userCenter: '个人中心',
         basemsg: '기본정보',
         phonenum: '전화번호',
         userID: 'ID',
@@ -10,7 +11,12 @@ export default {
         weman: '녀',
         secret: '비밀',
         birthday: '생일',
-        idnum: '신분증번호'
+        idnum: '신분증번호',
+        userName: '用户名',
+        pleaseSelect: '请选择',
+        pleaseInput: '请输入',
+        save: '保存',
+        exit: '退出'
     },
     //신분인증
     identifi: {
@@ -22,7 +28,11 @@ export default {
         goidenrifi: '인증',
         finish: '인증완료',
         addname: '성명을 입력하여주세요.',
-        addidnum: '신분증번호를 입력하여주세요'
+        addidnum: '신분증번호를 입력하여주세요',
+        trueInfo: '성명',
+        uploadCard: '신분증 사진을 업로드하세요',
+        inputTrueName: '신분증번호를 입력하여주세요',
+        auth: '인증'
     },
     //받는 주소
     userAdress: {
@@ -39,7 +49,16 @@ export default {
         op: '새팅',
         delete: '삭제',
         change: '수정',
-        address: '기본주소'
+        address: '기본주소',
+        addressTitle: '수하주소',
+        pleaseName: 'name',
+        pleaseAddr: '상세주소',
+        pleaseCode: '우편번호',
+        pleasePhone: "전화번호",
+        // savedAddr: '已保存两个地址',
+        // sichuan: '四川省成都市双流区华阳街道',
+        // userAddr: '瑞升 橡树华府五单元1401',
+        // userName: '李歪歪'
     },
     //个人资产
     personasset: {
@@ -97,7 +116,48 @@ export default {
         cancelorder: '주문취소',
         confirmtext: '확인支付',
         connect: '온라인 고객 서비스에 문의',
-        tip:'질문이 있으시면 고객 서비스에 호소하십시오.'
+        tip:'질문이 있으시면 고객 서비스에 호소하십시오.',
+        back: '返回',
+        waitOrder: '미지급',
+        hadfree: '수수료',
+    },
+    //我的订单
+    myorder: {
+        myorder: "我的订单",
+        inoutOrder: '购买/出售的订单',
+        shop: '购买',
+        place: '大荣交易所',
+        wait: "待接单",
+        heade: ['数量', '冻结', '总额'],
+        haddfee: '手续费',
+        all: "全部方向的订单",
+        buy: "买入",
+        sell: "卖出",
+    },
+    //聊天
+    chat: {
+        chatName: '*****',
+        preChat: '以上聊天记录',
+        big: "*****",
+        customMsg: '*****',
+        userMsg: '*****',
+        time: '*****',
+        send: '发送',
+        place: '请输入你想说的话...'
+    },
+    waitOrder: {
+        wait: '待接单',
+        tip: '对方接单前请勿付款，对方接单后您可查看收款方式',
+        waitTime: "等待对方接单",
+        chat: '点击下方联系卖家，与对方聊一聊，接单更快',
+        cancel: '无责取消',
+        contact: '联系卖家',
+        seller: "卖家信息",
+        orderDetail: '订单详情',
+        total: "总价",
+        price: '订单详情',
+        num: '数量',
+        orderNum: '订单号'
     },
     //取消오다
     cancleorder: {
@@ -341,7 +401,7 @@ export default {
         buy:'구매',
         sell:'판매',
         title:'자유거래',
-        subTitle:'어많은 선택,자유거래',
+        subTitle:'',
         tableHeader:['광고주','수량','한도','단가','지불방','거래','수수료'],
         auth:'실명인증이 필요합니다.'
     },

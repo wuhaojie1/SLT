@@ -43,7 +43,7 @@ export default {
             list: [
                 {text: this.$t('userInfo.userName'), val: '13028143776', isArrow: true},
                 {text: this.$t('userInfo.userID'), val: 'JCJDVJDS', isArrow: false},
-                {text: this.$t('userInfo.truename'), val: '*王**.', isArrow: false},
+                {text: this.$t('userInfo.truename'), val: '*상**.', isArrow: false},
                 // {text: this.$t('userInfo.sex'), val: this.$t('userInfo.weman'), isArrow: true},
                 // {text: this.$t('userInfo.birthday'), val: '1988.10.20', isArrow: true},
                 // {text:this.$t('userInfo.education'),val:this.$t('userInfo.pleaseSelect'),isArrow:true},

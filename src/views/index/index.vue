@@ -181,7 +181,7 @@
                                     </div>
                                     <div class="text">
                                         <div class="title">
-
+                                            {{ $t('index').safeguardTitle }}
                                         </div>
                                         <div class="content">
                                             {{ $t('index').safeguardText }}
@@ -579,9 +579,13 @@
                                     </div>
                                     <div class="recommend-item-top">
                                         <div class="title">{{ $t('index').whitBook }}</div>
-                                        <div class="text"></div>
+                                        <!-- 한국어 English 中文 日本语 -->
+                                        <div class="text">한국어</div>
+                                        <div class="text">English</div>
+                                        <div class="text">中文</div>
+                                        <div class="text">日本语</div>
                                     </div>
-                                    <div class="content">
+                                    <!-- <div class="content">
                                         <div class="content-list">
                                             <div class="content-item">
                                                 {{ $t('index').Korean }}
@@ -590,7 +594,7 @@
                                                 {{ $t('index').Chinese }}
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="recommend-item">
                                     <div class="imgBox">
@@ -883,9 +887,29 @@ export default {
              
             members1:[
                 {
-                    name: "Jun sukgu",
-                    position: "ChFC Total Financial Asset Manager",
-                    img: `${require('../../static/img/index/team_junsg-400x400.png')}`,
+                    name: "Yun johun",
+                    position: "Member of Blockchain Law Society Lawyer of Lawfirm Seyang",
+                    img: `${require('../../static/img/index/team_yunjh-400x400.png')}`,
+                },
+                {
+                    name: "Kim jongwoo",
+                    position: "Lawyer of Lawfirm Seyang",
+                    img: `${require('../../static/img/index/team_kimjw-400x400.png')}`,
+                },
+                {
+                    name: "Kim bonghun",
+                    position: "Ph.D of Economics",
+                    img: `${require('../../static/img/index/team_kimbh-400x400.png')}`,
+                },
+                {
+                    name: "Kim hwoikwang",
+                    position: "Ph.D , Professor",
+                    img: `${require('../../static/img/index/ad_kimhk-400x400.png')}`,
+                },
+                {
+                    name: "Jo jaehyuck",
+                    position: "Ph.D of Computer Sciences Professor of Soongsil University",
+                    img: `${require('../../static/img/index/team_jojy-400x400.png')}`,
                 },
                 {
                     name: "Lee chungsung",
@@ -898,30 +922,11 @@ export default {
                     img: `${require('../../static/img/index/team_leegs-400x400.png')}`,
                 },
                 {
-                    name: "Kim bonghun",
-                    position: "Ph.D of Economics",
-                    img: `${require('../../static/img/index/team_kimbh-400x400.png')}`,
+                    name: "Jun sukgu",
+                    position: "ChFC Total Financial Asset Manager",
+                    img: `${require('../../static/img/index/team_junsg-400x400.png')}`,
                 },
-                {
-                    name: "Jo jaehyuck",
-                    position: "Ph.D of Computer Sciences Professor of Soongsil University",
-                    img: `${require('../../static/img/index/team_jojy-400x400.png')}`,
-                },
-                {
-                    name: "Kim jongwoo",
-                    position: "Lawyer of Lawfirm Seyang",
-                    img: `${require('../../static/img/index/team_kimjw-400x400.png')}`,
-                },
-                {
-                    name: "Yun johun",
-                    position: "Member of Blockchain Law Society Lawyer of Lawfirm Seyang",
-                    img: `${require('../../static/img/index/team_yunjh-400x400.png')}`,
-                },
-                {
-                    name: "Kim hwoikwang",
-                    position: "Ph.D , Professor",
-                    img: `${require('../../static/img/index/ad_kimhk-400x400.png')}`,
-                },
+                
                 {
                     name: "전) 기업은행근무",
                     position: "전) (주) 국제자산관리 이사   현)    (주) 트레이드엑스 대표",

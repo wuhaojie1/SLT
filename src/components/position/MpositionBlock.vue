@@ -49,6 +49,7 @@ export default {
             align-items: center;
             //justify-content: center;
             color: #8993A0;
+            position: relative;
 
             .text {
                 //width: 55rem;
@@ -67,6 +68,10 @@ export default {
                 text-align: center;
                 margin-top: 40rem;
                 //text-align: center;
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: 20rem;
             }
         }
         .positionBlock-content:hover{

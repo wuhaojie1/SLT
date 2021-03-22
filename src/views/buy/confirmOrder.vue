@@ -105,7 +105,7 @@
                             <ul class="tipBox-list">
                                 <li class="tipBox-item">
                                     <div class="tip-text">
-                                        {{ $t('orderdetails.confirmmsg1') }}(王亚萍){{ $t('orderdetails.confirmmsg2') }}
+                                        {{ $t('orderdetails.confirmmsg1') }}(상){{ $t('orderdetails.confirmmsg2') }}
                                     </div>
                                 </li>
                                 <li class="tipBox-item">
