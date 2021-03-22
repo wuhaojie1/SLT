@@ -12,7 +12,7 @@ export default {
         birthday: '생일',
         idnum: '신분증번호'
     },
-    //身份认证
+    //신분인증
     identifi: {
         identifitext: '신분인증',
         truename: '성명',
@@ -24,7 +24,7 @@ export default {
         addname: '성명을 입력하여주세요.',
         addidnum: '신분증번호를 입력하여주세요'
     },
-    //收货地址
+    //받는 주소
     userAdress: {
         userAdresstext: '수하주소',
         name: '수취인 성명',
@@ -60,7 +60,7 @@ export default {
         tableHeader:['코인 종류','수량','동결','사용가능','단가','총액','오프션']
 
     },
-    //一键购买
+    //一键구매
     deal: {
         buy: '구매',
         seal: '판매',
@@ -77,7 +77,7 @@ export default {
         buySLT: 'SLT구매',
         sealSLT: 'SLT판매'
     },
-    //订单详情
+    //오다상세정보
     orderdetails: {
         status:['미지급','거래완료','거래실패'],
         waitpay: '미지급',
@@ -85,7 +85,7 @@ export default {
         cancleorderauto: '내불금 미결제, 자동 주문취소',
         paytype: '지불방',
         orderdetail: '주문내역',
-        ordernum: '订单号',
+        ordernum: '오다号',
         usemoney: '수수료',
         charge: '거래단',
         num: '거래수량',
@@ -95,11 +95,11 @@ export default {
         remindmsg1: '만약 판매자에게 이미 돈을 지불했다면 주문을 취소하지 마세요.',
         remindmsg2: '상대방의 수금정보를 성실히 대조해 주십시오.이체할 때에는 당신의 제삼자계좌가 동결되지 않도록 어떤 정보도 기입하지 마십시오.',
         cancelorder: '주문취소',
-        confirmtext: '确认支付',
+        confirmtext: '확인支付',
         connect: '온라인 고객 서비스에 문의',
         tip:'질문이 있으시면 고객 서비스에 호소하십시오.'
     },
-    //取消订单
+    //取消오다
     cancleorder: {
         back: '返回',
         cancleorder: '주문취소',
@@ -170,14 +170,14 @@ export default {
         lenList: ['중문', '한문'],
         loginText: ['로그인', '회원가입']
     },
-    //位置买卖
+    //위치买卖
     position: {
         title1: 'NFT',
         title2: 'NFT 오픈',
         title3: 'NFT는 위치를 구매하는 것이고 그자리의 권한을 구매하는것입니다.',
         title4: 'Product category',
         title5: '카테고리',
-    }, //位置买卖详情
+    }, //위치买卖상세정보
     positionDetail: {
         detail: '상세내역',
         position: '위치',
@@ -380,186 +380,186 @@ export default {
 
     //移动提现
     Mwithdraw: {
-        withdrawText: "提现",
+        withdrawText: "출금",
         btcText1: "BTC",
         btcText2: "Bitcoin",
-        name: "链名称",
-        addr: "提币地址",
-        wNumber: "提币数量",
+        name: "코인",
+        addr: "출금주소",
+        wNumber: "출금수량",
         btnBoxText: "SLT",
-        all: "全部",
-        fee: "手续费:",
-        BTCNumber: "到账数量（BTC）",
-        title: "提币提醒",
-        btn: "确认",
-        tipText1: "您的提币操作-旦完成， 对应的资产所有权将由您变更为目标地址所对应的账户所有人享有，请您务必在提币操作前，仔细核对提币地址信息，确保提币属于自愿行为，并确认不涉及任何传销、非法集资、诈骗等违法情形，谨防上当受骗，避免造成不必要的财产损失。",
-        tipText2: ".最小提币数量为: 0.001 BTC.",
-        tipText3: ".为保障资金安全，当您账户安全策略变更、密码修改、我们会对提币进行人工审核，请耐心等待工作人员电话或邮件联系。",
-        tipText4: ".请务必确认电脑及浏览器安全，防止信息被篆改或泄露。",
-        toolTip: "下次不再提醒",
-        primary: "确定",
-        decal: "《免责声明》",
-        tipText: "您选择的网络是SLT币生态链Heco网络,确保您的提币地址支持Heco网络hrc20代币标准。如果对方平台不支持,您的资产将会丢失。同时提醍您因Heco去中心化特性,Huobi Global特向您提醒使用第三方DAPP存在风险。请仔细阅读",
-        book: "您只能向此地址充入SLT，其他资产充入SLT地址将无法找回。",
+        all: "전부",
+        fee: "수수료:",
+        BTCNumber: "도착수량（BTC）",
+        title: "출금상기",
+        btn: "확인",
+        tipText1: "출금 작업이 완료되면 대상 주소에 해당하는 계정 소유자가 해당 자산의 소유권을 누릴 수 있습니다. 출금 작업 전 출금 주소 정보를주의 깊게 확인하여 출금이 자발적인지 확인하고, 피라미드 계획, 불법 모금, 사기 등과 같은 불법적 인 상황을 포함하지 않으며, 속임을 조심하고 불필요한 재산 손실을 피합니다.",
+        tipText2: ".최소출금금액은 : 0.001 BTC.",
+        tipText3: ".자금의 안전을 보장하기 위해 귀하의 계정 보안 정책이 변경되거나 비밀번호가 변경 될 때 당사는 수동으로 코인 출금을 검토 할 것입니다. 직원이 전화 또는 이메일로 귀하에게 연락 할 때까지 참을성있게 기다려주십시오.",
+        tipText4: ".정보가 변경되거나 유출되지 않도록 컴퓨터와 브라우저를 안전하게 보관하십시오.",
+        toolTip: "다시 알리지 않기",
+        primary: "확인",
+        decal: "《부인성명》",
+        tipText: "선택하신 네트워크는 SLT 코인 생태계 헤코 네트워크로 헤코 네트워크 hrc의 20대 코인 표준을 지원합니다.만약 상대방이 지원하지 않는다면, 당신의 자산은 손실될 것입니다.또한 Heco의 탈중심화 특성으로 인해 Huobi Globalt이 제3의 DAPP를 사용할 경우 위험함을 알려드립니다.잘 읽어보세요",
+        book: "이 주소로만 SLT를 충전하실 수 있으며 다른 자산은 SLT 주소로 충전하시면 찾을 수 없습니다.",
     },
     //移动充币
     MtopUp: {
-        withdrawText: "充币",
+        withdrawText: "입금",
         btcText1: "BTC",
         btcText2: "Bitcoin",
-        name: "链名称",
-        addr: "冲币地址",
-        wNumber: "冲币数量",
-        copyAddr: "复制地址",
+        name: "코인",
+        addr: "입금주소",
+        wNumber: "입금수량",
+        copyAddr: "주소복사",
         btnBoxText: "SLT",
-        all: "全部",
-        fee: "手续费:",
-        searchPlaceholder: "搜索币种",
-        BTCNumber: "到账数量（BTC）",
-        btn: "确认",
-        tipText1: "使用USDT-TRC20地址充值需要1个网络确认才能到账，1个网络确认后才能提币。",
-        tipText2: ".最小提币数量为: 0.001 BTC.",
-        tipText3: ".为保障资金安全，当您账户安全策略变更、密码修改、我们会对提币进行人工审核，请耐心等待工作人员电话或邮件联系。",
-        tipText4: ".请务必确认电脑及浏览器安全，防止信息被篆改或泄露。",
-        toolTip: "不再提醒",
-        primary: "我已知晓",
-        tipText: "此地址只能充入SLT",
-        book: "您只能向此地址充入SLT，其他资产充入SLT地址将无法找回。",
+        all: "전부",
+        fee: "수수료:",
+        searchPlaceholder: "코인검색",
+        BTCNumber: "도착수량（BTC）",
+        btn: "확인",
+        tipText1: "USDT-TRC20 주소로 충전하려면 1개의 네트워크가 있어야 하고, 1개의 네트워크가 있어야 돈을 인출할 수 있다.",
+        tipText2: ".최소출금금액은 : 0.001 BTC.",
+        tipText3: ".자금안전을 위해,당신의 계좌보안전략이 변경될 때,비밀번호가 변경되면,우리는 통화인상에 대한 검토를 진행할 것입니다.직원의 전화나 이메일로 연락할 때까지 기다려 주십시오.",
+        tipText4: ".정보가 변경되거나 유출되지 않도록 컴퓨터와 브라우저를 안전하게 보관하십시오.",
+        toolTip: "다시 알리지 않기",
+        primary: "일금",
+        tipText: "이 주소는 SLT로만 입금할수 있습니다.",
+        book: "이 주소로만 SLT를 충전하실 수 있으며 다른 자산은 SLT 주소로 충전하시면 찾을 수 없습니다.",
     },
     positionRecord: {
-        detail: "查看详情",
-        time: "时间",
-        type: "类型",
-        number: "数量",
-        price: "单价",
-        noData: "暂无数据"
+        detail: "상세정보고기",
+        time: "시간",
+        type: "유형",
+        number: "수량",
+        price: "단가",
+        noData: "데이터 없음"
     },
     //移动端支付成功
     Mpaysucceed:{
-        succeed:'支付成功',
-        thanks:'感谢您的购买',
-        ordernum:'订单号',
-        paytype:'支付方式',
-        usermoney:'手续费',
-        chaege:'成交单价',
-        paynum:'成交数量',
-        look:'查看订单',
-        backindex:'返回首页'
+        succeed:'지불성공',
+        thanks:'구매감사합니다',
+        ordernum:'오다号',
+        paytype:'지불방식',
+        usermoney:'수수료',
+        chaege:'거래단가',
+        paynum:'거래수량',
+        look:'오다보기',
+        backindex:'메인페이지 가기'
     },
-    //移动端确认订单
+    //移动端확인오다
     Mpayorder:{
-        back:'返回',
-        beforepay:'待支付',
-        open:'开启接单',
-        cancle:'内未付款，将自动取消订单',
-        paytype:'支付方式',
-        orderdetails:'订单详情',
-        ordernum:'订单号',
-        usermoney:'手续费',
-        chaege:'成交单价',
-        paynum:'成交数量',
-        allmoney:'总金额',
-        confirmtext1:'请确保付款卡所属人与平台实名信息',
-        confirmtext2:'一致，若不一致卖家有权不放币。请不要使用支付宝转银行卡等到账时间较长的付款方式;',
-        remindtext1:'如果您已向卖家付款，请千万不要取消订单。',
-        remindtext2:'您需要根据对方的收款方式通过微信/支付宝/银行卡等平台转账给对方，请认真核对对方的收款信息;转账时请勿备注任何信息，以免您的第三方账户被冻结;',
-        cancleorder:'取消订单',
-        confirmorder:'确认支付 ',
-        connect:'联系在线客服'
+        back:'돌아가기',
+        beforepay:'지불대기',
+        open:'주문열기',
+        cancle:'미결제시 오다 자동 취소',
+        paytype:'지불방식',
+        orderdetails:'오다상세정보',
+        ordernum:'오다号',
+        usermoney:'수수료',
+        chaege:'거래단가',
+        paynum:'거래수량',
+        allmoney:'총금액',
+        confirmtext1:'결제카드의 소유자와 플랫폼의 실명확보',
+        confirmtext2:'일치, 불일치하지 않으면 파는 사람이 돈을 넣지 않을 권리가 있다.지급보전과 카드의 입금시간이 비교적 긴 결제방식은 사용하지 마십시오.',
+        remindtext1:'만약 판매자에게 이미 돈을 지불했다면,절대 취소하지 마세요.',
+        remindtext2:'당신은 상대방의 수방식에 근거하여 위챗/페이퍼/카드 등의 플랫폼을 통하여 이체할 필요가 있습니다. 상대방의 수금정보를 잘 확인해 주십시오. 이체 시에는 당신의 제3자 계좌가 동결되지 않도록 어떠한 정보도 기재하지 마십시오.',
+        cancleorder:'오다취소',
+        confirmorder:'지불확인 ',
+        connect:'올라인 고객서비스 연결'
     },
-    //移动端取消订单
+    //移动端取消오다
     Mcancleorder:{
-        back:'返回',
-        cancle:'取消订单',
-        close:'关闭接单',
-        question:'如有疑问请向客服申诉',
-        paytype:'支付方式',
-        orderdetails:'订单详情',
-        ordernum:'订单号',
-        usermoney:'手续费',
-        chaege:'成交单价',
-        paynum:'成交数量',
-        allmoney:'总金额',
-        remindtext1:'若您已经转账，由于未确认付款系统自动取消订单，您可以在聊天界面与对方进行沟通;',
-        remindtext2:'[主动取消]或[超时]自动取消3次，或恶意取消达-次，当天禁止 交易:由于卖家未提供有效收款方式导致订单取消，可向客服申 诉，重新判责',
+        back:'돌아가기',
+        cancle:'오다취소',
+        close:'주문 마감',
+        question:'문의가 잇으면 고객 서비스에 호소',
+        paytype:'지불방식',
+        orderdetails:'오다상세정보',
+        ordernum:'오다号',
+        usermoney:'수수료',
+        chaege:'거래단가',
+        paynum:'거래수량',
+        allmoney:'총금액',
+        remindtext1:'이미 송금 한 경우 결제 시스템이오다를 자동 취소하지 않았기 때문에 채팅 인터페이스에서 상대방과 대화 할 수 있습니다.;',
+        remindtext2:'[자동 취소] 또는 [타임 아웃] 자동 취소 3 회 또는 악의적 인 취소는 당일까지 금지됩니다. 거래 : 판매자가 유효한 수납 방식을 제공하지 않아오다 취소, 고객 서비스에 이의를 제기 할 수 있습니다. 재심',
         remindtext3:'当月累计6次，自第7次开始，每取消1次，禁止交易2小时。',
-        connect:'向客服申诉'
+        connect:'고객 서비스에 호소'
     },
-    //移动端确认订单弹窗
+    //移动端확인오다弹窗
     confirmorderpop:{
-        confirm:'确认购买',
-        charge:'单价',
-        num:'数量',
-        all:'总金额',
-        intype:'收款方式',
-        out:'退出',
-        gopay:'确认下单'
+        confirm:'확인구매',
+        charge:'단가',
+        num:'수량',
+        all:'총금액',
+        intype:'수납방식',
+        out:'탈퇴',
+        gopay:'확인下单'
     },
-    //移动端提醒认证弹窗
+    //移动端提醒인증弹窗
     remindauth:{
-        goauth:'请完成身份认证',
+        goauth:'请完成신분인증',
         remindtext1:'保护资产安全，及时接受账户动态',
-        personauth:'个人身份认证',
-        auth:'认证'
+        personauth:'个人신분인증',
+        auth:'인증'
     },
-    //移动端一键买卖
+    //移动端빨은구매
     Mbuy:{
-        choose:'自选交易',
-        trade:'一键买卖',
-        value:'价值约',
-        willpay:'我将支付',
-        canuse:'可用资金',
-        willgain:'我将获得',
-        paytype:'支付方式',
-        buy:'购买',
-        willseal:'我将出售',
-        seal:'出售'
+        choose:'자유거래',
+        trade:'빨은구매',
+        value:'가치 약',
+        willpay:'지불할것',
+        canuse:'가용자금',
+        willgain:'내가 받을것',
+        paytype:'지불방식',
+        buy:'구매',
+        willseal:'판매',
+        seal:'판매'
     },
-    //移动端自选交易
+    //移动端자유거래
     Mtrade:{
-        buy:'购买',
-        seal:'出售',
-        num:'数量',
-        charge:'单价',
-        limit:'限额'
+        buy:'구매',
+        seal:'판매',
+        num:'수량',
+        charge:'단가',
+        limit:'한도액'
     },
     //移动端我的
     usermsg:{
-        personcenter:'个人中心',
-        auth:'身份认证',
-        order:'个人资产',
-        localtionn:'位置',
-        address:'收货地址',
-        log:'财务记录',
-        out:'退出'
+        personcenter:'개인 센터',
+        auth:'신분인증',
+        order:'오다',
+        localtionn:'위치',
+        address:'받는 주소',
+        log:'재무기록',
+        out:'탈퇴'
     },
     //移动端消息列表
     msglist:{
-        msglist:'消息列表',
-        hidden:'隐藏已读',
-        allread:'全部标为已读',
-        details:'详情',
-        reply:'回复',
-        noData: "暂无数据",
+        msglist:'메시지 목록',
+        hidden:'읽기 숨기기',
+        allread:'전부 읽은 상태로 표시',
+        details:'상세정보',
+        reply:'댓글',
+        noData: "데이터 없음",
     },
     TopUp: {
-        topUp: "充币记录",
-        withdraw: "提币记录",
-        OTC: "OTC交易记录",
-        position: "位置购买记录",
-        deal: "商品交易记录",
+        topUp: "입금기록",
+        withdraw: "출금기록",
+        OTC: "OTC거래기록",
+        position: "위치 구매기록",
+        deal: "상품 거래기록",
     },
     //移动端商城
     Mmall:{
-        select:'筛选',
-        copyright:'版权所有',
-        right:'电子营业执照',
-        beian:'备案'
+        select:'필터',
+        copyright:'판권 소유',
+        right:'사업자드록증',
+        beian:'기록'
     },
-    //移动端登录
+    //移动端로그인
     Mlogin:{
-        login:'登录',
-        inphone:'请输入您的手机号码',
-        inpsw:'请输入您的密码'
+        login:'로그인',
+        inphone:'핸드폰 번호를 입력해주세요',
+        inpsw:'비밀번호를 입력해 주세요'
     }
 }
