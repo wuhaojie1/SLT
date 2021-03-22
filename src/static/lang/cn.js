@@ -224,6 +224,13 @@ export default {
     goodsdetails:{
         shopcar: '加入购物车',
         goodsId:'款号',
+        title:'商品详情页',
+        color:'颜色',
+        size:'尺寸',
+        sizeList: '尺寸表',
+        detail:'产品细节',
+        paytype:'支付方式',
+        espres:'配送服务'
     },
     //商城
     shop:{
