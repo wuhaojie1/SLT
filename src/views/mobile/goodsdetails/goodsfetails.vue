@@ -5,7 +5,7 @@
         <div class="goodsTop">
             <div class="goodsTitle">
                 <img style="width:44rem;height:39rem" src="../../../static/img/goodsdetails/arrowLeft.png" alt="">
-                <div>{{$t('goodsdetails.goodsName')}}</div>
+                <div>xxxxxxx</div>
             </div>
             <div class="goodsPrice">
                 <div>￥4,200</div>
@@ -26,7 +26,7 @@
             <li class="paramItem">
                 <div class="itemLeft">{{$t('goodsdetails.color')}}</div>
                 <div class="itemCenter">
-                    <div>{{$t('goodsdetails.smog')}}</div>
+                    <div>xxxxx</div>
                     <div class="circle"></div>
                 </div>
                 <img class="arrow" src="../../../static/img/user/arrow.png" alt="">
@@ -50,9 +50,9 @@
         <div class="details">
             <div class="detailTitle">{{$t('goodsdetails.detail')}}</div>
             <ul>
-                <li><span></span>{{$t('goodsdetails.detail1')}}</li>
-                <li><span></span>{{$t('goodsdetails.detail2')}}</li>
-                <li><span></span>{{$t('goodsdetails.detail3')}}</li>
+                <li><span></span>xxxxxx</li>
+                <li><span></span>xxxxx</li>
+                <li><span></span>xxxxx</li>
             </ul>
         </div>
         <div class="bottomBar">

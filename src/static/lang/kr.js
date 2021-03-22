@@ -201,6 +201,13 @@ export default {
     goodsdetails:{
         shopcar: '장바구니넣기',
         goodsId:'스타일 번호',
+        title:'상품 상세',
+        color:'색깔',
+        size:'치수',
+        sizeList:'사이즈 표',
+        detail:'제품 디 테 일',
+        paytype:'지불 방식',
+        expres:'배달 서비스'
     },
     //商城
     shop:{
