@@ -599,7 +599,7 @@ export default {
     usermsg:{
         personcenter:'내정보',
         auth:'실명인증',
-        order:'주문',
+        order:'입출금',
         localtionn:'위치',
         address:'받는 주소',
         log:'거래내역',
