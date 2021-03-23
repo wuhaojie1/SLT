@@ -1,10 +1,10 @@
 export default {
     //个人资料
     userInfo: {
-        userCenter: '개인센터',
+        userCenter: '회원정보',
         basemsg: '기본정보',
         phonenum: '전화번호',
-        userID: 'ID',
+        userID: '회원번호',
         truename: '성명',
         sex: '성별',
         man: '남',
@@ -18,9 +18,9 @@ export default {
         save: '저장',
         exit: '탈퇴'
     },
-    //신분인증
+    //실명인증
     identifi: {
-        identifitext: '신분인증',
+        identifitext: '실명인증',
         truename: '성명',
         idnum: '전화번호',
         uploadface: '신분증 잎면 사진을 업로드하세요',
@@ -117,7 +117,7 @@ export default {
         confirmtext: '확인支付',
         connect: '온라인 고객 서비스에 문의',
         tip:'질문이 있으시면 고객 서비스에 호소하십시오.',
-        back: '返回',
+        back: '뒤로가기',
         waitOrder: '미지급',
         hadfree: '수수료',
     },
@@ -294,7 +294,7 @@ export default {
         help: "HELP TO GET STARTED",
         aboutQuestion: "Frequently Asked Questions",
         support: "기술 지원이 가능한가요?",
-        search: "SLTcoin팀은 어떠한 문라도 환 합니다.",
+        search: "SLTcoin팀은 어떠한 문의도 환영 합니다.",
         connect: "마케팅팀에 문의 바랍니다.",
         teamEmail: "마케팅팀 sltglobalcoin@gmail.com",
         helpPie: "전체 코인의 10%에 해당하는 10억개는 IEO및 사모펀드 방식으로 판매되며, 안정적인 SLTcoin의 운영을 위하여 초기 엔젤투자자가 10%, 마케팅 15%, 생태기금으로 30%, 비축기금으로 20%, 개발팀과 고문이 15%의 SLTcoin을 보유하게 됩니다.",
@@ -389,8 +389,8 @@ export default {
         joinText: "SLTcoin 팀은 코인 구매나 사업관련 어떠한 문의든지 환영 합니다.",
         namePlaceholder: "Name",
         emailPlaceholder: "Email",
-        net1: ["LT SLT Global","http://sltglobal.net"],
-        net2: ["tree Booktree","http://ubooktree.com"],
+        net1: ["SLT Global","http://sltglobal.net"],
+        net2: ["Booktree","http://ubooktree.com"],
         net3: ["☉문의 e-Mail：sltglobalcoin@gmail.com"],
         own: "© Smart Learning Technology Global 2020. All rights reserved.",
         submit: "SUBMIT",
@@ -499,7 +499,7 @@ export default {
         book: "이 주소로만 SLT를 충전하실 수 있으며 다른 자산은 SLT 주소로 충전하시면 찾을 수 없습니다.",
     },
     positionRecord: {
-        detail: "상세정보고기",
+        detail: "상세정보보기",
         time: "시간",
         type: "유형",
         number: "수량",
@@ -526,7 +526,7 @@ export default {
         cancle:'미결제시 오다 자동 취소',
         paytype:'지불방식',
         orderdetails:'오다상세정보',
-        ordernum:'오다号',
+        ordernum:'오다남버',
         usermoney:'수수료',
         chaege:'거래단가',
         paynum:'거래수량',
@@ -547,7 +547,7 @@ export default {
         question:'문의가 잇으면 고객 서비스에 호소',
         paytype:'지불방식',
         orderdetails:'오다상세정보',
-        ordernum:'오다号',
+        ordernum:'오다남버',
         usermoney:'수수료',
         chaege:'거래단가',
         paynum:'거래수량',
@@ -565,24 +565,24 @@ export default {
         all:'총금액',
         intype:'수납방식',
         out:'탈퇴',
-        gopay:'확인下单'
+        gopay:'확인주문내리기'
     },
     //移动端提醒인증弹窗
     remindauth:{
-        goauth:'请完成신분인증',
+        goauth:'실명인증을 완료하세요.',
         remindtext1:'자산 보안을 보호하고 적시에 계정 역학을 수용합니다.',
-        personauth:'个人신분인증',
+        personauth:'개인실명인증',
         auth:'인증'
     },
-    //移动端빨은구매
+    //移动端즉시구매
     Mbuy:{
         choose:'자유거래',
-        trade:'빨은구매',
+        trade:'즉시구매',
         value:'가치 약',
-        willpay:'지불할것',
+        willpay:'교환전코인',
         canuse:'가용자금',
-        willgain:'내가 받을것',
-        paytype:'지불방식',
+        willgain:'교환후코인',
+        paytype:'교환방식',
         buy:'구매',
         willseal:'판매',
         seal:'판매'
@@ -597,12 +597,12 @@ export default {
     },
     //移动端我的
     usermsg:{
-        personcenter:'개인 센터',
-        auth:'신분인증',
-        order:'오다',
+        personcenter:'내정보',
+        auth:'실명인증',
+        order:'주문',
         localtionn:'위치',
         address:'받는 주소',
-        log:'재무기록',
+        log:'거래내역',
         out:'탈퇴'
     },
     //移动端消息列表
