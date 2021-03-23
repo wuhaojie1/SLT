@@ -1000,7 +1000,7 @@ export default {
         getDate(){
             // let resultDate = new Date();
             let tomorrowDate = DateFunc.tomorrowDate()
-            let endData = '2021-06-28 00:00:00'
+            let endData = '2021-07-03 00:00:00'
             let dateDiffIncludeToday = DateFunc.twoTimeInterval(tomorrowDate,endData);
             this.dateObj = dateDiffIncludeToday;
             let that = this;

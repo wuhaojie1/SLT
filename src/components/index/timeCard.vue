@@ -43,7 +43,7 @@
             height: 60rem;
             width: 60rem;
             line-height: 60rem;
-            font-size: 42rem;
+            font-size: 35rem;
             color: #000;
         }
         .date {
