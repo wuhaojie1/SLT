@@ -113,7 +113,7 @@
                                     </div>
                                 </div>
                                 <div class="payImgList">
-                                    <img :src="visa" alt="">
+                                    <img :src="visa" @click="topage('whitPaper')" alt="">
                                     <img :src="bit" alt="">
                                     <img :src="master" alt="">
                                 </div>
@@ -1036,7 +1036,9 @@ export default {
             console.log('6666')
             this.$router.push({
                 name: name,
-                type:type
+                params:{
+                    type:type
+                }
             })
         },
         myEcharts() {

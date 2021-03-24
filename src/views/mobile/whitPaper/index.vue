@@ -55,8 +55,24 @@ export default {
             japanese:false
         }
     },
-    mounted() {
+    beforeMount() {
         console.log(this.$route.params);
+        if(this.$route.params.type=='english'){
+            this.han = false;
+            this.chinese=false,
+                this.english=true,
+                this.japanese=false
+        }else if(this.$route.params.type=='chinese'){
+            this.han = false;
+            this.chinese=true,
+                this.english=false,
+                this.japanese=false
+        }else if(this.$route.params.type=='japan'){
+            this.han = false;
+            this.chinese=false,
+                this.english=false,
+                this.japanese=true
+        }
     }
 }
 </script>
