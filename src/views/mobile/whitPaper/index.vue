@@ -1,10 +1,34 @@
 <template>
     <div class="whitPaper">
         <PageHeader :isShowRight="false"></PageHeader>
-        <div class="whitPaper-pdf">
+        <div class="whitPaper-pdf" v-if="han">
             <pdf src="/SLTWhitePaper.pdf"
                  class="pdfClass"
                  v-for="i in numPages"
+                 :key="i"
+                 :page="i"></pdf>
+        </div>
+
+        <div class="whitPaper-pdf" v-if="chinese">
+            <pdf src="/SLT_chinese.pdf"
+                 class="pdfClass"
+                 v-for="i in CnumPages"
+                 :key="i"
+                 :page="i"></pdf>
+        </div>
+
+        <div class="whitPaper-pdf" v-if="english">
+            <pdf src="/SLT_english.pdf"
+                 class="pdfClass"
+                 v-for="i in EnumPages"
+                 :key="i"
+                 :page="i"></pdf>
+        </div>
+
+        <div class="whitPaper-pdf" v-if="japanese">
+            <pdf src="/SLT_japanese.pdf"
+                 class="pdfClass"
+                 v-for="i in JnumPages"
                  :key="i"
                  :page="i"></pdf>
         </div>
@@ -21,8 +45,18 @@ export default {
     components: {PageHeader, Pdf},
     data() {
         return {
-            numPages: 37  //  pdf 文件总页数
+            numPages: 37,  //  pdf 文件总页数
+            JnumPages:36,
+            CnumPages:36,
+            EnumPages:36,
+            han:true,
+            chinese:false,
+            english:false,
+            japanese:false
         }
+    },
+    mounted() {
+        console.log(this.$route.params);
     }
 }
 </script>

@@ -15,7 +15,7 @@
                 <div>{{$t('personasset.out')}}</div>
                 <div>{{$t('personasset.in')}}</div>
             </div>
-            <div class="accountText">{{$t('personasset.blance')}}</div>
+<!--            <div class="accountText">{{$t('personasset.blance')}}</div>-->
         </div>
 
         <div class="accountBox">

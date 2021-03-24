@@ -460,7 +460,7 @@
                         width: 100%;
                         display: flex;
                         justify-content: space-between;
-                        height: 14rem;
+                        height: 18rem;
                         line-height: 14rem;
                         font-size: 14rem;
                         font-family: Source Han Sans CN;

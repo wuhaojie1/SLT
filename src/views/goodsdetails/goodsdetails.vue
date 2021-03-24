@@ -136,31 +136,31 @@
                 this.currentindex = index;
                 this.showitem = !this.showitem;
             },
-            addgoods(){
-                let PostData = this.getPostData()
-                this.axios(
-                    {
-                        url:'wx/cart/add',
-                        method:'post',
-                        params:PostData
-                    }
-                ).then(res=>{
-                    console.log(res);
-                }).catch(err=>{
-                    console.log(err);
-                })
-            },
-            getPostData(){
-                let goodsId = this.goodsmsg.goodsId;
-                let number = this.goodsmsg.number;
-                let productId = this.goodsmsg.productId;
-                let PostData = {
-                    goodsId:goodsId,
-                    number:number,
-                    productId:productId
-                }
-                return PostData
-            },
+            // addgoods(){
+            //     let PostData = this.getPostData()
+            //     this.axios(
+            //         {
+            //             url:'wx/cart/add',
+            //             method:'post',
+            //             params:PostData
+            //         }
+            //     ).then(res=>{
+            //         console.log(res);
+            //     }).catch(err=>{
+            //         console.log(err);
+            //     })
+            // },
+            // getPostData(){
+            //     let goodsId = this.goodsmsg.goodsId;
+            //     let number = this.goodsmsg.number;
+            //     let productId = this.goodsmsg.productId;
+            //     let PostData = {
+            //         goodsId:goodsId,
+            //         number:number,
+            //         productId:productId
+            //     }
+            //     return PostData
+            // },
             getGoodsDetail(){
                 this.axios({
                     url:'wx/goods/detail',

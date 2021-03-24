@@ -19,50 +19,50 @@
                         <div class="text">
                             SLT<span>Bitcoin</span>
                         </div>
-                        <div class="downmenu">
-                            <div class="search">
-                                <img style="width:16rem;height:16rem;margin:0rem 7rem 0rem 10rem" src="../../static/img/wallet/search.png" alt="">
-                                <input class="place" type="text" placeholder-class="place" placeholder="搜索币种">
-                            </div>
-                            <ul class="searchMenu">
-                                <li>
-                                    <span>USDT</span>
-                                    <span>Tether</span>
-                                </li>
-                                <li>
-                                    <span>USDT</span>
-                                    <span>Tether</span>
-                                </li>
-                                <li>
-                                    <span>USDT</span>
-                                    <span>Tether</span>
-                                </li>
-                                <li>
-                                    <span>USDT</span>
-                                    <span>Tether</span>
-                                </li>
-                                <li>
-                                    <span>USDT</span>
-                                    <span>Tether</span>
-                                </li>
-                                <li>
-                                    <span>USDT</span>
-                                    <span>Tether</span>
-                                </li>
-                                <li>
-                                    <span>USDT</span>
-                                    <span>Tether</span>
-                                </li>
-                                <li>
-                                    <span>USDT</span>
-                                    <span>Tether</span>
-                                </li>
-                                <li>
-                                    <span>USDT</span>
-                                    <span>Tether</span>
-                                </li>
-                            </ul>
-                        </div>
+<!--                        <div class="downmenu">-->
+<!--                            <div class="search">-->
+<!--                                <img style="width:16rem;height:16rem;margin:0rem 7rem 0rem 10rem" src="../../static/img/wallet/search.png" alt="">-->
+<!--                                <input class="place" type="text" placeholder-class="place" placeholder="搜索币种">-->
+<!--                            </div>-->
+<!--                            <ul class="searchMenu">-->
+<!--                                <li>-->
+<!--                                    <span>USDT</span>-->
+<!--                                    <span>Tether</span>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>USDT</span>-->
+<!--                                    <span>Tether</span>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>USDT</span>-->
+<!--                                    <span>Tether</span>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>USDT</span>-->
+<!--                                    <span>Tether</span>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>USDT</span>-->
+<!--                                    <span>Tether</span>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>USDT</span>-->
+<!--                                    <span>Tether</span>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>USDT</span>-->
+<!--                                    <span>Tether</span>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>USDT</span>-->
+<!--                                    <span>Tether</span>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <span>USDT</span>-->
+<!--                                    <span>Tether</span>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
                     </div>
                 </div>
                 <div class="topUp-content-wrap">

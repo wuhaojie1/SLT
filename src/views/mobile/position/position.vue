@@ -24,30 +24,30 @@ export default {
         return {
             recordList: [
                 {
-                    title: "位置一",
+                    title: "position",
                     time: "2021-02-28",
-                    type: "小说",
+                    type: "XX",
                     number: "10",
                     price: "200",
                 },
                 {
-                    title: "位置一",
+                    title: "position",
                     time: "2021-02-28",
-                    type: "小说",
+                    type: "XX",
                     number: "10",
                     price: "200",
                 },
                 {
-                    title: "位置一",
+                    title: "position",
                     time: "2021-02-28",
-                    type: "小说",
+                    type: "XX",
                     number: "10",
                     price: "200",
                 },
                 {
-                    title: "位置一",
+                    title: "position",
                     time: "2021-02-28",
-                    type: "小说",
+                    type: "XX",
                     number: "10",
                     price: "200",
                 },

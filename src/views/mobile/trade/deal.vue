@@ -6,7 +6,9 @@
                     <div class="trade-buy"
                          :class="index==currentindex1?'active':'trade'"
                          v-for="(item,index) in tradetextarr"
-                         :key="index" @click="changeitem1(index)">{{item}}</div>
+                         :key="index" @click="changeitem1(index)">
+                         {{item}}
+                         </div>
                 </div>
                 <div class="pay" v-if="currentindex1==0">
                     <div class="value-text">1ETH{{this.$t('Mbuy.value')}}</div>
@@ -33,7 +35,7 @@
                     </div>
                     <div class="getcon">
                         <div class="paycon-left">
-                            <div class="left-text1">{{this.$t('Mbuy.willgain')}}~</div>
+                            <div class="left-text1">{{this.$t('Mbuy.willgain')}}</div>
                             <div class="left-text2">0.00</div>
                         </div>
                         <div class="paycon-right">
@@ -82,7 +84,7 @@
                     </div>
                     <div class="getcon">
                         <div class="paycon-left">
-                            <div class="left-text1">{{this.$t('Mbuy.willgain')}}~</div>
+                            <div class="left-text1">{{this.$t('Mbuy.willgain')}}</div>
                             <div class="left-text2">0.00</div>
                         </div>
                         <div class="paycon-right">
@@ -118,7 +120,7 @@
         components:{remindauth,confirmorder},
         data(){
             return{
-                tradetextarr:['购买','出售'],
+                tradetextarr:[this.$t('Mbuy.buy'),this.$t('Mbuy.seal')],
                 currentindex1:0,
                 popout:false
             }
