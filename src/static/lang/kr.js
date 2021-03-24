@@ -4,7 +4,7 @@ export default {
         userCenter: '회원정보',
         basemsg: '기본정보',
         phonenum: '전화번호',
-        userID: '회원번호',
+        userID: 'ID',
         truename: '성명',
         sex: '성별',
         man: '남',
@@ -12,7 +12,7 @@ export default {
         secret: '비밀',
         birthday: '생일',
         idnum: '신분증번호',
-        userName: 'ID',
+        userName: '회원정보',
         pleaseSelect: '선택',
         pleaseInput: '입력하세요',
         save: '저장',
@@ -37,7 +37,7 @@ export default {
     //받는 주소
     userAdress: {
         userAdresstext: '수하주소',
-        name: '수취인 성명',
+        name: '성명',
         Adressmsg: '주소 정보',
         msgdetail: '상세주소',
         mailnum: '우편번호',
@@ -76,7 +76,9 @@ export default {
         tredetype: '지불방식',
         moneycomes: '화폐원천',
         usermoney: '수수료료',
-        tableHeader:['코인 종류','수량','동결','사용가능','단가','총액','오프션']
+        tableHeader:['코인 종류','수량','동결','사용가능','단가','총액','오프션'],
+        total:'내 자산',
+        account:'내잔고'
 
     },
     //一键구매
@@ -224,8 +226,8 @@ export default {
         logintext:'로그인',
         username:'ID 입력하세요.',
         userpsw:'비밀번호 입력하세요.',
-        forget:'비밀번호를 잊으 셨나요?',
-        goreigest:'즉시가입?',
+        forget:'비밀번호 찾기',
+        goreigest:'즉시가입',
         login:'로그인'
     },
     regiest:{
@@ -570,7 +572,7 @@ export default {
     //移动端提醒인증弹窗
     remindauth:{
         goauth:'실명인증을 완료하세요.',
-        remindtext1:'자산 보안을 보호하고 적시에 계정 역학을 수용합니다.',
+        remindtext1:'디지털 자산 보호를 위해 실명인이 필요합니다.',
         personauth:'개인실명인증',
         auth:'인증'
     },
@@ -584,7 +586,7 @@ export default {
         willgain:'교환후코인',
         paytype:'교환방식',
         buy:'구매',
-        willseal:'판매',
+        willseal:'교환전코인',
         seal:'판매'
     },
     //移动端자유거래
@@ -599,7 +601,7 @@ export default {
     usermsg:{
         personcenter:'내정보',
         auth:'실명인증',
-        order:'입출금',
+        order:'보유자산',
         localtionn:'위치',
         address:'받는 주소',
         log:'거래내역',

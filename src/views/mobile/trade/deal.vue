@@ -35,7 +35,7 @@
                     </div>
                     <div class="getcon">
                         <div class="paycon-left">
-                            <div class="left-text1">{{this.$t('Mbuy.willgain')}}~</div>
+                            <div class="left-text1">{{this.$t('Mbuy.willgain')}}</div>
                             <div class="left-text2">0.00</div>
                         </div>
                         <div class="paycon-right">
@@ -84,7 +84,7 @@
                     </div>
                     <div class="getcon">
                         <div class="paycon-left">
-                            <div class="left-text1">{{this.$t('Mbuy.willgain')}}~</div>
+                            <div class="left-text1">{{this.$t('Mbuy.willgain')}}</div>
                             <div class="left-text2">0.00</div>
                         </div>
                         <div class="paycon-right">
