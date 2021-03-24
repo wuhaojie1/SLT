@@ -4,18 +4,18 @@
         <div class="auth-content">
             <div class="name-con">
                 <div class="name-text">{{$t('identifi.truename')}}:</div>
-                <input type="text" v-model="realname" :placeholder="$t('identifi.addname')" class="name-input">
+                <input type="text" v-model="realName" :placeholder="$t('identifi.addname')" class="name-input" aria-required="true">
             </div>
             <div class="num-con">
                 <div class="num-text">{{$t('identifi.idnum')}}:</div>
-                <input type="text" max="18" v-model="idcard" :placeholder="$t('identifi.addidnum')" class="num-input">
+                <input type="text" max="18" v-model="idcard" :placeholder="$t('identifi.addidnum')" class="num-input" required>
             </div>
             <div class="face-text">{{$t('identifi.uploadface')}}</div>
             <div class="foce-con">
                 <el-upload  action="123"
-                            :on-change="uploadfaceFile"
+                            :on-change="uploadFaceFile"
                             accept="image/jpeg,image/png,image/jpg">
-                    <img style="{width: 314rem;height: 219rem;}" :src="face?faceURL:faceimg" alt="">
+                    <img style="width: 314rem;height: 219rem;" :src="face?faceURL:faceimg" alt="">
                 </el-upload>
             </div>
             <div class="back-text">{{$t('identifi.uploadback')}}</div>
@@ -23,13 +23,14 @@
                 <el-upload :on-success="handleAvatarSuccess"
                            :before-upload="beforeUpload"
                            action="123"
-                           :on-change="uploadbackFile"
+                           :on-change="uploadBackFile"
                            accept="image/jpeg,image/png,image/jpg">
-                    <img style="{width: 314rem;height: 219rem;}" :src="back?backURL:backimg" alt="">
+                    <img style="width: 314rem;height: 219rem;" :src="back?backURL:backimg" alt="">
                 </el-upload>
             </div>
+
             <div class="auth-button-con">
-                <div class="auth-button" @click="userauth">{{$t('identifi.goidenrifi')}}</div>
+                <div class="auth-button" @click="userAuth">{{$t('identifi.goidenrifi')}}</div>
             </div>
         </div>
     </div>
@@ -46,7 +47,7 @@
                 back:false,
                 faceimg:`${require('../../static/img/user/idcardup.png')}`,
                 backimg:`${require('../../static/img/user/idcarddown.png')}`,
-                realname:'',
+                realName:'',
                 idcard:''
             }
         },
@@ -54,34 +55,75 @@
             // this.userauth();
         },
         methods:{
-            uploadfaceFile(file){
+            uploadFaceFile(file){
                 // let fileName = file.name;
                 this.faceURL = URL.createObjectURL(file.raw)  // 获取URL
                 this.face=true
                 // console.log(file)
                 // console.log(this.posterURL)
             },
-            uploadbackFile(file){
+            uploadBackFile(file){
                 // let fileName = file.name;
                 this.backURL = URL.createObjectURL(file.raw)  // 获取URL
                 this.back=true
                 // console.log(file)
                 // console.log(this.posterURL)
             },
-            userauth(){
-                let PostData = this.getPostData()
+
+            userAuth(){
+                let lang =  this.localStorage.get('langMsg');
+                let PostData = this.getPostData();
                 this.axios({
                     url:'wx/user/auth',
                     method:'post',
                     params:PostData
                 }).then(res=>{
-                    console.log(res);
-                    this.$t('identifi').goidenrifi = res.errmsg;
+                    if (res.errno === 762){
+                        if (lang.data.name === 'zh-CN'){
+                            this.$t('identifi').goidenrifi = '请等待审核';
+                        } else{
+                            this.$t('identifi').goidenrifi = res.errmsg;
+                        }
+                    }else {
+                        this.$notify({
+                            type:'error',
+                            message: '申请认证失败'
+                        });
+                    }
                 }).catch(err=>{
                     console.log(err)
                 })
             },
             getPostData(){
+                if (!this.realName) {
+                    this.$notify({
+                        type:'warning',
+                        message: '真实姓名不能为空'
+                    });
+                    return;
+                }
+                if (!this.idcard) {
+                    this.$notify({
+                        type:'warning',
+                        message: '身份证账号不能为空'
+                    });
+                    return;
+                }
+                if (!this.backURL) {
+                    this.$notify({
+                        type:'warning',
+                        message: '请上传身份证背面图片'
+                    });
+                    return;
+                }
+                if (!this.faceURL) {
+                    this.$notify({
+                        type:'warning',
+                        message: '请上传身份证正面图片'
+                    });
+                    return;
+                }
+
                 let PostData = {
                     realName:this.realName,
                     idcard:this.idcard,

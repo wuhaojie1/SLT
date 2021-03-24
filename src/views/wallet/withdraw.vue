@@ -92,7 +92,7 @@
                     <div class="arrival">{{$t('wallet.received')}}（SLT）<span>0.00000000</span></div>
 
                     <div class="btn-box">
-                        <div class="btn" @click="dialogVisible">
+                        <div class="btn" @click="dialogVisible = true">
                             {{$t('wallet.withdraw')}}
                         </div>
                     </div>
@@ -171,10 +171,36 @@
                 }
             }
         },
+        created(){
+            this.getInfo();
+        },
         methods: {
             select(index) {
                 this.coinIndex = index
             },
+
+            getInfo(){
+                this.axios({
+                    url:'user/wallet/drawIndex',
+                    method:'get'
+                }).then(res=>{
+                    console.log(res)
+                })
+            },
+            apllyDraw(){
+                const param = {
+                    amount: "5.10",
+                    symbol: "ETH"
+                };
+                this.axios({
+                    url:'user/wallet/drawApply  ',
+                    method:'post',
+                    params: param,
+                }).then(res=>{
+                    console.log(res)
+                })
+
+            }
         }
     }
 </script>
@@ -552,7 +578,7 @@
                         font-weight: 400;
                         color: #9AA5B5;
                     }
-                    
+
                     .arrival {
                         margin-top: 25rem;
                         text-align: left;
@@ -563,7 +589,7 @@
                             color: #00B4FC;
                         }
                     }
-                    
+
 
                     .address-title {
                         margin-bottom: 8rem;
