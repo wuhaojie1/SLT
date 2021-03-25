@@ -581,10 +581,15 @@
                                     <div class="recommend-item-top">
                                         <div class="title">{{ $t('index').whitBook }}</div>
                                          <!-- 한국어 English 中文 日本语 -->
-                                        <div class="text" @click="topage('whitPaper')">한국어</div>
-                                        <div class="text" @click="gopage('whitPaper','english')">English</div>
-                                        <div class="text" @click="gopage('whitPaper','chinese')">中文</div>
-                                        <div class="text" @click="gopage('whitPaper','japan')">日本语</div>
+                                        <!-- <div class="text" @click="topage('MwhitPaper')">한국어</div>
+                                        <div class="text" @click="gopage('MwhitPaper','english')">English</div>
+                                        <div class="text" @click="gopage('MwhitPaper','chinese')">中文</div>
+                                        <div class="text" @click="gopage('MwhitPaper','japan')">日本语</div> -->
+
+                                        <div class="text" @click="towhitPaper('/MwhitPaper')">한국어</div>
+                                        <div class="text" @click="towhitPaper('/MwhitPaper?lan=english','english')">English</div>
+                                        <div class="text" @click="towhitPaper('/MwhitPaper?lan=chinese','chinese')">中文</div>
+                                        <div class="text" @click="towhitPaper('/MwhitPaper?lan=japan','japan')">日本语</div>
                                     </div>
                                     <!-- <div class="content">
                                         <div class="content-list">
@@ -1027,17 +1032,18 @@ export default {
             this[name] = !this[name];
         },
         topage(name) {
-            window.console.log('6666')
             this.$router.push({
                 name: name
             })
         },
         gopage(name,type) {
-            console.log('6666')
             this.$router.push({
                 name: name,
                 type:type
             })
+        },
+        towhitPaper(path){
+            this.$router.push(path)
         },
         myEcharts() {
             let echartsBox = this.$refs.echartsBox;
