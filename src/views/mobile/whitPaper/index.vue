@@ -1,7 +1,7 @@
 <template>
     <div class="whitPaper">
         <PageHeader :isShowRight="false"></PageHeader>
-        <div class="whitPaper-pdf" v-if="han">
+        <div class="whitPaper-pdf" v-if="lan==='kr'">
             <pdf src="/SLTWhitePaper.pdf"
                  class="pdfClass"
                  v-for="i in numPages"
@@ -9,7 +9,7 @@
                  :page="i"></pdf>
         </div>
 
-        <div class="whitPaper-pdf" v-if="chinese">
+        <div class="whitPaper-pdf" v-if="lan==='chinese'">
             <pdf src="/SLT_chinese.pdf"
                  class="pdfClass"
                  v-for="i in CnumPages"
@@ -17,7 +17,7 @@
                  :page="i"></pdf>
         </div>
 
-        <div class="whitPaper-pdf" v-if="english">
+        <div class="whitPaper-pdf" v-if="lan==='english'">
             <pdf src="/SLT_english.pdf"
                  class="pdfClass"
                  v-for="i in EnumPages"
@@ -25,7 +25,7 @@
                  :page="i"></pdf>
         </div>
 
-        <div class="whitPaper-pdf" v-if="japanese">
+        <div class="whitPaper-pdf" v-if="lan==='japan'">
             <pdf src="/SLT_japanese.pdf"
                  class="pdfClass"
                  v-for="i in JnumPages"
@@ -52,11 +52,16 @@ export default {
             han:true,
             chinese:false,
             english:false,
-            japanese:false
+            japanese:false,
+            lan:'kr',
         }
     },
     mounted() {
-        console.log(this.$route.params);
+        if(this.$route.query.lan){
+            this.lan = this.$route.query.lan;
+        }else{
+            this.lan = 'kr';
+        }
     }
 }
 </script>
