@@ -210,9 +210,11 @@ export default {
                 color: #000000;
                 float: left;
                 line-height: 60rem;
+                cursor: pointer;
             }
 
             .saleslt {
+                cursor: pointer;
                 width: 100rem;
                 font-size: 16rem;
                 font-family: Source Han Sans CN;

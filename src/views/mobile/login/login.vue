@@ -11,15 +11,15 @@
             <div class="login-box">
                 <div class="phone">
                     <img :src="user" alt="" class="img">
-                    <input type="text" class="input" :placeholder="this.$t('Mlogin.inpsw')">
+                    <input type="text" class="input" :placeholder="this.$t('Mlogin.inphone')">
                 </div>
                 <div class="password">
                     <img :src="lock" alt="" class="img">
-                    <input type="text" class="input" :placeholder="this.$t('Mlogin.inphone')">
+                    <input type="text" class="input" :placeholder="this.$t('Mlogin.inpsw')">
                 </div>
             </div>
             <div class="loginBtn">
-                <div class="btn">{{this.$t('Mlogin.login')}}</div>
+                <div class="btn" @click="login" v-prevent-repeat>{{this.$t('Mlogin.login')}}</div>
             </div>
             <!--            <div class="tip">已有账号，<span>立即登录</span></div>-->
         </div>
@@ -37,9 +37,46 @@
                 logo: `${require('@/static/img/login/iconM.png')}`,
                 user: `${require('@/static/img/login/user.png')}`,
                 lock: `${require('@/static/img/login/lock.png')}`,
+                password: "user123",
+                username: "user123",
             }
         },
-        methods: {}
+        methods: {
+            login() {
+                // eslint-disable-next-line no-debugger
+                // debugger
+                // console.log('打印');
+                let postData = {
+                    password: this.password,
+                    username: this.username,
+                }
+                this.axios({
+                    url: 'wx/auth/login',
+                    method: 'post',
+                    params: JSON.stringify(postData),
+                }).then((res) => {
+                    // eslint-disable-next-line no-debugger
+                    // debugger
+                    // console.log(res)
+                    let data = res.data
+                    if (res.errno === 0) {
+                        let user = {
+                            avatarUrl: data.userInfo.avatarUrl,
+                            nickName: data.userInfo.nickName,
+                        }
+                        this.localStorage.set('token', data.token)
+                        this.localStorage.set('user', user)
+                        this.localStorage.set('isLogin', true)
+
+                        this.$router.push({
+                            name: 'Mindex',
+                        })
+                    }
+                }).catch(err=>{
+                    console.log(err)
+                })
+            }
+        }
     }
 </script>
 
@@ -125,6 +162,7 @@
                     border-radius: 6rem;
                     margin-top: 40rem;
                     position: relative;
+                    color: #FFF;
 
                     .img {
                         position: absolute;
