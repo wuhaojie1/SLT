@@ -582,10 +582,14 @@
                                     <div class="recommend-item-top">
                                         <div class="title">{{ $t('index').whitBook }}</div>
                                         <!-- 한국어 English 中文 日本语 -->
-                                        <div class="text" @click="topage('whitPaper')">한국어</div>
-                                        <div class="text" @click="gopage('whitPaper','english')">English</div>
-                                        <div class="text" @click="gopage('whitPaper','chinese')">中文</div>
-                                        <div class="text" @click="gopage('whitPaper','japan')">日本语</div>
+                                        <!-- <div class="text">한국어</div>
+                                        <div class="text">English</div>
+                                        <div class="text">中文</div>
+                                        <div class="text">日本语</div> -->
+                                        <div class="text" @click="towhitPaper('/whitPaper')">한국어</div>
+                                        <div class="text" @click="towhitPaper('/whitPaper?lan=english','english')">English</div>
+                                        <div class="text" @click="towhitPaper('/whitPaper?lan=chinese','chinese')">中文</div>
+                                        <div class="text" @click="towhitPaper('/whitPaper?lan=japan','japan')">日本语</div>
                                     </div>
                                     <!-- <div class="content">
                                         <div class="content-list">
@@ -1033,14 +1037,8 @@ export default {
                 name: name
             })
         },
-        gopage(name,type) {
-            console.log('6666')
-            this.$router.push({
-                name: name,
-                params:{
-                    type:type
-                }
-            })
+        towhitPaper(path){
+            this.$router.push(path)
         },
         myEcharts() {
             let echartsBox = this.$refs.echartsBox;
