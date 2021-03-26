@@ -3,11 +3,11 @@
         <Mheader :isShowRight="true"
                  @clickCallback="clickCallback"></Mheader>
         <div class="head">
-            <span class="headtext">艺术/大众文化</span>
+            <span class="headtext">xxxxxxxxx</span>
         </div>
         <div class="op">
             <img class="back" src="../../../static/img/positiondetails/back.png" alt="">
-            <div class="pname">艺术/大众文化位置</div>
+            <div class="pname">xxxxxxxx{{this.$t('Mpositiondetails.position')}}</div>
         </div>
         <div class="charge">￥200</div>
         <div class="goodsdetails">
@@ -15,16 +15,16 @@
                 <img class="img" src="../../../static/img/positiondetails/goods.png" alt="">
             </div>
             <div class="msgcon">
-                <div class="con1">卖出位置</div>
-                <div class="con2">数量:10</div>
-                <div class="con3">剩余位置</div>
-                <div class="con4">数量:10</div>
+                <div class="con1">{{this.$t('Mpositiondetails.seal')}}</div>
+                <div class="con2">{{this.$t('Mpositiondetails.num')}}:10</div>
+                <div class="con3">{{this.$t('Mpositiondetails.residue')}}</div>
+                <div class="con4">{{this.$t('Mpositiondetails.num')}}:10</div>
             </div>
         </div>
         <div class="line"></div>
         <div class="earnings">
-            <div class="profie">收益</div>
-            <div class="descript">有货，每个位置平均收入在100%</div>
+            <div class="profie">{{this.$t('Mpositiondetails.earn')}}</div>
+            <div class="descript">{{this.$t('Mpositiondetails.desceipt')}}10%</div>
         </div>
         <div class="line"></div>
         <div class="choosenum">
@@ -32,10 +32,10 @@
             <div class="num">{{nums}}</div>
             <img class="add" @click="add" src="../../../static/img/positiondetails/reduce.png" alt="">
         </div>
-        <div class="buy">购买</div>
+        <div class="buy">{{this.$t('Mpositiondetails.buy')}}</div>
         <div class="remind">
-            <div class="tip">温馨提示，如有任何问题</div>
-            <div class="connect">联系在线客服</div>
+            <div class="tip">{{this.$t('Mpositiondetails.tip')}}</div>
+            <div class="connect">{{this.$t('Mpositiondetails.connect')}}</div>
         </div>
     </div>
 </template>
@@ -262,11 +262,11 @@
     }
     .remind{
         margin-top: 24rem;
-        width: 420rem;
+        width: 750rem;
         height: 22rem;
         display: flex;
         justify-content: center;
-        margin-left: 36rem;
+        /*margin-left: 36rem;*/
         .tip{
             font-size: 22rem;
             font-family: Source Han Sans CN;

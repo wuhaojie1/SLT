@@ -236,7 +236,9 @@ export default {
         userpsw:'비밀번호 입력하세요.',
         userres:'즉시가입',
         get:'인증코드 받기',
-        regiest:'회원가입'
+        regiest:'회원가입',
+        gologin:'등록 하 다',
+        regiested:'등록 완료'
     },
     //头部
     header: {
@@ -635,5 +637,16 @@ export default {
         login:'로그인',
         inphone:'핸드폰 번호를 입력해주세요',
         inpsw:'비밀번호를 입력해 주세요'
+    },
+    Mpositiondetails:{
+        position:'위치',
+        seal:'매출 위치',
+        num:'수량',
+        residue:'남 은 위치',
+        earn:'수익',
+        desceipt:'상품 이 있다,매개 위치평균 수입',
+        buy:'구입 하 다',
+        tip:'구 매 팁, 문제 가 있 으 면',
+        connect:'온라인 고객 서비스 연결'
     }
 }

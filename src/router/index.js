@@ -229,6 +229,12 @@ const routes = [{
         component: () =>
             import ('../views/mobile/user/user.vue')
     },
+    {
+        path: '/Mregiester',
+        name: 'Mregiester',
+        component: () =>
+            import ('../views/mobile/regiester/regiester.vue')
+    },
     //移动端订单
     {
         path: '/Morder',
