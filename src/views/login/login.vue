@@ -25,7 +25,7 @@
                             <div class="regiest">{{$t('login.goreigest')}}</div>
                         </router-link>
                     </div>
-                    <div class="loginbutton" @click="login">{{$t('login.login')}}</div>
+                    <div class="loginbutton" @click="login" v-prevent-repeat>{{$t('login.login')}}</div>
                 </div>
             </div>
         </div>

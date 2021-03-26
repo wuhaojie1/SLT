@@ -4,23 +4,40 @@
             <div class="loginbox">
                 <div class="loginbox-left">
                     <div class="left-text-top">S L T coin</div>
-                    <div class="left-text-down">SLTcoin {{$t('regiest.welcome')}}</div>
+                    <div class="left-text-down">SLTcoin {{ $t('regiest.welcome') }}</div>
                 </div>
                 <div class="loginbox-right" :style="{ 'backgroundImage':'url('+ loginbgc +')' }">
-                    <div class="user">{{$t('regiest.userres')}}</div>
+                    <div class="user">{{ $t('regiest.userres') }}</div>
                     <div class="username">
                         <img class="username-img" src="../../static/img/login/user.png"/>
-                        <input class="username-input" type="text" v-model="mobile" :placeholder="$t('regiest.username')">
+                        <input class="username-input" type="text" v-model="mobile"
+                               :placeholder="$t('regiest.username')">
                     </div>
                     <div class="password">
                         <img class="password-img" src="../../static/img/login/lock.png"/>
-                        <input class="password-input" type="password" v-model="password" :placeholder="$t('regiest.userpsw')">
+                        <input class="password-input"
+                               type="password"
+                               v-model="password"
+                               :placeholder="$t('regiest.userpsw')">
                     </div>
                     <div class="getcodes">
-                        <input type="text" v-model="code" class="numcontent">
-                        <div class="getbutton" @click="getCode">{{$t('regiest.get')}}</div>
+                        <input type="text"
+                               v-model="code"
+                               class="numcontent">
+                        <div v-show="codeShow"
+                             class="getbutton"
+                             @click="getCode"
+                             v-prevent-repeat>
+                            {{ getCodeText }}
+                        </div>
+                        <div v-show="!codeShow" class="getbutton">
+                            {{ count + " S" + repeat }}
+                        </div>
                     </div>
-                    <div class="loginbutton" @click="register">{{$t('regiest.regiest')}}</div>
+                    <div class="loginbutton"
+                         @click="register"
+                         v-prevent-repeat>{{ $t('regiest.regiest') }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -41,6 +58,13 @@ export default {
             code: "123456",
             mobile: "15282148708",
             password: "111111",
+            // intervalTime: 60,
+            codeShow: true,// true未请求 false已请求
+            timer: null,
+            count: "",
+            repeat: "재 번역",
+            getCodeText: this.$t('regiest.get'),
+
 
             // repeatPassword: "111111",
             // username: "ww",
@@ -51,20 +75,44 @@ export default {
     },
     methods: {
         getCode() {
-            let postData = this.getCodePostData()
-            if (postData) {
-                this.axios({
-                    url: 'wx/auth/regCaptcha',
-                    method: 'post',
-                    params: JSON.stringify(postData),
-                }).then((res) => {
-                    // console.log(res)
-                    if (res.errno === 0) {
-                        this.getCodeStatus = true
-                    }
-                })
+            if (this.codeShow) {
+                this.countTime()
+                let postData = this.getCodePostData()
+                if (postData) {
+                    this.axios({
+                        url: 'wx/auth/regCaptcha',
+                        method: 'post',
+                        params: JSON.stringify(postData),
+                    }).then((res) => {
+                        // console.log(res)
+                        if (res.errno === 0) {
+                            this.getCodeStatus = true
+                        }
+                    })
+                }
+            } else {
+                return
             }
 
+
+        },
+        countTime() {
+            // eslint-disable-next-line no-debugger
+            // debugger
+            const TIME_COUNT = 60;
+            if (!this.timer) {
+                this.count = TIME_COUNT;
+                this.codeShow = false;
+                this.timer = setInterval(() => {
+                    if (this.count > 0 && this.count <= TIME_COUNT) {
+                        this.count--;
+                    } else {
+                        this.codeShow = true;
+                        clearInterval(this.timer);
+                        this.timer = null;
+                    }
+                }, 1000)
+            }
         },
         getCodePostData() {
             if (!this.getCodeStatus) {
@@ -91,9 +139,9 @@ export default {
                             nickName: data.userInfo.nickName,
                         }
                         // console.log(user)
-                        this.localStorage.set('token',data.token)
-                        this.localStorage.set('user',user)
-                        this.localStorage.set('isLogin',true)
+                        this.localStorage.set('token', data.token)
+                        this.localStorage.set('user', user)
+                        this.localStorage.set('isLogin', true)
                     }
                 })
             }
@@ -207,7 +255,8 @@ export default {
                     opacity: 0.5;
                     border-radius: 8rem;
                     color: #FFFFFF;
-                    .username-img{
+
+                    .username-img {
                         position: absolute;
                         width: 27rem;
                         height: 27rem;
@@ -215,6 +264,7 @@ export default {
                         margin-right: 15rem;
                         margin-top: 16rem;
                     }
+
                     .username-input {
                         width: 350rem;
                         line-height: 58rem;
@@ -232,7 +282,8 @@ export default {
                     opacity: 0.5;
                     border-radius: 8rem;
                     color: #FFFFFF;
-                    .password-img{
+
+                    .password-img {
                         position: absolute;
                         width: 27rem;
                         height: 27rem;
@@ -240,6 +291,7 @@ export default {
                         margin-right: 15rem;
                         margin-top: 16rem;
                     }
+
                     .password-input {
                         width: 350rem;
                         line-height: 58rem;
@@ -278,6 +330,7 @@ export default {
                         text-align: center;
                         margin-top: 20rem;
                         margin-bottom: 35rem;
+                        cursor: pointer;
                     }
                 }
 
