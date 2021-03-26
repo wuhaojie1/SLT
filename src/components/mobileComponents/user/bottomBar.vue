@@ -3,8 +3,8 @@
         <div class="top">
             <img src="../../../static/img/index/userAvatar.png" alt="">
             <div class="topCenter">
-                <div>130****3775</div>
-                <div>ID: JCJDVJD5</div>
+                <div>{{usermsg[0].val}}</div>
+                <div>{{usermsg[1].val}}</div>
             </div>
             <div class="topRight">{{$t('userInfo.exit')}}</div>
         </div>
@@ -23,7 +23,12 @@
 
 <script>
 export default {
-
+    props:{
+        usermsg:{
+            type:Array,
+            default:()=>{}
+        }
+    }
 }
 </script>
 

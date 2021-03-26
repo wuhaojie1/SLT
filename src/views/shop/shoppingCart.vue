@@ -134,7 +134,7 @@
             // window.addEventListener('scroll', this.handleScroll, true);
             // this.myEcharts();
             this.getcarlist();
-            this.updategoods();
+            // this.updategoods();
         },
         methods: {
             //监听滚动条事件
@@ -231,6 +231,7 @@
                    url:'wx/cart/index',
                    method:'get'
                }).then((res)=>{
+                   this.getmomunt();
                    console.log(res);
                }).catch(err=>{
                    console.log(err);
@@ -270,19 +271,19 @@
                    console.log(err);
                })
             },
-            getupdatePostData(){
-               let number= 0;
-               let goodsId = 0;
-               let id = 0;
-               let productId = 0;
-               let PostData={
-                    number:number,
-                    goodsId:goodsId,
-                    id:id,
-                    productId:productId
-                }
-                return PostData;
-            },
+            // getupdatePostData(){
+            //    let number= 0;
+            //    let goodsId = 0;
+            //    let id = 0;
+            //    let productId = 0;
+            //    let PostData={
+            //         number:number,
+            //         goodsId:goodsId,
+            //         id:id,
+            //         productId:productId
+            //     }
+            //     return PostData;
+            // },
             //购买选中的商品
             buygoods(){
                 let PostData = this.getbuyPostData();

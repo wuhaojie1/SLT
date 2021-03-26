@@ -437,6 +437,13 @@ const routes = [{
         component: () =>
             import ('../views/mobile/positionTrade/index.vue')
     },
+    //位置详情
+    {
+        path: '/Mpositiondetails',
+        name: 'Mpositiondetails',
+        component: () =>
+            import ('../views/mobile/positiondetails/positiondetails.vue')
+    },
     //白皮书
     
     {

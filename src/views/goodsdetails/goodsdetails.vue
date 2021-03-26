@@ -19,7 +19,7 @@
             <div class="goodsmsg-con">
                 <div class="goods-name">
 <!--                    {{goodsDetail.info.name}}-->
-                    <div class="goods-name-text">goodsname</div>
+                    <div class="goods-name-text">{{goodsDetail.info.goodsSn}}</div>
                     <img class="love" src="../../static/img/goodsdetails/like.png" alt="">
                 </div>
                 <div class="goods-charge">￥{{goodsDetail.info.retailPrice}}</div>
@@ -57,9 +57,7 @@
                     </div>
                     <div class="look-all-type" @click="control">尺码表</div>
                 </div> -->
-                <router-link to="shoppingCar">
-                    <div class="shopcar" @click="addgoods">{{$t('goodsdetails.shopcar')}}</div>
-                </router-link>
+                <div class="shopcar" @click="addgoods" >{{$t('goodsdetails.shopcar')}}</div>
                 <!-- <div class="question">
                     <div class="online">
                         <img class="online-img" src="../../static/img/goodsdetails/local.png" alt="">
@@ -117,16 +115,17 @@
                 ],
                 currentindex:0,
                 showitem:false,
-                goodsmsg:{
-                    goodsId:1008007,
-                    number:7,
-                    productId:1008000,
-                },
+                goodsid:'',
                 goodsDetail:{}
             }
         },
         mounted(){
             this.getGoodsDetail();
+        },
+        beforeMount() {
+            console.log(this.$route.params.item)
+            this.goodsid = this.$route.params.item.id;
+            console.log(this.goodsid)
         },
         methods:{
             control(){
@@ -136,37 +135,49 @@
                 this.currentindex = index;
                 this.showitem = !this.showitem;
             },
-            // addgoods(){
-            //     let PostData = this.getPostData()
-            //     this.axios(
-            //         {
-            //             url:'wx/cart/add',
-            //             method:'post',
-            //             params:PostData
-            //         }
-            //     ).then(res=>{
-            //         console.log(res);
-            //     }).catch(err=>{
-            //         console.log(err);
-            //     })
-            // },
-            // getPostData(){
-            //     let goodsId = this.goodsmsg.goodsId;
-            //     let number = this.goodsmsg.number;
-            //     let productId = this.goodsmsg.productId;
-            //     let PostData = {
-            //         goodsId:goodsId,
-            //         number:number,
-            //         productId:productId
-            //     }
-            //     return PostData
-            // },
+            topage(name){
+                this.$router.push({
+                    name:name,
+                })
+            },
+            addgoods(){
+                let PostData = this.getPostData()
+                this.axios(
+                    {
+                        url:'wx/cart/add',
+                        method:'post',
+                        params:PostData
+                    }
+                ).then(res=>{
+                    console.log(res);
+                    if(res.errno==711){
+                        this.$notify({
+                            title:'재고 가 부족 하 다'
+                        })
+                    }else if(this.errno==0){
+                        this.topage('shoppingCar')
+                    }
+                }).catch(err=>{
+                    console.log(err);
+                })
+            },
+            getPostData(){
+                let goodsId = this.goodsid;
+                // let number = this.goodsmsg.number;
+                let productId = this.goodsDetail.info.categoryId;
+                let PostData = {
+                    goodsId:goodsId,
+                    number:1,
+                    productId:productId
+                }
+                return PostData
+            },
             getGoodsDetail(){
                 this.axios({
                     url:'wx/goods/detail',
                     method:'get',
                     params: {
-                        id:1008007
+                        id:this.goodsid
                     }
                 }).then((res)=>{
                     console.log(res);
