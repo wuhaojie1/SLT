@@ -11,24 +11,28 @@
             <div class="login-box">
                 <div class="phone">
                     <img :src="user" alt="" class="img">
-                    <input type="text" class="input" v-model="username" :placeholder="this.$t('Mlogin.inphone')">
+                    <input type="text" class="input" v-model="username" :placeholder="this.$t('regiest.username')">
                 </div>
                 <div class="password">
                     <img :src="lock" alt="" class="img">
-                    <input type="text" class="input" v-model="password" :placeholder="this.$t('Mlogin.inpsw')">
+                    <input type="text" class="input" v-model="password" :placeholder="this.$t('regiest.userpsw')">
                 </div>
             </div>
-            <div class="loginBtn">
-                <div class="btn" @click="login" v-prevent-repeat>{{this.$t('Mlogin.login')}}</div>
+            <div class="get_verify_code">
+                <input class="code_con"/>
+                <div class="get_button">{{this.$t('regiest.get')}}</div>
             </div>
-            <!--            <div class="tip">已有账号，<span>立即登录</span></div>-->
+            <div class="loginBtn">
+                <div class="btn" @click="login" v-prevent-repeat>{{this.$t('regiest.regiest')}}</div>
+            </div>
+            <div class="tip">{{this.$t('regiest.regiested')}}，<span style="color: #00B7FC" @click="topage('Mlogin')">{{this.$t('regiest.gologin')}}</span></div>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "login",
+        name: "regiester",
         data() {
             return {
                 sltlogo: `${require('@/static/img/index/sltlogo_60x120_white.png')}`,
@@ -37,43 +41,12 @@
                 logo: `${require('@/static/img/login/iconM.png')}`,
                 user: `${require('@/static/img/login/user.png')}`,
                 lock: `${require('@/static/img/login/lock.png')}`,
-                password: "user123",
-                username: "user123",
             }
         },
         methods: {
-            login() {
-                // eslint-disable-next-line no-debugger
-                // debugger
-                // console.log('打印');
-                let postData = {
-                    password: this.password,
-                    username: this.username,
-                }
-                this.axios({
-                    url: 'wx/auth/login',
-                    method: 'post',
-                    params: JSON.stringify(postData),
-                }).then((res) => {
-                    // eslint-disable-next-line no-debugger
-                    // debugger
-                    // console.log(res)
-                    let data = res.data
-                    if (res.errno === 0) {
-                        let user = {
-                            avatarUrl: data.userInfo.avatarUrl,
-                            nickName: data.userInfo.nickName,
-                        }
-                        this.localStorage.set('token', data.token)
-                        this.localStorage.set('user', user)
-                        this.localStorage.set('isLogin', true)
-
-                        this.$router.push({
-                            name: 'Mindex',
-                        })
-                    }
-                }).catch(err=>{
-                    console.log(err)
+            topage(name){
+                this.$router.push({
+                    name:name
                 })
             }
         }
@@ -181,7 +154,43 @@
                     }
                 }
             }
-
+            .get_verify_code{
+                width: 550rem;
+                height: 88rem;
+                margin-top: 40rem;
+                margin-left: 100rem;
+                display: flex;
+                justify-content: space-between;
+                .code_con{
+                    width: 190rem;
+                    height: 88rem;
+                    background: #002E73;
+                    border: 3px solid #00B7FC;
+                    opacity: 0.5;
+                    border-radius: 10rem;
+                    /*margin-left: 86rem;*/
+                    /*margin-top: 20rem;*/
+                    /*margin-bottom: 35rem;*/
+                    color: #FFFFFF;
+                    text-indent: 10rem;
+                }
+                .get_button{
+                    width: 190rem;
+                    height: 94rem;
+                    padding-top: 3rem;
+                    background: #333333;
+                    border-radius: 10rem;
+                    float: right;
+                    /*margin-right: 86rem;*/
+                    font-size: 20rem;
+                    color: #E6E6E6;
+                    line-height: 94rem;
+                    text-align: center;
+                    /*margin-top: 20rem;*/
+                    /*margin-bottom: 35rem;*/
+                    cursor: pointer;
+                }
+            }
             .loginBtn {
                 .btn {
                     margin: 0 auto;
@@ -195,6 +204,9 @@
                     color: #FFFFFF;
                     line-height: 98rem;
                 }
+            }
+            .tip{
+                margin-top: 29rem;
             }
         }
     }

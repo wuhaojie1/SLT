@@ -72,7 +72,7 @@
                                             </div>
                                         </div>-->
                     <div class="goods-box-list">
-                        <PositionBlock @clickItem="toTypeDetail" v-for="(item, index) in typeList"
+                        <PositionBlock @clickItem="toTypeDetail('Mpositiondetails')" v-for="(item, index) in typeList"
                                        :key="index"
                                        :blockItem="item"
                                        class="positionBlock"></PositionBlock>
@@ -299,9 +299,11 @@ export default {
             })
         },
         //查看类别详情
-        toTypeDetail(item){
-            console.log(item);
-            this.$router.push({})
+        toTypeDetail(name){
+            // console.log(item);
+            this.$router.push({
+                name:name
+            })
         }
     }
 }

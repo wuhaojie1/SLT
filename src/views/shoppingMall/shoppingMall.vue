@@ -54,8 +54,8 @@
                          :key="index">
                         <div class="goods-list-item"
                              v-for="(childItem, childIndex) in item"
-                             :key="childIndex">
-                            <router-link to="goodsdetails">
+                             :key="childIndex"
+                              @click="topage('goodsdetails',childItem)">
                                 <div class="imgBox">
                                     <img :src="childItem.img" alt="">
                                 </div>
@@ -64,7 +64,6 @@
 <!--                                    <div class="bookName">DEMO</div>-->
                                     <div class="price">{{ childItem.price }}</div>
                                 </div>
-                            </router-link>
                         </div>
                     </div>
                 </div>
@@ -185,7 +184,14 @@ export default {
             }
             this.getGoodsById(data.item.id)
         },
-
+        topage(name,item){
+            this.$router.push({
+                name:name,
+                params:{
+                    item:item
+                }
+            })
+        },
         getCatalog() {
             this.axios({
                 url: 'wx/catalog/all',

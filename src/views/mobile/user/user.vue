@@ -23,7 +23,7 @@
             <div class="saveBtn">{{ $t('userInfo.save') }}</div>
         </div>
 
-        <BottomBar></BottomBar>
+        <BottomBar :usermsg="list"></BottomBar>
         <!-- <Tabbar></Tabbar> -->
     </div>
 </template>
@@ -48,9 +48,13 @@ export default {
                 // {text: this.$t('userInfo.birthday'), val: '1988.10.20', isArrow: true},
                 // {text:this.$t('userInfo.education'),val:this.$t('userInfo.pleaseSelect'),isArrow:true},
                 // {text:this.$t('userInfo.industry'),val:this.$t('userInfo.pleaseSelect'),isArrow:true},
-                {text: this.$t('userInfo.idnum'), val: this.$t('userInfo.pleaseInput'), isArrow: true}
-            ]
+                {text: this.$t('userInfo.idnum'), val: this.$t('userInfo.pleaseInput'), isArrow: true},
+
+            ],
         }
+    },
+    mounted() {
+        this.getUserInfo();
     },
     methods: {
         clickCallback(item){
@@ -59,6 +63,18 @@ export default {
                 name: item.name,
             })
         },
+        getUserInfo() {
+            this.axios({
+                url: 'wx/user/userinfo',
+                method: 'get',
+                // params: getData,
+            }).then(res => {
+                console.log(res);
+                this.list[0].val = res.data.username;
+                this.list[1].val = res.data.userId;
+                this.list[2].val = res.data.realName;
+            })
+        }
     },
 }
 </script>
