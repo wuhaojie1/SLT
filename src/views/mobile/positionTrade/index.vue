@@ -72,7 +72,7 @@
                                             </div>
                                         </div>-->
                     <div class="goods-box-list">
-                        <PositionBlock @clickItem="toTypeDetail" v-for="(item, index) in blockItemList"
+                        <PositionBlock @clickItem="toTypeDetail" v-for="(item, index) in typeList"
                                        :key="index"
                                        :blockItem="item"
                                        class="positionBlock"></PositionBlock>
@@ -326,7 +326,7 @@ export default {
                 /*display: flex;*/
                 /*position: relative;*/
                 cursor: pointer;
-                
+
 
                 .textTip {
                     position: absolute;

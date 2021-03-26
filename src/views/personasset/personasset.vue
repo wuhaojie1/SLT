@@ -87,12 +87,28 @@
             }
         },
         mounted() {
-            this.typearr = this.$t('personasset.accoutarr')
+            this.typearr = this.$t('personasset.accoutarr');
+            this.getInfo();
+        },
+        created(){
+            this.getInfo();
         },
         methods: {
             topage(name) {
                 this.$router.push({
                     name: name
+                })
+            },
+            getInfo(){
+                this.axios({
+                    url:'user/wallet/payIndex',
+                    method: 'get',
+                }).then((res)=>{
+                   if (res.errorCode === 0){
+                       // const tradeItem = {
+                       //
+                       // }
+                   }
                 })
             }
         }
