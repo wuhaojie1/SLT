@@ -1,38 +1,61 @@
 <template>
-    <div class="login" :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
+    <div class="login"
+         :style="{ 'backgroundImage':'url('+ section3Bg +')' }">
         <div class="header">
-            <img :src="sltlogo" alt="" class="sltlogo">
+            <img :src="sltlogo"
+                 alt=""
+                 class="sltlogo">
             <!--            <img :src="userIcon" alt="" class="userIcon">-->
         </div>
         <div class="login-wrap">
             <div class="logo">
-                <img :src="logo" alt="">
+                <img :src="logo"
+                     alt="">
             </div>
             <div class="login-box">
                 <div class="phone">
-                    <img :src="user" alt="" class="img">
+                    <img :src="user"
+                         alt=""
+                         class="img">
                     <input type="text"
+                           class="input"
                            v-model="username"
-                           class="input" :placeholder="this.$t('Mlogin.inphone')">
+                           :placeholder="this.$t('regiest.username')">
                 </div>
                 <div class="password">
-                    <img :src="lock" alt="" class="img">
-                    <input type="text" v-model="password" class="input" :placeholder="this.$t('Mlogin.inpsw')">
+                    <img :src="lock"
+                         alt=""
+                         class="img">
+                    <input type="text"
+                           class="input"
+                           v-model="password"
+                           :placeholder="this.$t('regiest.userpsw')">
                 </div>
             </div>
-            <div class="loginBtn">
-                <div class="btn" @click="login" v-prevent-repeat>{{ this.$t('Mlogin.login') }}</div>
+            <div class="get_verify_code">
+                <input class="code_con"/>
+                <div class="get_button">{{ this.$t('regiest.get') }}</div>
             </div>
-            <!--            <div class="tip">已有账号，<span>立即登录</span></div>-->
+            <div class="loginBtn">
+                <div class="btn"
+                     @click="login"
+                     v-prevent-repeat>{{ this.$t('regiest.regiest') }}
+                </div>
+            </div>
+            <div class="tip">
+                {{ this.$t('regiest.regiested') }}，
+                <span style="color: #00B7FC"
+                      @click="topage('Mlogin')">
+                    {{ this.$t('regiest.gologin') }}
+                </span>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import {checkDataFunc} from "@/static/js/common";
-
 export default {
-    name: "login",
+    name: "regiester",
     data() {
         return {
             sltlogo: `${require('@/static/img/index/sltlogo_60x120_white.png')}`,
@@ -41,83 +64,39 @@ export default {
             logo: `${require('@/static/img/login/iconM.png')}`,
             user: `${require('@/static/img/login/user.png')}`,
             lock: `${require('@/static/img/login/lock.png')}`,
+
+            code: "123456",
+            mobile: "",
             password: "",
-            username: "",
+
             checkArray: [
                 {
-                    name: this.$t('login').usernameCheck,
-                    checkKey: "username",
+                    name: this.$t('regiest').mobile,
+                    checkKey: "mobile",
                 },
                 {
-                    name: this.$t('login').passwordCheck,
+                    name: this.$t('regiest').password,
                     checkKey: "password",
                 },
+                {
+                    name: this.$t('regiest').code,
+                    checkKey: "code",
+                },
             ],
+            checkCodeArray: [
+                {
+                    name: this.$t('regiest').mobile,
+                    checkKey: "mobile",
+                },
+            ]
         }
     },
     methods: {
-        login() {
-            // eslint-disable-next-line no-debugger
-            // debugger
-            // console.log('打印');
-            // let postData = {
-            //     password: this.password,
-            //     username: this.username,
-            // }
-            let postData = this.getPostData();
-            if (postData) {
-                this.axios({
-                    url: 'wx/auth/login',
-                    method: 'post',
-                    params: JSON.stringify(postData),
-                }).then((res) => {
-                    // eslint-disable-next-line no-debugger
-                    // debugger
-                    // console.log(res)
-                    let data = res.data
-                    if (res.errno === 0) {
-                        let user = {
-                            avatarUrl: data.userInfo.avatarUrl,
-                            nickName: data.userInfo.nickName,
-                        }
-                        this.localStorage.set('token', data.token)
-                        this.localStorage.set('user', user)
-                        this.localStorage.set('isLogin', true)
-
-                        this.$router.push({
-                            name: 'Mindex',
-                        })
-                    } else {
-                        // eslint-disable-next-line no-debugger
-                        // debugger
-                        this.$notify({
-                            title: this.$t('notifyText.notify'),
-                            message: res.errmsg,
-                            type: 'warning',
-                            showClose: false
-                        });
-                    }
-                }).catch(err => {
-                    console.log(err)
-                })
-            }
-
+        topage(name) {
+            this.$router.push({
+                name: name
+            })
         },
-        getPostData() {
-            let postData = {
-                password: this.password,
-                username: this.username,
-            }
-            let checkArray = this.checkArray;
-
-            if (checkDataFunc.checkBasics(postData, checkArray)) {
-                return postData = {
-                    ...postData,
-                }
-            } else {
-                return false
-            }
-        }
     }
 }
 </script>
@@ -214,15 +193,55 @@ export default {
                     top: 28rem;
                 }
 
-                    .input {
-                        box-sizing: border-box;
-                        padding-left: 88rem;
-                        width: 100%;
-                        height: 100%;
-                        color:#FFFFFF;
-                    }
+                .input {
+                    box-sizing: border-box;
+                    padding-left: 88rem;
+                    width: 100%;
+                    height: 100%;
+                    color: #FFFFFF;
                 }
             }
+        }
+
+        .get_verify_code {
+            width: 550rem;
+            height: 88rem;
+            margin-top: 40rem;
+            margin-left: 100rem;
+            display: flex;
+            justify-content: space-between;
+
+            .code_con {
+                width: 190rem;
+                height: 88rem;
+                background: #002E73;
+                border: 3px solid #00B7FC;
+                opacity: 0.5;
+                border-radius: 10rem;
+                /*margin-left: 86rem;*/
+                /*margin-top: 20rem;*/
+                /*margin-bottom: 35rem;*/
+                color: #FFFFFF;
+                text-indent: 10rem;
+            }
+
+            .get_button {
+                width: 190rem;
+                height: 94rem;
+                padding-top: 3rem;
+                background: #333333;
+                border-radius: 10rem;
+                float: right;
+                /*margin-right: 86rem;*/
+                font-size: 20rem;
+                color: #E6E6E6;
+                line-height: 94rem;
+                text-align: center;
+                /*margin-top: 20rem;*/
+                /*margin-bottom: 35rem;*/
+                cursor: pointer;
+            }
+        }
 
         .loginBtn {
             .btn {
@@ -237,6 +256,10 @@ export default {
                 color: #FFFFFF;
                 line-height: 98rem;
             }
+        }
+
+        .tip {
+            margin-top: 29rem;
         }
     }
 }

@@ -29,7 +29,7 @@
                     <!--                    <div class="user-sex-item">-->
                     <!--                        <input type="radio" value="保密">-->
                     <!--                    </div>-->
-                    <el-radio-group v-model="radio">
+                    <el-radio-group v-model="radio" :disabled=status0>
                         <el-radio :label="1" v-model="radio" class="user-sex-item"><span
                             :style="{marginLeft:'11rem'}">{{$t('userInfo.man')}}</span></el-radio>
                         <el-radio :label="0" v-model="radio" class="user-sex-item"><span
@@ -49,7 +49,8 @@
                     <el-date-picker
                             v-model="usermsg.birthday"
                             type="date"
-                            placeholder="날짜를선택하다">
+                            placeholder="날짜를선택하다"
+                            :disabled=status0>
                     </el-date-picker>
                 </div>
             </div>

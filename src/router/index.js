@@ -229,6 +229,12 @@ const routes = [{
         component: () =>
             import ('../views/mobile/user/user.vue')
     },
+    {
+        path: '/Mregiester',
+        name: 'Mregiester',
+        component: () =>
+            import ('../views/mobile/regiester/regiester.vue')
+    },
     //移动端订单
     {
         path: '/Morder',
@@ -436,6 +442,13 @@ const routes = [{
         name: 'MpositionTrade',
         component: () =>
             import ('../views/mobile/positionTrade/index.vue')
+    },
+    //位置详情
+    {
+        path: '/Mpositiondetails',
+        name: 'Mpositiondetails',
+        component: () =>
+            import ('../views/mobile/positiondetails/positiondetails.vue')
     },
     //白皮书
     

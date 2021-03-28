@@ -12,57 +12,32 @@
             </div>
             <div class="topUp-content">
                 <div class="topUp-content-title">
-                    <div class="box">
+                    <div class="box" @click="openCoin">
                         <div class="imgBox">
                             <img src="../../static/img/wallet/arrowdown.png" class="img" alt="">
                         </div>
                         <div class="text">
-                            SLT<span>Bitcoin</span>
+                            {{ selectedCoin.name }} <span>{{ selectedCoin.tip }}</span>
                         </div>
-<!--                        <div class="downmenu">-->
-<!--                            <div class="search">-->
-<!--                                <img style="width:16rem;height:16rem;margin:0rem 7rem 0rem 10rem" src="../../static/img/wallet/search.png" alt="">-->
-<!--                                <input class="place" type="text" placeholder-class="place" placeholder="搜索币种">-->
-<!--                            </div>-->
-<!--                            <ul class="searchMenu">-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
+                        <div class="coinList"
+                             v-show="showCoins">
+                            <div class="searchBox">
+                                <img :src="searchImg" alt="" class="searchImg">
+                                <input type="text" :placeholder="searchPlaceholder">
+                            </div>
+                            <div class="coinList-content">
+                                <div class="coinList-content-list">
+                                    <div class="coinList-content-item"
+                                         v-for="item in coinKindList"
+                                         :key="item.id"
+                                         @click="selectCoin(item)">
+                                        <div class="name">{{ item.name }}</div>
+                                        <div class="tip">{{ item.tip }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="topUp-content-wrap">
@@ -151,7 +126,7 @@
             </div>
         </el-dialog>
         <Bottom></Bottom>
-        <Notice></Notice>
+<!--        <Notice></Notice>-->
     </div>
 </template>
 
@@ -165,6 +140,10 @@ export default {
     components: {Bottom, ThemeStickyHeader, VueQr},
     data() {
         return {
+            selectedCoin: {
+                name: "BTC ",
+                tip: "Bitcoin",
+            },
             coinIndex: 0,
             coinList: [
                 {
@@ -177,6 +156,55 @@ export default {
                     text: "HEOC",
                 }
             ],
+            searchPlaceholder: "",
+            coinKindList: [
+                {
+                    name: "BTC ",
+                    tip: "Bitcoin",
+                },
+                {
+                    name: "USDT",
+                    tip: "Tether",
+                },
+                {
+                    name: "HUSD",
+                    tip: "HUSD",
+                },
+                {
+                    name: "GUSD",
+                    tip: "GUSD",
+                },
+                {
+                    name: "TUSD",
+                    tip: "TRUE USD",
+                },
+                {
+                    name: "VEN",
+                    tip: "VEN",
+                },
+                {
+                    name: "USDT",
+                    tip: "Tether",
+                },
+                {
+                    name: "HUSD",
+                    tip: "HUSD",
+                },
+                {
+                    name: "GUSD",
+                    tip: "GUSD",
+                },
+                {
+                    name: "TUSD",
+                    tip: "TRUE USD",
+                },
+                {
+                    name: "VEN",
+                    tip: "VEN",
+                },
+            ],
+            showCoins: false,
+            searchImg: `${require('@/static/img/wallet/search.png')}`,
             centerDialogVisible: false,
             tipImg: `${require('../../static/img/wallet/hint.png')}`,
             config: {
@@ -186,11 +214,17 @@ export default {
         }
     },
     methods: {
+        openCoin() {
+            this.showCoins = !this.showCoins
+        },
         select(index) {
             this.coinIndex = index
         },
         openDialog() {
             this.centerDialogVisible = !this.centerDialogVisible
+        },
+        selectCoin(item) {
+            this.selectedCoin = item
         },
     }
 }
@@ -256,12 +290,14 @@ export default {
                 box-sizing: border-box;
 
                 .box {
+                    cursor: pointer;
                     height: 100%;
                     width: 160rem;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     border-right: 1rem solid #E4E7ED;
+                    position: relative;
 
                     .imgBox {
                         .img {
@@ -278,6 +314,84 @@ export default {
                         span {
                             color: #8993A0;
                             margin-left: 10rem;
+                        }
+                    }
+
+                    .coinList {
+                        position: absolute;
+                        width: 230rem;
+                        height: 260rem;
+                        background: #fff;
+                        z-index: 5;
+                        box-sizing: border-box;
+                        padding: 10rem 0;
+                        left: 0;
+                        top: 40rem;
+                        box-shadow: 0rem 0rem 5rem 0rem rgba(153, 153, 153, 0.35);
+
+                        .searchBox {
+                            width: 210rem;
+                            height: 40rem;
+                            position: relative;
+                            border: 1rem solid #E4E7ED;
+                            box-sizing: border-box;
+                            margin: 0 auto;
+
+                            input {
+                                padding-left: 33rem;
+                                width: 100%;
+                                height: 100%;
+                                box-sizing: border-box;
+                            }
+
+                            .searchImg {
+                                position: absolute;
+                                width: 16rem;
+                                height: 16rem;
+                                left: 10rem;
+                                top: 14rem;
+                            }
+
+                        }
+
+                        .coinList-content {
+                            margin-top: 10rem;
+                            margin-bottom: 10rem;
+                            height: 190rem;
+
+                            .coinList-content-list {
+                                height: 100%;
+                                overflow-y: scroll;
+                                overflow-x: hidden;
+
+                                .coinList-content-item {
+                                    width: 100%;
+                                    height: 38rem;
+                                    display: flex;
+                                    font-size: 14rem;
+                                    font-weight: 400;
+                                    line-height: 38rem;
+                                    box-sizing: border-box;
+                                    padding-left: 21rem;
+
+                                    .name {
+                                        color: #444444;
+                                    }
+
+                                    .tip {
+                                        margin-left: 10rem;
+                                        color: #999999;
+                                    }
+                                }
+
+                                .coinList-content-item:hover, .coinList-content-item:active {
+                                    background: #F2F6FA;
+
+                                    .name {
+                                        color: #00B4FC;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -493,6 +607,7 @@ export default {
                 .title-img {
                     height: 30rem;
                     position: relative;
+
                     .tipImg {
                         position: absolute;
                         width: 44rem;
@@ -527,6 +642,7 @@ export default {
             .toolTip {
                 margin-top: 30rem;
                 text-align: left;
+
                 input {
 
                 }

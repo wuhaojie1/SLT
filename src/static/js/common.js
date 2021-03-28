@@ -1,6 +1,9 @@
 // import City from './idCardCity.js'
 // import toast from './dialog.js'
 // import datastorage from '@/static/js/datastorage.js';
+// import datastorage from "@/static/js/datastorage";
+
+import {Notification} from 'element-ui';
 
 //阻止事件冒泡
 export const stopEventBubble = (e) => {
@@ -433,66 +436,72 @@ export const isEmailAvailable = (emailInput) => {
     let myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
     return myreg.test(emailInput);
 };*/
-// let tipObj={
-//     'zh-CN':{
-//         loading:'加载中',
-//         Save:'保存',
-//         Empty:'不能为空',
-//         Incorrect:'不正确',
-//         min:'长度不能小于',
-//         max:'长度不能大于',
-//         format:'格式不正确',
-//         Select:'未选择或填写任何数据',
-//     },
-//     'en-US':{
-//         loading:'Loading',
-//         Save:'Save',
-//         Empty:'Error:',
-//         Incorrect:'Incorrect',
-//         min:'Error:',
-//         max:'Error:',
-//         format:'Error:',
-//         Select:'Error:',
-//     },
-//     'ko-KR':{
+let tipObj={
+    'zh-CN':{
+        loading:'加载中',
+        Save:'保存',
+        Empty:'不能为空',
+        Incorrect:'不正确',
+        min:'长度不能小于',
+        max:'长度不能大于',
+        format:'格式不正确',
+        Select:'未选择或填写任何数据',
+        tipObj: "提示",
+    },
+    'en-US':{
+        loading:'Loading',
+        Save:'Save',
+        Empty:'Error:',
+        Incorrect:'Incorrect',
+        min:'Error:',
+        max:'Error:',
+        format:'Error:',
+        Select:'Error:',
+        tipObj: "提示",
+    },
+    'ko-KR':{
 
-//         loading:'로딩중',
+        loading:'로딩중',
     
-//         Save:'저장',
+        Save:'저장',
     
-//         Empty:'비면 안되',
+        Empty:'비면 안되',
     
-//         Incorrect:'틀리다',
+        Incorrect:'틀리다',
     
-//         min:'최소',
+        min:'최소',
     
-//         max:'최대',
+        max:'최대',
     
-//         format:'잘못된 형식',
+        format:'잘못된 형식',
     
-//         Select:'데이터를 선택하거나 작성하지 않음',
-    
-//     },
-//     'ja_JP':{
+        Select:'데이터를 선택하거나 작성하지 않음',
 
-//         loading:'ローディング',
+        tipObj: "제시 하 다",
     
-//         Save:'保存する',
+    },
+    'ja_JP':{
+
+        loading:'ローディング',
     
-//         Empty:'空くことはできない',
+        Save:'保存する',
     
-//         Incorrect:'誤った',
+        Empty:'空くことはできない',
     
-//         min:'長さは...より小さくしてはいけません',
+        Incorrect:'誤った',
     
-//         max:'長さは...より大きくしてはいけません',
+        min:'長さは...より小さくしてはいけません',
     
-//         format:'誤ったフォーマット',
+        max:'長さは...より大きくしてはいけません',
     
-//         Select:'データが選択されていない、または入力されていない',
+        format:'誤ったフォーマット',
     
-//     },
-// }
+        Select:'データが選択されていない、または入力されていない',
+
+        tipObj: "提示",
+    
+    },
+}
 
 
 
@@ -553,6 +562,7 @@ export const checkDataFunc = {
     //         birthday, home, sex
     //     };
     // },
+
     //基础检查数据   长度length  数字isNumber  是否为空isNull
     //检查的均为object类型 data Obj
     //检查来源为数组 checkArray  Array
@@ -564,104 +574,138 @@ export const checkDataFunc = {
     //   minLength:6
     //   maxLength:6
     // }
-    // checkBasics: function (data, checkArray , notshowempty) {
-    //     let __that = this;
-    //     let langMsg = datastorage.getSync({
-    //         key: 'langMsg'
-    //     }).name;
-    //     //电话
-    //     let regPhone = /^[1][3,4,5,7,8][0-9]{9}$/;
-    //     //邮箱
-    //     let regEmail = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-    //     //身份证
-    //     // let regIdNo = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
-    //     // let reg = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/;
-    //     let isReturn = true;
-    //     checkArray.some(element => {
-    //         let checkType = element.checkType ? element.checkType : ["isNull"];
-    //         let checkVal = data[element.checkKey].toString();
-    //         //先判断空
-    //         isReturn = true;
-    //         if (!checkVal || checkVal === null || checkVal === undefined || checkVal.trim() === "") {
-    //             if(notshowempty){
-    //                 toast.show({
-    //                     title: element.name + tipObj[langMsg].format
-    //                 })
-    //             }else {
-    //                 toast.show({
-    //                     title: element.name + tipObj[langMsg].Empty
-    //                 });
-    //             }
-    //             // that.$bus.$emit('tip', {text: element.name + "不能为空", type: 'error'});
-    //             isReturn = false
-    //         } else {
-    //             checkType.some(item => {
-    //                 if (item === "isNumber") {
-    //                     if (parseFloat(checkVal).toString() === "NaN") {
-    //                         toast.show({title: element.name + tipObj[langMsg].Incorrect});
-    //                         // that.$bus.$emit('tip', {text: element.name + "不正确", type: 'error'});
-    //                         isReturn = false
-    //                     }
-    //                 } else if (item === "length") {
-    //                     let minLength = element.minLength ? element.minLength : 6;
-    //                     let maxLength = element.maxLength ? element.maxLength : 20;
+    checkBasics: function (data, checkArray , notshowempty) {
+        // let that = this;
+        let langMsg = "ko-KR";
+        //电话
+        let regPhone = /^[1][3,4,5,7,8][0-9]{9}$/;
+        //邮箱
+        // let regEmail = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+        //身份证
+        // let regIdNo = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+        // let reg = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/;
+        let isReturn = true;
+        checkArray.some(element => {
+            let checkType = element.checkType ? element.checkType : ["isNull"];
+            let checkVal = data[element.checkKey].toString();
+            //先判断空
+            isReturn = true;
+            if (!checkVal || checkVal === null || checkVal === undefined || checkVal.trim() === "") {
+                if(notshowempty){
+                    // toast.show({
+                    //     title: element.name + tipObj[langMsg].format
+                    // })
+                    Notification({
+                        title: tipObj[langMsg].tipObj,
+                        message: element.name + tipObj[langMsg].format,
+                        type: 'warning',
+                        showClose: false
+                    });
+                }else {
+                    // toast.show({
+                    //     title: element.name + tipObj[langMsg].Empty
+                    // });
+                    Notification({
+                        title: tipObj[langMsg].tipObj,
+                        message: element.name + tipObj[langMsg].Empty,
+                        type: 'warning',
+                        showClose: false
+                    });
+                }
+                // that.$bus.$emit('tip', {text: element.name + "不能为空", type: 'error'});
+                isReturn = false
+            } else {
+                checkType.some(item => {
+                    if (item === "isNumber") {
+                        if (parseFloat(checkVal).toString() === "NaN") {
+                            // toast.show({title: element.name + tipObj[langMsg].Incorrect});
+                            // that.$bus.$emit('tip', {text: element.name + "不正确", type: 'error'});
+                            Notification({
+                                title: tipObj[langMsg].tipObj,
+                                message: element.name + tipObj[langMsg].Incorrect,
+                                type: 'warning',
+                                showClose: false
+                            });
+                            isReturn = false
+                        }
+                    } else if (item === "length") {
+                        let minLength = element.minLength ? element.minLength : 6;
+                        let maxLength = element.maxLength ? element.maxLength : 20;
 
-    //                     if (minLength && checkVal.length < minLength) {
+                        if (minLength && checkVal.length < minLength) {
 
-    //                         toast.show({title: element.name + tipObj[langMsg].min + minLength});
-    //                         // that.$bus.$emit('tip', {text: element.name + "长度不能小于" + minLength, type: 'error'});
-    //                         isReturn = false
-    //                     }
-    //                     if (maxLength && checkVal.length > maxLength) {
-    //                         toast.show({title: element.name + tipObj[langMsg].max + maxLength});
-    //                         // that.$bus.$emit('tip', {text: element.name + "长度不能大于" + maxLength, type: 'error'});
-    //                         isReturn = false
-    //                     }
-    //                 } else if (item === "isPhone") {
-    //                     if (!regPhone.test(checkVal)) {
-    //                         toast.show({title: element.name + tipObj[langMsg].format});
-    //                         // that.$bus.$emit('tip', {text: element.name + "格式不正确", type: 'error'});
-    //                         isReturn = false
-    //                     }
-    //                 } else if (item === "isEmail") {
-    //                     if (!regEmail.test(checkVal)) {
-    //                         toast.show({title: element.name + tipObj[langMsg].format});
-    //                         // that.$bus.$emit('tip', {text: element.name + "格式不正确", type: 'error'});
-    //                         isReturn = false
-    //                     }
-    //                 } else if (item === "isIdcard") {
-    //                     let pass = __that.idcard(checkVal);
-    //                     if (!pass) {
-    //                         toast.show({title: element.name + tipObj[langMsg].format});
-    //                         // that.$bus.$emit('tip', {text: element.name + "格式不正确", type: 'error'});
-    //                         isReturn = false
-    //                     }
-    //                 }
-    //                 return !isReturn;
-    //             })
-    //         }
-    //         return !isReturn;
-    //     });
-    //     return isReturn
-    // },
+                            // toast.show({title: element.name + tipObj[langMsg].min + minLength});
+                            // that.$bus.$emit('tip', {text: element.name + "长度不能小于" + minLength, type: 'error'});
+                            Notification({
+                                title: tipObj[langMsg].tipObj,
+                                message: element.name + tipObj[langMsg].min + minLength,
+                                type: 'warning',
+                                showClose: false
+                            });
+                            isReturn = false
+                        }
+                        if (maxLength && checkVal.length > maxLength) {
+                            // toast.show({title: element.name + tipObj[langMsg].max + maxLength});
+                            // that.$bus.$emit('tip', {text: element.name + "长度不能大于" + maxLength, type: 'error'});
+                            Notification({
+                                title: tipObj[langMsg].tipObj,
+                                message: element.name + tipObj[langMsg].max + maxLength,
+                                type: 'warning',
+                                showClose: false
+                            });
+                            isReturn = false
+                        }
+                    } else if (item === "isPhone") {
+                        if (!regPhone.test(checkVal)) {
+                            // toast.show({title: element.name + tipObj[langMsg].format});
+                            // that.$bus.$emit('tip', {text: element.name + "格式不正确", type: 'error'});
+                            Notification({
+                                title: tipObj[langMsg].tipObj,
+                                message: element.name + tipObj[langMsg].format,
+                                type: 'warning',
+                                showClose: false
+                            });
+                            isReturn = false
+                        }
+                    } /*else if (item === "isEmail") {
+                        if (!regEmail.test(checkVal)) {
+                            // toast.show({title: element.name + tipObj[langMsg].format});
+                            // that.$bus.$emit('tip', {text: element.name + "格式不正确", type: 'error'});
+                            isReturn = false
+                        }
+                    }*/ /*else if (item === "isIdcard") {
+                        let pass = __that.idcard(checkVal);
+                        if (!pass) {
+                            // toast.show({title: element.name + tipObj[langMsg].format});
+                            // that.$bus.$emit('tip', {text: element.name + "格式不正确", type: 'error'});
+                            isReturn = false
+                        }
+                    }*/
+                    return !isReturn;
+                })
+            }
+            return !isReturn;
+        });
+        return isReturn
+    },
 
-    // //检查数组
-    // checkArrayData: function (data, checkArray) {
-    //     let langMsg = datastorage.getSync({
-    //         key: 'langMsg'
-    //     }).name;
-    //     let isReturn = false;
-    //     if (!data || data === null || data.length === 0) {
-    //         toast.show({title: tipObj[langMsg].Select});
-    //         // that.$bus.$emit('tip', {text: "未选择或填写任何数据", type: 'error'});
-    //         return isReturn;
-    //     }
-    //     data.some(element => {
-    //         isReturn = this.checkBasics(element, checkArray);
-    //         return !isReturn
-    //     });
-    //     return isReturn;
-    // }
+    //检查数组
+    checkArrayData: function (data, checkArray) {
+        // let langMsg = datastorage.getSync({
+        //     key: 'langMsg'
+        // }).name;
+        let isReturn = false;
+        if (!data || data === null || data.length === 0) {
+            // toast.show({title: tipObj[langMsg].Select});
+            // that.$bus.$emit('tip', {text: "未选择或填写任何数据", type: 'error'});
+            return isReturn;
+        }
+        data.some(element => {
+            isReturn = this.checkBasics(element, checkArray);
+            return !isReturn
+        });
+        return isReturn;
+    }
 
 
 };

@@ -48,6 +48,7 @@
                 ins:`${require('../../static/img/bottom/ins.png')}`,
                 twitter:`${require('../../static/img/bottom/twitter.png')}`,
                 logoIcon: `${require('../../static/img/index/sltlogo_60x120_white.png')}`,
+                section3Bg: "",
             }
         }
     }
@@ -59,7 +60,7 @@
     // bottom: 0;
     // z-index: 20;
     .section11 {
-                height: 380zrem;
+                height: 380rem;
                 background-color: #040622;
                 background-position: center;
                 background-repeat: no-repeat;
