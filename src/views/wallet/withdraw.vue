@@ -33,7 +33,7 @@
                         <div class="line"></div>
 
                         <div class="amount-content">
-                            <div class="usable">{{$t('wallet.available')}}：<span>0.00000000</span></div>
+                            <div class="usable">{{$t('wallet.available')}}：<span>{{reflectItem.balanceAmount - reflectItem.drawAmount }}</span></div>
                             <!-- <div class="withdraw">可提额度：<span>0.10000000</span></div>
                             <div class="apply">
                                 <img src="" alt="" class="img">
@@ -47,14 +47,14 @@
                         {{$t('wallet.chinaName')}}
                     </div>
                     <div class="linkList">
-                        <div class="linkList-item"
-                             v-for="(item, index) in coinList"
-                             :class="coinIndex===index ? 'linkList-item-active' : '' "
-                             @click="select(index)"
-                             :key="index">{{item.text}}
-                        </div>
-                        <!--<div class="linkList-item">ERC20</div>
-                        <div class="linkList-item">HEOC</div>-->
+                        <!--<div class="linkList-item"-->
+                             <!--v-for="(item, index) in coinList"-->
+                             <!--:class="coinIndex===index ? 'linkList-item-active' : '' "-->
+                             <!--@click="select(index)"-->
+                             <!--:key="index">{{item.text}}-->
+                        <!--</div>-->
+                        <div class="linkList-item linkList-item-active">{{reflectItem.symbol}}</div>
+                        <!--<div class="linkList-item">HEOC</div>-->
                     </div>
 
                     <div class="withdraw-addr">
@@ -70,7 +70,7 @@
                         <div class="number">
                             <div class="number-title">{{$t('wallet.num')}}</div>
                             <div class="number-input">
-                                <input type="text" class="input">
+                                <input type="text" class="input" v-model="reflectCount">
 
                                 <div class="input-tip">
                                     <div class="text">BLC</div>
@@ -82,7 +82,7 @@
                         <div class="fee">
                             <div class="fee-title">{{$t('wallet.serviceCharge')}}</div>
                             <div class="fee-input">
-                                <input type="text" class="input">
+                                <div class="input fee">{{reflectCount*fee}}</div>
                             </div>
                         </div>
                     </div>
@@ -124,9 +124,9 @@
                    top="30vh">
             <div class="tipText">
                 <div class="text">
-                    {{ $t('cancleorder.tipText') }}
+                    {{ $t('Mwithdraw.tipText') }}
                     <span>
-                        {{$t('cancleorder.book')}}
+                        {{$t('Mwithdraw.book')}}
                     </span>
                 </div>
             </div>
@@ -135,7 +135,7 @@
             </div>
             <div class="btn">
                 <el-button type="primary"
-                           @click="cancleComfirm">确定</el-button>
+                           @click="apllyDraw">确定</el-button>
             </div>
         </el-dialog>
         <Bottom></Bottom>
@@ -151,7 +151,7 @@
         components: {Bottom, ThemeStickyHeader},
         data() {
             return {
-                title:this.$t('cancleorder.title'),
+                title:this.$t('Mwithdraw.title'),
                 dialogVisible: false,
                 coinIndex: 0,
                 coinList: [
@@ -168,11 +168,18 @@
                 config: {
                     value: 'TFBpBaswdZnyZewS9zTimjtGpb11rhhLx',//显示的值、跳转的地址
                     // imagePath: require('../assets/logo.png')//中间logo的地址，require必要
-                }
+                },
+                reflectItem: {},
+                drawData: [],
+                fee: null,
+                reflectCount:0,
             }
         },
         created(){
             this.getInfo();
+        },
+        destroyed(){
+             this.localStorage.remove('reflectItem')
         },
         methods: {
             select(index) {
@@ -181,10 +188,27 @@
 
             getInfo(){
                 this.axios({
-                    url:'user/wallet/drawIndex',
-                    method:'get'
-                }).then(res=>{
-                    console.log(res)
+                    url:'/user/wallet/drawIndex',
+                    method: 'get',
+                    params:{userId: 18}
+                }).then((res)=>{
+                    if (res.errorCode === 0){
+                        this.fee = res.results.fee;
+
+                        if (res.results.accPacketList.length){
+                            this.drawData=  res.results.accPacketList;
+                            if (this.localStorage.get('reflectItem')){
+                                const drawId = this.localStorage.get('reflectItem').id;
+                                res.results.accPacketList.forEach(element => {
+                                    if (element.id === drawId){
+                                        this.reflectItem = element;
+                                    }
+                                })
+                            } else {
+                                this.reflectItem =  res.results.accPacketList[0];
+                            }
+                        }
+                    }
                 })
             },
             apllyDraw(){
@@ -563,6 +587,7 @@
                                     box-sizing: border-box;
                                     height: 100%;
                                     width: 220rem;
+                                    line-height: 38rem;
                                     background: #FFFFFF;
                                     /*border: 1rem solid #E4E7ED;*/
                                     border-radius: 2rem;

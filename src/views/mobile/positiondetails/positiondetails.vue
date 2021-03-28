@@ -3,22 +3,23 @@
         <Mheader :isShowRight="true"
                  @clickCallback="clickCallback"></Mheader>
         <div class="head">
-            <span class="headtext">xxxxxxxxx</span>
+            <span class="headtext">{{positionObj.categoryName}}</span>
         </div>
         <div class="op">
-            <img class="back" src="../../../static/img/positiondetails/back.png" alt="">
-            <div class="pname">xxxxxxxx{{this.$t('Mpositiondetails.position')}}</div>
+            <div  class="back" @click="clickCallback"> <img src="../../../static/img/positiondetails/back.png" alt=""></div>
+            <div class="pname">{{positionObj.categoryName}}{{this.$t('Mpositiondetails.position')}}</div>
+            <div class="clearfix"></div>
         </div>
-        <div class="charge">￥200</div>
+        <div class="charge">￥{{positionObj.price}}</div>
         <div class="goodsdetails">
             <div class="imgcon">
                 <img class="img" src="../../../static/img/positiondetails/goods.png" alt="">
             </div>
             <div class="msgcon">
                 <div class="con1">{{this.$t('Mpositiondetails.seal')}}</div>
-                <div class="con2">{{this.$t('Mpositiondetails.num')}}:10</div>
+                <div class="con2">{{this.$t('Mpositiondetails.num')}}:{{positionObj.costCount}}</div>
                 <div class="con3">{{this.$t('Mpositiondetails.residue')}}</div>
-                <div class="con4">{{this.$t('Mpositiondetails.num')}}:10</div>
+                <div class="con4">{{this.$t('Mpositiondetails.num')}}:{{positionObj.lastCount}}</div>
             </div>
         </div>
         <div class="line"></div>
@@ -32,7 +33,7 @@
             <div class="num">{{nums}}</div>
             <img class="add" @click="add" src="../../../static/img/positiondetails/reduce.png" alt="">
         </div>
-        <div class="buy">{{this.$t('Mpositiondetails.buy')}}</div>
+        <div class="buy" v-loading="buyLoading" @click="handleBuyPosition">{{this.$t('Mpositiondetails.buy')}}</div>
         <div class="remind">
             <div class="tip">{{this.$t('Mpositiondetails.tip')}}</div>
             <div class="connect">{{this.$t('Mpositiondetails.connect')}}</div>
@@ -48,6 +49,8 @@
         data(){
             return{
                 num:1,
+                positionObj: '',
+                buyLoading:false
             }
         },
         computed:{
@@ -59,28 +62,59 @@
                    num = this.num
                 }
                 return num;
-            }
+            },
+
+        },
+        mounted(){
+         this.positionObj = JSON.parse(this.localStorage.get('positionObj'));
         },
         methods:{
+            clickCallback(){
+                this.$router.go(-1);
+            },
             reduce(){
-                // if(this.num>1&&this.num<10){
-                //     this.num = this.num-1
-                // }else if(this.num>10){
-                //     this.num = this.num-1
-                // }
                 if(this.num>1){
                     this.num = this.num-1;
                 }
-                console.log(this.num)
             },
             add(){
-                // if(this.num>1&&this.num<10){
-                //     this.num = this.num+1
-                // }else if(this.num>10){
-                //     this.num = this.num+1
-                // }
                 this.num = this.num+1;
-                console.log(this.num)
+            },
+
+            handleBuyPosition(){
+                this.buyLoading = true;
+                const param = {
+                    count:this.nums - 0,
+                    positionId: this.positionObj.id,
+                };
+                this.axios({
+                    url:'wx/position/buy',
+                    method:'post',
+                    params:param
+                }).then((res)=>{
+                    if (res.errno===0){
+                        this.updateLocal();
+                        this.$notify({
+                            title: '成功',
+                            message: this.$t('Mpositiondetails.buySuccess'),
+                            type: 'success'
+                        });
+                    }else {
+                        this.$notify({
+                            title: '失败',
+                            message: this.$t('Mpositiondetails.buyFail'),
+                            type: 'error'
+                        });
+                    }
+                    this.buyLoading = false;
+                }).catch(()=>{
+                    this.buyLoading = false;
+                })
+            },
+            updateLocal(){
+                this.positionObj.costCount=this.positionObj.costCount + (this.nums - 0);
+                this.positionObj.lastCount-=this.nums;
+                this.localStorage.set('positionObj',JSON.stringify(this.positionObj))
             }
         }
     }
@@ -107,20 +141,25 @@
     .op{
         width: 750rem;
         height: 40rem;
-        display: flex;
-        justify-content: space-between;
+       // display: flex;
+       // justify-content: space-between;
         margin-top: 60rem;
         .back{
-            width: 44rem;
-            height: 39rem;
+            float: left;
+
             margin-left: 35rem;
+            img{
+                width: 44rem;
+                height: 39rem;
+            }
         }
         .pname{
+            float: left;
             font-size: 38rem;
             font-family: Source Han Sans CN;
             font-weight: 500;
             color: #444444;
-            margin-right: 305rem;
+            margin-left: 42rem;
         }
     }
     .charge{
@@ -130,7 +169,7 @@
         color: #444444;
         margin-top: 20rem;
         float: left;
-        margin-left: 124rem;
+        margin-left: 42rem;
     }
     .goodsdetails{
         clear: both;

@@ -19,50 +19,50 @@
                         <div class="text">
                             SLT<span>Bitcoin</span>
                         </div>
-<!--                        <div class="downmenu">-->
-<!--                            <div class="search">-->
-<!--                                <img style="width:16rem;height:16rem;margin:0rem 7rem 0rem 10rem" src="../../static/img/wallet/search.png" alt="">-->
-<!--                                <input class="place" type="text" placeholder-class="place" placeholder="搜索币种">-->
-<!--                            </div>-->
-<!--                            <ul class="searchMenu">-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>USDT</span>-->
-<!--                                    <span>Tether</span>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
+                        <!--<div class="downmenu">-->
+                            <!--<div class="search">-->
+                                <!--<img style="width:16rem;height:16rem;margin:0rem 7rem 0rem 10rem" src="../../static/img/wallet/search.png" alt="">-->
+                                <!--<input class="place" type="text" placeholder-class="place" placeholder="搜索币种">-->
+                            <!--</div>-->
+                            <!--<ul class="searchMenu">-->
+                                <!--<li>-->
+                                    <!--<span>USDT</span>-->
+                                    <!--<span>Tether</span>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<span>USDT</span>-->
+                                    <!--<span>Tether</span>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<span>USDT</span>-->
+                                    <!--<span>Tether</span>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<span>USDT</span>-->
+                                    <!--<span>Tether</span>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<span>USDT</span>-->
+                                    <!--<span>Tether</span>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<span>USDT</span>-->
+                                    <!--<span>Tether</span>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<span>USDT</span>-->
+                                    <!--<span>Tether</span>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<span>USDT</span>-->
+                                    <!--<span>Tether</span>-->
+                                <!--</li>-->
+                                <!--<li>-->
+                                    <!--<span>USDT</span>-->
+                                    <!--<span>Tether</span>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
                     </div>
                 </div>
                 <div class="topUp-content-wrap">
@@ -70,14 +70,14 @@
                         {{ $t('wallet.chinaName') }}
                     </div>
                     <div class="linkList">
-                        <div class="linkList-item"
-                             v-for="(item, index) in coinList"
-                             :class="coinIndex===index ? 'linkList-item-active' : '' "
-                             @click="select(index)"
-                             :key="index">{{ item.text }}
-                        </div>
-                        <!--<div class="linkList-item">ERC20</div>
-                        <div class="linkList-item">HEOC</div>-->
+                        <!--<div class="linkList-item"-->
+                             <!--v-for="(item, index) in coinList"-->
+                             <!--:class="coinIndex===index ? 'linkList-item-active' : '' "-->
+                             <!--@click="select(index)"-->
+                             <!--:key="index">{{ item.text }}-->
+                        <!--</div>-->
+                        <div class="linkList-item linkList-item-active">{{drawItem.symbol}}</div>
+                        <!--<div class="linkList-item">HEOC</div>-->
                     </div>
                     <div class="address-title">
                         {{ $t('wallet.chargeAddress') }}
@@ -88,12 +88,12 @@
                                 <div class="addr-icon">
                                     SLT
                                 </div>
-                                <div class="addr-text">TFBpBaswdZnyZewS9zTimjtGpb11rhhLx</div>
+                                <div class="addr-text">{{drawItem.addr}}</div>
                             </div>
-                            <div class="copy">{{ $t('wallet.copyAddress') }}</div>
+                            <div class="copy" @click="copyAddr(drawItem.addr)">{{ $t('wallet.copyAddress') }}</div>
                         </div>
                         <div class="QRCode">
-                            <VueQr :text="config.value"
+                            <VueQr :text="drawItem.addr"
                                    :size="78"
                                    :margin="0">
 
@@ -107,11 +107,11 @@
                             </div> -->
                         </div>
                     </div>
-                    <div class="btn-box">
-                        <div class="btn" @click="openDialog">
-                            {{ $t('wallet.confirm') }}
-                        </div>
-                    </div>
+                    <!--<div class="btn-box">-->
+                        <!--<div class="btn" @click="openDialog">-->
+                            <!--{{ $t('wallet.confirm') }}-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <!--<div class="line"></div>-->
                     <div class="tipText">
                         <ul>
@@ -182,8 +182,16 @@ export default {
             config: {
                 value: 'TFBpBaswdZnyZewS9zTimjtGpb11rhhLx',//显示的值、跳转的地址
                 // imagePath: require('../assets/logo.png')//中间logo的地址，require必要
-            }
+            },
+            drawItem:{},
+            drawData: [],
         }
+    },
+    created(){
+        this.getInfo();
+    },
+    destroyed(){
+        this.localStorage.remove('drawItem')
     },
     methods: {
         select(index) {
@@ -192,6 +200,40 @@ export default {
         openDialog() {
             this.centerDialogVisible = !this.centerDialogVisible
         },
+        copyAddr(item){
+           const cInput = document.createElement('input');
+           cInput.value = item;
+           document.body.appendChild(cInput);
+           cInput.select();
+           document.execCommand('Copy');
+           this.$notify({
+               type:'success',
+               message: '复制成功'
+           });
+           cInput.remove();
+        },
+        getInfo(){
+            this.axios({
+                url:'user/wallet/payIndex',
+                method: 'get',
+            }).then((res)=>{
+                if (res.errorCode === 0){
+                    if (res.results.length){
+                        this.drawData=  res.results;
+                        if (this.localStorage.get('drawItem')){
+                            const drawId = this.localStorage.get('drawItem').id;
+                            res.results.forEach(element => {
+                                if (element.id === drawId){
+                                    this.drawItem = element;
+                                }
+                            })
+                        } else {
+                            this.drawItem =  res.results[0];
+                        }
+                    }
+                }
+            })
+        }
     }
 }
 </script>
@@ -370,7 +412,7 @@ export default {
                         align-items: center;
 
                         .addrBox-content {
-                            width: 340rem;
+                            width: 380rem;
                             height: 38rem;
                             background: #FFFFFF;
                             border: 1rem solid #E4E7ED;

@@ -1,4 +1,12 @@
 export default {
+    // 常用
+    common:{
+        success: '成功',
+        fail: '失败',
+        warning: '提示',
+        confirm: '确定',
+        cancel: '取消',
+    },
 
     //个人资料
     userInfo: {
@@ -97,8 +105,7 @@ export default {
         tredetype: '支付方式',
         moneycomes: '货币来源',
         usermoney: '手续费',
-        tableHeader: ['币种', '数量', '冻结', '可用', '单价', '总额', '操作']
-
+        tableHeader: ['币种', '数量', '冻结', '可用', '单价', '总额', '操作'],
     },
     //一键购买
     deal: {
@@ -141,7 +148,6 @@ export default {
         back: '返回',
         waitOrder: '待支付',
         hadfree: '手续费',
-
     },
     //我的订单
     myorder: {
@@ -276,7 +282,9 @@ export default {
         sell: '卖出位置',
         num: '数量',
         remain: '剩余空位',
-        buy: '购买'
+        buy: '购买',
+        buySuccess: '购买位置成功',
+        buyFail: '购买位置失败',
     },
     //首页
     index: {
@@ -656,5 +664,21 @@ export default {
         OTC: "OTC交易记录",
         position: "位置购买记录",
         deal: "商品交易记录",
+    },
+
+    Mpositiondetails: {
+        detail: '详情',
+        position: '位置',
+        price: '价格',
+        earn: '收益',
+        seal: '卖出位置',
+        num: '数量',
+        residue: '剩余空位',
+        buy: '购买',
+        desceipt: '有货，每个位置平均收入在',
+        tip:'温馨提示，如有任何问题',
+        connect: '联系在线客服',
+        buySuccess: '购买位置成功',
+        buyFail: '购买位置失败',
     },
 }

@@ -82,14 +82,14 @@
                     if (res.errno===0){
                         this.updateLocal();
                         this.$notify({
-                            title: '成功',
-                            message: '购买位置成功',
+                            title: this.$t('common.success'),
+                            message: this.$t('positionDetail.buySuccess'),
                             type: 'success'
                         });
                     }else {
                         this.$notify({
-                            title: '失败',
-                            message: '购买位置失败',
+                            title: this.$t('common.fail'),
+                            message: this.$t('positionDetail.buyFail'),
                             type: 'error'
                         });
                     }

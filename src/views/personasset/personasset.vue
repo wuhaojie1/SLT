@@ -34,7 +34,7 @@
                     </div>
                     <!-- <selectitem :typearr="typearr" class="trade-type"></selectitem> -->
                 </div>
-                <tradetable :tradelist="tradelist"></tradetable>
+                <tradetable :tradelist="tradelist" @toCharge="toCharge" @toReflect="toReflect"></tradetable>
             </div>
         </div>
         <bottom></bottom>
@@ -53,26 +53,26 @@
             return {
                 typearr:[],
                 tradelist:[
-                    {
-                        cointypetext:'SLT',
-                        num:'10000',
-                        allmoney:'10000',
-                        charge:'0.03',
-                        cointype:'SLT',
-                        tradetype:'充币',
-                        expense:'0.03%',
-                        in:true
-                    },
-                    {
-                        cointypetext:'ETH',
-                        num:'10000',
-                        allmoney:'10000',
-                        charge:'0.03',
-                        cointype:'ETH',
-                        tradetype:'出售',
-                        expense:'0.03%',
-                        in:false
-                    },
+                    // {
+                    //     cointypetext:'SLT',
+                    //     num:'10000',
+                    //     allmoney:'10000',
+                    //     charge:'0.03',
+                    //     cointype:'SLT',
+                    //     tradetype:'充币',
+                    //     expense:'0.03%',
+                    //     in:true
+                    // },
+                    // {
+                    //     cointypetext:'ETH',
+                    //     num:'10000',
+                    //     allmoney:'10000',
+                    //     charge:'0.03',
+                    //     cointype:'ETH',
+                    //     tradetype:'出售',
+                    //     expense:'0.03%',
+                    //     in:false
+                    // },
                     // {
                     //     cointypetext:'SLT',
                     //     num:'10000',
@@ -99,15 +99,36 @@
                     name: name
                 })
             },
+            toCharge(item){
+                this.localStorage.set('drawItem',item);
+                this.$router.push({
+                    name: 'topUp',
+                })
+            },
+            toReflect(item){
+                this.localStorage.set('reflectItem',item);
+                this.$router.push({
+                    name: 'withdraw',
+                })
+            },
             getInfo(){
                 this.axios({
                     url:'user/wallet/payIndex',
                     method: 'get',
                 }).then((res)=>{
                    if (res.errorCode === 0){
-                       // const tradeItem = {
-                       //
-                       // }
+                       this.tradelist= [];
+                       res.results.forEach(element =>{
+                           const tradeItem = {
+                               cointypetext:element.symbol,
+                               num: element.balanceAmount,
+                               allmoney: element.drawAmount,
+                               useMoney: element.balanceAmount - element.drawAmount,
+                               ...element,
+                           };
+                           this.tradelist.push(tradeItem)
+                       })
+
                    }
                 })
             }

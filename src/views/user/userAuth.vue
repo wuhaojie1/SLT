@@ -52,7 +52,7 @@
             }
         },
         mounted() {
-            // this.userauth();
+         this.getUserAuth();
         },
         methods:{
             uploadFaceFile(file){
@@ -131,10 +131,22 @@
                     forword:this.faceURL
                 }
                 return PostData
-            }
+            },
             // beforeUpload(file){
             //     console.log(file)
             // },
+
+            getUserAuth(){
+                this.axios({
+                    url:'/wx/user/authIndex',
+                    method: 'get',
+                }).then((res)=>{
+                    if (res.errorCode === 0){
+                        console.log(res)
+                    }
+                })
+
+            }
         }
     }
 </script>

@@ -1,4 +1,12 @@
 export default {
+    // 常用
+    common:{
+        success: '成功',
+        fail: '失败',
+        warning: '提示',
+        confirm: '确定',
+        cancel: '取消',
+    },
     //个人资料
     userInfo: {
         userCenter: '회원정보',
@@ -262,7 +270,9 @@ export default {
         sell: '위치 매도',
         num: '수량',
         remain: '남은 자리',
-        buy: '구매'
+        buy: '구매',
+        buySuccess: '购买位置成功',
+        buyFail: '购买位置失败',
     },
     //首页
     index: {
@@ -647,6 +657,8 @@ export default {
         desceipt:'상품 이 있다,매개 위치평균 수입',
         buy:'구입 하 다',
         tip:'구 매 팁, 문제 가 있 으 면',
-        connect:'온라인 고객 서비스 연결'
+        connect:'온라인 고객 서비스 연결',
+        buySuccess: '购买位置成功',
+        buyFail: '购买位置失败',
     }
 }

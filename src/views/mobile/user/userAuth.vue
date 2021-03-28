@@ -8,23 +8,38 @@
             </div>
             <div class="infoTitle">{{$t('identifi.trueInfo')}}</div>
             <ul class="infoBox">
-                <li v-for="(item,index) in list" :key="item.text" class="infoItem">
-                    <div class="itemLeft">{{item.text}}</div>
-                    <input v-model="item.val" class="itemCenter" type="text" :placeholder="item.place">
-                    <img v-if="item.isArrow" class="itemRight" style="width:12rem;height:20rem;" :src="require('../../../static/img/user/arrowgrey.png')" alt="">
-                    <div v-if="index==1" class="red">{{$t('identifi.inputTrueName')}}</div>
-                </li>
+                <div  class="infoItem">
+                    <div class="itemLeft">{{this.$t('identifi.truename')}}</div>
+                    <input v-model="realName" class="itemCenter" type="text" :placeholder="$t('identifi.addname')">
+                    <!--<img v-if="item.isArrow" class="itemRight" style="width:12rem;height:20rem;" :src="require('../../../static/img/user/arrowgrey.png')" alt="">-->
+                </div>
+                <div  class="infoItem">
+                    <div class="itemLeft">{{this.$t('identifi.idnum')}}</div>
+                    <input v-model="idcard" class="itemCenter" type="text" :placeholder="$t('identifi.addidnum')">
+                    <!--<img v-if="item.isArrow" class="itemRight" style="width:12rem;height:20rem;" :src="require('../../../static/img/user/arrowgrey.png')" alt="">-->
+                    <div v-if="isErrorNum" class="red">{{$t('identifi.inputTrueName')}}</div>
+                </div>
             </ul>
 
             <div class="upload">
                 <div class="upTitle">{{$t('identifi.uploadCard')}}</div>
                 <div class="card">
                     <div class="cardLeft">
-                        <img style="width:314rem;height:219rem" src="../../../static/img/user/card1.png" alt="">
+                        <el-upload  action="123"
+                                    :on-change="uploadFaceFile"
+                                    accept="image/jpeg,image/png,image/jpg">
+                            <img style="width: 314rem;height: 219rem;" src="../../../static/img/user/card1.png" alt="">
+                        </el-upload>
                         <div class="cardText">{{$t('identifi.uploadface')}}</div>
                     </div>
                     <div class="cardRight">
-                        <img style="width:314rem;height:219rem" src="../../../static/img/user/card2.png" alt="">
+                        <el-upload :on-success="handleAvatarSuccess"
+                                   :before-upload="beforeUpload"
+                                   action="123"
+                                   :on-change="uploadBackFile"
+                                   accept="image/jpeg,image/png,image/jpg">
+                            <img style="width: 314rem;height: 219rem;" src="../../../static/img/user/card2.png" alt="">
+                        </el-upload>
                         <div class="cardText">{{$t('identifi.uploadback')}}</div>
                     </div>
                 </div>
@@ -32,7 +47,7 @@
 
             <div class="saveBtn">{{$t('identifi.auth')}}</div>
         </div>
-        
+
 
         <BottomBar></BottomBar>
     </div>
@@ -48,11 +63,94 @@ export default {
     },
     data(){
         return{
-            list:[
-                {text:this.$t('identifi.truename'),val:'',isArrow:false,place:this.$t('identifi.addname')},
-                {text:this.$t('identifi.idnum'),val:'',isArrow:false,place:this.$t('identifi.addidnum')},
-            ],
-            checked:false
+            // list:[
+            //     {text:this.$t('identifi.truename'),val:'realName',isArrow:false,place:this.$t('identifi.addname')},
+            //     {text:this.$t('identifi.idnum'),val:'idcard',isArrow:false,place:this.$t('identifi.addidnum')},
+            // ],
+            checked:false,
+            faceURL:'',
+            backURL:'',
+            face:false,
+            back:false,
+            idcard:'',
+            realName: '',
+            isErrorNum: true,
+        }
+    },
+
+    methods:{
+        uploadFaceFile(file){
+            // let fileName = file.name;
+            this.faceURL = URL.createObjectURL(file.raw)  // 获取URL
+            this.face=true
+        },
+        uploadBackFile(file){
+            // let fileName = file.name;
+            this.backURL = URL.createObjectURL(file.raw)  // 获取URL
+            this.back=true
+        },
+
+        userAuth(){
+            let lang =  this.localStorage.get('langMsg');
+            let PostData = this.getPostData();
+            this.axios({
+                url:'wx/user/auth',
+                method:'post',
+                params:PostData
+            }).then(res=>{
+                if (res.errno === 762){
+                    if (lang.data.name === 'zh-CN'){
+                        this.$t('identifi').goidenrifi = '请等待审核';
+                    } else{
+                        this.$t('identifi').goidenrifi = res.errmsg;
+                    }
+                }else {
+                    this.$notify({
+                        type:'error',
+                        message: '申请认证失败'
+                    });
+                }
+            }).catch(err=>{
+                console.log(err)
+            })
+        },
+        getPostData(){
+            if (!this.realName) {
+                this.$notify({
+                    type:'warning',
+                    message: '真实姓名不能为空'
+                });
+                return;
+            }
+            if (!this.idcard) {
+                this.$notify({
+                    type:'warning',
+                    message: '身份证账号不能为空'
+                });
+                return;
+            }
+            if (!this.backURL) {
+                this.$notify({
+                    type:'warning',
+                    message: '请上传身份证背面图片'
+                });
+                return;
+            }
+            if (!this.faceURL) {
+                this.$notify({
+                    type:'warning',
+                    message: '请上传身份证正面图片'
+                });
+                return;
+            }
+
+            let PostData = {
+                realName:this.realName,
+                idcard:this.idcard,
+                back:this.backURL,
+                forword:this.faceURL
+            }
+            return PostData
         }
     }
 }
@@ -122,7 +220,7 @@ export default {
                     color: #9AA5B5;
 
                 }
-                
+
                 input::-moz-placeholder {
                     /* Mozilla Firefox 19+ */
                     font-size: 28rem;
@@ -130,7 +228,7 @@ export default {
                     font-weight: 400;
                     color: #9AA5B5;
                 }
-                
+
                 input:-moz-placeholder {
                     /* Mozilla Firefox 4 to 18 */
                     font-size: 28rem;
@@ -138,7 +236,7 @@ export default {
                     font-weight: 400;
                     color: #9AA5B5;
                 }
-                
+
                 input:-ms-input-placeholder {
                     /* Internet Explorer 10-11 */
                     font-size: 28rem;
@@ -198,11 +296,11 @@ export default {
                         margin-bottom: 21rem;
 
                     }
-                    
+
                 }
             }
         }
     }
-    
+
 }
 </style>
