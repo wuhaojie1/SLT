@@ -113,26 +113,30 @@
                 tabbarlist:['동전 충전 기록','동전 인출 기록','OTC 거래 기록','위치 구 매 기록','상점 구 매 기록'],
                 currentindex:0,
                 inloglist:[
-                    {
-                        time:'2021-02-25',
-                        cointype:'SLT',
-                        type:'유형',
-                        num:'1000000'
-                    },
-                    {
-                        time:'2021-03-25',
-                        cointype:'SLT',
-                        type:'유형',
-                        num:'1000000'
-                    },
-                    {
-                        time:'2021-04-25',
-                        cointype:'SLT',
-                        type:'유형',
-                        num:'1000000'
-                    }
+                    // {
+                    //     time:'2021-02-25',
+                    //     cointype:'SLT',
+                    //     type:'유형',
+                    //     num:'1000000'
+                    // },
+                    // {
+                    //     time:'2021-03-25',
+                    //     cointype:'SLT',
+                    //     type:'유형',
+                    //     num:'1000000'
+                    // },
+                    // {
+                    //     time:'2021-04-25',
+                    //     cointype:'SLT',
+                    //     type:'유형',
+                    //     num:'1000000'
+                    // }
                 ]
             }
+        },
+        mounted(){
+            this.recharage();
+            this.withDraw();
         },
         methods:{
             changecurrent(index){
@@ -141,6 +145,36 @@
             topage(name){
                 this.$router.push({
                     name: name
+                })
+            },
+            //充币记录
+            recharage(){
+                this.axios({
+                    url:'user/wallet/rechargeInfo',
+                    method:'get',
+                    params:JSON.stringify({
+                        userId:'24',
+                        pageNum:1,
+                        pageSize:1
+                    }) 
+                }).then(res=>{
+                    console.log(res,'充币');
+                }).catch(e=>{
+                    console.log(e);
+                })
+            },
+            //提币记录
+            withDraw(){
+                this.axios({
+                    url:'user/wallet/drawList',
+                    method:'post',
+                    params:{
+                        userId:24
+                    }
+                }).then(res=>{
+                    console.log(res,'提币');
+                }).catch(e=>{
+                    console.log(e);
                 })
             }
         }
