@@ -19,7 +19,7 @@
                         <div class="text">{{$t('shopcar.all')}}</div>
                     </div>
                     <div class="line" v-if="goodsList.length===0"></div>
-                    <shoppingCartItem @deletegoods="deletegoods" @choose="choose(index)" v-for="(item,index) in goodsList" :goodsitem="item" :key="index"></shoppingCartItem>
+                    <shoppingCartItem @deletegoods="deletegoods(index)" @choose="choose(index)" v-for="(item,index) in goodsList" :goodsitem="item" :key="index"></shoppingCartItem>
                 </div>
                 <div class="rightBox">
                     <div class="item item1">
@@ -70,30 +70,30 @@
             return {
                 shoppingCartBanner: `${require('../../static/img/shop/shoppingCartBanner.png')}`,
                 goodsList:[
-                    {
-                        goodsname:'goods',
-                        goodsmsg:'652000 0XJDBM  9095',
-                        goodstype:'color',
-                        havegoods:true,
-                        num:'10',
-                        checked:false,
-                    },
-                    {
-                        goodsname:'goods',
-                        goodsmsg:'652000 0XJDBM  9095',
-                        goodstype:'color',
-                        havegoods:true,
-                        num:'5',
-                        checked:false,
-                    },
-                    {
-                        goodsname:'goods',
-                        goodsmsg:'652000 0XJDBM  9095',
-                        goodstype:'color',
-                        havegoods:false,
-                        num:'0',
-                        checked:true,
-                    }
+                    // {
+                    //     goodsname:'goods',
+                    //     goodsmsg:'652000 0XJDBM  9095',
+                    //     goodstype:'color',
+                    //     havegoods:true,
+                    //     num:'10',
+                    //     checked:false,
+                    // },
+                    // {
+                    //     goodsname:'goods',
+                    //     goodsmsg:'652000 0XJDBM  9095',
+                    //     goodstype:'color',
+                    //     havegoods:true,
+                    //     num:'5',
+                    //     checked:false,
+                    // },
+                    // {
+                    //     goodsname:'goods',
+                    //     goodsmsg:'652000 0XJDBM  9095',
+                    //     goodstype:'color',
+                    //     havegoods:false,
+                    //     num:'0',
+                    //     checked:true,
+                    // }
                 ],
                 bannerBottom :`${require('../../static/img/shop/bannerBottom.png')}`,
 
@@ -118,7 +118,8 @@
                     `${require('../../static/img/index/booktree_white.png')}`,
                     `${require('../../static/img/index/SLT_white.png')}`,
                 ],
-                allchecked:false
+                allchecked:false,
+                usermsg:{}
             }
         },
         watch: {
@@ -135,6 +136,10 @@
             // this.myEcharts();
             this.getcarlist();
             // this.updategoods();
+            let usermsg = this.localStorage.get('usermsg')
+            this.usermsg = usermsg;
+            console.log(this.usermsg);
+            this.allcheck();
         },
         methods: {
             //监听滚动条事件
@@ -152,7 +157,7 @@
               this.axios({
                   url:'wx/cart/goodscount',
                   method:'get',
-                  params:{userId:'17882237256'}
+                  params:{userId:this.usermsg.userId}
               }).then(res=>{
                   console.log(res);
               }).catch(err=>{
@@ -167,7 +172,7 @@
                     this.axios({
                         url:'wx/cart/checked',
                         method:'post',
-                        params: {userId:17882237256}
+                        params: {userId:this.usermsg.userId}
                     }).then(res=>{
                         console.log(res);
                     }).catch(err=>{
@@ -205,7 +210,7 @@
                 let couponId = 1;
                 let grouponRulesId = 1;
                 let userCouponId = 1;
-                let userId = 17882237256;
+                let userId = this.usermsg.userId;
                 let PostData ={
                     addressId:addressId,
                     cartId:cartId,
@@ -233,34 +238,59 @@
                }).then((res)=>{
                    this.getmomunt();
                    console.log(res);
+                   this.goodsList = res.data.cartList;
+                   console.log(this.goodsList)
                }).catch(err=>{
                    console.log(err);
                })
            },
             //删除购物车某个商品
-           deletegoods(){
-               let PostData = this.getdelPostData();
-               // console.log(PostData);
+           deletegoods(index){
+               console.log(index)
+               let PostData = this.getdelPostData(index);
+               console.log(PostData);
                this.axios({
                    url:'wx/cart/delete',
-                   method:'post',
+                   method:'POST',
                    PostData:PostData
                }).then(res=>{
-                   console.log(res)
+                   console.log(res);
+                   // this.updategoods();
                }).catch(err=>{
                    console.log(err);
                })
            },
             getdelPostData(){
-               let productIds =0;
+               // let temarr = [];
+               // temarr[0] = this.goodsList[index].productId;
+               // let productIds = this.goodsList[index].productId;
+                // let productIds = temarr;
+                let productIds = this.goodsList.filter(function(element) {
+                    if (element.checked == true) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+
+                if (productIds.length <= 0) {
+                    return false;
+                }
+
+                productIds = productIds.map(function(element) {
+                    if (element.checked == true) {
+                        return element.productId;
+                    }
+                });
                let PostData={
-                   productIds:productIds
+                   productIds:productIds,
+                   userId:this.usermsg.userId
                }
                return PostData
             },
             //更新数据
-            updategoods(){
-               let PostData = this.getupdatePostData();
+            updategoods(index){
+               let PostData = this.getupdatePostData(index);
                this.axios({
                    url:'wx/cart/update',
                    method:'post',
@@ -271,19 +301,19 @@
                    console.log(err);
                })
             },
-            // getupdatePostData(){
-            //    let number= 0;
-            //    let goodsId = 0;
-            //    let id = 0;
-            //    let productId = 0;
-            //    let PostData={
-            //         number:number,
-            //         goodsId:goodsId,
-            //         id:id,
-            //         productId:productId
-            //     }
-            //     return PostData;
-            // },
+            getupdatePostData(index){
+               let number= this.goodsList[index].number;
+               let goodsId = this.goodsList[index].goodsId;
+               let id = this.goodsList[index].id;
+               let productId = this.goodsList[index].productId;
+               let PostData={
+                    number:number,
+                    goodsId:goodsId,
+                    id:id,
+                    productId:productId
+                }
+                return PostData;
+            },
             //购买选中的商品
             buygoods(){
                 let PostData = this.getbuyPostData();
@@ -485,8 +515,7 @@
                     .item1{
                         
                         .item_left{
-                            
-                        color: #7E7E7E;
+                            color: #7E7E7E;
                         }
                     }
                     .item2{

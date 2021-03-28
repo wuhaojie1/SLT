@@ -8,7 +8,7 @@
             <div class="text2">Auditory feast</div>
             <div class="text3">Sound on the scene !</div>
             <div class="text4">See the world with your heart</div>
-            <div class="text5">BUY NOW</div>
+<!--            <div class="text5">BUY NOW</div>-->
         </div>
         <div class="type">
             <span class="text">xxx</span>
