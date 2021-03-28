@@ -19,10 +19,10 @@
                                :placeholder="$t('login.userpsw')">
                     </div>
                     <div class="userchoice">
-                        <div class="remberpsw">
-                            <!--                            <input type="checkbox" class="checkbox">-->
+<!--                        <div class="remberpsw">
+                            &lt;!&ndash;                            <input type="checkbox" class="checkbox">&ndash;&gt;
                             {{ $t('login.forget') }}
-                        </div>
+                        </div>-->
                         <router-link to="regiest">
                             <div class="regiest">{{ $t('login.goreigest') }}</div>
                         </router-link>
@@ -91,7 +91,6 @@ export default {
                         this.localStorage.set('token', data.token)
                         this.localStorage.set('user', user)
                         this.localStorage.set('isLogin', true)
-
                         this.$router.push({
                             name: 'index',
                         })

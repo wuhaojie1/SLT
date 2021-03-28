@@ -10,12 +10,22 @@
             </div>
             <div class="login-box">
                 <div class="phone">
-                    <img :src="user" alt="" class="img">
-                    <input type="text" class="input" v-model="username" :placeholder="this.$t('regiest.username')">
+                    <img :src="user"
+                         alt=""
+                         class="img">
+                    <input type="text"
+                           class="input"
+                           v-model="username"
+                           :placeholder="this.$t('regiest.username')">
                 </div>
                 <div class="password">
-                    <img :src="lock" alt="" class="img">
-                    <input type="text" class="input" v-model="password" :placeholder="this.$t('regiest.userpsw')">
+                    <img :src="lock"
+                         alt=""
+                         class="img">
+                    <input type="text"
+                           class="input"
+                           v-model="password"
+                           :placeholder="this.$t('regiest.userpsw')">
                 </div>
             </div>
             <div class="get_verify_code">
@@ -41,6 +51,10 @@
                 logo: `${require('@/static/img/login/iconM.png')}`,
                 user: `${require('@/static/img/login/user.png')}`,
                 lock: `${require('@/static/img/login/lock.png')}`,
+
+                code: "123456",
+                mobile: "15282148708",
+                password: "111111",
             }
         },
         methods: {

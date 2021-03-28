@@ -6,15 +6,20 @@
                     <div class="left-text-top">S L T coin</div>
                     <div class="left-text-down">SLTcoin {{ $t('regiest.welcome') }}</div>
                 </div>
-                <div class="loginbox-right" :style="{ 'backgroundImage':'url('+ loginbgc +')' }">
+                <div class="loginbox-right"
+                     :style="{ 'backgroundImage':'url('+ loginbgc +')' }">
                     <div class="user">{{ $t('regiest.userres') }}</div>
                     <div class="username">
-                        <img class="username-img" src="../../static/img/login/user.png"/>
-                        <input class="username-input" type="text" v-model="mobile"
+                        <img class="username-img"
+                             src="../../static/img/login/user.png"/>
+                        <input class="username-input"
+                               type="text"
+                               v-model="mobile"
                                :placeholder="$t('regiest.username')">
                     </div>
                     <div class="password">
-                        <img class="password-img" src="../../static/img/login/lock.png"/>
+                        <img class="password-img"
+                             src="../../static/img/login/lock.png"/>
                         <input class="password-input"
                                type="password"
                                v-model="password"
@@ -34,6 +39,7 @@
                             {{ count + " S" + repeat }}
                         </div>
                     </div>
+
                     <div class="loginbutton"
                          @click="register"
                          v-prevent-repeat>{{ $t('regiest.regiest') }}
@@ -46,24 +52,48 @@
 </template>
 
 <script>
+import {checkDataFunc} from "@/static/js/common";
+
 export default {
     name: "login",
     data() {
         return {
             getCodeStatus: false,
             regFlag: false,
-            bgc: `${require('../../static/img/login/SLTcoin.png')}`,
-            loginbgc: `${require('../../static/img/login/loginbg.png')}`,
+            bgc: `${require('@/static/img/login/SLTcoin.png')}`,
+            loginbgc: `${require('@/static/img/regiest/register.png')}`,
 
             code: "123456",
-            mobile: "15282148708",
-            password: "111111",
+            mobile: "",
+            password: "",
             // intervalTime: 60,
             codeShow: true,// true未请求 false已请求
+            requestCode: false,//没有发送验证码 true发送了验证码
             timer: null,
             count: "",
             repeat: "재 번역",
             getCodeText: this.$t('regiest.get'),
+
+            checkArray: [
+                {
+                    name: this.$t('regiest').mobile,
+                    checkKey: "mobile",
+                },
+                {
+                    name: this.$t('regiest').password,
+                    checkKey: "password",
+                },
+                {
+                    name: this.$t('regiest').code,
+                    checkKey: "code",
+                },
+            ],
+            checkCodeArray: [
+                {
+                    name: this.$t('regiest').mobile,
+                    checkKey: "mobile",
+                },
+            ]
 
 
             // repeatPassword: "111111",
@@ -75,6 +105,7 @@ export default {
     },
     methods: {
         getCode() {
+            this.requestCode = true;
             if (this.codeShow) {
                 this.countTime()
                 let postData = this.getCodePostData()
@@ -93,8 +124,6 @@ export default {
             } else {
                 return
             }
-
-
         },
         countTime() {
             // eslint-disable-next-line no-debugger
@@ -116,38 +145,70 @@ export default {
         },
         getCodePostData() {
             if (!this.getCodeStatus) {
+                let checkCodeArray = this.checkCodeArray
                 let postData = {
                     mobile: this.mobile
                 }
-                return postData;
+                if (checkDataFunc.checkBasics(postData, checkCodeArray)) {
+                    return postData = {
+                        ...postData,
+                    }
+                } else {
+                    return false
+                }
             }
         },
         register() {
             // eslint-disable-next-line no-debugger
             // debugger
             let postData = this.getRegisterData()
-            if (this.regFlag) {
-                this.axios({
-                    url: 'wx/auth/register',
-                    method: 'post',
-                    params: JSON.stringify(postData),
-                }).then((res) => {
-                    let data = res.data
-                    if (res.errno === 0) {
-                        let user = {
-                            avatarUrl: data.userInfo.avatarUrl,
-                            nickName: data.userInfo.nickName,
+            if (postData) {
+                if (this.regFlag) {
+                    this.axios({
+                        url: 'wx/auth/register',
+                        method: 'post',
+                        params: JSON.stringify(postData),
+                    }).then((res) => {
+                        let data = res.data
+                        if (res.errno === 0) {
+                            let user = {
+                                avatarUrl: data.userInfo.avatarUrl,
+                                nickName: data.userInfo.nickName,
+                            }
+                            // console.log(user)
+                            this.localStorage.set('token', data.token)
+                            this.localStorage.set('user', user)
+                            this.localStorage.set('isLogin', true)
+                            this.$router.push({
+                                name: 'index',
+                            })
+                        } else {
+                            // eslint-disable-next-line no-debugger
+                            // debugger
+                            this.$notify({
+                                title: this.$t('notifyText.notify'),
+                                message: res.errmsg,
+                                type: 'warning',
+                                showClose: false
+                            });
                         }
-                        // console.log(user)
-                        this.localStorage.set('token', data.token)
-                        this.localStorage.set('user', user)
-                        this.localStorage.set('isLogin', true)
-                    }
-                })
+                    })
+                }
             }
+
 
         },
         getRegisterData() {
+            let checkArray = this.checkArray;
+            if (!this.requestCode) {
+                this.$notify({
+                    title: this.$t('notifyText.notify'),
+                    message: this.$t('notifyText.vCode'),
+                    type: 'warning',
+                    showClose: false
+                });
+                return
+            }
             this.regFlag = true
             // eslint-disable-next-line no-debugger
             // debugger
@@ -159,7 +220,13 @@ export default {
                     repeatPassword: this.repeatPassword,
                     username: "",
                 }
-                return postData
+                if (checkDataFunc.checkBasics(postData, checkArray)) {
+                    return postData = {
+                        ...postData,
+                    }
+                } else {
+                    return false
+                }
             }
         }
     }

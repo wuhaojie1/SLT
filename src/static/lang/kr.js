@@ -240,7 +240,10 @@ export default {
         get:'인증코드 받기',
         regiest:'회원가입',
         gologin:'등록 하 다',
-        regiested:'등록 완료'
+        regiested:'등록 완료',
+        mobile: "핸드폰 번호",
+        password: "비밀 번호",
+        code: "인증번호",
     },
     //头部
     header: {
@@ -654,5 +657,6 @@ export default {
 
     notifyText: {
         notify: "제시 하 다",
+        vCode: "먼저 인증번호 받 으 세 요",
     }
 }

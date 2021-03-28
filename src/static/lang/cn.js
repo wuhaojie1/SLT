@@ -254,7 +254,10 @@ export default {
         userpsw:'请输入您的密码',
         userres:'立即注册',
         get:'获取验证码',
-        regiest:'注册'
+        regiest:'注册',
+        mobile: "手机号",
+        password: "密码",
+        code: "验证码",
     },
     //头部
     header: {
@@ -662,5 +665,6 @@ export default {
 
     notifyText: {
         notify: "提示",
+        vCode: "请先获取验证码",
     }
 }
