@@ -650,5 +650,9 @@ export default {
         buy:'구입 하 다',
         tip:'구 매 팁, 문제 가 있 으 면',
         connect:'온라인 고객 서비스 연결'
+    },
+
+    notifyText: {
+        notify: "제시 하 다",
     }
 }

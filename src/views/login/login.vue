@@ -95,6 +95,15 @@ export default {
                         this.$router.push({
                             name: 'index',
                         })
+                    } else {
+                        // eslint-disable-next-line no-debugger
+                        // debugger
+                        this.$notify({
+                            title: this.$t('notifyText.notify'),
+                            message: res.errmsg,
+                            type: 'warning',
+                            showClose: false
+                        });
                     }
                 }).catch(err => {
                     console.log(err)
