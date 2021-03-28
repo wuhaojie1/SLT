@@ -666,5 +666,6 @@ export default {
     notifyText: {
         notify: "提示",
         vCode: "请先获取验证码",
+        vPhone: "请先输入手机号",
     }
 }

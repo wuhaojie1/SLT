@@ -658,5 +658,6 @@ export default {
     notifyText: {
         notify: "제시 하 다",
         vCode: "먼저 인증번호 받 으 세 요",
+        vPhone: "핸드폰 번 호 를 먼저 입력 하 세 요.",
     }
 }

@@ -38,6 +38,10 @@
                         <div v-show="!codeShow" class="getbutton">
                             {{ count + " S" + repeat }}
                         </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="tologin" @click="topage('login')">
+                        {{this.$t('login.login')}}
                     </div>
 
                     <div class="loginbutton"
@@ -104,12 +108,17 @@ export default {
         // this.localStorage.set('isLogin', false)
     },
     methods: {
+        topage(name) {
+            this.$router.push({
+                name: name
+            })
+        },
         getCode() {
             this.requestCode = true;
-            if (this.codeShow) {
-                this.countTime()
-                let postData = this.getCodePostData()
-                if (postData) {
+            let postData = this.getCodePostData()
+            if (postData) {
+                if (this.codeShow) {
+                    this.countTime()
                     this.axios({
                         url: 'wx/auth/regCaptcha',
                         method: 'post',
@@ -118,12 +127,23 @@ export default {
                         // console.log(res)
                         if (res.errno === 0) {
                             this.getCodeStatus = true
+                        } else {
+                            this.codeShow = true;
+                            clearInterval(this.timer);
+                            this.timer = null;
+                            this.$notify({
+                                title: this.$t('notifyText.notify'),
+                                message: res.errmsg,
+                                type: 'warning',
+                                showClose: false
+                            });
                         }
                     })
+                } else {
+                    return
                 }
-            } else {
-                return
             }
+
         },
         countTime() {
             // eslint-disable-next-line no-debugger
@@ -378,7 +398,7 @@ export default {
                         margin-left: 86rem;
                         float: left;
                         margin-top: 20rem;
-                        margin-bottom: 35rem;
+                        //margin-bottom: 35rem;
                         color: #FFFFFF;
                         text-indent: 10rem;
                     }
@@ -396,9 +416,19 @@ export default {
                         line-height: 58rem;
                         text-align: center;
                         margin-top: 20rem;
-                        margin-bottom: 35rem;
+                        //margin-bottom: 35rem;
                         cursor: pointer;
                     }
+                }
+
+                .tologin {
+                    font-size: 14rem;
+                    font-weight: 400;
+                    color: #00B7FC;
+                    text-align: right;
+                    width: 400rem;
+                    margin: 15rem auto;
+                    cursor: pointer;
                 }
 
                 /*.userchoice{*/
