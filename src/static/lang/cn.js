@@ -250,7 +250,9 @@ export default {
         userpsw:'请输入您的密码',
         forget:'忘记密码?',
         goreigest:'立即注册?',
-        login:'登录'
+        login:'登录',
+        passwordCheck: '密码',
+        usernameCheck: '用户名',
     },
     regiest:{
         welcome:'团队欢迎任何代购币购买或者业务查询。',
@@ -258,7 +260,10 @@ export default {
         userpsw:'请输入您的密码',
         userres:'立即注册',
         get:'获取验证码',
-        regiest:'注册'
+        regiest:'注册',
+        mobile: "手机号",
+        password: "密码",
+        code: "验证码",
     },
     //头部
     header: {
@@ -681,4 +686,9 @@ export default {
         buySuccess: '购买位置成功',
         buyFail: '购买位置失败',
     },
+    notifyText: {
+        notify: "提示",
+        vCode: "请先获取验证码",
+        vPhone: "请先输入手机号",
+    }
 }

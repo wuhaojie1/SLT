@@ -26,11 +26,11 @@
                                 <div class="tip">
                                     See the world with your heart
                                 </div>
-                                <router-link to="goodsdetails">
-                                    <div class="btn">
-                                        buy now
-                                    </div>
-                                </router-link>
+<!--                                <router-link to="goodsdetails">-->
+<!--                                    <div class="btn">-->
+<!--                                        buy now-->
+<!--                                    </div>-->
+<!--                                </router-link>-->
                             </div>
                         </div>
                         <img :src="item.img" alt="">

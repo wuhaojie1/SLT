@@ -236,7 +236,9 @@ export default {
         userpsw:'비밀번호 입력하세요.',
         forget:'비밀번호 찾기',
         goreigest:'즉시가입',
-        login:'로그인'
+        login:'로그인',
+        passwordCheck: '비밀 번호',
+        usernameCheck: '사용자 이름',
     },
     regiest:{
         welcome:'SLT는 코인 구매 또는 비즈니스 문의를 환영합니다.',
@@ -246,7 +248,10 @@ export default {
         get:'인증코드 받기',
         regiest:'회원가입',
         gologin:'등록 하 다',
-        regiested:'등록 완료'
+        regiested:'등록 완료',
+        mobile: "핸드폰 번호",
+        password: "비밀 번호",
+        code: "인증번호",
     },
     //头部
     header: {
@@ -660,5 +665,10 @@ export default {
         connect:'온라인 고객 서비스 연결',
         buySuccess: '购买位置成功',
         buyFail: '购买位置失败',
+    },
+    notifyText: {
+        notify: "제시 하 다",
+        vCode: "먼저 인증번호 받 으 세 요",
+        vPhone: "핸드폰 번 호 를 먼저 입력 하 세 요.",
     }
 }

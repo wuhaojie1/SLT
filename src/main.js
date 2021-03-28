@@ -7,6 +7,7 @@ import localStorage from './static/js/localStorage.js';
 import './assets/css/common.css';
 import echarts from 'echarts';
 import ElementUI from 'element-ui';
+import '@/static/js/common.js'
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from './static/js/axios';
 import VideoPlayer from 'vue-video-player';
@@ -25,7 +26,7 @@ Vue.use(VideoPlayer);
 
 
 const i18n = new VueI18n({
-    // locale: localStorage.get('langMsg') ? localStorage.get('langMsg').name : 'zh-CN',
+    // locale: localStorage.get('langMsg') ? localStorage.get('langMsg').name : 'ko-KR',
     locale: 'zh-CN',
     messages: {
         'zh-CN': lang.cn,
