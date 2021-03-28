@@ -48,6 +48,7 @@
                 ins:`${require('../../static/img/bottom/ins.png')}`,
                 twitter:`${require('../../static/img/bottom/twitter.png')}`,
                 logoIcon: `${require('../../static/img/index/sltlogo_60x120_white.png')}`,
+                section3Bg: "",
             }
         }
     }

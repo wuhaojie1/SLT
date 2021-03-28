@@ -126,7 +126,7 @@
             </div>
         </el-dialog>
         <Bottom></Bottom>
-        <Notice></Notice>
+<!--        <Notice></Notice>-->
     </div>
 </template>
 
