@@ -124,7 +124,7 @@
                             <!--                            <router-link to="cancleorder">-->
                             <div class="cancel" @click="dialogVisible = true">{{ $t('orderdetails.cancelorder') }}</div>
                             <!--                            </router-link>-->
-                            <div class="confirm">{{ $t('orderdetails.confirmtext') }} 45S</div>
+                            <div class="confirm" @click="fastPushBuySell">{{ $t('orderdetails.confirmtext') }} 45S</div>
                         </div>
                         <div class="connect-text">{{ $t('orderdetails.connect') }}</div>
                     </div>
@@ -143,9 +143,11 @@
                 </div>
                 <div class="btn">
                     <el-button
-                        @click="dialogVisible = false">不，谢谢</el-button>
+                        @click="dialogVisible = false">不，谢谢
+                    </el-button>
                     <el-button type="primary"
-                               @click="cancleComfirm">确认取消</el-button>
+                               @click="cancleComfirm">确认取消
+                    </el-button>
                 </div>
             </el-dialog>
         </div>
@@ -162,15 +164,77 @@ export default {
             up: `${require('../../static/img/buy/up.png')}`,
             dialogVisible: false,
             title: this.$t('orderdetails.title'),
-            cancleTip: this.$t('orderdetails.cancleTip')
+            cancleTip: this.$t('orderdetails.cancleTip'),
+            postData: {},
         }
     },
+    created() {
+        // console.log(this.$route.params)
+        this.postData = this.$route.params
+    },
     methods: {
-        cancleComfirm(){
+        cancleComfirm() {
             this.$router.push({
                 name: "cancleorder",
             })
-        }
+        },
+
+        fastPushBuySell() {
+            let postData = this.postData
+            if (postData) {
+                this.axios({
+                    url: 'otc/trans/fastPushBuySell',
+                    method: 'post',
+                    params: JSON.stringify(postData),
+                }).then((res) => {
+                    let data = res.data
+                    if (res.errno === 0) {
+                        console.log(data);
+                    } else {
+                        // eslint-disable-next-line no-debugger
+                        // debugger
+                        this.$notify({
+                            title: this.$t('notifyText.notify'),
+                            message: res.errmsg,
+                            type: 'warning',
+                            showClose: false
+                        });
+                    }
+                })
+            }
+        },
+        // getPostData() {
+        //     let postData = {}
+        //     // let convertRate = "";//兑换币种ETH比率
+        //     let convertSymbol = "ETH";//兑换币种ETH
+        //     let maxAmount = this.maxAmount;//SLT币种交易最大可用数量
+        //     let minAmount = this.minAmount;//SLT币种交易最小数量
+        //     // let oriAmount = "";//SLT币种总数量
+        //     let symbol = "";//BUY/SELL币种SLT
+        //     let transType = "";//交易类型【BUY, SELL】
+        //
+        //
+        //     if (this.buyit) {
+        //         symbol = "BUY";
+        //         transType = "BUY";
+        //     } else {
+        //         symbol = "SELL";
+        //         transType = "SELL";
+        //     }
+        //
+        //     postData = {
+        //         // convertRate,
+        //         convertSymbol,
+        //         maxAmount,
+        //         minAmount,
+        //         // oriAmount,
+        //         symbol,
+        //         transType,
+        //     }
+        //
+        //     return postData
+        //
+        // },
     }
 }
 </script>
@@ -424,8 +488,8 @@ export default {
                             font-weight: 400;
                             color: #FFFFFF;
                             line-height: 42rem;
+                            cursor: pointer;
                         }
-
                     }
 
                     .connect-text {
@@ -442,18 +506,18 @@ export default {
         .elDialogBox {
             text-align: left;
 
-           .tipText {
-               padding: 30rem 25rem;
-               border-bottom: 1rem solid #E4E7ED;
-               border-top: 1rem solid #E4E7ED;
+            .tipText {
+                padding: 30rem 25rem;
+                border-bottom: 1rem solid #E4E7ED;
+                border-top: 1rem solid #E4E7ED;
 
-               .text {
-                   font-size: 14rem;
-                   font-weight: 400;
-                   color: #111111;
-                   line-height: 22rem;
-               }
-           }
+                .text {
+                    font-size: 14rem;
+                    font-weight: 400;
+                    color: #111111;
+                    line-height: 22rem;
+                }
+            }
 
             .btn {
                 padding: 20rem 25rem;
