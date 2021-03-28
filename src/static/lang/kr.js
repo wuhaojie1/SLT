@@ -228,7 +228,9 @@ export default {
         userpsw:'비밀번호 입력하세요.',
         forget:'비밀번호 찾기',
         goreigest:'즉시가입',
-        login:'로그인'
+        login:'로그인',
+        passwordCheck: '비밀 번호',
+        usernameCheck: '사용자 이름',
     },
     regiest:{
         welcome:'SLT는 코인 구매 또는 비즈니스 문의를 환영합니다.',

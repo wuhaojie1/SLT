@@ -244,7 +244,9 @@ export default {
         userpsw:'请输入您的密码',
         forget:'忘记密码?',
         goreigest:'立即注册?',
-        login:'登录'
+        login:'登录',
+        passwordCheck: '密码',
+        usernameCheck: '用户名',
     },
     regiest:{
         welcome:'团队欢迎任何代购币购买或者业务查询。',
@@ -657,4 +659,8 @@ export default {
         position: "位置购买记录",
         deal: "商品交易记录",
     },
+
+    notifyText: {
+        notify: "提示",
+    }
 }

@@ -4,28 +4,33 @@
             <div class="loginbox">
                 <div class="loginbox-left">
                     <div class="left-text-top">S L T coin</div>
-                    <div class="left-text-down">SLTcoin {{$t('login.welcome')}}</div>
+                    <div class="left-text-down">SLTcoin {{ $t('login.welcome') }}</div>
                 </div>
                 <div class="loginbox-right" :style="{ 'backgroundImage':'url('+ loginbgc +')' }">
-                    <div class="user">{{$t('login.logintext')}}</div>
+                    <div class="user">{{ $t('login.logintext') }}</div>
                     <div class="username">
                         <img class="username-img" src="../../static/img/login/user.png"/>
-                        <input class="username-input" type="text" v-model="username" :placeholder="$t('login.username')">
+                        <input class="username-input" type="text" v-model="username"
+                               :placeholder="$t('login.username')">
                     </div>
                     <div class="password">
                         <img class="password-img" src="../../static/img/login/lock.png"/>
-                        <input class="password-input" type="password" v-model="password" placeholder="$t('login.userpsw')">
+                        <input class="password-input" type="password" v-model="password"
+                               :placeholder="$t('login.userpsw')">
                     </div>
                     <div class="userchoice">
                         <div class="remberpsw">
                             <!--                            <input type="checkbox" class="checkbox">-->
-                            {{$t('login.forget')}}
+                            {{ $t('login.forget') }}
                         </div>
                         <router-link to="regiest">
-                            <div class="regiest">{{$t('login.goreigest')}}</div>
+                            <div class="regiest">{{ $t('login.goreigest') }}</div>
                         </router-link>
                     </div>
-                    <div class="loginbutton" @click="login" v-prevent-repeat>{{$t('login.login')}}</div>
+                    <div class="loginbutton"
+                         @click="login"
+                         v-prevent-repeat>{{ $t('login.login') }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -34,14 +39,26 @@
 </template>
 
 <script>
+import {checkDataFunc} from "@/static/js/common";
+
 export default {
     name: "login",
     data() {
         return {
             bgc: `${require('../../static/img/login/SLTcoin.png')}`,
             loginbgc: `${require('../../static/img/login/loginbg.png')}`,
-            password: "user123",
-            username: "user123",
+            password: "",
+            username: "",
+            checkArray: [
+                {
+                    name: this.$t('login').usernameCheck,
+                    checkKey: "username",
+                },
+                {
+                    name: this.$t('login').passwordCheck,
+                    checkKey: "password",
+                },
+            ],
         }
     },
     mounted() {
@@ -52,35 +69,54 @@ export default {
             // eslint-disable-next-line no-debugger
             // debugger
             // console.log('打印');
+
+            // eslint-disable-next-line no-debugger
+            // debugger
+            let postData = this.getPostData();
+            if (postData) {
+                this.axios({
+                    url: 'wx/auth/login',
+                    method: 'post',
+                    params: JSON.stringify(postData),
+                }).then((res) => {
+                    // eslint-disable-next-line no-debugger
+                    // debugger
+                    // console.log(res)
+                    let data = res.data
+                    if (res.errno === 0) {
+                        let user = {
+                            avatarUrl: data.userInfo.avatarUrl,
+                            nickName: data.userInfo.nickName,
+                        }
+                        this.localStorage.set('token', data.token)
+                        this.localStorage.set('user', user)
+                        this.localStorage.set('isLogin', true)
+
+                        this.$router.push({
+                            name: 'index',
+                        })
+                    }
+                }).catch(err => {
+                    console.log(err)
+                })
+            }
+
+
+        },
+        getPostData() {
             let postData = {
                 password: this.password,
                 username: this.username,
             }
-            this.axios({
-                url: 'wx/auth/login',
-                method: 'post',
-                params: JSON.stringify(postData),
-            }).then((res) => {
-                // eslint-disable-next-line no-debugger
-                // debugger
-                // console.log(res)
-                let data = res.data
-                if (res.errno === 0) {
-                    let user = {
-                        avatarUrl: data.userInfo.avatarUrl,
-                        nickName: data.userInfo.nickName,
-                    }
-                    this.localStorage.set('token', data.token)
-                    this.localStorage.set('user', user)
-                    this.localStorage.set('isLogin', true)
+            let checkArray = this.checkArray;
 
-                    this.$router.push({
-                        name: 'index',
-                    })
+            if (checkDataFunc.checkBasics(postData, checkArray)) {
+                return postData = {
+                    ...postData,
                 }
-            }).catch(err=>{
-                console.log(err)
-            })
+            } else {
+                return false
+            }
         }
     }
 
@@ -177,7 +213,8 @@ export default {
                     border-radius: 8rem;
                     color: #FFFFFF;
                     box-sizing: border-box;
-                    .username-img{
+
+                    .username-img {
                         position: absolute;
                         width: 27rem;
                         height: 27rem;
@@ -185,6 +222,7 @@ export default {
                         margin-right: 15rem;
                         margin-top: 16rem;
                     }
+
                     .username-input {
                         width: 100%;
                         line-height: 58rem;
@@ -203,7 +241,8 @@ export default {
                     opacity: 0.5;
                     border-radius: 8rem;
                     color: #FFFFFF;
-                    .password-img{
+
+                    .password-img {
                         position: absolute;
                         width: 27rem;
                         height: 27rem;
@@ -211,6 +250,7 @@ export default {
                         margin-right: 15rem;
                         margin-top: 16rem;
                     }
+
                     .password-input {
                         width: 100%;
                         line-height: 58rem;
