@@ -87,11 +87,15 @@
                 </div> -->
             </div>
         </div>
+        <div class="goshopcart" @click="topage('shoppingCart')">
+            <img class="img" src="../../static/img/chatorshopcart/shopcart.png" alt="">
+        </div>
     </div>
 </template>
 
 <script>
     import themeStickyHeader from "../../components/header/themeStickyHeader";
+    // import localStorage from "../../static/js/localStorage";
     export default {
         name: "goodsdetails",
         components:{
@@ -116,6 +120,7 @@
                 currentindex:0,
                 showitem:false,
                 goodsid:'',
+                goodsindex:'',
                 goodsDetail:{}
             }
         },
@@ -123,9 +128,17 @@
             this.getGoodsDetail();
         },
         beforeMount() {
-            console.log(this.$route.params.item)
-            this.goodsid = this.$route.params.item.id;
-            console.log(this.goodsid)
+            // console.log(this.$route.params.item);
+            // console.log(this.$route.params.index);
+            this.localStorage.set('goodsid', this.$route.params.item.id);
+            this.localStorage.set('goodsindex', this.$route.params.index);
+            let goodsid = this.localStorage.get("goodsid");
+            let goodsindex = this.localStorage.get('goodsindex');
+            console.log(goodsid,goodsindex)
+            this.goodsid = goodsid;
+            this.goodsindex = goodsindex;
+            // console.log(this.goodsid);
+            // console.log(this.goodsindex)
         },
         methods:{
             control(){
@@ -164,11 +177,11 @@
             getPostData(){
                 let goodsId = this.goodsid;
                 // let number = this.goodsmsg.number;
-                // let productId = this.goodsDetail.info.categoryId;
+                // let productId = this.goodsindex;
                 let PostData = {
                     goodsId:goodsId,
                     number:1,
-                    productId:goodsId
+                    productId:this.goodsindex+1
                 }
                 return PostData
             },
@@ -201,6 +214,20 @@
     width: 100%;
     height: calc(100vh - 75rem);
     background-color: #F3F5F7;
+    .goshopcart{
+        width: 68rem;
+        height: 68rem;
+        background-color: #00B9FE;
+        position: fixed;
+        right: 150rem;
+        bottom: 220rem;
+        border-radius: 50%;
+        .img{
+            width: 34rem;
+            height: 34rem;
+            margin-top: 17rem;
+        }
+    }
     .goodsmsg{
         margin-top: 75rem;
         padding-top: 229rem;

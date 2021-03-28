@@ -1,11 +1,11 @@
 <template>
     <div class="shoppingCartItem">
         <checkBoxCustom @choose="choose" :isSlect="goodsitem.checked"/>
-        <img class="goodsImage" :src="goodsImage"/>
+        <img class="goodsImage" :src="goodsitem.picUrl"/>
         <div class="goodsItemCenter">
             <div class="goodsItemCenter_top">
-                <div class="p p1">{{goodsitem.goodsname}}</div>
-                <div class="p p2">{{$t('shopcar.goodsId')}} {{goodsitem.goodsmsg}}</div>
+                <div class="p p1">{{goodsitem.goodsName}}</div>
+                <div class="p p2">{{$t('shopcar.goodsId')}} {{goodsitem.goodsSn}}</div>
                 <div class="p p3">{{$t('shopcar.goodsStyle')}} {{goodsitem.goodstype}}</div>
             </div>
             <div class="text text4" v-if="goodsitem.havegoods">{{$t('shopcar.inStock')}}</div>
@@ -16,9 +16,9 @@
         <!-- <div class="goodsItemRight"> -->
         <div class="goodsItemRight_Num">
             <div class="lable">{{$t('shopcar.num')}}：</div>
-            <input type="number" min="1" :value="goodsitem.num"/>
+            <input type="number" min="1" :value="goodsitem.number"/>
         </div>
-        <div class="countPrice">￥ 4,200</div>
+        <div class="countPrice">￥ {{goodsitem.price}}</div>
             <!-- <div class="text text4">有货</div>
             <div class="text text5">预计发货后2-4个工作日送达</div>
             <div class="btn text text6">删除</div> -->
@@ -39,6 +39,9 @@
             return {
                 goodsImage: `${require('../../static/img/shop/carDmo2.png')}`,
             }
+        },
+        mounted() {
+            // console.log(this.goodsitem)
         },
         props:{
             isSlect: {
@@ -152,7 +155,7 @@
         color: #444444;
         line-height: 38rem;
         .lable{
-            width: 50rem;
+            width: 60rem;
         }
         input{
             width: 60rem;

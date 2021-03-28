@@ -55,7 +55,7 @@
                         <div class="goods-list-item"
                              v-for="(childItem, childIndex) in item"
                              :key="childIndex"
-                              @click="topage('goodsdetails',childItem)">
+                              @click="topage('goodsdetails',childItem,childIndex)">
                                 <div class="imgBox">
                                     <img :src="childItem.img" alt="">
                                 </div>
@@ -184,11 +184,12 @@ export default {
             }
             this.getGoodsById(data.item.id)
         },
-        topage(name,item){
+        topage(name,item,childIndex){
             this.$router.push({
                 name:name,
                 params:{
-                    item:item
+                    item:item,
+                    index:childIndex
                 }
             })
         },
