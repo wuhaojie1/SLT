@@ -66,15 +66,14 @@ export default {
         return{
             postData:{
                 name: "",//姓名
-                tel: "",//电话
-                postalCode: "642150",//邮编
+                address: "",
                 addressDetail: "",//详细地址
                 isDefault: false,//是否是默认地址
                 province: "",//省
                 city: "",//市
                 county: "",//县
                 areaCode: "",
-                address: "",
+                tel: "",//电话
             },
             dataList:[]
         }
@@ -84,6 +83,10 @@ export default {
     },
     methods:{
         saveAddr() {
+            let isCheck = this.checkForm();
+            if(isCheck == false){
+                return;
+            }
             let postData = {
                 name: this.postData.name,//姓名
                 tel: this.postData.tel,//电话
@@ -93,13 +96,14 @@ export default {
                 province: "四川",//省
                 city: "成都市",//市
                 county: "郫都区",//县
-                areaCode: "810010",
+                areaCode: this.postData.areaCode,
             }
             this.axios({
                 url: 'wx/address/save',
                 method: 'post',
                 params: JSON.stringify(postData),
             }).then((res) => {
+                console.log(res);
                 if (res.errno === 0) {
                     this.$notify({
                         title:'保存成功'
@@ -204,6 +208,39 @@ export default {
             })
             this.dataList = tempArray
         },
+
+        //表单校验
+        checkForm(){
+            for (const key in this.postData) {
+                if(key!="isDefault"&&key!="province"&&key!='city'&&key!='county'&&!this.postData[key].trim()){
+                    let str = ''
+                    switch (key) {
+                        case 'name':
+                            str = this.$t('userAdress.name')
+                            break;
+                        case 'address':
+                            str = this.$t('userAdress.Adressmsg')
+                            break;
+                        case 'addressDetail':
+                            str = this.$t('userAdress.msgdetail')
+                            break;
+                        case 'areaCode':
+                            str = this.$t('userAdress.mailnum')
+                            break;
+                        case 'tel':
+                            str = this.$t('userAdress.phonenum')
+                            break;
+                        default:
+                            break;
+                    }
+                    this.$notify({
+                        title:'请输入'+str
+                    })
+                    return false;
+                }
+            }
+            return true
+        }
     }
 }
 </script>

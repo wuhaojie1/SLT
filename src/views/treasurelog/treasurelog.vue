@@ -153,7 +153,6 @@
                     url:'user/wallet/rechargeInfo',
                     method:'get',
                     params:JSON.stringify({
-                        userId:'24',
                         pageNum:1,
                         pageSize:1
                     }) 
