@@ -60,7 +60,7 @@
     // bottom: 0;
     // z-index: 20;
     .section11 {
-                height: 380zrem;
+                height: 380rem;
                 background-color: #040622;
                 background-position: center;
                 background-repeat: no-repeat;
