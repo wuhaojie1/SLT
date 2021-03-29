@@ -27,10 +27,6 @@ Vue.use(VideoPlayer);
 
 const i18n = new VueI18n({
     // locale: localStorage.get('langMsg') ? localStorage.get('langMsg').name : 'ko-KR',
-<<<<<<< HEAD
-    // locale: 'ko-KR',
-=======
->>>>>>> b34bd93224cb6ff81dd8bc105adea48cb7531420
     locale: 'zh-CN',
     messages: {
         'zh-CN': lang.cn,
