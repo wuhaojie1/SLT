@@ -45,12 +45,19 @@
             <div class="addr">
                 <ul v-for="item in dataList" :key="item.id">
                     <li>{{item.name}}</li>
-                    <li><span>{{item.province+''+item.city+item.county+item.addressDetail}}</span> <img @click="alter(item)" style="width:30rem;height:32rem" src="../../../static/img/user/edit.png" alt=""></li>
+                    <li><span>{{item.province+''+item.city+item.county+item.addressDetail}}</span> <div><img @click="alter(item)" style="width:30rem;height:32rem" src="../../../static/img/user/edit.png" alt=""> <img @click="openModa(item)" style="width:30rem;height:32rem;margin-left:40rem" src="../../../static/img/user/remove.png" alt=""></div></li>
                     <li><span>{{item.areaCode}}</span><span>{{item.tel}}</span></li>
                 </ul>
             </div>
         </div>
         <BottomBar></BottomBar>
+        <el-dialog title="提示" :visible.sync="dialogVisible" width="70%">
+            <span>确定删除该地址？</span>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogVisible = false">取 消</el-button>
+                <el-button type="primary" @click="deleteById">确 定</el-button>
+            </span>
+        </el-dialog>
     </div>
 </template>
 
@@ -73,9 +80,10 @@ export default {
                 city: "",//市
                 county: "",//县
                 areaCode: "",
-                tel: "",//电话
+                tel: "",//电话,
             },
-            dataList:[]
+            dataList:[],
+            dialogVisible:false
         }
     },
     mounted(){
@@ -103,7 +111,6 @@ export default {
                 method: 'post',
                 params: JSON.stringify(postData),
             }).then((res) => {
-                console.log(res);
                 if (res.errno === 0) {
                     this.$notify({
                         title:'保存成功'
@@ -134,9 +141,9 @@ export default {
             
         },
         //删除
-        deleteById(item) {
+        deleteById() {
             let postData = {
-                ...item,
+                ...this.curItem,
                 deleted: true,
             }
             this.axios({
@@ -146,10 +153,20 @@ export default {
             }).then((res) => {
                 if (res.errno === 0) {
                     this.getAddr()
+                    this.$notify({
+                        title:'删除成功'
+                    })
+                    this.dialogVisible = false
                 }
             }).catch(err => {
                 console.log(err)
             })
+        },
+
+        //打开模态框
+        openModa(item){
+            this.dialogVisible = true;
+            this.curItem = item
         },
 
         //设置为默认地址

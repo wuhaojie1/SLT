@@ -137,6 +137,9 @@
         mounted(){
             this.recharage();
             this.withDraw();
+            this.OTCTrading();
+            this.positionTrading();
+            this.goodsTrading();
         },
         methods:{
             changecurrent(index){
@@ -172,6 +175,43 @@
                     }
                 }).then(res=>{
                     console.log(res,'提币');
+                }).catch(e=>{
+                    console.log(e);
+                })
+            },
+            //OTC交易记录
+            OTCTrading(){
+                this.axios({
+                    url:'otc/trans/listFreeBuySell',
+                    method:'get',
+                    params:{
+                        lastId:1,
+                        size:1
+                    }
+                }).then(res=>{
+                    console.log(res,'OTC');
+                }).catch(e=>{
+                    console.log(e);
+                })
+            },
+            //位置购买记录
+            positionTrading(){
+                this.axios({
+                    url:'wx/position/buyList',
+                    method:'get'
+                }).then(res=>{
+                    console.log(res,'位置购买记录');
+                }).catch(e=>{
+                    console.log(e);
+                })
+            },
+            //商品交易记录
+            goodsTrading(){
+                this.axios({
+                    url:'wx/order/list',
+                    method:'get'
+                }).then(res=>{
+                    console.log(res,'商品交易');
                 }).catch(e=>{
                     console.log(e);
                 })
