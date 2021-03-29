@@ -3,8 +3,8 @@
         <div class="top">
             <img src="../../../static/img/index/userAvatar.png" alt="">
             <div class="topCenter">
-                <div>{{usermsg[0].val}}</div>
-                <div>{{usermsg[1].val}}</div>
+                <div>{{userInfo.username}}</div>
+                <div>ID: {{userInfo.userId}}</div>
             </div>
             <div class="topRight">{{$t('userInfo.exit')}}</div>
         </div>
@@ -20,14 +20,16 @@
         </div> -->
     </div>
 </template>
-
 <script>
 export default {
-    props:{
-        usermsg:{
-            type:Array,
-            default:()=>{}
+    name:'bottoBar',
+    data(){
+        return{
+            userInfo:{}
         }
+    },
+    mounted(){
+        this.userInfo = this.localStorage.get('usermsg')
     }
 }
 </script>

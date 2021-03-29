@@ -66,6 +66,7 @@ export default {
     },
     methods: {
         login() {
+            console.log('点击');
             // eslint-disable-next-line no-debugger
             // debugger
             // console.log('打印');

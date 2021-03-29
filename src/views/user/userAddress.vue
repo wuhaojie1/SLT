@@ -167,7 +167,7 @@ export default {
             }).then((res) => {
                 // eslint-disable-next-line no-debugger
                 // debugger
-                // console.log(res)
+                console.log(res)
                 let data = res.data
                 if (res.errno === 0) {
                     this.getDataList(data.list)

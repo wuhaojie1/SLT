@@ -103,12 +103,28 @@
                 ],
             }
         },
+        created() {
+            this.getListFreeBuySell()
+        },
         methods: {
             changeactive(B) {
                 this.active = B;
             },
             chooseCoin(index) {
                 this.coinListChoose = index;
+            },
+            async getListFreeBuySell() {
+
+                let postData = {
+                    lastId: 0,
+                    size: 10,
+                }
+                const data = await this.axios({
+                    url: 'otc/trans/listFreeBuySell',
+                    method: 'get',
+                    params: postData,
+                })
+                console.log(data)
             }
         }
     }
