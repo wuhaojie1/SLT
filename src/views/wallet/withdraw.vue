@@ -23,17 +23,17 @@
                     <div class="box" @click="openCoin">
                         <div class="box-left">
                             <div class="imgBox">
-                                <!-- <img src="" class="img" alt=""> -->
+                                 <img :src="down" class="img" alt="">
                             </div>
                             <div class="text">
-                                {{ selectedCoin.name }} <span>{{ selectedCoin.tip }}</span>
+                                {{ selectedCoin.name }} <!--<span>{{ selectedCoin.tip }}</span>-->
                             </div>
                             <div class="coinList"
                                  v-show="showCoins">
-                                <div class="searchBox">
-                                    <img :src="searchImg" alt="" class="searchImg">
-                                    <input type="text" :placeholder="searchPlaceholder">
-                                </div>
+                                <!--<div class="searchBox">-->
+                                    <!--<img :src="searchImg" alt="" class="searchImg">-->
+                                    <!--<input type="text" :placeholder="searchPlaceholder">-->
+                                <!--</div>-->
                                 <div class="coinList-content">
                                     <div class="coinList-content-list">
                                         <div class="coinList-content-item"
@@ -41,7 +41,7 @@
                                              :key="item.id"
                                              @click="selectCoin(item)">
                                             <div class="name">{{ item.name }}</div>
-                                            <div class="tip">{{ item.tip }}</div>
+                                            <!--<div class="tip">{{ item.tip }}</div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                             <!-- <div class="text">推荐使用<span>SLT</span>钱包 提币SLT</div> -->
                         </div>
                         <div class="withdraw-input">
-                            <input type="text" class="input">
+                            <input type="text" class="input" v-model="address">
                         </div>
                     </div>
                     <div class="withdraw-number">
@@ -91,26 +91,26 @@
                                 <input type="text" class="input" v-model="reflectCount">
 
                                 <div class="input-tip">
-                                    <div class="text">BLC</div>
+                                    <div class="text">{{reflectItem.symbol}}</div>
                                     <div class="input-line"></div>
-                                    <div class="all">{{$t('wallet.all')}}</div>
+                                    <div class="all" @click="allApply">{{$t('wallet.all')}}</div>
                                 </div>
                             </div>
                         </div>
                         <div class="fee">
                             <div class="fee-title">{{$t('wallet.serviceCharge')}}</div>
                             <div class="fee-input">
-                                <div class="input fee">{{reflectCount*fee}}</div>
+                                <div class="input fee">{{reflectCount*fee ? reflectCount*fee  : ''}}</div>
                             </div>
                         </div>
                     </div>
                     <div class="balance">
-                        {{$t('wallet.available')}}：0.00000000SLT
+                        {{$t('wallet.available')}}：{{reflectItem.balanceAmount - reflectItem.drawAmount }}{{ selectedCoin.name }}
                     </div>
-                    <div class="arrival">{{$t('wallet.received')}}（SLT）<span>0.00000000</span></div>
+                    <div class="arrival">{{$t('wallet.received')}}（{{ selectedCoin.name }}）<span>{{reflectCount - reflectCount*fee}}</span></div>
 
                     <div class="btn-box">
-                        <div class="btn" @click="dialogVisible = true">
+                        <div class="btn" @click="openTip">
                             {{$t('wallet.withdraw')}}
                         </div>
                     </div>
@@ -149,11 +149,12 @@
                 </div>
             </div>
             <div class="toolTip">
-                <input type="checkBox"><span>不再提醒</span>
+                <el-checkbox v-model="checkFlag"></el-checkbox><span>不再提醒</span>
             </div>
             <div class="btn">
                 <el-button type="primary"
-                           @click="apllyDraw">确定</el-button>
+                           :disabled="!checkFlag"
+                           @click="applyDraw">确定</el-button>
             </div>
         </el-dialog>
         <Bottom></Bottom>
@@ -190,60 +191,63 @@ import Bottom from "../../components/bottom/bottom";
                 reflectItem: {},
                 drawData: [],
                 fee: null,
-                reflectCount:0,
+                reflectCount:null,
+                address: '',
                 showCoins: false,
                 searchImg: `${require('@/static/img/wallet/search.png')}`,
+                down: `${require('@/static/img/login/down.png')}`,
                 searchPlaceholder: "",
                 coinKindList: [
-                    {
-                        name: "BTC ",
-                        tip: "Bitcoin",
-                    },
-                    {
-                        name: "USDT",
-                        tip: "Tether",
-                    },
-                    {
-                        name: "HUSD",
-                        tip: "HUSD",
-                    },
-                    {
-                        name: "GUSD",
-                        tip: "GUSD",
-                    },
-                    {
-                        name: "TUSD",
-                        tip: "TRUE USD",
-                    },
-                    {
-                        name: "VEN",
-                        tip: "VEN",
-                    },
-                    {
-                        name: "USDT",
-                        tip: "Tether",
-                    },
-                    {
-                        name: "HUSD",
-                        tip: "HUSD",
-                    },
-                    {
-                        name: "GUSD",
-                        tip: "GUSD",
-                    },
-                    {
-                        name: "TUSD",
-                        tip: "TRUE USD",
-                    },
-                    {
-                        name: "VEN",
-                        tip: "VEN",
-                    },
+                    // {
+                    //     name: "BTC ",
+                    //     tip: "Bitcoin",
+                    // },
+                    // {
+                    //     name: "USDT",
+                    //     tip: "Tether",
+                    // },
+                    // {
+                    //     name: "HUSD",
+                    //     tip: "HUSD",
+                    // },
+                    // {
+                    //     name: "GUSD",
+                    //     tip: "GUSD",
+                    // },
+                    // {
+                    //     name: "TUSD",
+                    //     tip: "TRUE USD",
+                    // },
+                    // {
+                    //     name: "VEN",
+                    //     tip: "VEN",
+                    // },
+                    // {
+                    //     name: "USDT",
+                    //     tip: "Tether",
+                    // },
+                    // {
+                    //     name: "HUSD",
+                    //     tip: "HUSD",
+                    // },
+                    // {
+                    //     name: "GUSD",
+                    //     tip: "GUSD",
+                    // },
+                    // {
+                    //     name: "TUSD",
+                    //     tip: "TRUE USD",
+                    // },
+                    // {
+                    //     name: "VEN",
+                    //     tip: "VEN",
+                    // },
                 ],
                 selectedCoin: {
                     name: "BTC ",
                     tip: "Bitcoin",
                 },
+                checkFlag: false,
             }
         },
         created(){
@@ -256,19 +260,54 @@ import Bottom from "../../components/bottom/bottom";
             select(index) {
                 this.coinIndex = index
             },
+            openCoin() {
+                this.showCoins = !this.showCoins
+            },
+            selectCoin(item) {
+                this.reflectCount = null;
+                this.selectedCoin = item;
+                this.drawData.forEach(element=>{
+                    if (element.symbol === item.name){
+                        this.reflectItem = element;
+                    }
+                })
+            },
+            allApply(){
+                let {reflectItem} = this;
+                this.reflectCount = reflectItem.balanceAmount - reflectItem.drawAmount
+            },
 
+            openTip() {
+                if (this.reflectCount > 0){
+                    if (this.address){
+                        this.dialogVisible = true
+                    }else {
+                        this.$notify({
+                            title:this.$t('common.warning'),
+                            type: 'warning',
+                            message: '提现地址不能为空！'
+                        })
+                    }
+                }else {
+                    this.$notify({
+                        title:this.$t('common.warning'),
+                        type: 'warning',
+                        message: '提现金额不能为空！'
+                    })
+                }
+            },
             getInfo(){
                 this.axios({
                     url:'/user/wallet/drawIndex',
                     method: 'get',
-                    params:{userId: 18}
                 }).then((res)=>{
                     if (res.errorCode === 0){
                         this.fee = res.results.fee;
-
                         if (res.results.accPacketList.length){
+                            this.getSymbol(res.results.accPacketList);
                             this.drawData=  res.results.accPacketList;
                             if (this.localStorage.get('reflectItem')){
+                                this.selectedCoin.name = this.localStorage.get('reflectItem').symbol;
                                 const drawId = this.localStorage.get('reflectItem').id;
                                 res.results.accPacketList.forEach(element => {
                                     if (element.id === drawId){
@@ -277,22 +316,47 @@ import Bottom from "../../components/bottom/bottom";
                                 })
                             } else {
                                 this.reflectItem =  res.results.accPacketList[0];
+                                this.selectedCoin.name = res.results.accPacketList[0].symbol
                             }
                         }
                     }
                 })
             },
-            apllyDraw(){
+            getSymbol(item){
+                let symbolItem = {};
+                item.forEach(element=>{
+                    symbolItem = {
+                        name: element.symbol
+                    };
+                    this.coinKindList.push(symbolItem)
+                })
+            },
+            applyDraw(){
                 const param = {
-                    amount: "5.10",
-                    symbol: "ETH"
+                    amount: this.reflectCount,
+                    symbol: this.reflectItem.symbol,
+                    address: this.address,
                 };
                 this.axios({
                     url:'user/wallet/drawApply  ',
                     method:'post',
                     params: param,
                 }).then(res=>{
-                    console.log(res)
+                    if (res.errorCode === 0){
+                        this.dialogVisible = false;
+                        this.$router.go(-1);
+                        this.$notify({
+                            title:this.$t('common.success'),
+                            type: 'success',
+                            message: '提现申请发送成功！'
+                        })
+                    }else {
+                        this.$notify({
+                            title:this.$t('common.error'),
+                            type: 'error',
+                            message: '提现申请发送失败！'
+                        })
+                    }
                 })
 
             }
@@ -406,6 +470,11 @@ import Bottom from "../../components/bottom/bottom";
                         position: relative;
 
                         .imgBox {
+                            margin-left: 25rem;
+                            width: 20rem;
+                            height: 20rem;
+                            background: #00B4FC;
+                            border-radius: 2rem;
                             .img {
                                 width: 20rem;
                                 height: 20rem;
@@ -581,7 +650,6 @@ import Bottom from "../../components/bottom/bottom";
                         position: relative;
                         line-height: 38rem;
                         cursor: pointer;
-
                     }
 
                     .linkList-item:before {

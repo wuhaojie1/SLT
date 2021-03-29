@@ -37,10 +37,10 @@
                     <!--                    充币多币-->
                     <div class="coinList"
                          v-show="showCoins">
-                        <div class="searchBox">
-                            <img :src="searchImg" alt="" class="searchImg">
-                            <input type="text" :placeholder="searchPlaceholder">
-                        </div>
+                        <!--<div class="searchBox">-->
+                            <!--<img :src="searchImg" alt="" class="searchImg">-->
+                            <!--<input type="text" :placeholder="searchPlaceholder">-->
+                        <!--</div>-->
                         <div class="coinList-content">
                             <div class="coinList-content-list">
                                 <div class="coinList-content-item"
@@ -48,7 +48,7 @@
                                      :key="item.id"
                                      @click="selectCoin(item)">
                                     <div class="name">{{ item.name }}</div>
-                                    <div class="tip">{{ item.tip }}</div>
+                                    <!--<div class="tip">{{ item.tip }}</div>-->
                                 </div>
                             </div>
                         </div>
@@ -77,14 +77,14 @@
                         {{ $t('MtopUp.name') }}
                     </div>
                     <div class="linkList">
-                        <div class="linkList-item"
-                             v-for="(item, index) in coinList"
-                             :class="coinIndex===index ? 'linkList-item-active' : '' "
-                             @click="select(index)"
-                             :key="index">{{ item.text }}
-                        </div>
-                        <!--<div class="linkList-item">ERC20</div>
-                        <div class="linkList-item">HEOC</div>-->
+                        <!--<div class="linkList-item"-->
+                             <!--v-for="(item, index) in coinList"-->
+                             <!--:class="coinIndex===index ? 'linkList-item-active' : '' "-->
+                             <!--@click="select(index)"-->
+                             <!--:key="index">{{ item.text }}-->
+                        <!--</div>-->
+                        <div class="linkList-item linkList-item-active"><div class="symbol">{{drawItem.symbol}}</div></div>
+                        <!--<div class="linkList-item">HEOC</div>-->
                     </div>
 
                     <div class="withdraw-addr">
@@ -97,14 +97,14 @@
                         </div>
                     </div>
                     <div class="addr-content">
-                        <div class="addrSLT">{{ $t('MtopUp.btnBoxText') }}</div>
-                        <div class="text">TFBpBaswdZnyZewS9zTimjt</div>
+                        <div class="addrSLT">{{drawItem.symbol}}</div>
+                        <div class="text">{{drawItem.addr}}</div>
                     </div>
-                    <div class="copy">
+                    <div class="copy" @click="copyAddr(drawItem.addr)">
                         {{ $t('MtopUp.copyAddr') }}
                     </div>
                     <div class="QRCode">
-                        <VueQr :text="config.value"
+                        <VueQr :text="drawItem.addr"
                                :size="90"
                                :margin="0">
 
@@ -116,9 +116,9 @@
                             {{ $t('MtopUp.tipText1') }}
                         </div>
                     </div>
-                    <div class="btn" @click="openTip">
-                        {{ $t('MtopUp.btn') }}
-                    </div>
+                    <!--<div class="btn" @click="openTip">-->
+                        <!--{{ $t('MtopUp.btn') }}-->
+                    <!--</div>-->
 
                     <div class="tipText">
                         <ul>
@@ -192,61 +192,61 @@ export default {
             searchImg: `${require('@/static/img/wallet/search.png')}`,
             coinIndex: 0,
             coinList: [
-                {
-                    text: "BLC",
-                },
-                {
-                    text: "ERC20",
-                },
-                {
-                    text: "HEOC",
-                }
+                // {
+                //     text: "BLC",
+                // },
+                // {
+                //     text: "ERC20",
+                // },
+                // {
+                //     text: "HEOC",
+                // }
             ],
             coinKindList: [
-                {
-                    name: "BTC ",
-                    tip: "Bitcoin",
-                },
-                {
-                    name: "USDT",
-                    tip: "Tether",
-                },
-                {
-                    name: "HUSD",
-                    tip: "HUSD",
-                },
-                {
-                    name: "GUSD",
-                    tip: "GUSD",
-                },
-                {
-                    name: "TUSD",
-                    tip: "TRUE USD",
-                },
-                {
-                    name: "VEN",
-                    tip: "VEN",
-                },
-                {
-                    name: "USDT",
-                    tip: "Tether",
-                },
-                {
-                    name: "HUSD",
-                    tip: "HUSD",
-                },
-                {
-                    name: "GUSD",
-                    tip: "GUSD",
-                },
-                {
-                    name: "TUSD",
-                    tip: "TRUE USD",
-                },
-                {
-                    name: "VEN",
-                    tip: "VEN",
-                },
+                // {
+                //     name: "BTC ",
+                //     tip: "Bitcoin",
+                // },
+                // {
+                //     name: "USDT",
+                //     tip: "Tether",
+                // },
+                // {
+                //     name: "HUSD",
+                //     tip: "HUSD",
+                // },
+                // {
+                //     name: "GUSD",
+                //     tip: "GUSD",
+                // },
+                // {
+                //     name: "TUSD",
+                //     tip: "TRUE USD",
+                // },
+                // {
+                //     name: "VEN",
+                //     tip: "VEN",
+                // },
+                // {
+                //     name: "USDT",
+                //     tip: "Tether",
+                // },
+                // {
+                //     name: "HUSD",
+                //     tip: "HUSD",
+                // },
+                // {
+                //     name: "GUSD",
+                //     tip: "GUSD",
+                // },
+                // {
+                //     name: "TUSD",
+                //     tip: "TRUE USD",
+                // },
+                // {
+                //     name: "VEN",
+                //     tip: "VEN",
+                // },
             ],
 
             chooseOrderItem:{
@@ -255,8 +255,13 @@ export default {
             config: {
                 value: 'TFBpBaswdZnyZewS9zTimjtGpb11rhhLx',//显示的值、跳转的地址
                 // imagePath: require('../assets/logo.png')//中间logo的地址，require必要
-            }
+            },
+            drawItem:{},
+            drawData: [],
         }
+    },
+    created(){
+        this.getInfo();
     },
     methods: {
         select(index) {
@@ -272,11 +277,64 @@ export default {
             this.showCoins = !this.showCoins
         },
         selectCoin(item) {
-            this.selectedCoin = item
+            this.selectedCoin = item;
+            this.drawData.forEach(element=>{
+
+                if (element.symbol === item.name){
+                    this.drawItem = element;
+                }
+            })
         },
         // chooseOrder(item){
         //     this.chooseOrderItem = item
         // }
+        copyAddr(item){
+            const cInput = document.createElement('input');
+            cInput.value = item;
+            document.body.appendChild(cInput);
+            cInput.select();
+            document.execCommand('Copy');
+            this.$notify({
+                type:'success',
+                message: '复制成功'
+            });
+            cInput.remove();
+        },
+        getInfo(){
+            this.axios({
+                url:'user/wallet/payIndex',
+                method: 'get',
+            }).then((res)=>{
+                if (res.errorCode === 0){
+                    if (res.results.length){
+                        this.drawData=  res.results;
+                        this.getSymbol(res.results);
+                        if (this.localStorage.get('drawItem')){
+                            const drawId = this.localStorage.get('drawItem').id;
+                            this.selectedCoin.name = this.localStorage.get('drawItem').symbol;
+                            res.results.forEach(element => {
+                                if (element.id === drawId){
+                                    this.drawItem = element;
+                                }
+                            })
+                        } else {
+                            this.drawItem =  res.results[0];
+                            this.selectedCoin.name = res.results[0].symbol
+                        }
+                    }
+                }
+            })
+        },
+
+        getSymbol(item){
+            let symbolItem = {};
+            item.forEach(element=>{
+                symbolItem = {
+                    name: element.symbol
+                };
+                this.coinKindList.push(symbolItem)
+            })
+        }
     }
 }
 </script>
@@ -325,6 +383,7 @@ export default {
     }
 
     .topUp-wrap {
+        margin-top: 20rem;
         .topUp-content {
             .btc {
                 display: flex;
@@ -344,7 +403,6 @@ export default {
                     height: 30rem;
                     background: #00B4FC;
                     border-radius: 2rem;
-
                     img {
                         height: 12rem;
                         width: 20rem;
@@ -485,10 +543,11 @@ export default {
                 }
 
                 .linkList {
+                    padding-left: 35rem;
                     /*margin-top: 7rem;*/
                     display: flex;
                     align-items: center;
-                    justify-content: center;
+                    justify-content: left;
                     margin-top: 14rem;
                     /*margin-bottom: 25rem;*/
 
@@ -502,6 +561,13 @@ export default {
                         position: relative;
                         line-height: 72rem;
                         cursor: pointer;
+                        .symbol{
+                            position: absolute;
+                            width: 170rem;
+                            left: 50rem;
+                            text-align: center;
+                          //  top: 21rem;
+                        }
                     }
 
                     .linkList-item:before {
@@ -571,6 +637,9 @@ export default {
                         color: #666666;
                         text-align: center;
                         margin-left: 40rem;
+                        overflow: hidden;
+                        text-overflow:ellipsis;
+                        white-space: nowrap;
                     }
 
                     .addrSLT {

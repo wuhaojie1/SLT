@@ -14,17 +14,17 @@
                 <div class="topUp-content-title">
                     <div class="box" @click="openCoin">
                         <div class="imgBox">
-                            <img src="../../static/img/wallet/arrowdown.png" class="img" alt="">
+                            <img :src="down" class="img" alt="">
                         </div>
                         <div class="text">
-                            {{ selectedCoin.name }} <span>{{ selectedCoin.tip }}</span>
+                            {{ selectedCoin.name }} <!--<span>{{ selectedCoin.tip }}</span>-->
                         </div>
                         <div class="coinList"
                              v-show="showCoins">
-                            <div class="searchBox">
-                                <img :src="searchImg" alt="" class="searchImg">
-                                <input type="text" :placeholder="searchPlaceholder">
-                            </div>
+                            <!--<div class="searchBox">-->
+                                <!--<img :src="searchImg" alt="" class="searchImg">-->
+                                <!--<input type="text" :placeholder="searchPlaceholder">-->
+                            <!--</div>-->
                             <div class="coinList-content">
                                 <div class="coinList-content-list">
                                     <div class="coinList-content-item"
@@ -32,7 +32,7 @@
                                          :key="item.id"
                                          @click="selectCoin(item)">
                                         <div class="name">{{ item.name }}</div>
-                                        <div class="tip">{{ item.tip }}</div>
+                                        <!--<div class="tip">{{ item.tip }}</div>-->
                                     </div>
                                 </div>
                             </div>
@@ -158,55 +158,56 @@ export default {
             ],
             searchPlaceholder: "",
             coinKindList: [
-                {
-                    name: "BTC ",
-                    tip: "Bitcoin",
-                },
-                {
-                    name: "USDT",
-                    tip: "Tether",
-                },
-                {
-                    name: "HUSD",
-                    tip: "HUSD",
-                },
-                {
-                    name: "GUSD",
-                    tip: "GUSD",
-                },
-                {
-                    name: "TUSD",
-                    tip: "TRUE USD",
-                },
-                {
-                    name: "VEN",
-                    tip: "VEN",
-                },
-                {
-                    name: "USDT",
-                    tip: "Tether",
-                },
-                {
-                    name: "HUSD",
-                    tip: "HUSD",
-                },
-                {
-                    name: "GUSD",
-                    tip: "GUSD",
-                },
-                {
-                    name: "TUSD",
-                    tip: "TRUE USD",
-                },
-                {
-                    name: "VEN",
-                    tip: "VEN",
-                },
+                // {
+                //     name: "BTC ",
+                //     tip: "Bitcoin",
+                // },
+                // {
+                //     name: "USDT",
+                //     tip: "Tether",
+                // },
+                // {
+                //     name: "HUSD",
+                //     tip: "HUSD",
+                // },
+                // {
+                //     name: "GUSD",
+                //     tip: "GUSD",
+                // },
+                // {
+                //     name: "TUSD",
+                //     tip: "TRUE USD",
+                // },
+                // {
+                //     name: "VEN",
+                //     tip: "VEN",
+                // },
+                // {
+                //     name: "USDT",
+                //     tip: "Tether",
+                // },
+                // {
+                //     name: "HUSD",
+                //     tip: "HUSD",
+                // },
+                // {
+                //     name: "GUSD",
+                //     tip: "GUSD",
+                // },
+                // {
+                //     name: "TUSD",
+                //     tip: "TRUE USD",
+                // },
+                // {
+                //     name: "VEN",
+                //     tip: "VEN",
+                // },
             ],
             showCoins: false,
             searchImg: `${require('@/static/img/wallet/search.png')}`,
             centerDialogVisible: false,
             tipImg: `${require('../../static/img/wallet/hint.png')}`,
+            down: `${require('@/static/img/login/down.png')}`,
             config: {
                 value: 'TFBpBaswdZnyZewS9zTimjtGpb11rhhLx',//显示的值、跳转的地址
                 // imagePath: require('../assets/logo.png')//中间logo的地址，require必要
@@ -232,7 +233,13 @@ export default {
             this.centerDialogVisible = !this.centerDialogVisible
         },
         selectCoin(item) {
-            this.selectedCoin = item
+            this.selectedCoin = item;
+            this.drawData.forEach(element=>{
+
+                if (element.symbol === item.name){
+                    this.drawItem = element;
+                }
+            })
         },
         copyAddr(item){
             const cInput = document.createElement('input');
@@ -254,18 +261,31 @@ export default {
                 if (res.errorCode === 0){
                     if (res.results.length){
                         this.drawData=  res.results;
+                        this.getSymbol(res.results);
                         if (this.localStorage.get('drawItem')){
                             const drawId = this.localStorage.get('drawItem').id;
-                            res.results.forEach(element => {
+                            this.selectedCoin.name = this.localStorage.get('drawItem').symbol;
+                                res.results.forEach(element => {
                                 if (element.id === drawId){
                                     this.drawItem = element;
                                 }
                             })
                         } else {
                             this.drawItem =  res.results[0];
+                            this.selectedCoin.name = res.results[0].symbol
                         }
                     }
                 }
+            })
+        },
+
+        getSymbol(item){
+            let symbolItem = {};
+            item.forEach(element=>{
+                symbolItem = {
+                    name: element.symbol
+                };
+                this.coinKindList.push(symbolItem)
             })
         }
     }
@@ -342,6 +362,11 @@ export default {
                     position: relative;
 
                     .imgBox {
+                        margin-left: 25rem;
+                        width: 20rem;
+                        height: 20rem;
+                        background: #00B4FC;
+                        border-radius: 2rem;
                         .img {
                             width: 20rem;
                             height: 20rem;
@@ -467,7 +492,6 @@ export default {
                         position: relative;
                         line-height: 38rem;
                         cursor: pointer;
-
                     }
 
                     .linkList-item:before {

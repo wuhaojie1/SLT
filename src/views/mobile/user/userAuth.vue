@@ -25,27 +25,28 @@
                 <div class="upTitle">{{$t('identifi.uploadCard')}}</div>
                 <div class="card">
                     <div class="cardLeft">
-                        <el-upload  action="123"
+                        <el-upload  :action="`${uploadUrl}/wx/storage/upload`"
                                     :on-change="uploadFaceFile"
+                                    :on-success="handleFaceSuccess"
                                     accept="image/jpeg,image/png,image/jpg">
-                            <img style="width: 314rem;height: 219rem;" src="../../../static/img/user/card1.png" alt="">
+                            <img style="width: 314rem;height: 219rem;" :src="face?faceURL:faceimg" alt="">
                         </el-upload>
                         <div class="cardText">{{$t('identifi.uploadface')}}</div>
                     </div>
                     <div class="cardRight">
-                        <el-upload :on-success="handleAvatarSuccess"
+                        <el-upload :on-success="handleBackSuccess"
                                    :before-upload="beforeUpload"
-                                   action="123"
+                                   :action="`${uploadUrl}/wx/storage/upload`"
                                    :on-change="uploadBackFile"
                                    accept="image/jpeg,image/png,image/jpg">
-                            <img style="width: 314rem;height: 219rem;" src="../../../static/img/user/card2.png" alt="">
+                            <img style="width: 314rem;height: 219rem;" :src="back?backURL:backimg" alt="">
                         </el-upload>
                         <div class="cardText">{{$t('identifi.uploadback')}}</div>
                     </div>
                 </div>
             </div>
 
-            <div class="saveBtn">{{$t('identifi.auth')}}</div>
+            <div class="saveBtn"  @click="userAuth">{{applyButton[applyStatus]}}</div>
         </div>
 
 
@@ -56,6 +57,7 @@
 <script>
 import PageHeader from '../../../components/mobileComponents/comm/header.vue';
 import BottomBar from '../../../components/mobileComponents/user/bottomBar.vue';
+import api from  '../../../static/js/api.js';
 export default {
     components:{
         PageHeader,
@@ -70,40 +72,59 @@ export default {
             checked:false,
             faceURL:'',
             backURL:'',
+            faceimg:`${require('../../../static/img/user/idcardup.png')}`,
+            backimg:`${require('../../../static/img/user/idcarddown.png')}`,
             face:false,
             back:false,
             idcard:'',
             realName: '',
-            isErrorNum: true,
+            isErrorNum: false,
+            uploadUrl: api.commApi,
+            applyStatus: 'NORMAL',
+            applyButton:{
+                NORMAL: '认证',
+                INIT: '请等待审核',
+                PASS: '认证通过',
+                REFUSE: '认证',
+            }
         }
+    },
+    created(){
+        this.getUserAuth();
     },
 
     methods:{
-        uploadFaceFile(file){
-            // let fileName = file.name;
-            this.faceURL = URL.createObjectURL(file.raw)  // 获取URL
-            this.face=true
+        // uploadFaceFile(file){
+        //     // let fileName = file.name;
+        //     this.faceURL = URL.createObjectURL(file.raw)  // 获取URL
+        //     this.back=true
+        // },
+        // uploadBackFile(file){
+        //     // let fileName = file.name;
+        //     this.backURL = URL.createObjectURL(file.raw)  // 获取URL
+        //     this.back=true
+        // },
+        handleFaceSuccess(res){
+            this.faceURL = res.data.url;
+            this.back=true;
         },
-        uploadBackFile(file){
-            // let fileName = file.name;
-            this.backURL = URL.createObjectURL(file.raw)  // 获取URL
-            this.back=true
+        handleBackSuccess(res){
+            this.backURL = res.data.url;
+            this.back=true;
         },
 
         userAuth(){
-            let lang =  this.localStorage.get('langMsg');
             let PostData = this.getPostData();
+            if (!PostData){
+                return;
+            }
             this.axios({
                 url:'wx/user/auth',
                 method:'post',
                 params:PostData
             }).then(res=>{
-                if (res.errno === 762){
-                    if (lang.data.name === 'zh-CN'){
-                        this.$t('identifi').goidenrifi = '请等待审核';
-                    } else{
-                        this.$t('identifi').goidenrifi = res.errmsg;
-                    }
+                if (res.errno === 0){
+                    this.applyStatus="INIT";
                 }else {
                     this.$notify({
                         type:'error',
@@ -120,30 +141,33 @@ export default {
                     type:'warning',
                     message: '真实姓名不能为空'
                 });
-                return;
+                return false;
             }
             if (!this.idcard) {
                 this.$notify({
                     type:'warning',
                     message: '身份证账号不能为空'
                 });
-                return;
+                return false;
             }
             if (!this.backURL) {
                 this.$notify({
                     type:'warning',
                     message: '请上传身份证背面图片'
                 });
-                return;
+                return false;
             }
             if (!this.faceURL) {
                 this.$notify({
                     type:'warning',
                     message: '请上传身份证正面图片'
                 });
-                return;
+                return false;
             }
 
+            if (this.applyStatus==='INIT'||this.applyStatus==='PASS'){
+                return false;
+            }
             let PostData = {
                 realName:this.realName,
                 idcard:this.idcard,
@@ -151,6 +175,34 @@ export default {
                 forword:this.faceURL
             }
             return PostData
+        },
+        // beforeUpload(file){
+        //     console.log(file)
+        // },
+
+        getUserAuth(){
+            this.axios({
+                url:'/wx/user/authIndex',
+                method: 'get',
+            }).then((res)=>{
+                if (res.errno === 0){
+                    const authInfo = JSON.parse(res.data.authInfo);
+                    this.face=true;
+                    this.back=true;
+                    this.realName = authInfo.realName;
+                    this.idcard = authInfo.idcard;
+                    this.backURL = authInfo.back;
+                    this.faceURL = authInfo.forword;
+                    this.applyStatus = res.data.applyStatus;
+                    if (res.data.applyStatus === 'REFUSE') {
+                        this.$notify({
+                            type:'error',
+                            message: '认证失败，请修改后重新认证'
+                        });
+                    }
+                }
+            })
+
         }
     }
 }

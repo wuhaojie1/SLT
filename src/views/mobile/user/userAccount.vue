@@ -3,17 +3,17 @@
         <PageHeader></PageHeader>
         <div class="assetTop">{{$t('personasset.all')}}</div>
         <div class="total">
-            <div class="totalText">
-                <div>{{$t('personasset.total')}}</div>
-                <!-- <img style="width:34rem;height:23rem" src="../../../static/img/user/eye.png" alt=""> -->
-            </div>
-            <div class="totalNum">
-                <div>1.00000000<span>SLT</span></div>
-                <div>≈0.00 ETH</div>
-            </div>
+            <!--<div class="totalText">-->
+                <!--<div>{{$t('personasset.total')}}</div>-->
+                <!--&lt;!&ndash; <img style="width:34rem;height:23rem" src="../../../static/img/user/eye.png" alt=""> &ndash;&gt;-->
+            <!--</div>-->
+            <!--<div class="totalNum">-->
+                <!--<div>1.00000000<span>SLT</span></div>-->
+                <!--<div>≈0.00 ETH</div>-->
+            <!--</div>-->
             <div class="totalBtn">
-                <div>{{$t('personasset.out')}}</div>
-                <div>{{$t('personasset.in')}}</div>
+                <div @click="toCharge">{{$t('personasset.out')}}</div>
+                <div @click="toReflect">{{$t('personasset.in')}}</div>
             </div>
 <!--            <div class="accountText">{{$t('personasset.blance')}}</div>-->
         </div>
@@ -22,19 +22,19 @@
             <div class="boxTitle">{{$t('personasset.account')}}
                 <!-- <img style="width:24rem;height:24rem" src="../../../static/img/user/tipswhite.png" alt=""> -->
                 </div>
-            <ul class="table">
+            <ul class="table" v-for="(item,index) in tradelist" :key="index">
                 <li class="theader">
-                    <div><img style="width:38rem;38rem" src="../../../static/img/user/icon1.png" alt=""> SLT</div>
+                    <div><img style="width:38rem;38rem" src="../../../static/img/user/icon1.png" alt=""> {{item.symbol}}</div>
                 </li>
                 <li class="item">
                     <div>{{$t('personasset.tableHeader')[1]}}</div>
                     <div>{{$t('personasset.tableHeader')[2]}}</div>
-                    <div>{{$t('personasset.tableHeader')[5]}}</div>
+                    <div>{{$t('personasset.tableHeader')[3]}}</div>
                 </li>
                  <li class="item">
-                    <div>22:00  03/06</div>
-                    <div>{{$t('personasset.tableHeader')[2]}}</div>
-                    <div>0,000.003</div>
+                    <div>{{item.balanceAmount}}</div>
+                    <div>{{item.drawAmount}}</div>
+                    <div>{{item.balanceAmount-item.drawAmount}}</div>
                 </li>
                  <!-- <li class="item">
                     <div>ETH</div>
@@ -51,6 +51,35 @@ import PageHeader from '../../../components/mobileComponents/comm/header.vue'
 export default {
     components:{
         PageHeader
+    },
+    data() {
+        return{
+            tradelist:[],
+        }
+    },
+    mounted(){
+        this.getInfo();
+    },
+    methods:{
+        toCharge(){
+
+            this.$router.push({name:'MtopUp'})
+        },
+        toReflect(){
+            this.$router.push({name:'Mwithdraw'})
+        },
+        getInfo(){
+            this.axios({
+                url:'user/wallet/payIndex',
+                method: 'get',
+            }).then((res)=>{
+                if (res.errorCode === 0){
+                    this.tradelist= [];
+                    this.tradelist =  res.results;
+
+                }
+            })
+        }
     }
 }
 </script>
@@ -116,7 +145,7 @@ export default {
                 font-size: 32rem;
                 font-family: Source Han Sans CN;
                 font-weight: 400;
-                
+
             }
             div:nth-child(1){
                 background: #00B4FC;
@@ -129,7 +158,7 @@ export default {
                 margin-left: 15rem;
                 color: #444444;
             }
-            
+
         }
         .accountText{
             font-size: 28rem;
@@ -152,7 +181,7 @@ export default {
             img{
                 margin-left: 10rem;
             }
-        
+
         }
         .table{
             list-style: none;
@@ -216,7 +245,7 @@ export default {
                 }
                 div:nth-child(3){
                     span{
-                       font-size: 14rem; 
+                       font-size: 14rem;
                     }
 
                 }
@@ -229,6 +258,6 @@ export default {
             }
         }
     }
-    
+
 }
 </style>
