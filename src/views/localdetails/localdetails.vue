@@ -38,8 +38,8 @@
                     </div>
                     <div class="line"></div>
                     <div class="buy-con">
-                        <input class="buy-num" type="num" onautocomplete="true"/>
-                        <div class="buy-btn">{{$t('positionDetail.buy')}}</div>
+                        <input class="buy-num" type="text" onautocomplete="true" v-model="count"/>
+                        <div class="buy-btn" @click="handleBuyPosition" v-loading="buyLoading">{{$t('positionDetail.buy')}}</div>
                     </div>
                 </div>
             </div>
@@ -55,16 +55,55 @@
         components:{themeStickyHeader,PositionBlock},
         data(){
             return{
-                curPostType:''
+                curPostType:'',
+                count:null,
+                buyLoading: false,
             }
         },
         mounted(){
             if(this.localStorage.get('curPostType')){
                 this.curPostType = JSON.parse(this.localStorage.get('curPostType'))
+                console.log( this.curPostType.costCount)
             }
         },
         methods:{
+            handleBuyPosition(){
+                this.buyLoading = true;
+                const param = {
+                    count:this.count,
+                    positionId: this.curPostType.id,
+                };
 
+                this.axios({
+                    url:'wx/position/buy',
+                    method:'post',
+                    params:param
+                }).then((res)=>{
+                    if (res.errno===0){
+                        this.updateLocal();
+                        this.$notify({
+                            title: this.$t('common.success'),
+                            message: this.$t('positionDetail.buySuccess'),
+                            type: 'success'
+                        });
+                    }else {
+                        this.$notify({
+                            title: this.$t('common.fail'),
+                            message: this.$t('positionDetail.buyFail'),
+                            type: 'error'
+                        });
+                    }
+                    this.buyLoading = false;
+                }).catch(()=>{
+                    this.buyLoading = false;
+                })
+            },
+
+            updateLocal(){
+                this.curPostType.costCount=this.curPostType.costCount + (this.count - 0);
+                this.curPostType.lastCount-=this.count;
+                this.localStorage.set('curPostType',JSON.stringify(this.curPostType))
+            }
         }
     }
 </script>
@@ -265,6 +304,7 @@
                         background: #FFFFFF;
                         border: 1rem solid #DBDEE4;
                         border-radius: 2rem;
+                        text-align: center;
                     }
                     .buy-btn{
                         width: 515rem;

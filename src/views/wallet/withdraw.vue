@@ -7,13 +7,13 @@
                     <div class="text">
                         <div class="left">
                             <!-- <img src="" alt="" class="back"> -->
-                            <div>{{ $t('wallet.withdraw') }}</div>
+                            <div>{{$t('wallet.withdraw')}}</div>
                         </div>
                         <div class="right">
                             <!-- <div class="right-content">24H累计提币额度：1,00000000 SLT</div>
                             <div class="right-content">剩余额度：1,00000000 SLT</div> -->
                             <!-- <div class="line"></div> -->
-                            <!--                            <div class="right-content">提币地址管理</div>-->
+<!--                            <div class="right-content">提币地址管理</div>-->
                         </div>
                     </div>
                 </div>
@@ -23,17 +23,17 @@
                     <div class="box" @click="openCoin">
                         <div class="box-left">
                             <div class="imgBox">
-                                <!-- <img src="" class="img" alt=""> -->
+                                 <img :src="down" class="img" alt="">
                             </div>
                             <div class="text">
-                                {{ selectedCoin.name }} <span>{{ selectedCoin.tip }}</span>
+                                {{ selectedCoin.name }} <!--<span>{{ selectedCoin.tip }}</span>-->
                             </div>
                             <div class="coinList"
                                  v-show="showCoins">
-                                <div class="searchBox">
-                                    <img :src="searchImg" alt="" class="searchImg">
-                                    <input type="text" :placeholder="searchPlaceholder">
-                                </div>
+                                <!--<div class="searchBox">-->
+                                    <!--<img :src="searchImg" alt="" class="searchImg">-->
+                                    <!--<input type="text" :placeholder="searchPlaceholder">-->
+                                <!--</div>-->
                                 <div class="coinList-content">
                                     <div class="coinList-content-list">
                                         <div class="coinList-content-item"
@@ -41,7 +41,7 @@
                                              :key="item.id"
                                              @click="selectCoin(item)">
                                             <div class="name">{{ item.name }}</div>
-                                            <div class="tip">{{ item.tip }}</div>
+                                            <!--<div class="tip">{{ item.tip }}</div>-->
                                         </div>
                                     </div>
                                 </div>
@@ -51,7 +51,7 @@
                         <div class="line"></div>
 
                         <div class="amount-content">
-                            <div class="usable">{{ $t('wallet.available') }}：<span>0.00000000</span></div>
+                            <div class="usable">{{$t('wallet.available')}}：<span>{{reflectItem.balanceAmount - reflectItem.drawAmount }}</span></div>
                             <!-- <div class="withdraw">可提额度：<span>0.10000000</span></div>
                             <div class="apply">
                                 <img src="" alt="" class="img">
@@ -62,56 +62,56 @@
                 </div>
                 <div class="topUp-content-wrap">
                     <div class="topUp-content-wrap-title">
-                        {{ $t('wallet.chinaName') }}
+                        {{$t('wallet.chinaName')}}
                     </div>
                     <div class="linkList">
-                        <div class="linkList-item"
-                             v-for="(item, index) in coinList"
-                             :class="coinIndex===index ? 'linkList-item-active' : '' "
-                             @click="select(index)"
-                             :key="index">{{ item.text }}
-                        </div>
-                        <!--<div class="linkList-item">ERC20</div>
-                        <div class="linkList-item">HEOC</div>-->
+                        <!--<div class="linkList-item"-->
+                             <!--v-for="(item, index) in coinList"-->
+                             <!--:class="coinIndex===index ? 'linkList-item-active' : '' "-->
+                             <!--@click="select(index)"-->
+                             <!--:key="index">{{item.text}}-->
+                        <!--</div>-->
+                        <div class="linkList-item linkList-item-active">{{reflectItem.symbol}}</div>
+                        <!--<div class="linkList-item">HEOC</div>-->
                     </div>
 
                     <div class="withdraw-addr">
                         <div class="withdraw-addr-title">
-                            <div class="text">{{ $t('wallet.withdrawAddress') }}</div>
+                            <div class="text">{{$t('wallet.withdrawAddress')}}</div>
                             <!-- <div class="text">推荐使用<span>SLT</span>钱包 提币SLT</div> -->
                         </div>
                         <div class="withdraw-input">
-                            <input type="text" class="input">
+                            <input type="text" class="input" v-model="address">
                         </div>
                     </div>
                     <div class="withdraw-number">
                         <div class="number">
-                            <div class="number-title">{{ $t('wallet.num') }}</div>
+                            <div class="number-title">{{$t('wallet.num')}}</div>
                             <div class="number-input">
-                                <input type="text" class="input">
+                                <input type="text" class="input" v-model="reflectCount">
 
                                 <div class="input-tip">
-                                    <div class="text">BLC</div>
+                                    <div class="text">{{reflectItem.symbol}}</div>
                                     <div class="input-line"></div>
-                                    <div class="all">{{ $t('wallet.all') }}</div>
+                                    <div class="all" @click="allApply">{{$t('wallet.all')}}</div>
                                 </div>
                             </div>
                         </div>
                         <div class="fee">
-                            <div class="fee-title">{{ $t('wallet.serviceCharge') }}</div>
+                            <div class="fee-title">{{$t('wallet.serviceCharge')}}</div>
                             <div class="fee-input">
-                                <input type="text" class="input">
+                                <div class="input fee">{{reflectCount*fee ? reflectCount*fee  : ''}}</div>
                             </div>
                         </div>
                     </div>
                     <div class="balance">
-                        {{ $t('wallet.available') }}：0.00000000SLT
+                        {{$t('wallet.available')}}：{{reflectItem.balanceAmount - reflectItem.drawAmount }}{{ selectedCoin.name }}
                     </div>
-                    <div class="arrival">{{ $t('wallet.received') }}（SLT）<span>0.00000000</span></div>
+                    <div class="arrival">{{$t('wallet.received')}}（{{ selectedCoin.name }}）<span>{{reflectCount - reflectCount*fee}}</span></div>
 
                     <div class="btn-box">
-                        <div class="btn" @click="dialogVisible">
-                            {{ $t('wallet.withdraw') }}
+                        <div class="btn" @click="openTip">
+                            {{$t('wallet.withdraw')}}
                         </div>
                     </div>
 
@@ -119,15 +119,15 @@
                         <div class="warn">
                             <img src="" class="warn-img" alt="">
                             <div class="warn-text">
-                                {{ $t('wallet.tip') }}
+                               {{$t('wallet.tip')}}
                             </div>
                         </div>
                         <ul>
-                            <li>.{{ $t('wallet.withdrawTipArray')[0] }} 0.001 SLT.</li>
-                            <li>.{{ $t('wallet.withdrawTipArray')[1] }}
+                            <li>.{{$t('wallet.withdrawTipArray')[0]}} 0.001 SLT.</li>
+                            <li>.{{$t('wallet.withdrawTipArray')[1]}}
                             </li>
-                            <li>.{{ $t('wallet.withdrawTipArray')[2] }}</li>
-                            <li>.{{ $t('wallet.withdrawTipArray')[3] }}
+                            <li>.{{$t('wallet.withdrawTipArray')[2]}}</li>
+                            <li>.{{$t('wallet.withdrawTipArray')[3]}}
                             </li>
                         </ul>
                     </div>
@@ -142,19 +142,19 @@
                    top="30vh">
             <div class="tipText">
                 <div class="text">
-                    {{ $t('cancleorder.tipText') }}
+                    {{ $t('Mwithdraw.tipText') }}
                     <span>
-                        {{ $t('cancleorder.book') }}
+                        {{$t('Mwithdraw.book')}}
                     </span>
                 </div>
             </div>
             <div class="toolTip">
-                <input type="checkBox"><span>不再提醒</span>
+                <el-checkbox v-model="checkFlag"></el-checkbox><span>不再提醒</span>
             </div>
             <div class="btn">
                 <el-button type="primary"
-                           @click="cancleComfirm">确定
-                </el-button>
+                           :disabled="!checkFlag"
+                           @click="applyDraw">确定</el-button>
             </div>
         </el-dialog>
         <Bottom></Bottom>
@@ -165,100 +165,203 @@
 import ThemeStickyHeader from "../../components/header/themeStickyHeader";
 import Bottom from "../../components/bottom/bottom";
 
-export default {
-    name: "topUp",
-    components: {Bottom, ThemeStickyHeader},
-    data() {
-        return {
-            title: this.$t('cancleorder.title'),
-            dialogVisible: false,
-            coinIndex: 0,
-            coinList: [
-                {
-                    text: "BLC",
+    export default {
+        name: "topUp",
+        components: {Bottom, ThemeStickyHeader},
+        data() {
+            return {
+                title:this.$t('Mwithdraw.title'),
+                dialogVisible: false,
+                coinIndex: 0,
+                coinList: [
+                    {
+                        text: "BLC",
+                    },
+                    {
+                        text: "ERC20",
+                    },
+                    {
+                        text: "HEOC",
+                    }
+                ],
+                config: {
+                    value: 'TFBpBaswdZnyZewS9zTimjtGpb11rhhLx',//显示的值、跳转的地址
+                    // imagePath: require('../assets/logo.png')//中间logo的地址，require必要
                 },
-                {
-                    text: "ERC20",
-                },
-                {
-                    text: "HEOC",
-                }
-            ],
-            config: {
-                value: 'TFBpBaswdZnyZewS9zTimjtGpb11rhhLx',//显示的值、跳转的地址
-                // imagePath: require('../assets/logo.png')//中间logo的地址，require必要
-            },
-
-            showCoins: false,
-            searchImg: `${require('@/static/img/wallet/search.png')}`,
-            searchPlaceholder: "",
-            coinKindList: [
-                {
+                reflectItem: {},
+                drawData: [],
+                fee: null,
+                reflectCount:null,
+                address: '',
+                showCoins: false,
+                searchImg: `${require('@/static/img/wallet/search.png')}`,
+                down: `${require('@/static/img/login/down.png')}`,
+                searchPlaceholder: "",
+                coinKindList: [
+                    // {
+                    //     name: "BTC ",
+                    //     tip: "Bitcoin",
+                    // },
+                    // {
+                    //     name: "USDT",
+                    //     tip: "Tether",
+                    // },
+                    // {
+                    //     name: "HUSD",
+                    //     tip: "HUSD",
+                    // },
+                    // {
+                    //     name: "GUSD",
+                    //     tip: "GUSD",
+                    // },
+                    // {
+                    //     name: "TUSD",
+                    //     tip: "TRUE USD",
+                    // },
+                    // {
+                    //     name: "VEN",
+                    //     tip: "VEN",
+                    // },
+                    // {
+                    //     name: "USDT",
+                    //     tip: "Tether",
+                    // },
+                    // {
+                    //     name: "HUSD",
+                    //     tip: "HUSD",
+                    // },
+                    // {
+                    //     name: "GUSD",
+                    //     tip: "GUSD",
+                    // },
+                    // {
+                    //     name: "TUSD",
+                    //     tip: "TRUE USD",
+                    // },
+                    // {
+                    //     name: "VEN",
+                    //     tip: "VEN",
+                    // },
+                ],
+                selectedCoin: {
                     name: "BTC ",
                     tip: "Bitcoin",
                 },
-                {
-                    name: "USDT",
-                    tip: "Tether",
-                },
-                {
-                    name: "HUSD",
-                    tip: "HUSD",
-                },
-                {
-                    name: "GUSD",
-                    tip: "GUSD",
-                },
-                {
-                    name: "TUSD",
-                    tip: "TRUE USD",
-                },
-                {
-                    name: "VEN",
-                    tip: "VEN",
-                },
-                {
-                    name: "USDT",
-                    tip: "Tether",
-                },
-                {
-                    name: "HUSD",
-                    tip: "HUSD",
-                },
-                {
-                    name: "GUSD",
-                    tip: "GUSD",
-                },
-                {
-                    name: "TUSD",
-                    tip: "TRUE USD",
-                },
-                {
-                    name: "VEN",
-                    tip: "VEN",
-                },
-            ],
-            selectedCoin: {
-                name: "BTC ",
-                tip: "Bitcoin",
+                checkFlag: false,
+            }
+        },
+        created(){
+            this.getInfo();
+        },
+        destroyed(){
+             this.localStorage.remove('reflectItem')
+        },
+        methods: {
+            select(index) {
+                this.coinIndex = index
             },
-        }
-    },
-    methods: {
-        openCoin() {
-            this.showCoins = !this.showCoins
-        },
-        select(index) {
-            this.coinIndex = index
-        },
-        selectCoin(item) {
-            this.selectedCoin = item
-        },
-        cancleComfirm() {
+            openCoin() {
+                this.showCoins = !this.showCoins
+            },
+            selectCoin(item) {
+                this.reflectCount = null;
+                this.selectedCoin = item;
+                this.drawData.forEach(element=>{
+                    if (element.symbol === item.name){
+                        this.reflectItem = element;
+                    }
+                })
+            },
+            allApply(){
+                let {reflectItem} = this;
+                this.reflectCount = reflectItem.balanceAmount - reflectItem.drawAmount
+            },
 
-        },
+            openTip() {
+                if (this.reflectCount > 0){
+                    if (this.address){
+                        this.dialogVisible = true
+                    }else {
+                        this.$notify({
+                            title:this.$t('common.warning'),
+                            type: 'warning',
+                            message: '提现地址不能为空！'
+                        })
+                    }
+                }else {
+                    this.$notify({
+                        title:this.$t('common.warning'),
+                        type: 'warning',
+                        message: '提现金额不能为空！'
+                    })
+                }
+            },
+            getInfo(){
+                this.axios({
+                    url:'/user/wallet/drawIndex',
+                    method: 'get',
+                }).then((res)=>{
+                    if (res.errorCode === 0){
+                        this.fee = res.results.fee;
+                        if (res.results.accPacketList.length){
+                            this.getSymbol(res.results.accPacketList);
+                            this.drawData=  res.results.accPacketList;
+                            if (this.localStorage.get('reflectItem')){
+                                this.selectedCoin.name = this.localStorage.get('reflectItem').symbol;
+                                const drawId = this.localStorage.get('reflectItem').id;
+                                res.results.accPacketList.forEach(element => {
+                                    if (element.id === drawId){
+                                        this.reflectItem = element;
+                                    }
+                                })
+                            } else {
+                                this.reflectItem =  res.results.accPacketList[0];
+                                this.selectedCoin.name = res.results.accPacketList[0].symbol
+                            }
+                        }
+                    }
+                })
+            },
+            getSymbol(item){
+                let symbolItem = {};
+                item.forEach(element=>{
+                    symbolItem = {
+                        name: element.symbol
+                    };
+                    this.coinKindList.push(symbolItem)
+                })
+            },
+            applyDraw(){
+                const param = {
+                    amount: this.reflectCount,
+                    symbol: this.reflectItem.symbol,
+                    address: this.address,
+                };
+                this.axios({
+                    url:'user/wallet/drawApply  ',
+                    method:'post',
+                    params: param,
+                }).then(res=>{
+                    if (res.errorCode === 0){
+                        this.dialogVisible = false;
+                        this.$router.go(-1);
+                        this.$notify({
+                            title:this.$t('common.success'),
+                            type: 'success',
+                            message: '提现申请发送成功！'
+                        })
+                    }else {
+                        this.$notify({
+                            title:this.$t('common.error'),
+                            type: 'error',
+                            message: '提现申请发送失败！'
+                        })
+                    }
+                })
+
+            }
+        }
     }
-}
 </script>
 
 <style scoped lang="less">
@@ -367,6 +470,11 @@ export default {
                         position: relative;
 
                         .imgBox {
+                            margin-left: 25rem;
+                            width: 20rem;
+                            height: 20rem;
+                            background: #00B4FC;
+                            border-radius: 2rem;
                             .img {
                                 width: 20rem;
                                 height: 20rem;
@@ -542,7 +650,6 @@ export default {
                         position: relative;
                         line-height: 38rem;
                         cursor: pointer;
-
                     }
 
                     .linkList-item:before {
@@ -701,13 +808,14 @@ export default {
                                 box-sizing: border-box;
                                 height: 100%;
                                 width: 220rem;
+                                line-height: 38rem;
                                 background: #FFFFFF;
                                 /*border: 1rem solid #E4E7ED;*/
                                 border-radius: 2rem;
+                                }
                             }
                         }
                     }
-                }
 
                 .balance {
                     text-align: left;
@@ -728,7 +836,6 @@ export default {
                         color: #00B4FC;
                     }
                 }
-
 
                 .address-title {
                     margin-bottom: 8rem;

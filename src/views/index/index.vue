@@ -469,7 +469,7 @@
                                 <div class="left-box">
                                     <div class="time-box">
 
-                                                  
+
                                         <TimeCard class="TimeCard"
                                                   :dateStyle="dateStyle"
                                                   :numberStyle="numberStyle"
@@ -875,23 +875,23 @@ export default {
                 },
 
 
-                
+
                 // {
                 //     name: "Yu seungjun",
                 //     position: "Strategic Planning, Executive Direct of Energy Korea",
                 //     img: `${require('../../static/img/index/team_yusj-400x400.png')}`,
                 // },
-                
+
 
                 {
                     name: "Tonnam Choi",
                     position: "CIO",
                     img: `${require('../../static/img/index/team_tonnam-400x400.png')}`,
                 },
-                
-                
+
+
             ],
-             
+
             members1:[
                 {
                     name: "Yun johun",
@@ -933,7 +933,7 @@ export default {
                     position: "ChFC Total Financial Asset Manager",
                     img: `${require('../../static/img/index/team_junsg-400x400.png')}`,
                 },
-                
+
                 {
                     name: "전) 기업은행근무",
                     position: "전) (주) 국제자산관리 이사   현)    (주) 트레이드엑스 대표",
@@ -971,7 +971,7 @@ export default {
                 fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
                 sources: [{
                     type: "",
-                    src: 'http://vjs.zencdn.net/v/oceans.mp4'//url地址          
+                    src: 'http://vjs.zencdn.net/v/oceans.mp4'//url地址
                 // src: "" //url地址
                 }],
                 poster: "", //你的封面地址
@@ -990,7 +990,7 @@ export default {
                 minutes:"00",
                 seconds:"00"
             }
-            
+
         }
     },
     // watch: {

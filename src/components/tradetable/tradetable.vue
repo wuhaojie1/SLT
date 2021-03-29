@@ -18,15 +18,15 @@
                     <th>
                         <div>{{$t('personasset.tableHeader')[3]}}</div>
                     </th>
-                    <th>
-                        <div >{{$t('personasset.tableHeader')[4]}}</div>
-                    </th>
-                    <th>
-                        <div >{{$t('personasset.tableHeader')[5]}}</div>
-                    </th>
-                    <th>
-                        <div >{{$t('personasset.tableHeader')[6]}}</div>
-                    </th>
+                    <!--<th>-->
+                        <!--<div >{{$t('personasset.tableHeader')[4]}}</div>-->
+                    <!--</th>-->
+                    <!--<th>-->
+                        <!--<div >{{$t('personasset.tableHeader')[5]}}</div>-->
+                    <!--</th>-->
+                    <!--<th>-->
+                        <!--<div >{{$t('personasset.tableHeader')[6]}}</div>-->
+                    <!--</th>-->
                     <!-- <th>
                         <div class="price">{{$t('personasset.charge')}}</div>
                     </th>
@@ -53,18 +53,18 @@
                         <div >{{item.allmoney}}</div>
                     </th>
                     <th>
-                        <div >{{item.charge}}</div>
+                        <div >{{item.useMoney}}</div>
                     </th>
-                     <th>
-                        <div >{{item.charge}}</div>
-                    </th>
-                     <th>
-                        <div >{{item.charge}}</div>
-                    </th>
+                     <!--<th>-->
+                        <!--<div >{{item.charge}}</div>-->
+                    <!--</th>-->
+                     <!--<th>-->
+                        <!--<div >{{item.charge}}</div>-->
+                    <!--</th>-->
                      <th>
                         <div class="options">
-                            <span class="in">{{$t('personasset.in')}}</span>
-                            <span class="out">{{$t('personasset.out')}}</span>
+                            <span class="in" @click="toReflect(item)">{{$t('personasset.in')}}</span>
+                            <span class="out" @click="toCharge(item)">{{$t('personasset.out')}}</span>
                         </div>
                     </th>
                     <!-- <th>
@@ -91,6 +91,14 @@
             tradelist:{
                 type:Array,
                 default:()=>{}
+            }
+        },
+        methods:{
+            toCharge(item){
+                this.$emit('toCharge',item)
+            },
+            toReflect(item){
+                this.$emit('toReflect',item)
             }
         }
     }
@@ -125,7 +133,7 @@
                         width: 147rem;
                     }
                     div{
-                        width: 150rem; 
+                        width: 150rem;
                     }
                     .local{
                         /*margin-left: 20rem;*/
@@ -157,7 +165,7 @@
                         line-height: 42rem;
                         margin-right: 34rem;
                     }
-                    
+
                 }
             }
         }
@@ -205,10 +213,10 @@
                            color: #EF5656;
                         }
                         .out{
-                           
-                           color: #00B9FE; 
+
+                           color: #00B9FE;
                         }
-                        
+
                     }
                     .phone{
                         /*margin-left: 20rem;*/

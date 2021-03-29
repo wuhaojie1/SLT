@@ -14,17 +14,17 @@
                 <div class="topUp-content-title">
                     <div class="box" @click="openCoin">
                         <div class="imgBox">
-                            <img src="../../static/img/wallet/arrowdown.png" class="img" alt="">
+                            <img :src="down" class="img" alt="">
                         </div>
                         <div class="text">
-                            {{ selectedCoin.name }} <span>{{ selectedCoin.tip }}</span>
+                            {{ selectedCoin.name }} <!--<span>{{ selectedCoin.tip }}</span>-->
                         </div>
                         <div class="coinList"
                              v-show="showCoins">
-                            <div class="searchBox">
-                                <img :src="searchImg" alt="" class="searchImg">
-                                <input type="text" :placeholder="searchPlaceholder">
-                            </div>
+                            <!--<div class="searchBox">-->
+                                <!--<img :src="searchImg" alt="" class="searchImg">-->
+                                <!--<input type="text" :placeholder="searchPlaceholder">-->
+                            <!--</div>-->
                             <div class="coinList-content">
                                 <div class="coinList-content-list">
                                     <div class="coinList-content-item"
@@ -32,7 +32,7 @@
                                          :key="item.id"
                                          @click="selectCoin(item)">
                                         <div class="name">{{ item.name }}</div>
-                                        <div class="tip">{{ item.tip }}</div>
+                                        <!--<div class="tip">{{ item.tip }}</div>-->
                                     </div>
                                 </div>
                             </div>
@@ -45,14 +45,14 @@
                         {{ $t('wallet.chinaName') }}
                     </div>
                     <div class="linkList">
-                        <div class="linkList-item"
-                             v-for="(item, index) in coinList"
-                             :class="coinIndex===index ? 'linkList-item-active' : '' "
-                             @click="select(index)"
-                             :key="index">{{ item.text }}
-                        </div>
-                        <!--<div class="linkList-item">ERC20</div>
-                        <div class="linkList-item">HEOC</div>-->
+                        <!--<div class="linkList-item"-->
+                             <!--v-for="(item, index) in coinList"-->
+                             <!--:class="coinIndex===index ? 'linkList-item-active' : '' "-->
+                             <!--@click="select(index)"-->
+                             <!--:key="index">{{ item.text }}-->
+                        <!--</div>-->
+                        <div class="linkList-item linkList-item-active">{{drawItem.symbol}}</div>
+                        <!--<div class="linkList-item">HEOC</div>-->
                     </div>
                     <div class="address-title">
                         {{ $t('wallet.chargeAddress') }}
@@ -63,12 +63,12 @@
                                 <div class="addr-icon">
                                     SLT
                                 </div>
-                                <div class="addr-text">TFBpBaswdZnyZewS9zTimjtGpb11rhhLx</div>
+                                <div class="addr-text">{{drawItem.addr}}</div>
                             </div>
-                            <div class="copy">{{ $t('wallet.copyAddress') }}</div>
+                            <div class="copy" @click="copyAddr(drawItem.addr)">{{ $t('wallet.copyAddress') }}</div>
                         </div>
                         <div class="QRCode">
-                            <VueQr :text="config.value"
+                            <VueQr :text="drawItem.addr"
                                    :size="78"
                                    :margin="0">
 
@@ -82,11 +82,11 @@
                             </div> -->
                         </div>
                     </div>
-                    <div class="btn-box">
-                        <div class="btn" @click="openDialog">
-                            {{ $t('wallet.confirm') }}
-                        </div>
-                    </div>
+                    <!--<div class="btn-box">-->
+                        <!--<div class="btn" @click="openDialog">-->
+                            <!--{{ $t('wallet.confirm') }}-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <!--<div class="line"></div>-->
                     <div class="tipText">
                         <ul>
@@ -158,60 +158,69 @@ export default {
             ],
             searchPlaceholder: "",
             coinKindList: [
-                {
-                    name: "BTC ",
-                    tip: "Bitcoin",
-                },
-                {
-                    name: "USDT",
-                    tip: "Tether",
-                },
-                {
-                    name: "HUSD",
-                    tip: "HUSD",
-                },
-                {
-                    name: "GUSD",
-                    tip: "GUSD",
-                },
-                {
-                    name: "TUSD",
-                    tip: "TRUE USD",
-                },
-                {
-                    name: "VEN",
-                    tip: "VEN",
-                },
-                {
-                    name: "USDT",
-                    tip: "Tether",
-                },
-                {
-                    name: "HUSD",
-                    tip: "HUSD",
-                },
-                {
-                    name: "GUSD",
-                    tip: "GUSD",
-                },
-                {
-                    name: "TUSD",
-                    tip: "TRUE USD",
-                },
-                {
-                    name: "VEN",
-                    tip: "VEN",
-                },
+                // {
+                //     name: "BTC ",
+                //     tip: "Bitcoin",
+                // },
+                // {
+                //     name: "USDT",
+                //     tip: "Tether",
+                // },
+                // {
+                //     name: "HUSD",
+                //     tip: "HUSD",
+                // },
+                // {
+                //     name: "GUSD",
+                //     tip: "GUSD",
+                // },
+                // {
+                //     name: "TUSD",
+                //     tip: "TRUE USD",
+                // },
+                // {
+                //     name: "VEN",
+                //     tip: "VEN",
+                // },
+                // {
+                //     name: "USDT",
+                //     tip: "Tether",
+                // },
+                // {
+                //     name: "HUSD",
+                //     tip: "HUSD",
+                // },
+                // {
+                //     name: "GUSD",
+                //     tip: "GUSD",
+                // },
+                // {
+                //     name: "TUSD",
+                //     tip: "TRUE USD",
+                // },
+                // {
+                //     name: "VEN",
+                //     tip: "VEN",
+                // },
             ],
             showCoins: false,
             searchImg: `${require('@/static/img/wallet/search.png')}`,
             centerDialogVisible: false,
             tipImg: `${require('../../static/img/wallet/hint.png')}`,
+            down: `${require('@/static/img/login/down.png')}`,
             config: {
                 value: 'TFBpBaswdZnyZewS9zTimjtGpb11rhhLx',//显示的值、跳转的地址
                 // imagePath: require('../assets/logo.png')//中间logo的地址，require必要
-            }
+            },
+            drawItem:{},
+            drawData: [],
         }
+    },
+    created(){
+        this.getInfo();
+    },
+    destroyed(){
+        this.localStorage.remove('drawItem')
     },
     methods: {
         openCoin() {
@@ -224,8 +233,61 @@ export default {
             this.centerDialogVisible = !this.centerDialogVisible
         },
         selectCoin(item) {
-            this.selectedCoin = item
+            this.selectedCoin = item;
+            this.drawData.forEach(element=>{
+
+                if (element.symbol === item.name){
+                    this.drawItem = element;
+                }
+            })
         },
+        copyAddr(item){
+            const cInput = document.createElement('input');
+            cInput.value = item;
+            document.body.appendChild(cInput);
+            cInput.select();
+            document.execCommand('Copy');
+            this.$notify({
+                type:'success',
+                message: '复制成功'
+            });
+            cInput.remove();
+        },
+        getInfo(){
+            this.axios({
+                url:'user/wallet/payIndex',
+                method: 'get',
+            }).then((res)=>{
+                if (res.errorCode === 0){
+                    if (res.results.length){
+                        this.drawData=  res.results;
+                        this.getSymbol(res.results);
+                        if (this.localStorage.get('drawItem')){
+                            const drawId = this.localStorage.get('drawItem').id;
+                            this.selectedCoin.name = this.localStorage.get('drawItem').symbol;
+                                res.results.forEach(element => {
+                                if (element.id === drawId){
+                                    this.drawItem = element;
+                                }
+                            })
+                        } else {
+                            this.drawItem =  res.results[0];
+                            this.selectedCoin.name = res.results[0].symbol
+                        }
+                    }
+                }
+            })
+        },
+
+        getSymbol(item){
+            let symbolItem = {};
+            item.forEach(element=>{
+                symbolItem = {
+                    name: element.symbol
+                };
+                this.coinKindList.push(symbolItem)
+            })
+        }
     }
 }
 </script>
@@ -300,6 +362,11 @@ export default {
                     position: relative;
 
                     .imgBox {
+                        margin-left: 25rem;
+                        width: 20rem;
+                        height: 20rem;
+                        background: #00B4FC;
+                        border-radius: 2rem;
                         .img {
                             width: 20rem;
                             height: 20rem;
@@ -425,7 +492,6 @@ export default {
                         position: relative;
                         line-height: 38rem;
                         cursor: pointer;
-
                     }
 
                     .linkList-item:before {
@@ -484,7 +550,7 @@ export default {
                         align-items: center;
 
                         .addrBox-content {
-                            width: 340rem;
+                            width: 380rem;
                             height: 38rem;
                             background: #FFFFFF;
                             border: 1rem solid #E4E7ED;

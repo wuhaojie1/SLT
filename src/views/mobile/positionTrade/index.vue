@@ -1,7 +1,7 @@
 <template>
     <div class="shoppingMall">
         <PageHeader :isShowRight="true"
-                    @clickCallback="clickCallback"></PageHeader>
+                    ></PageHeader>
         <div class="shoppingMall-wrap">
             <div class="content-carousel">
                 <el-carousel indicator-position="none"
@@ -72,9 +72,10 @@
                                             </div>
                                         </div>-->
                     <div class="goods-box-list">
-                        <PositionBlock @clickItem="toTypeDetail('Mpositiondetails')" v-for="(item, index) in blockItemList"
-                                       :key="index"
-                                       :blockItem="item"
+                        <PositionBlock  v-for="(item, index) in typeList"
+                                        :key="index"
+                                        :blockItem="item"
+                                        @clickItem="toTypeDetail(item)"
                                        class="positionBlock"></PositionBlock>
                         <div class="clearfix"></div>
                     </div>
@@ -299,10 +300,11 @@ export default {
             })
         },
         //查看类别详情
-        toTypeDetail(name){
-            // console.log(item);
+        toTypeDetail(item){
+            this.localStorage.set('positionObj',JSON.stringify(item))
             this.$router.push({
-                name:name
+                name:'Mpositiondetails',
+               // query: {positionObj:item},
             })
         }
     }
@@ -328,7 +330,7 @@ export default {
                 /*display: flex;*/
                 /*position: relative;*/
                 cursor: pointer;
-                
+
 
                 .textTip {
                     position: absolute;

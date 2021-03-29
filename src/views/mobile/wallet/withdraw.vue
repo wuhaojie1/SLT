@@ -6,7 +6,7 @@
         </div>
         <div class="header-title">
             <div class="text">{{ $t('Mwithdraw.withdrawText') }}</div>
-            <!-- <div class="balance">可提额度：0.10000000</div> -->
+             <div class="balance">可提额度：{{drawItem.balanceAmount - drawItem.drawAmount}}</div>
         </div>
         <!--<ThemeStickyHeader></ThemeStickyHeader>-->
         <div class="topUp-wrap">
@@ -50,12 +50,30 @@
                         </div>
                     </div>
                 </div>-->
-                <div class="btc">
+                <div class="btc" @click="openCoin">
                     <div class="btc-img">
                         <img :src="down" alt="">
                     </div>
                     <div class="btc-text">
-                        {{ $t('Mwithdraw.btcText1') }}<span> {{ $t('Mwithdraw.btcText2') }}</span>
+                        {{ selectedCoin.name }} <!--<span>{{ selectedCoin.tip }}</span>-->
+                    </div>
+                    <div class="coinList"
+                         v-show="showCoins">
+                        <!--<div class="searchBox">-->
+                            <!--<img :src="searchImg" alt="" class="searchImg">-->
+                            <!--<input type="text" :placeholder="searchPlaceholder">-->
+                        <!--</div>-->
+                        <div class="coinList-content">
+                            <div class="coinList-content-list">
+                                <div class="coinList-content-item"
+                                     v-for="item in coinKindList"
+                                     :key="item.id"
+                                     @click="selectCoin(item)">
+                                    <div class="name">{{ item.name }}</div>
+                                    <!--<div class="tip">{{ item.tip }}</div>-->
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="topUp-content-wrap">
@@ -63,14 +81,14 @@
                         {{ $t('Mwithdraw.name') }}
                     </div>
                     <div class="linkList">
-                        <div class="linkList-item"
-                             v-for="(item, index) in coinList"
-                             :class="coinIndex===index ? 'linkList-item-active' : '' "
-                             @click="select(index)"
-                             :key="index">{{ item.text }}
-                        </div>
-                        <!--<div class="linkList-item">ERC20</div>
-                        <div class="linkList-item">HEOC</div>-->
+                        <!--<div class="linkList-item"-->
+                             <!--v-for="(item, index) in coinList"-->
+                             <!--:class="coinIndex===index ? 'linkList-item-active' : '' "-->
+                             <!--@click="select(index)"-->
+                             <!--:key="index">{{ item.text }}-->
+                        <!--</div>-->
+                      <div class="linkList-item linkList-item-active"><div class="symbol">{{drawItem.symbol}}</div></div>
+                        <!--<div class="linkList-item">HEOC</div>-->
                     </div>
 
                     <div class="withdraw-addr">
@@ -83,7 +101,7 @@
                         <!--                        </div>-->
                     </div>
                     <div class="addr-content">
-                        <input type="text">
+                        <input type="text"  v-model="address">
                     </div>
                     <div class="withdraw-addr">
                         <div class="withdraw-addr-title">
@@ -96,24 +114,24 @@
                         </div>
                     </div>
                     <div class="addr-content">
-                        <input type="text">
+                        <input type="text" v-model="moenyCount">
                         <div class="btn-box">
                             <div class="btn-box-text">
-                                {{ $t('Mwithdraw.btnBoxText') }}
+                                {{drawItem.symbol}}
                             </div>
                             <div class="line"></div>
-                            <div class="btn-box-text blue">
+                            <div class="btn-box-text blue" @click="allApply">
                                 {{ $t('Mwithdraw.all') }}
                             </div>
                         </div>
                     </div>
                     <div class="fee">
                         {{ $t('Mwithdraw.fee') }}
-                        <span>30%</span>
+                        <span>{{fee*100}}%</span>
                     </div>
                     <div class="number">
                         {{ $t('Mwithdraw.BTCNumber') }}
-                        <span>0.00000000</span>
+                        <span>{{moenyCount - moenyCount*fee}}</span>
                     </div>
                     <div class="btn" @click="openTip">
                         {{ $t('Mwithdraw.btn') }}
@@ -161,12 +179,13 @@
                 </div>
             </div>
             <div class="toolTip">
-                <input type="checkBox"><span> {{ $t('Mwithdraw').toolTip }}</span>
+                <el-checkbox type="checkBox" v-model="checkFlag"></el-checkbox><span> {{ $t('Mwithdraw').toolTip }}</span>
             </div>
             <div class="btn">
                 <el-button type="primary"
                            class="elBtn"
-                           @click="cancleComfirm"> {{ $t('Mwithdraw').primary }}
+                           :disabled="!checkFlag"
+                           @click="applyDraw"> {{ $t('Mwithdraw').primary }}
                 </el-button>
             </div>
         </el-dialog>
@@ -206,15 +225,172 @@ export default {
             config: {
                 value: 'TFBpBaswdZnyZewS9zTimjtGpb11rhhLx',//显示的值、跳转的地址
                 // imagePath: require('../assets/logo.png')//中间logo的地址，require必要
-            }
+            },
+            showCoins: false,
+            selectedCoin: {
+                name: "",
+               // tip: "Bitcoin",
+            },
+            coinKindList: [
+                // {
+                //     name: "BTC ",
+                //     tip: "Bitcoin",
+                // },
+                // {
+                //     name: "USDT",
+                //     tip: "Tether",
+                // },
+                // {
+                //     name: "HUSD",
+                //     tip: "HUSD",
+                // },
+                // {
+                //     name: "GUSD",
+                //     tip: "GUSD",
+                // },
+                // {
+                //     name: "TUSD",
+                //     tip: "TRUE USD",
+                // },
+                // {
+                //     name: "VEN",
+                //     tip: "VEN",
+                // },
+                // {
+                //     name: "USDT",
+                //     tip: "Tether",
+                // },
+                // {
+                //     name: "HUSD",
+                //     tip: "HUSD",
+                // },
+                // {
+                //     name: "GUSD",
+                //     tip: "GUSD",
+                // },
+                // {
+                //     name: "TUSD",
+                //     tip: "TRUE USD",
+                // },
+                // {
+                //     name: "VEN",
+                //     tip: "VEN",
+                // },
+            ],
+            drawData:[],
+            drawItem: {},
+            moenyCount: null,
+            fee:null,
+            address:'',
+            checkFlag: false,
         }
+    },
+    created(){
+      this.getInfo();
     },
     methods: {
         select(index) {
             this.coinIndex = index
         },
         openTip() {
-            this.dialogVisible = true
+            if (this.moenyCount > 0){
+                if (this.address){
+                    this.dialogVisible = true
+                }else {
+                    this.$notify({
+                        title:this.$t('common.warning'),
+                        type: 'warning',
+                        message: '提现地址不能为空！'
+                    })
+                }
+
+            }else {
+                this.$notify({
+                    title:this.$t('common.warning'),
+                    type: 'warning',
+                    message: '提现金额不能为空！'
+                })
+            }
+        },
+        openCoin() {
+            this.showCoins = !this.showCoins
+        },
+        selectCoin(item) {
+            this.moenyCount = null;
+            this.selectedCoin = item;
+            this.drawData.forEach(element=>{
+                if (element.symbol === item.name){
+                    this.drawItem = element;
+                }
+            })
+        },
+        allApply(){
+            let {drawItem} = this;
+            this.moenyCount = drawItem.balanceAmount - drawItem.drawAmount
+        },
+        getInfo(){
+            this.axios({
+                url:'/user/wallet/drawIndex',
+                method: 'get',
+            }).then((res)=>{
+                if (res.errorCode === 0){
+                    this.fee = res.results.fee;
+                    if (res.results.accPacketList.length){
+                        this.getSymbol(res.results.accPacketList);
+                        this.drawData=  res.results.accPacketList;
+                        if (this.localStorage.get('reflectItem')){
+                            const drawId = this.localStorage.get('reflectItem').id;
+                            this.selectedCoin.name = this.localStorage.get('reflectItem').symbol;
+                            res.results.accPacketList.forEach(element => {
+                                if (element.id === drawId){
+                                    this.drawItem = element;
+                                }
+                            })
+                        } else {
+                            this.drawItem =  res.results.accPacketList[0];
+                            this.selectedCoin.name = res.results.accPacketList[0].symbol
+                        }
+                    }
+                }
+                console.log(this.drawItem)
+            })
+        },
+        getSymbol(item){
+            let symbolItem = {};
+            item.forEach(element=>{
+                symbolItem = {
+                    name: element.symbol
+                };
+                this.coinKindList.push(symbolItem)
+            })
+        },
+        applyDraw(){
+            const param = {
+                address: this.address,
+                amount: this.moenyCount,
+                symbol: this.drawItem.symbol
+            };
+            this.axios({
+                url:'user/wallet/drawApply  ',
+                method:'post',
+                params: param,
+            }).then(res=>{
+                if (res.errorCode === 0){
+                    this.dialogVisible = false;
+                    this.$router.go(-1);
+                        this.$notify({
+                            title:this.$t('common.success'),
+                            type: 'success',
+                            message: '提现申请发送成功！'
+                        })
+                    }else {
+                    this.$notify({
+                        title:this.$t('common.error'),
+                        type: 'error',
+                        message: '提现申请发送失败！'
+                    })
+                }
+            })
         }
     }
 }
@@ -274,6 +450,7 @@ export default {
     }
 
     .topUp-wrap {
+        margin-top: 20rem;
         .topUp-content {
             .btc {
                 display: flex;
@@ -285,6 +462,7 @@ export default {
                 border: 1rem solid #E4E7ED;
                 margin: 0 auto;
                 box-sizing: border-box;
+                position: relative;
 
                 .btc-img {
                     margin-left: 25rem;
@@ -309,7 +487,87 @@ export default {
                         color: #8993A0;
                     }
                 }
+
+            .coinList {
+                position: absolute;
+                z-index: 5;
+                top: 82rem;
+                width: 680rem;
+                height: 460rem;
+                background: #FFFFFF;
+                border: 1rem solid #E4E7ED;
+                box-shadow: 0rem 5rem 25rem 0rem rgba(153, 153, 153, 0.25);
+
+                .searchBox {
+                    margin: 10rem auto 0;
+                    width: 660rem;
+                    height: 72rem;
+                    background: #FFFFFF;
+                    border: 1rem solid #E4E7ED;
+                    position: relative;
+                    box-sizing: border-box;
+
+
+                    .searchImg {
+                        position: absolute;
+                        width: 32rem;
+                        height: 32rem;
+                        left: 25rem;
+                        top: 20rem;
+                    }
+
+                    input {
+                        width: 660rem;
+                        height: 72rem;
+                        line-height: 72rem;
+                        box-sizing: border-box;
+                        padding-left: 73rem;
+                    }
+                }
+
+                .coinList-content {
+                    margin-top: 10rem;
+                    margin-bottom: 10rem;
+                    height: 370rem;
+
+                    .coinList-content-list {
+                        height: 100%;
+                        overflow-y: scroll;
+                        overflow-x: hidden;
+
+                        .coinList-content-item {
+                            display: flex;
+                            width: 680rem;
+                            height: 72rem;
+                            align-items: center;
+                            justify-content: flex-start;
+                            box-sizing: border-box;
+                            padding: 0 38rem;
+                            font-size: 28rem;
+                            font-weight: 400;
+
+                            .name {
+                                color: #444444;
+                            }
+
+                            .tip {
+                                margin-left: 15rem;
+                                color: #999999;
+                            }
+                        }
+
+                        .coinList-content-item:hover .coinList-content-item:active {
+                            background: #F2F6FA;
+
+                            .name {
+                                color: #00B4FC;
+                            }
+                        }
+                    }
+                }
             }
+            }
+
 
             .topUp-content-wrap {
 
@@ -324,9 +582,11 @@ export default {
 
                 .linkList {
                     /*margin-top: 7rem;*/
+                    padding-left: 35rem;
+                    box-sizing: border-box;
                     display: flex;
                     align-items: center;
-                    justify-content: center;
+                    justify-content: left;
                     margin-top: 14rem;
                     /*margin-bottom: 25rem;*/
 
@@ -340,6 +600,13 @@ export default {
                         position: relative;
                         line-height: 72rem;
                         cursor: pointer;
+                        .symbol{
+                            position: absolute;
+                            width: 170rem;
+                            left: 50rem;
+                            text-align: center;
+                            //  top: 21rem;
+                        }
                     }
 
                     .linkList-item:before {
