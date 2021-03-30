@@ -1061,19 +1061,27 @@ export default {
                         color: '#ffffff',
                     }
                 },
+//                 Ecosystem 50%(생태계 조성, 유저보상)
+// Development 15%(플랫폼 개발)
+// Marketing 5%(마케팅활용)
+// Foundation Reserve 10%(재단예비비용)
+// Donation 5%(기부비용)
+// Early angel distribution 10% (초기엔젤분배)
+// Advisor 5% (고문)
                 series: [
                     {
                         // name: '访问来源',
                         type: 'pie',
                         radius: '90%',
-                        center: ['35%', '50%'], //图的位置，距离左跟上的位置
+                        center: ['30%', '50%'], //图的位置，距离左跟上的位置
                         data: [
-                            {value: 30, name: '30% 생태기금'},
-                            {value: 20, name: '20% 비축기금'},
-                            {value: 15, name: '15% 마케팅'},
-                            {value: 15, name: '15% 고문&개발팀'},
-                            {value: 10, name: '10% 엔젤투자'},
-                            {value: 10, name: '10% IEO&사모펀드'}
+                            {value: 50, name: 'Ecosystem 50%(생태계 조성, 유저보상)'},
+                            {value: 15, name: 'Development 15%(플랫폼 개발)'},
+                            {value: 5, name: 'Marketing 5%(마케팅활용)'},
+                            {value: 10, name: 'Foundation Reserve 10%(재단예비비용)'},
+                            {value: 5, name: 'Donation 5%(기부비용)'},
+                            {value: 10, name: 'Early angel distribution 10% (초기엔젤분배)'},
+                            {value: 5, name: 'Advisor 5% (고문)'},
                         ],
                         emphasis: {
                             itemStyle: {
@@ -1837,7 +1845,7 @@ export default {
                             }
 
                             .echarts-box {
-                                width: 540rem;
+                                width: 650rem;
                                 height: 335rem;
 
                                 #echartsBox {
