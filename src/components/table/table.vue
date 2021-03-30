@@ -3,18 +3,18 @@
         <table>
             <thead>
             <tr>
-                <th>
+<!--                <th>
                     <div class="rate">{{ $t('otcTrade.tableHeader')[0] }}</div>
-                </th>
+                </th>-->
                 <th>
                     <div class="number">{{ $t('otcTrade.tableHeader')[1] }}</div>
                 </th>
                 <th>
                     <div class="quota">{{ $t('otcTrade.tableHeader')[2] }}</div>
                 </th>
-                <th>
+<!--                <th>
                     <div class="price">{{ $t('otcTrade.tableHeader')[3] }}</div>
-                </th>
+                </th>-->
                 <th>
                     <div class="payment">{{ $t('otcTrade.tableHeader')[4] }}</div>
                 </th>
@@ -31,14 +31,14 @@
             <tbody>
             <tr v-for="(item, index) in dataList"
                 :key="index">
-                <th>
+<!--                <th>
                     <div class="tread">
-                        <!-- <div class="header-img">
+                        &lt;!&ndash; <div class="header-img">
                             <img src="" alt="" class="img">
-                        </div> -->
+                        </div> &ndash;&gt;
                         <div class="name">{{item.name}}</div>
                     </div>
-                </th>
+                </th>-->
                 <th>
                     <div class="number">
                         <div class="text">{{item.number}}</div>
@@ -49,12 +49,12 @@
                         <div class="text">{{item.quota}}</div>
                     </div>
                 </th>
-                <th>
+<!--                <th>
                     <div class="price">
                         <div class="text"
                              :class="businessType? '' : 'red' ">{{item.price}}</div>
                     </div>
-                </th>
+                </th>-->
                 <th>
                     <div class="payment">
                         <div class="paymentItem"
@@ -67,10 +67,10 @@
                 </th>
                 <th>
                     <div class="auth" v-if="auth">
-                        <div class="sell" v-if="!businessType">
+                        <div class="sell" v-if="!businessType" @click="handleClick(item)">
                             <div class="text">{{ $t('otcTrade.sell') }} SLT</div>
                         </div>
-                        <div class="buy" v-if="businessType">
+                        <div class="buy" v-if="businessType" @click="handleClick(item)">
                             <div class="text">{{ $t('otcTrade.buy') }} SLT</div>
                         </div>
                     </div>
@@ -101,6 +101,13 @@
                 default: false,
             }
 
+        },
+        methods:{
+            handleClick(item){
+                // eslint-disable-next-line no-debugger
+                // debugger
+                this.$emit("handleClick", item)
+            }
         }
     }
 </script>
