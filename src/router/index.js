@@ -43,8 +43,9 @@ const routes = [{
     {
         path: '/whitPaper',
         name: 'whitPaper',
-        component: () =>
-            import ('../views/whitePaper/whitPaper.vue'),
+        component:resolve => require(['@/views/whitePaper/whitPaper.vue'],resolve)
+        // component: () =>
+        //     import ('../views/whitePaper/whitPaper.vue'),
     },
     {
         path: '/buy',
@@ -455,9 +456,13 @@ const routes = [{
     {
         path: '/MwhitPaper',
         name: 'MwhitPaper',
-        component: () =>
-            import ('../views/mobile/whitPaper/index.vue')
+        component:resolve => require(['@/views/mobile/whitPaper/index.vue'],resolve)
+        // component: () =>
+        //     import ('../views/mobile/whitPaper/index.vue')
     },
+    // component:resolve => require(['@/views/whitePaper/whitPaper.vue'],resolve)
+        // component: () =>
+        //     import ('../views/whitePaper/whitPaper.vue'),
 ]
 
 const router = new VueRouter({
