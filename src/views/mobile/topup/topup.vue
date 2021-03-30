@@ -7,7 +7,6 @@
                     :key="index"
                     class="topupRecord"
                     :recordItem="item">
-
                 </positionRecord>
             </div>
         </div>

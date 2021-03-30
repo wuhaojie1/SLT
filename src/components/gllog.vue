@@ -6,9 +6,9 @@
             <div class="item3">유형</div>
             <div class="item4">1</div>
             <div class="item5">1000</div>
-            <div class="item6">상세한상
+            <!-- <div class="item6">상세한상
                 <img class="img" src="../static/img/treasurelog/arrow-left.png" alt="">
-            </div>
+            </div> -->
         </div>
     </div>
 </template>

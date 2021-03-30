@@ -7,7 +7,6 @@
                     :key="index"
                     class="dealRecord"
                     :recordItem="item">
-
                 </PositionRecord>
             </div>
         </div>

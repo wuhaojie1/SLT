@@ -31,7 +31,7 @@ export default {
     components: {positionRecord},
     data() {
         return {
-            noDataStstus: true,
+            noDataStstus: false,
             recordList: [
                 {
                     title: "SLT",

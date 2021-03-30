@@ -38,7 +38,13 @@
                     </div>
                     <div class="line"></div>
                     <div class="buy-con">
-                        <input class="buy-num" type="text" onautocomplete="true" v-model="count"/>
+                        <div class="buy-num">
+                            <input type="text" onautocomplete="true" v-model="count"/>
+                            <div class="incrment">
+                                <div @click="addCount(-1)">-</div>
+                                <div @click="addCount(1)">+</div>
+                            </div>
+                        </div>
                         <div class="buy-btn" @click="handleBuyPosition" v-loading="buyLoading">{{$t('positionDetail.buy')}}</div>
                     </div>
                 </div>
@@ -55,7 +61,7 @@
         components:{themeStickyHeader,PositionBlock},
         data(){
             return{
-                curPostType:'',
+                curPostType:{},
                 count:null,
                 buyLoading: false,
             }
@@ -103,6 +109,16 @@
                 this.curPostType.costCount=this.curPostType.costCount + (this.count - 0);
                 this.curPostType.lastCount-=this.count;
                 this.localStorage.set('curPostType',JSON.stringify(this.curPostType))
+            },
+
+            addCount(num){
+                if(num == -1){
+                    if(this.count>0){
+                        this.count = this.count-0 + num
+                    }
+                }else{
+                    this.count = this.count-0 + num
+                }
             }
         }
     }
@@ -304,7 +320,27 @@
                         background: #FFFFFF;
                         border: 1rem solid #DBDEE4;
                         border-radius: 2rem;
-                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        box-sizing: border-box;
+                        input{
+                            width: 100%;
+                            margin: 0rem 10rem;
+                        }
+                        .incrment{
+                            width: 30rem;
+                            height: 46rem;
+                            div{
+                                height: 50%;
+                                border-left: solid 1rem #dbdee4;
+                                line-height: 23rem;
+                                font-size: 18rem;
+                                color: #8993a0;
+                            }
+                            div:nth-child(1){
+                                border-bottom: solid 1rem #dbdee4;
+                            }
+                        }
                     }
                     .buy-btn{
                         width: 515rem;

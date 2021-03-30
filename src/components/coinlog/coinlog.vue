@@ -5,9 +5,9 @@
             <div class="item2">{{itemlog.cointype}}</div>
             <div class="item3">{{itemlog.type}}</div>
             <div class="item4">{{itemlog.num}}</div>
-            <div class="item5">상세한상
+            <!-- <div class="item5">상세한상
                 <img class="img" src="../../static/img/treasurelog/arrow-left.png" alt="">
-            </div>
+            </div> -->
         </div>
     </div>
 </template>

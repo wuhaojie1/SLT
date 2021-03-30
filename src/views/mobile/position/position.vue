@@ -7,7 +7,6 @@
                     :key="index"
                     class="PositionRecord"
                     :recordItem="item">
-
                 </PositionRecord>
             </div>
         </div>

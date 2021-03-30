@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="logcon">
-                <div class="inlog" v-if="currentindex==0">
+                <div class="inlog tabBox" v-if="currentindex==0" v-loading="loading">
                     <div class="head">
                         <span class="head-text">동전 충전 기록</span>
                     </div>
@@ -26,15 +26,21 @@
                         <div class="item2">화폐종류</div>
                         <div class="item3">유형</div>
                         <div class="item4">수량</div>
-                        <div class="item5">조작하다</div>
+                        <!-- <div class="item5">조작하다</div> -->
                     </div>
-                    <div v-for="item in inloglist"
-                         :key="item.index">
-                         <coinlog :itemlog="item"></coinlog>
+                    <template v-if="inloglist.length&&inloglist.length>0">
+                        <div v-for="item in inloglist"
+                            :key="item.index">
+                            <coinlog :itemlog="item"></coinlog>
+                        </div>
+                    </template>
+                    <div class="empty" v-else>
+                        <img width="80rem;height:80rem" src="../../static/img/treasurelog/empty.png" alt="">
+                        <div>暂无数据</div>
                     </div>
 
                 </div>
-                <div class="outlog" v-if="currentindex==1">
+                <div class="outlog tabBox" v-if="currentindex==1">
                     <div class="head">
                         <span class="head-text">동전 인출 기록</span>
                     </div>
@@ -43,14 +49,20 @@
                         <div class="item2">화폐종류</div>
                         <div class="item3">유형</div>
                         <div class="item4">수량</div>
-                        <div class="item5">조작하다</div>
+                        <!-- <div class="item5">조작하다</div> -->
                     </div>
-                    <div v-for="item in inloglist"
-                         :key="item.index">
-                        <coinlog :itemlog="item"></coinlog>
+                    <template v-if="inloglist.length&&inloglist.length>0">
+                        <div v-for="item in inloglist"
+                            :key="item.index">
+                            <coinlog :itemlog="item"></coinlog>
+                        </div>
+                    </template>
+                    <div class="empty" v-else>
+                        <img width="80rem;height:80rem" src="../../static/img/treasurelog/empty.png" alt="">
+                        <div>暂无数据</div>
                     </div>
                 </div>
-                <div class="otclog" v-if="currentindex==2">
+                <div class="otclog tabBox" v-if="currentindex==2">
                     <div class="head">
                         <span class="head-text">OTC 거래 기록</span>
                     </div>
@@ -59,14 +71,20 @@
                         <div class="item2">화폐종류</div>
                         <div class="item3">유형</div>
                         <div class="item4">수량</div>
-                        <div class="item5">조작하다</div>
+                        <!-- <div class="item5">조작하다</div> -->
                     </div>
-                    <div v-for="item in inloglist"
-                         :key="item.index">
-                        <coinlog :itemlog="item"></coinlog>
+                    <template v-if="inloglist.length&&inloglist.length>0">
+                        <div v-for="item in inloglist"
+                            :key="item.index">
+                            <coinlog :itemlog="item"></coinlog>
+                        </div>
+                    </template>
+                    <div class="empty" v-else>
+                        <img width="80rem;height:80rem" src="../../static/img/treasurelog/empty.png" alt="">
+                        <div>暂无数据</div>
                     </div>
                 </div>
-                <div class="locallog" v-if="currentindex==3">
+                <div class="locallog tabBox" v-if="currentindex==3">
                     <div class="head">
                         <span class="head-text">위치 구 매 기록</span>
                     </div>
@@ -76,11 +94,11 @@
                         <div class="item3">유형</div>
                         <div class="item4">수량</div>
                         <div class="item5">단가</div>
-                        <div class="item6">조작 하 다</div>
+                        <!-- <div class="item6">조작 하 다</div> -->
                     </div>
                     <gllog></gllog>
                 </div>
-                <div class="goodslog" v-if="currentindex==4">
+                <div class="goodslog tabBox" v-if="currentindex==4">
                     <div class="head">
                         <span class="head-text">상점 구 매 기록</span>
                     </div>
@@ -90,7 +108,7 @@
                         <div class="item3">유형</div>
                         <div class="item4">수량</div>
                         <div class="item5">단가</div>
-                        <div class="item6">조작 하 다</div>
+                        <!-- <div class="item6">조작 하 다</div> -->
                     </div>
                     <gllog></gllog>
                 </div>
@@ -113,37 +131,54 @@
                 tabbarlist:['동전 충전 기록','동전 인출 기록','OTC 거래 기록','위치 구 매 기록','상점 구 매 기록'],
                 currentindex:0,
                 inloglist:[
-                    // {
-                    //     time:'2021-02-25',
-                    //     cointype:'SLT',
-                    //     type:'유형',
-                    //     num:'1000000'
-                    // },
-                    // {
-                    //     time:'2021-03-25',
-                    //     cointype:'SLT',
-                    //     type:'유형',
-                    //     num:'1000000'
-                    // },
-                    // {
-                    //     time:'2021-04-25',
-                    //     cointype:'SLT',
-                    //     type:'유형',
-                    //     num:'1000000'
-                    // }
-                ]
+                    {
+                        time:'2021-02-25',
+                        cointype:'SLT',
+                        type:'유형',
+                        num:'1000000'
+                    },
+                    {
+                        time:'2021-03-25',
+                        cointype:'SLT',
+                        type:'유형',
+                        num:'1000000'
+                    },
+                    {
+                        time:'2021-04-25',
+                        cointype:'SLT',
+                        type:'유형',
+                        num:'1000000'
+                    }
+                ],
+                loading:false
             }
         },
         mounted(){
             this.recharage();
-            this.withDraw();
-            this.OTCTrading();
-            this.positionTrading();
-            this.goodsTrading();
         },
         methods:{
             changecurrent(index){
                 this.currentindex = index
+                this.loading = true;
+                switch (index) {
+                    case 0:
+                        this.recharage();
+                        break;
+                    case 1:
+                        this.withDraw();
+                        break;
+                    case 2:
+                        this.OTCTrading();
+                        break;
+                    case 3:
+                        this.positionTrading();
+                        break;
+                    case 4:
+                        this.goodsTrading();
+                        break;
+                    default:
+                        break;
+                }
             },
             topage(name){
                 this.$router.push({
@@ -160,7 +195,17 @@
                         pageSize:1
                     }) 
                 }).then(res=>{
-                    console.log(res,'充币');
+                    console.log(res,'充币记录');
+                    if(res.errno == 0){
+                        this.inloglist = res.data
+                    }else{
+                        this.$notify({
+                            title: this.$t('common.fail'),
+                            message: res.errmsg,
+                            type: 'error'
+                        })
+                    }
+                    this.loading = false
                 }).catch(e=>{
                     console.log(e);
                 })
@@ -174,7 +219,26 @@
                         userId:24
                     }
                 }).then(res=>{
-                    console.log(res,'提币');
+                    console.log(res,'提币记录');
+                    if(res.errno == 0){
+                        let temp = res.data.list.map(ele=>{
+                            ele.time = ele.updateTime
+                            ele.cointype = ele.symbol
+                            ele.type = ele.bizNo
+                            ele.num = ele.amount
+                            return ele
+                        })
+
+                        this.inloglist = temp
+                    }else{
+                        this.$notify({
+                            title: this.$t('common.fail'),
+                            message: res.errmsg,
+                            type: 'error'
+                        })
+                    }
+
+                    this.loading = false
                 }).catch(e=>{
                     console.log(e);
                 })
@@ -189,7 +253,17 @@
                         size:1
                     }
                 }).then(res=>{
-                    console.log(res,'OTC');
+                    console.log(res,'OTC记录');
+                    if(res.errorCode == 0){
+                        this.inloglist = res.results.items
+                    }else{
+                        this.$notify({
+                            title: this.$t('common.fail'),
+                            message: res.errmsg,
+                            type: 'error'
+                        })
+                    }
+                    this.loading = false
                 }).catch(e=>{
                     console.log(e);
                 })
@@ -201,6 +275,16 @@
                     method:'get'
                 }).then(res=>{
                     console.log(res,'位置购买记录');
+                    if(res.errno == 0){
+                        this.inloglist = res.data
+                    }else{
+                        this.$notify({
+                            title: this.$t('common.fail'),
+                            message: res.errmsg,
+                            type: 'error'
+                        })
+                    }
+                    this.loading = false
                 }).catch(e=>{
                     console.log(e);
                 })
@@ -211,7 +295,17 @@
                     url:'wx/order/list',
                     method:'get'
                 }).then(res=>{
-                    console.log(res,'商品交易');
+                    console.log(res,'商品记录');
+                    if(res.errno == 0){
+                        this.inloglist = res.data.list
+                    }else{
+                        this.$notify({
+                            title: this.$t('common.fail'),
+                            message: res.errmsg,
+                            type: 'error'
+                        })
+                    }
+                    this.loading = false
                 }).catch(e=>{
                     console.log(e);
                 })
@@ -681,6 +775,30 @@
                             font-weight: 400;
                             color: #444444;
                             width: 100rem;
+                        }
+                    }
+                }
+                .tabBox{
+                    position: relative;
+                    .empty{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                        top: 0;
+                        margin: auto;
+                        width: 49rem;
+                        height: 12rem;
+                        font-size: 12rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #9F9F9F;
+                        div{
+                            padding-top: 10rem;
                         }
                     }
                 }
