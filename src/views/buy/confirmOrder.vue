@@ -2,6 +2,14 @@
     <div class="confirmOrder">
         <div class="confirmOrder-wrap">
             <div class="confirmOrder-wrap-content">
+                <div class="cancleorder-head">
+                    <div class="goback">
+                        <router-link to="confirmOrder">
+                            <img src="" alt="">
+                            <div class="goback-text">{{$t('cancleorder.back')}}</div>
+                        </router-link>
+                    </div>
+                </div>
                 <div class="unpaid">
                     <div class="unpaid-content">
                         <div class="unpaid-title">
@@ -180,12 +188,24 @@ export default {
         },
 
         fastPushBuySell() {
-            let postData = this.postData
+
+            let postData = this.postData//otcAdPushReq
+            // console.log(postData)
+            let usermsg = this.localStorage.get('usermsg')
+            let data = {
+                otcAdPushReq: {
+                    convertAmount: "10",
+                    oriAmount: "100",
+                    transType: postData.transType,
+                },
+                userId: usermsg.userId,
+            }
+            // console.log(data)
             if (postData) {
                 this.axios({
                     url: 'otc/trans/fastPushBuySell',
                     method: 'post',
-                    params: JSON.stringify(postData),
+                    params: JSON.stringify(data),
                 }).then((res) => {
                     let data = res.data
                     if (res.errno === 0) {
@@ -203,6 +223,21 @@ export default {
                 })
             }
         },
+
+        /*async buyAndSellOne() {
+            let postData = {
+                convertAmount: '',//兑换币种ETH数量
+                oriAmount: '',//SLT币种总数量
+                transType: this.buyit ? 'BUY' : 'SELL',//交易类型【BUY, SELL】
+            }
+            const res = await this.axios({
+                url: 'otc/trans/fastPushBuySell',
+                method: 'POST',
+                params: postData
+            })
+            console.log(res)
+
+        }*/
         // getPostData() {
         //     let postData = {}
         //     // let convertRate = "";//兑换币种ETH比率
@@ -259,10 +294,33 @@ export default {
             border-radius: 10rem;
             margin-bottom: 70rem;
 
+            .cancleorder-head{
+                margin-top: 35rem;
+                width: 1200rem;
+                height: 60rem;
+                background-color: #F5F6FA;
+                .goback{
+                    height: 60rem;
+                    width: 120rem;
+                    background-color: #fff;
+                    a{
+                        text-decoration: none;
+                    }
+                    .goback-text{
+                        font-size: 16rem;
+                        font-family: Source Han Sans CN;
+                        font-weight: 400;
+                        color: #8993A0;
+
+                    }
+                }
+            }
+
             .unpaid {
                 width: 660rem;
                 height: 100%;
                 margin: 0 auto;
+                margin-top: 35rem;
 
                 .unpaid-content {
 
