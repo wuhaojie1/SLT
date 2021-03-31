@@ -25,9 +25,12 @@
                     </div> -->
                 </div>
                 <div class="table">
-                    <Table :businessType="active"
-                           :dataList="dataList"
-                           :auth="true"></Table>
+                    <TableC :businessType="active"
+                            :dataList="dataList"
+                            :auth="true"
+                            @onClick="handleClickF">
+
+                    </TableC>
                 </div>
             </div>
             <div class="freetrade-wrap-sell" v-if="!active">
@@ -57,11 +60,11 @@
                     </div> -->
                 </div>
                 <div class="table">
-                    <Table :businessType="active"
-                           :dataList="dataList"
-                           :auth="true"
-                           @handleClick="handleClick"
-                    ></Table>
+                    <TableC :businessType="active"
+                            :dataList="dataList"
+                            :auth="true"
+                            @onClick="handleClickF"
+                    ></TableC>
                 </div>
             </div>
         </div>
@@ -69,14 +72,14 @@
 </template>
 
 <script>
-import Table from "../../components/table/table";
+import TableC from "../../components/table/table";
 
 export default {
     name: "freetrade",
-    components: {Table},
+    components: {TableC},
     data() {
         return {
-            active: true,
+            active: true, //true buy false sell
             coinList: [
                 {
                     text: "SLT",
@@ -129,7 +132,7 @@ export default {
                 method: 'get',
                 params: postData,
             })
-            console.log(data)
+            // console.log(data)
             // item: [
             //     balAmount
             //
@@ -194,7 +197,7 @@ export default {
                 let payment = []
                 let obj = {
                     number: item.oriAmount + " " + item.transType,
-                    quota: item.maxAmount + "-" +item.minAmount + " " + item.convertSymbol,
+                    quota: item.maxAmount + "-" + item.minAmount + " " + item.convertSymbol,
                     payment: payment.push(item.convertSymbol),
                     ...item,
                 }
@@ -203,11 +206,24 @@ export default {
             this.dataList = tempArray;
         },
 
-        handleClick(item) {
+        handleClickF(data) {
             // eslint-disable-next-line no-debugger
-            debugger
-            console.log(item)
+            // debugger
+            // console.log(data)
+            let activeStatus = this.active ? 'BUY' : 'SELL';
+            let obj = {
+                ...data,
+                activeStatus
+            }
+            this.buyAndSell(obj)
+
         },
+
+        //自由贸易买卖
+        buyAndSell(data) {
+
+        }
+
     }
 }
 </script>
