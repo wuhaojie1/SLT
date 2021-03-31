@@ -4,11 +4,11 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [{
-        path: '/',
-        name: 'initIndex',
-        component: () =>
-            import ('../views/initPage/index.vue')
-    },
+    path: '/',
+    name: 'initIndex',
+    component: () =>
+        import ('../views/initPage/index.vue')
+},
     {
         path: '/index',
         name: 'index',
@@ -43,7 +43,7 @@ const routes = [{
     {
         path: '/whitPaper',
         name: 'whitPaper',
-        component:resolve => require(['@/views/whitePaper/whitPaper.vue'],resolve)
+        component: resolve => require(['@/views/whitePaper/whitPaper.vue'], resolve)
         // component: () =>
         //     import ('../views/whitePaper/whitPaper.vue'),
     },
@@ -305,41 +305,41 @@ const routes = [{
         name: 'Mbuy',
         component: () =>
             import ('../views/mobile/trade/exchange.vue'),
-        // children: [
-        //     //自选交易
-        //     {
-        //         path: 'MTrade',
-        //         name: 'MTrade',
-        //         component: () =>
-        //             import ('../views/mobile/trade/trade')
-        //     },
-        //     //一键买卖
-        //     {
-        //         path: 'Mdeal',
-        //         name: 'Mdeal',
-        //         component: () =>
-        //             import ('../views/mobile/trade/deal'),
-        //     },
-        //     {
-        //         path: 'Mconfirmorder',
-        //         name: 'Mconfirmorder',
-        //         component: () =>
-        //             import ('../views/mobile/trade/payorder'),
-        //     },
-        //     {
-        //         path: 'Mcancleorder',
-        //         name: 'Mcancleorder',
-        //         component: () =>
-        //             import ('../views/mobile/trade/cancleorder'),
-        //     },
-        //     //订单详情
-        //     {
-        //         path: 'MorderDetail',
-        //         name: 'MorderDetail',
-        //         component: () =>
-        //             import ('../views/mobile/trade/orderDetail.vue'),
-        //     },
-        // ]
+        children: [
+            //自选交易
+            {
+                path: 'MTrade',
+                name: 'MTrade',
+                component: () =>
+                    import ('../views/mobile/trade/trade')
+            },
+            //一键买卖
+            {
+                path: 'Mdeal',
+                name: 'Mdeal',
+                component: () =>
+                    import ('../views/mobile/trade/deal'),
+            },
+            {
+                path: 'Mconfirmorder',
+                name: 'Mconfirmorder',
+                component: () =>
+                    import ('../views/mobile/trade/payorder'),
+            },
+            {
+                path: 'Mcancleorder',
+                name: 'Mcancleorder',
+                component: () =>
+                    import ('../views/mobile/trade/cancleorder'),
+            },
+            //订单详情
+            {
+                path: 'MorderDetail',
+                name: 'MorderDetail',
+                component: () =>
+                    import ('../views/mobile/trade/orderDetail.vue'),
+            },
+        ]
     },
     //移动端聊天
     {
@@ -422,12 +422,12 @@ const routes = [{
         ]
     },
     //移动端提现
-        {
-            path: '/Mwithdraw',
-            name: 'Mwithdraw',
-            component: () =>
-                import ('../views/mobile/wallet/withdraw.vue')
-        },
+    {
+        path: '/Mwithdraw',
+        name: 'Mwithdraw',
+        component: () =>
+            import ('../views/mobile/wallet/withdraw.vue')
+    },
 
     //移动端支付成功
     {
@@ -437,7 +437,7 @@ const routes = [{
             import ('../views/mobile/paysucceed/paysucceed.vue')
     },
     //位置模块
-    
+
     {
         path: '/MpositionTrade',
         name: 'MpositionTrade',
@@ -452,17 +452,17 @@ const routes = [{
             import ('../views/mobile/positiondetails/positiondetails.vue')
     },
     //白皮书
-    
+
     {
         path: '/MwhitPaper',
         name: 'MwhitPaper',
-        component:resolve => require(['@/views/mobile/whitPaper/index.vue'],resolve)
+        component: resolve => require(['@/views/mobile/whitPaper/index.vue'], resolve)
         // component: () =>
         //     import ('../views/mobile/whitPaper/index.vue')
     },
     // component:resolve => require(['@/views/whitePaper/whitPaper.vue'],resolve)
-        // component: () =>
-        //     import ('../views/whitePaper/whitPaper.vue'),
+    // component: () =>
+    //     import ('../views/whitePaper/whitPaper.vue'),
 ]
 
 const router = new VueRouter({

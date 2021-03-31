@@ -106,7 +106,8 @@
             handleClick(item){
                 // eslint-disable-next-line no-debugger
                 // debugger
-                this.$emit("handleClick", item)
+                // console.log(item)
+                this.$emit("onClick", item)
             }
         }
     }

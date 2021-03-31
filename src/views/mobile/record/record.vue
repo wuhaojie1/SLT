@@ -1,10 +1,12 @@
 <template>
     <div class="record">
-<!--        <Mheader :isShowRight="true"></Mheader>-->
+        <!--        <Mheader :isShowRight="true"></Mheader>-->
         <PageHeader :isShowRight="true"
                     :isHome="false"
+                    class="PageHeader"
                     @clickCallback="clickCallback"></PageHeader>
-        <RecordDrop @toPage="toPage"></RecordDrop>
+        <RecordDrop @toPage="toPage"
+                    class="RecordDrop"></RecordDrop>
         <router-view></router-view>
     </div>
 </template>
@@ -27,12 +29,12 @@ export default {
     },
     methods: {
         toPage(item) {
-            console.log(item)
+            // console.log(item)
             this.$router.push({
                 name: item.name
             })
         },
-        clickCallback(item){
+        clickCallback(item) {
             // console.log(item)
             this.$router.push({
                 name: item.name,
@@ -44,6 +46,14 @@ export default {
 
 <style scoped lang="less">
 .record {
+    .PageHeader {
+        top: 0;
+    }
 
+    .RecordDrop {
+        position: absolute;
+        top: 88rem;
+        z-index: 5;
+    }
 }
 </style>

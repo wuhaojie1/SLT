@@ -100,6 +100,7 @@ export default {
         }
 
         .recordDrop-list {
+            width: 750rem;
             position: absolute;
             z-index: 5;
             text-align: left;
