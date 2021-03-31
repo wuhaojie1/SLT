@@ -1,12 +1,13 @@
 <template>
     <div class="recordDrop">
         <div class="recordDrop-content">
+            <div @click="recordShow=false" v-show="recordShow" class="mask"></div>
             <div class="recordDrop-item" @click="openRecord">
                 <div class="left">
                     {{ chooseItem.text }}
                 </div>
                 <div class="right">
-                    <img :src="downarrow" alt="">
+                    <img :style="'transform: rotate('+(recordShow==true?180:0)+'deg);'" :src="downarrow" alt="">
                 </div>
             </div>
             <div class="recordDrop-list" v-show="recordShow">
@@ -16,6 +17,7 @@
                     {{ item.text }}
                 </div>
             </div>
+            
         </div>
     </div>
 </template>
@@ -34,7 +36,7 @@ export default {
                 },
                 {
                     text: this.$t("TopUp.withdraw"),
-                    name: "",
+                    name: "Mwithdraw",
                 },
                 {
                     text: this.$t("TopUp.OTC"),
@@ -72,6 +74,14 @@ export default {
 .recordDrop {
     .recordDrop-content {
         position: relative;
+        
+        .mask{
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index:-1;
+        }
         .recordDrop-item {
             width: 750rem;
             height: 88rem;
@@ -82,6 +92,7 @@ export default {
             justify-content: space-between;
             padding: 0 35rem;
             box-sizing: border-box;
+            z-index:1;
 
             .left {
                 font-size: 30rem;

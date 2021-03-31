@@ -221,7 +221,7 @@ export default {
 
         //自由贸易买卖
         buyAndSell(data) {
-
+            console.log(data);
         }
 
     }
