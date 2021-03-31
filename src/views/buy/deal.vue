@@ -3,9 +3,15 @@
         <div v-if="buyit">
             <div class="center-contens">
                 <div class="con-head">
-                    <div class="buyslt" @click="gobuy()" :style="buyit?{color:'#00B4FC'}:''">{{ $t('deal.buy') }}</div>
-                    <div class="saleslt" @click="gosale()" :style="
-                        saleit?{color:'#00B4FC'}:''">{{ $t('deal.seal') }}
+                    <div class="buyslt"
+                         @click="gobuy()"
+                         :style="buyit?{color:'#00B4FC'}:''">
+                        {{ $t('deal.buy') }}
+                    </div>
+                    <div class="saleslt"
+                         @click="gosale()"
+                         :style="!buyit?{color:'#00B4FC'}:''">
+                        {{ $t('deal.seal') }}
                     </div>
                 </div>
                 <div class="wellcome">{{ $t('deal.welcome') }}</div>
@@ -212,7 +218,7 @@ export default {
             SLT: `${require('../../static/img/buy/SLT.png')}`,
             SLTcoin: `${require('../../static/img/buy/SLTcoin.png')}`,
             exchange: `${require('../../static/img/buy/exchange.png')}`,
-            buyit: false, //    false卖 true买
+            buyit: true, //    false卖 true买
 
             maxAmount: 10,
             minAmount: 0.1,
@@ -291,7 +297,6 @@ export default {
             }
 
             return postData
-
         },
     }
 }

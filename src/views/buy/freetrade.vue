@@ -216,7 +216,6 @@ export default {
                 activeStatus
             }
             this.buyAndSell(obj)
-
         },
 
         //自由贸易买卖
