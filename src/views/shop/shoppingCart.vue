@@ -24,12 +24,12 @@
                 <div class="rightBox">
                     <div class="item item1">
                         <div class="item_left">{{$t('shopcar.ordermoney')}}</div>
-                        <div class="item_right">{{$t('shopcar.have')}}2{{$t('shopcar.goodsnum')}}</div>
+                        <div class="item_right">{{$t('shopcar.have')}}{{allgoodsnum}}{{$t('shopcar.goodsnum')}}</div>
                     </div>
                     <div class="line"></div>
                     <div class="item item2">
                         <div class="item_left">{{$t('shopcar.goodsall')}}</div>
-                        <div class="item_right">￥4,200</div>
+                        <div class="item_right">￥{{allmoney}}</div>
                     </div>
                     <div class="item item3">
                         <div class="item_left">{{$t('shopcar.usemoney')}}</div>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="item item4">
                         <div class="item_left">{{$t('shopcar.allmoney')}}</div>
-                        <div class="item_right">￥4,200</div>
+                        <div class="item_right">￥{{allmoney}}</div>
                     </div>
                     <div class="line"></div>
                     <div class="p p1">{{$t('shopcar.text')}}</div>
@@ -70,34 +70,9 @@
             return {
                 shoppingCartBanner: `${require('../../static/img/shop/shoppingCartBanner.png')}`,
                 goodsList:[
-                    // {
-                    //     goodsname:'goods',
-                    //     goodsmsg:'652000 0XJDBM  9095',
-                    //     goodstype:'color',
-                    //     havegoods:true,
-                    //     num:'10',
-                    //     checked:false,
-                    // },
-                    // {
-                    //     goodsname:'goods',
-                    //     goodsmsg:'652000 0XJDBM  9095',
-                    //     goodstype:'color',
-                    //     havegoods:true,
-                    //     num:'5',
-                    //     checked:false,
-                    // },
-                    // {
-                    //     goodsname:'goods',
-                    //     goodsmsg:'652000 0XJDBM  9095',
-                    //     goodstype:'color',
-                    //     havegoods:false,
-                    //     num:'0',
-                    //     checked:true,
-                    // }
+
                 ],
                 bannerBottom :`${require('../../static/img/shop/bannerBottom.png')}`,
-
-
                 SLT_white: `${require('../../static/img/index/SLT_white.png')}`,
                 urlIcon: `${require('../../static/img/index/ico-landing1-banner_02.jpg')}`,
                 section3Bg: `${require('../../static/img/index/ico_bg_dark_03.png')}`,
@@ -119,7 +94,9 @@
                     `${require('../../static/img/index/SLT_white.png')}`,
                 ],
                 allchecked:false,
-                usermsg:{}
+                usermsg:{},
+                // allmoney:0
+                allgoodsnum:0
             }
         },
         watch: {
@@ -130,6 +107,30 @@
             //         this.showSticky = false;
             //     }
             // }
+        },
+        computed:{
+            allmoney:function () {
+                let productIds = this.goodsList.filter(function(element) {
+                    if (element.checked == true) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+                let  allmoney = 0;
+                if (productIds.length <= 0) {
+                    return allmoney;
+                }
+                productIds = productIds.map(function(element) {
+                    if (element.checked == true) {
+                        return element.price*element.number;
+                    }
+                });
+                allmoney = productIds.reduce((prey,cur)=>{
+                    return prey + cur
+                })
+                return allmoney;
+            },
         },
         mounted() {
             // window.addEventListener('scroll', this.handleScroll, true);
@@ -160,6 +161,7 @@
                   params:{userId:this.usermsg.userId}
               }).then(res=>{
                   console.log(res);
+                  this.allgoodsnum = res.data;
               }).catch(err=>{
                   console.log(err);
               })
@@ -168,28 +170,28 @@
             //取消或者选中
             choose(index){
                 this.goodsList[index].checked = !this.goodsList[index].checked;
-                if(this.goodsList[index].checked){
-                    this.axios({
-                        url:'wx/cart/checked',
-                        method:'post',
-                        params: {userId:this.usermsg.userId}
-                    }).then(res=>{
-                        console.log(res);
-                    }).catch(err=>{
-                        console.log(err);
-                    })
-                }else{
-                    let PostData =this.checkoutPostData()
-                    this.axios({
-                        url:'wx/cart/checkout',
-                        method:'get',
-                        params: PostData
-                    }).then(res=>{
-                        console.log(res);
-                    }).catch(err=>{
-                        console.log(err);
-                    })
-                }
+                // if(this.goodsList[index].checked){
+                //     this.axios({
+                //         url:'wx/cart/checked',
+                //         method:'post',
+                //         params: {userId:this.usermsg.userId}
+                //     }).then(res=>{
+                //         console.log(res);
+                //     }).catch(err=>{
+                //         console.log(err);
+                //     })
+                // }else{
+                //     let PostData =this.checkoutPostData()
+                //     this.axios({
+                //         url:'wx/cart/checkout',
+                //         method:'get',
+                //         params: PostData
+                //     }).then(res=>{
+                //         console.log(res);
+                //     }).catch(err=>{
+                //         console.log(err);
+                //     })
+                // }
 
                 let temarr = this.goodsList.filter(item=>item.checked)
                 if(temarr.length==this.goodsList.length){
@@ -198,29 +200,24 @@
                     this.allchecked = false
                 }
                 console.log(this.allchecked);
-                // for (let i = 0 ; i<this.goodsList.length; i++){
-                //     if(this.goodsList[i].checked){
-                //
-                //     }
-                // }
             },
-            checkoutPostData(){
-                let addressId = 1;
-                let cartId = 1;
-                let couponId = 1;
-                let grouponRulesId = 1;
-                let userCouponId = 1;
-                let userId = this.usermsg.userId;
-                let PostData ={
-                    addressId:addressId,
-                    cartId:cartId,
-                    couponId:couponId,
-                    grouponRulesId:grouponRulesId,
-                    userCouponId:userCouponId,
-                    userId:userId,
-                };
-                return PostData
-            },
+            // checkoutPostData(){
+            //     let addressId = 1;
+            //     let cartId = 1;
+            //     let couponId = 1;
+            //     let grouponRulesId = 1;
+            //     let userCouponId = 1;
+            //     let userId = this.usermsg.userId;
+            //     let PostData ={
+            //         addressId:addressId,
+            //         cartId:cartId,
+            //         couponId:couponId,
+            //         grouponRulesId:grouponRulesId,
+            //         userCouponId:userCouponId,
+            //         userId:userId,
+            //     };
+            //     return PostData
+            // },
             allcheck(){
                 // console.log('666');
                 this.allchecked = !this.allchecked;
@@ -249,71 +246,87 @@
                console.log(index)
                let PostData = this.getdelPostData(index);
                console.log(PostData);
-               this.axios({
-                   url:'wx/cart/delete',
-                   method:'POST',
-                   PostData:PostData
-               }).then(res=>{
-                   console.log(res);
-                   // this.updategoods();
-               }).catch(err=>{
-                   console.log(err);
-               })
+               this.$confirm(this.$t('shopcar.confirmtext')+'?', this.$t('shopcar.notify'), {
+                   confirmButtonText: this.$t('shopcar.confirm'),
+                   cancelButtonText: this.$t('shopcar.cancle'),
+                   type: 'warning'
+               }).then(() => {
+                   this.$message({
+                       type: 'success',
+                       message: this.$t('shopcar.succeed')
+                   });
+                   this.axios({
+                       url:'wx/cart/delete',
+                       method:'POST',
+                       params:PostData
+                   }).then(res=>{
+                       console.log(res);
+                       this.getmomunt();
+                       this.getcarlist();
+                   }).catch(err=>{
+                       console.log(err);
+                   })
+               }).catch(() => {
+                   this.$message({
+                       type: 'info',
+                       message: this.$t('shopcar.fail')
+                   });
+               });
            },
-            getdelPostData(){
-               // let temarr = [];
-               // temarr[0] = this.goodsList[index].productId;
+            getdelPostData(index){
+               let temarr = [];
+               temarr[0] = this.goodsList[index].productId;
                // let productIds = this.goodsList[index].productId;
-                // let productIds = temarr;
-                let productIds = this.goodsList.filter(function(element) {
-                    if (element.checked == true) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                });
-
-                if (productIds.length <= 0) {
-                    return false;
-                }
-
-                productIds = productIds.map(function(element) {
-                    if (element.checked == true) {
-                        return element.productId;
-                    }
-                });
+               let productIds = temarr;
+                // let productIds = this.goodsList.filter(function(element) {
+                //     if (element.checked == true) {
+                //         return true;
+                //     } else {
+                //         return false;
+                //     }
+                // });
+                //
+                // if (productIds.length <= 0) {
+                //     return false;
+                // }
+                //
+                // productIds = productIds.map(function(element) {
+                //     if (element.checked == true) {
+                //         return element.productId.toString();
+                //     }
+                // });
                let PostData={
                    productIds:productIds,
-                   userId:this.usermsg.userId
+                   // userId:this.usermsg.userId
                }
                return PostData
             },
             //更新数据
-            updategoods(index){
-               let PostData = this.getupdatePostData(index);
-               this.axios({
-                   url:'wx/cart/update',
-                   method:'post',
-                   params:PostData
-               }).then(res=>{
-                   console.log(res);
-               }).catch(err=>{
-                   console.log(err);
-               })
-            },
-            getupdatePostData(index){
-               let number= this.goodsList[index].number;
-               let goodsId = this.goodsList[index].goodsId;
-               let id = this.goodsList[index].id;
-               let productId = this.goodsList[index].productId;
-               let PostData={
-                    number:number,
-                    goodsId:goodsId,
-                    id:id,
-                    productId:productId
-                }
-                return PostData;
-            },
+            // updategoods(index){
+            //    let PostData = this.getupdatePostData(index);
+            //    this.axios({
+            //        url:'wx/cart/update',
+            //        method:'post',
+            //        params:PostData
+            //    }).then(res=>{
+            //        console.log(res);
+            //    }).catch(err=>{
+            //        console.log(err);
+            //    })
+            // },
+            // getupdatePostData(index){
+            //    let number= this.goodsList[index].number;
+            //    let goodsId = this.goodsList[index].goodsId;
+            //    let id = this.goodsList[index].id;
+            //    let productId = this.goodsList[index].productId;
+            //    let PostData={
+            //         number:number,
+            //         goodsId:goodsId,
+            //         id:id,
+            //         productId:productId
+            //     }
+            //     return PostData;
+            // },
             //购买选中的商品
             buygoods(){
                 let PostData = this.getbuyPostData();
@@ -328,9 +341,28 @@
                 })
             },
             getbuyPostData(){
-                let goodsId = 0;
-                let selectedNum = 0;
-                let productId = 0;
+                let productmsg = this.goodsList.filter(function(element) {
+                    if (element.checked == true) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+                if (productmsg.length <= 0) {
+                    return false;
+                }
+                productmsg = productmsg.map(function(element) {
+                    if (element.checked == true) {
+                        return {
+                            id:element.productId,
+                            num:element.number,
+                            goodsId:element.goodsList
+                        };
+                    }
+                });
+                let goodsId = productmsg[0].goodsId;
+                let selectedNum = productmsg[0].num;
+                let productId = productmsg[0].id;
                 let PostData={
                     goodsId: goodsId,
                     number: selectedNum,
@@ -491,8 +523,8 @@
                         width: 100%;
                         display: flex;
                         justify-content: space-between;
-                        height: 18rem;
-                        line-height: 14rem;
+                        height: 22rem;
+                        line-height: 22rem;
                         font-size: 14rem;
                         font-family: Source Han Sans CN;
                         font-weight: 400;
@@ -513,13 +545,13 @@
                         // }
                     }
                     .item1{
-                        
+                        /*height: 22rem;*/
                         .item_left{
                             color: #7E7E7E;
                         }
                     }
                     .item2{
-                        margin-top: 24rem;
+                        margin-top: 28rem;
                         margin-bottom: 25rem;
                         .item_right{
                             

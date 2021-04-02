@@ -43,7 +43,15 @@ export default {
         trueInfo: '真实信息',
         uploadCard: '上传身份证',
         inputTrueName: '请输入真实身份证号',
-        auth: '认证'
+        auth: '认证',
+        wait:'待审核',
+        fail:'认证失败',
+        failed:'申请认证失败',
+        havename:'真实姓名不能为空',
+        havenum:'身份证账号不能为空',
+        upback:'请上传身份证背面图片',
+        upface:'请上传身份证正面图片',
+        reauth:'认证失败，请修改后重新认证'
     },
     //用户设置
     userSet: {
@@ -83,7 +91,8 @@ export default {
         savedAddr: '已保存两个地址',
         sichuan: '四川省成都市双流区华阳街道',
         userAddr: '瑞升 橡树华府五单元1401',
-        userName: '李歪歪'
+        userName: '李歪歪',
+        pleasein:'请输入'
 
     },
     //个人资产
@@ -222,9 +231,13 @@ export default {
         goodsStyle:'款式',
         delete:'删除',
         date:'预计发货后2-4个工作日送达',
-        num:'数量'
-
-
+        num:'数量',
+        confirmtext:'确定删除购物车商品',
+        notify:'提示',
+        confirm:'确认',
+        cancle:'取消',
+        succeed:'删除成功',
+        fail:'已取消删除'
     },
     //商品详细
     goodsdetails:{
@@ -236,7 +249,14 @@ export default {
         sizeList: '尺寸表',
         detail:'产品细节',
         paytype:'支付方式',
-        espres:'配送服务'
+        espres:'配送服务',
+        buygoods:'立即购买',
+        comfirmtext:'确定加入购物车',
+        notify:'提示',
+        confirm:'确认',
+        cancle:'取消',
+        succeed:'加入购物车成功',
+        fail:'已取消加入'
     },
     //商城
     shop:{
@@ -685,6 +705,8 @@ export default {
         connect: '联系在线客服',
         buySuccess: '购买位置成功',
         buyFail: '购买位置失败',
+        fail:'失败',
+        succeed:'成功'
     },
     notifyText: {
         notify: "提示",

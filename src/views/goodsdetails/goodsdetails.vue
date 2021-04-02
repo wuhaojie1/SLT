@@ -22,7 +22,7 @@
                     <div class="goods-name-text">{{goodsDetail.info.goodsSn}}</div>
                     <img class="love" src="../../static/img/goodsdetails/like.png" alt="">
                 </div>
-                <div class="goods-charge">￥{{goodsDetail.info.retailPrice}}</div>
+                <div class="goods-charge">￥{{goodsDetail.info.counterPrice}}</div>
                 <div class="line"></div>
                 <div class="goods-num">{{$t('goodsdetails.goodsId')}} {{goodsDetail.info.goodsSn}}</div>
                 <div class="goods-attr">
@@ -57,6 +57,7 @@
                     </div>
                     <div class="look-all-type" @click="control">尺码表</div>
                 </div> -->
+                <div class="shopcar" @click="buygoods" >{{$t('goodsdetails.buygoods')}}</div>
                 <div class="shopcar" @click="addgoods" >{{$t('goodsdetails.shopcar')}}</div>
                 <!-- <div class="question">
                     <div class="online">
@@ -134,8 +135,9 @@
             this.localStorage.set('goodsindex', this.$route.params.index);
             let goodsid = this.localStorage.get("goodsid");
             let goodsindex = this.localStorage.get('goodsindex');
-            console.log(goodsid,goodsindex)
+            console.log(this.$route.params.item)
             this.goodsid = goodsid;
+            // if()
             this.goodsindex = goodsindex;
             // console.log(this.goodsid);
             // console.log(this.goodsindex)
@@ -154,25 +156,39 @@
                 })
             },
             addgoods(){
-                let PostData = this.getPostData()
-                this.axios(
-                    {
-                        url:'wx/cart/add',
-                        method:'post',
-                        params:PostData
-                    }
-                ).then(res=>{
-                    console.log(res);
-                    if(res.errno==711){
-                        this.$notify({
-                            title:'재고 가 부족 하 다'
-                        })
-                    }else if(this.errno==0){
-                        this.topage('shoppingCar')
-                    }
-                }).catch(err=>{
-                    console.log(err);
-                })
+                let PostData = this.getPostData();
+                this.$confirm(this.$t('goodsdetails.comfirmtext')+'?', this.$t('goodsdetails.notify'), {
+                    confirmButtonText: this.$t('goodsdetails.confirm'),
+                    cancelButtonText: this.$t('goodsdetails.cancle'),
+                    type: 'warning'
+                }).then(() => {
+                    this.$message({
+                        type: 'success',
+                        message: this.$t('goodsdetails.succeed')
+                    });
+                    // this.topage('shoppingCar')
+                    this.axios(
+                        {
+                            url:'wx/cart/add',
+                            method:'post',
+                            params:PostData
+                        }
+                    ).then(res=>{
+                        console.log(res);
+                        if(res.errno==711){
+                            this.$notify({
+                                title:'재고 가 부족 하 다'
+                            })
+                        }
+                    }).catch(err=>{
+                        console.log(err);
+                    })
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: this.$t('goodsdetails.fail')
+                    });
+                });
             },
             getPostData(){
                 let goodsId = this.goodsid;
@@ -184,6 +200,29 @@
                     productId:this.goodsindex+1
                 }
                 return PostData
+            },
+            buygoods(){
+                let PostData = this.getbuyPostData();
+                this.axios({
+                    url: 'wx/cart/fastadd',
+                    method: 'post',
+                    params: PostData
+                }).then(res => {
+                    console.log(res);
+                }).catch(err => {
+                    console.log(err);
+                })
+            },
+            getbuyPostData(){
+                let goodsId = this.goodsid;
+                let selectedNum = 1;
+                let productId = this.goodsindex+1;
+                let PostData={
+                    goodsId: goodsId,
+                    number: selectedNum,
+                    productId: productId
+                }
+                return PostData;
             },
             getGoodsDetail(){
                 this.axios({

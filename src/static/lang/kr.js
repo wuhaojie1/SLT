@@ -40,11 +40,19 @@ export default {
         trueInfo: '성명',
         uploadCard: '신분증 사진을 업로드하세요',
         inputTrueName: '신분증번호를 입력하여주세요',
-        auth: '인증'
+        auth: '인증',
+        wait:'심 사 를 기다리다',
+        fail:'인증 실패',
+        failed:'인증 신청 실패',
+        havename:'실명 이 비어 있 으 면 안 됩 니 다',
+        havenum:'신분증 계 정 이 비 어 있 으 면 안 됩 니 다',
+        upback:'신분증 뒷면 사진 올 려 주세요',
+        upface:'신분증 정면 사진 올 려 주세요',
+        reauth:'인증 실패, 수정 후 다시 인증 하 세 요'
     },
     //받는 주소
     userAdress: {
-        userAdresstext: '수하주소',
+        userAdresstext: '주소',
         name: '성명',
         Adressmsg: '주소 정보',
         msgdetail: '상세주소',
@@ -58,11 +66,12 @@ export default {
         delete: '삭제',
         change: '수정',
         address: '기본주소',
-        addressTitle: '수하주소',
-        pleaseName: 'name',
+        addressTitle: '주소',
+        pleaseName: '당신 의 성명 을 입력 하 세 요',
         pleaseAddr: '상세주소',
         pleaseCode: '우편번호',
         pleasePhone: "전화번호",
+        pleasein:'입력 하 세 요'
         // savedAddr: '已保存两个地址',
         // sichuan: '四川省成都市双流区华阳街道',
         // userAddr: '瑞升 橡树华府五单元1401',
@@ -203,9 +212,13 @@ export default {
         goodsStyle:'양식',
         delete:'삭제',
         date:'발송 후 영업일 2-4일 후 배송 예정',
-        num:'수량'
-
-
+        num:'수량',
+        confirmtext:'카 트 삭제 상품 확인',
+        notify:'제시 하 다',
+        confirm:'확정 하 다',
+        cancle:'취소 하 다',
+        succeed:'삭제 성공',
+        fail:'삭제 됨'
     },
     //商品详细
     goodsdetails:{
@@ -217,7 +230,14 @@ export default {
         sizeList:'사이즈 표',
         detail:'제품 디 테 일',
         paytype:'지불 방식',
-        expres:'배달 서비스'
+        expres:'배달 서비스',
+        buygoods:'즉시 구 매',
+        notify:'제시 하 다',
+        confirm:'확정 하 다',
+        cancle:'취소 하 다',
+        comfirmtext:'카 트 가입 을 확정 하 다',
+        succeed:'카 트 가입 성공',
+        fail:'취소 됨'
     },
     //商城
     shop:{
@@ -589,7 +609,7 @@ export default {
     //移动端提醒인증弹窗
     remindauth:{
         goauth:'실명인증을 완료하세요.',
-        remindtext1:'디지털 자산 보호를 위해 실명인이 필요합니다.',
+        remindtext1:'디지털 자산 보호를 위해실명인증이 필요합니다 (실명인X)',
         personauth:'개인실명인증',
         auth:'인증'
     },
@@ -654,17 +674,19 @@ export default {
         inpsw:'비밀번호를 입력해 주세요'
     },
     Mpositiondetails:{
-        position:'위치',
-        seal:'매출 위치',
+        position:'뒤로가기',
+        seal:'현재 보유 자산',
         num:'수량',
-        residue:'남 은 위치',
+        residue:'구매 후 남은 자산',
         earn:'수익',
         desceipt:'상품 이 있다,매개 위치평균 수입',
-        buy:'구입 하 다',
-        tip:'구 매 팁, 문제 가 있 으 면',
-        connect:'온라인 고객 서비스 연결',
-        buySuccess: '购买位置成功',
-        buyFail: '购买位置失败',
+        buy:'구매',
+        // tip:'구 매 팁, 문제 가 있 으 면',
+        connect:'구매 중 문제 발생 시 온라인 고객 서비스 연결',
+        buySuccess: '구 매 위치 성공',
+        buyFail: '구 매 위치 실패',
+        fail:'실패 하 다',
+        succeed:'성공 하 다'
     },
     notifyText: {
         notify: "제시 하 다",

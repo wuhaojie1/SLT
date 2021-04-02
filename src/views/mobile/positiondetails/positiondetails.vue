@@ -7,10 +7,10 @@
         </div>
         <div class="op">
             <div  class="back" @click="clickCallback"> <img src="../../../static/img/positiondetails/back.png" alt=""></div>
-            <div class="pname">{{positionObj.categoryName}}{{this.$t('Mpositiondetails.position')}}</div>
+            <div class="pname">{{this.$t('Mpositiondetails.position')}}</div>
             <div class="clearfix"></div>
         </div>
-        <div class="charge">￥{{positionObj.price}}</div>
+<!--        <div class="charge">￥{{positionObj.price}}</div>-->
         <div class="goodsdetails">
             <div class="imgcon">
                 <img class="img" src="../../../static/img/positiondetails/goods.png" alt="">
@@ -24,8 +24,8 @@
         </div>
         <div class="line"></div>
         <div class="earnings">
-            <div class="profie">{{this.$t('Mpositiondetails.earn')}}</div>
-            <div class="descript">{{this.$t('Mpositiondetails.desceipt')}}10%</div>
+<!--            <div class="profie">{{this.$t('Mpositiondetails.earn')}}</div>-->
+<!--            <div class="descript">{{this.$t('Mpositiondetails.desceipt')}}10%</div>-->
         </div>
         <div class="line"></div>
         <div class="choosenum">
@@ -35,7 +35,7 @@
         </div>
         <div class="buy" v-loading="buyLoading" @click="handleBuyPosition">{{this.$t('Mpositiondetails.buy')}}</div>
         <div class="remind">
-            <div class="tip">{{this.$t('Mpositiondetails.tip')}}</div>
+<!--            <div class="tip">{{this.$t('Mpositiondetails.tip')}}</div>-->
             <div class="connect">{{this.$t('Mpositiondetails.connect')}}</div>
         </div>
     </div>
@@ -95,13 +95,13 @@
                     if (res.errno===0){
                         this.updateLocal();
                         this.$notify({
-                            title: '成功',
+                            title: this.$t('Mpositiondetails.succeed'),
                             message: this.$t('Mpositiondetails.buySuccess'),
                             type: 'success'
                         });
                     }else {
                         this.$notify({
-                            title: '失败',
+                            title: this.$t('Mpositiondetails.fail'),
                             message: this.$t('Mpositiondetails.buyFail'),
                             type: 'error'
                         });

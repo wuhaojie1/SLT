@@ -4,9 +4,9 @@
             <img :src="sltlogo" alt="" class="sltlogo">
             <img :src="userIcon" alt="" class="userIcon">
         </div>
-        <div class="header-title">
-            <div class="text">{{ $t('MtopUp.withdrawText') }}</div>
-        </div>
+<!--        <div class="header-title">-->
+<!--            <div class="text">{{ $t('MtopUp.withdrawText') }}</div>-->
+<!--        </div>-->
         <!--<ThemeStickyHeader></ThemeStickyHeader>-->
         <div class="topUp-wrap">
             <!--<div class="topUp-wrap-nav">
@@ -110,27 +110,27 @@
 
                         </VueQr>
                     </div>
-                    <div class="tip">
-                        <img :src="tip" alt="" class="img">
-                        <div class="text">
-                            {{ $t('MtopUp.tipText1') }}
-                        </div>
-                    </div>
+<!--                    <div class="tip">-->
+<!--                        <img :src="tip" alt="" class="img">-->
+<!--                        <div class="text">-->
+<!--                            {{ $t('MtopUp.tipText1') }}-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <!--<div class="btn" @click="openTip">-->
                         <!--{{ $t('MtopUp.btn') }}-->
                     <!--</div>-->
 
-                    <div class="tipText">
-                        <ul>
-                            <li>
-                                {{ $t('MtopUp.tipText2') }}
-                            </li>
-                            <li>
-                                {{ $t('MtopUp.tipText3') }}
-                            </li>
-                            <li>{{ $t('MtopUp.tipText4') }}</li>
-                        </ul>
-                    </div>
+<!--                    <div class="tipText">-->
+<!--                        <ul>-->
+<!--                            <li>-->
+<!--                                {{ $t('MtopUp.tipText2') }}-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                {{ $t('MtopUp.tipText3') }}-->
+<!--                            </li>-->
+<!--                            <li>{{ $t('MtopUp.tipText4') }}</li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>

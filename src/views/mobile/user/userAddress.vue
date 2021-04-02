@@ -12,11 +12,11 @@
                     <div class="itemLeft">{{$t('userAdress.name')}}:</div>
                     <input v-model="postData.name" class="itemCenter" type="text" :placeholder="$t('userAdress.pleaseName')">
                 </li>
-                <li class="infoItem">
-                    <div class="itemLeft">{{$t('userAdress.Adressmsg')}}:</div>
-                    <input v-model="postData.address" class="itemCenter" type="text" :placeholder="$t('userAdress.pleaseStreet')">
-                    <img class="itemRight" style="width:12rem;height:20rem;" :src="require('../../../static/img/user/arrowgrey.png')" alt="">
-                </li>
+<!--                <li class="infoItem">-->
+<!--                    <div class="itemLeft">{{$t('userAdress.Adressmsg')}}:</div>-->
+<!--                    <input v-model="postData.address" class="itemCenter" type="text" :placeholder="$t('userAdress.pleaseStreet')">-->
+<!--                    <img class="itemRight" style="width:12rem;height:20rem;" :src="require('../../../static/img/user/arrowgrey.png')" alt="">-->
+<!--                </li>-->
                 <li class="infoItem">
                     <div class="itemLeft">{{$t('userAdress.msgdetail')}}:</div>
                     <input v-model="postData.addressDetail" class="itemCenter" type="text" :placeholder="$t('userAdress.pleaseAddr')">
@@ -251,7 +251,7 @@ export default {
                             break;
                     }
                     this.$notify({
-                        title:'请输入'+str
+                        title:this.$t('userAdress.pleasein')+str
                     })
                     return false;
                 }

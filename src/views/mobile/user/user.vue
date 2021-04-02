@@ -12,15 +12,17 @@
             <ul class="infoBox">
                 <li v-for="(item,index) in list" :key="item.text" class="infoItem">
                     <div class="itemLeft">{{ item.text }}</div>
-                    <div :style="'color:'+((index==2||index==5||index==6||index==7)?'#9AA5B5':'#444444')"
+                    <div v-if="change" :style="'color:'+((index==2||index==5||index==6||index==7)?'#9AA5B5':'#444444')"
                          class="itemCenter">{{ item.val }}
                     </div>
+                    <input v-else v-model="item.val" :style="'color:'+((index==2||index==5||index==6||index==7)?'#9AA5B5':'#444444')"
+                         class="itemCenterinput" />
                     <img v-if="item.isArrow" class="itemRight" style="width:12rem;height:20rem;"
                          :src="require((index==6||index==7||index==5)?'../../../static/img/user/arrowgrey.png':'../../../static/img/user/arrowdart.png')"
                          alt="">
                 </li>
             </ul>
-            <div class="saveBtn">{{ $t('userInfo.save') }}</div>
+            <div class="saveBtn" @click="save">{{ $t('userInfo.save') }}</div>
         </div>
 
         <BottomBar :usermsg="list"></BottomBar>
@@ -51,12 +53,16 @@ export default {
                 {text: this.$t('userInfo.idnum'), val: this.$t('userInfo.pleaseInput'), isArrow: true},
 
             ],
+            change:true
         }
     },
     mounted() {
         this.getUserInfo();
     },
     methods: {
+        save(){
+            this.change = !this.change
+        },
         clickCallback(item){
             // console.log(item)
             this.$router.push({
@@ -138,6 +144,14 @@ export default {
                 .itemCenter {
                     flex-grow: 1;
                     text-align: right;
+                    /*width: 200rem;*/
+                }
+                .itemCenterinput{
+                    flex-grow: 1;
+                    text-align: right;
+                    border: 1rem solid #DBDEE4;
+                    height: 40rem;
+                    /*width: 200rem;*/
                 }
 
                 .itemRight {

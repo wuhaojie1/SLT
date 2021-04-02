@@ -6,7 +6,7 @@
         </div>
         <div class="header-title">
             <div class="text">{{ $t('Mwithdraw.withdrawText') }}</div>
-             <div class="balance">可提额度：{{drawItem.balanceAmount - drawItem.drawAmount}}</div>
+<!--             <div class="balance">可提额度：{{drawItem.balanceAmount - drawItem.drawAmount}}</div>-->
         </div>
         <!--<ThemeStickyHeader></ThemeStickyHeader>-->
         <div class="topUp-wrap">
@@ -146,12 +146,12 @@
 
                         </VueQr>
                     </div>-->
-                    <div class="tip">
-                        <img :src="tip" alt="" class="img">
-                        <div class="text">
-                            {{ $t('Mwithdraw.tipText1') }}
-                        </div>
-                    </div>
+<!--                    <div class="tip">-->
+<!--                        <img :src="tip" alt="" class="img">-->
+<!--                        <div class="text">-->
+<!--                            {{ $t('Mwithdraw.tipText1') }}-->
+<!--                        </div>-->
+<!--                    </div>-->
 
                     <div class="tipText">
                         <ul>

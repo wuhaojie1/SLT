@@ -12,10 +12,10 @@
                             <div class="textTip-box">
                                 <div class="text1">{{ $t('position.title1') }}</div>
                                 <div class="text2">{{ $t('position.title2') }}</div>
-                                <div class="text3">Return to the most pure nature/concentrate and return to
-                                    myself/people’s hearts over a certain height/high sky ＆ pale clouds,clear ＆ clam/the
-                                    natural realm,just
-                                </div>
+<!--                                <div class="text3">Return to the most pure nature/concentrate and return to-->
+<!--                                    myself/people’s hearts over a certain height/high sky ＆ pale clouds,clear ＆ clam/the-->
+<!--                                    natural realm,just-->
+<!--                                </div>-->
                             </div>
                             <!--                            <div class="icon">-->
                             <!--                                <img :src="icon" alt="" class="">-->
