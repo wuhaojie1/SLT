@@ -28,7 +28,12 @@
                             </div>
                         </div>
                         <div class="center-con">
-                            <div class="pay-num">0.00</div>
+                            <div class="pay-num">
+                                <input type="text"
+                                       :placeholder="$t('deal.buynum')"
+                                       class="inputcon"
+                                       v-model="convertAmount">
+                            </div>
                             <div class="pay-eth">ETH</div>
                         </div>
                         <div class="bottom-line"></div>
@@ -103,7 +108,12 @@
                             </div>
                         </div>
                         <div class="center-con">
-                            <div class="pay-num">0.00</div>
+                            <div class="pay-num">
+                                <input type="text"
+                                       :placeholder="$t('deal.buynum')"
+                                       class="inputcon"
+                                       v-model="oriAmount">
+                            </div>
                             <div class="pay-eth">SLTCoin</div>
                         </div>
                         <div class="bottom-line"></div>
@@ -225,11 +235,11 @@ export default {
         getPostData() {
             let postData = {}
             // let convertRate = "";//兑换币种ETH比率
-            let convertAmount = this.convertAmount;
+            let convertAmount = this.convertAmount === "" ? 0 : this.convertAmount;
             // let convertSymbol = "ETH";//兑换币种ETH
             // let maxAmount = this.maxAmount;//SLT币种交易最大可用数量
             // let minAmount = this.minAmount;//SLT币种交易最小数量
-            let oriAmount = this.oriAmount;//SLT币种总数量
+            let oriAmount = this.oriAmount === "" ? 0 : this.oriAmount;//SLT币种总数量
             // let symbol = "";//BUY/SELL币种SLT
             let transType = "";//交易类型【BUY, SELL】
 
