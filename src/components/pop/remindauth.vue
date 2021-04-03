@@ -1,6 +1,6 @@
 <template>
     <div id="remindauth">
-        <div class="content">
+        <div class="content" @click="handleClick()">
             <div class="center-con">
                 <div class="text1">{{this.$t('remindauth.goauth')}}</div>
 <!--                <img src="" alt="">-->
@@ -8,7 +8,7 @@
                 <div class="line1"></div>
                 <div class="text3">{{this.$t('remindauth.personauth')}}</div>
                 <div class="line2"></div>
-                <div class="button">{{this.$t('remindauth.auth')}}</div>
+                <div class="button" @click="handleClick()">{{this.$t('remindauth.auth')}}</div>
             </div>
         </div>
     </div>
@@ -16,7 +16,12 @@
 
 <script>
     export default {
-        name: "remindauth"
+        name: "remindauth",
+        methods: {
+            handleClick() {
+                this.$emit('handleClick')
+            }
+        }
     }
 </script>
 

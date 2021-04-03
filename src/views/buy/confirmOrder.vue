@@ -6,7 +6,7 @@
                     <div class="goback">
                         <router-link to="confirmOrder">
                             <img src="" alt="">
-                            <div class="goback-text">{{$t('cancleorder.back')}}</div>
+                            <div class="goback-text">{{ $t('cancleorder.back') }}</div>
                         </router-link>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                             <!--                            <router-link to="cancleorder">-->
                             <div class="cancel" @click="dialogVisible = true">{{ $t('orderdetails.cancelorder') }}</div>
                             <!--                            </router-link>-->
-                            <div class="confirm" @click="fastPushBuySell">{{ $t('orderdetails.confirmtext') }} 45S</div>
+                            <div class="confirm" @click="fastPushBuySell">{{ $t('orderdetails.confirmtext') }}</div>
                         </div>
                         <div class="connect-text">{{ $t('orderdetails.connect') }}</div>
                     </div>
@@ -188,34 +188,31 @@ export default {
         },
 
         fastPushBuySell() {
-
             let postData = this.postData//otcAdPushReq
-            // console.log(postData)
-            let usermsg = this.localStorage.get('usermsg')
             let data = {
-                otcAdPushReq: {
-                    convertAmount: "10",
-                    oriAmount: "100",
-                    transType: postData.transType,
-                },
-                userId: usermsg.userId,
+                convertAmount: postData.convertAmount,
+                oriAmount: postData.oriAmount,
+                transType: postData.transType,
             }
-            // console.log(data)
             if (postData) {
                 this.axios({
                     url: 'otc/trans/fastPushBuySell',
                     method: 'post',
                     params: JSON.stringify(data),
                 }).then((res) => {
-                    let data = res.data
-                    if (res.errno === 0) {
-                        console.log(data);
+                    if (res.errorCode === 0) {
+                        this.$notify({
+                            title: this.$t('notifyText.notify'),
+                            message: this.$t('notifyText.success'),
+                            type: 'success',
+                            showClose: false
+                        });
                     } else {
                         // eslint-disable-next-line no-debugger
                         // debugger
                         this.$notify({
                             title: this.$t('notifyText.notify'),
-                            message: res.errmsg,
+                            message: this.$t('notifyText.fail'),
                             type: 'warning',
                             showClose: false
                         });
@@ -223,53 +220,6 @@ export default {
                 })
             }
         },
-
-        /*async buyAndSellOne() {
-            let postData = {
-                convertAmount: '',//兑换币种ETH数量
-                oriAmount: '',//SLT币种总数量
-                transType: this.buyit ? 'BUY' : 'SELL',//交易类型【BUY, SELL】
-            }
-            const res = await this.axios({
-                url: 'otc/trans/fastPushBuySell',
-                method: 'POST',
-                params: postData
-            })
-            console.log(res)
-
-        }*/
-        // getPostData() {
-        //     let postData = {}
-        //     // let convertRate = "";//兑换币种ETH比率
-        //     let convertSymbol = "ETH";//兑换币种ETH
-        //     let maxAmount = this.maxAmount;//SLT币种交易最大可用数量
-        //     let minAmount = this.minAmount;//SLT币种交易最小数量
-        //     // let oriAmount = "";//SLT币种总数量
-        //     let symbol = "";//BUY/SELL币种SLT
-        //     let transType = "";//交易类型【BUY, SELL】
-        //
-        //
-        //     if (this.buyit) {
-        //         symbol = "BUY";
-        //         transType = "BUY";
-        //     } else {
-        //         symbol = "SELL";
-        //         transType = "SELL";
-        //     }
-        //
-        //     postData = {
-        //         // convertRate,
-        //         convertSymbol,
-        //         maxAmount,
-        //         minAmount,
-        //         // oriAmount,
-        //         symbol,
-        //         transType,
-        //     }
-        //
-        //     return postData
-        //
-        // },
     }
 }
 </script>
@@ -294,19 +244,22 @@ export default {
             border-radius: 10rem;
             margin-bottom: 70rem;
 
-            .cancleorder-head{
+            .cancleorder-head {
                 margin-top: 35rem;
                 width: 1200rem;
                 height: 60rem;
                 background-color: #F5F6FA;
-                .goback{
+
+                .goback {
                     height: 60rem;
                     width: 120rem;
                     background-color: #fff;
-                    a{
+
+                    a {
                         text-decoration: none;
                     }
-                    .goback-text{
+
+                    .goback-text {
                         font-size: 16rem;
                         font-family: Source Han Sans CN;
                         font-weight: 400;

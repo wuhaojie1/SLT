@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="pay-button" @click="popup">{{this.$t('Mbuy.buy')}}SLT</div>
-                    <remindauth v-if="popout"></remindauth>
+                    <remindauth v-if="popout" @handleClick="handleClick"></remindauth>
                     <confirmorder v-if="false"></confirmorder>
                 </div>
                 <div class="seal" v-if="currentindex1==1">
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                     <div class="pay-button" @click="popup">{{this.$t('Mbuy.seal')}}SLT</div>
-                    <remindauth v-if="popout"></remindauth>
+                    <remindauth v-if="popout" @handleClick="handleClick"></remindauth>
                 </div>
             </div>
         </div>
@@ -131,6 +131,9 @@
             },
             popup(){
                 this.popout = true
+            },
+            handleClick() {
+                this.popout = false
             }
         }
     }

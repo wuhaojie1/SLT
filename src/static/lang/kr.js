@@ -133,7 +133,7 @@ export default {
         remindmsg1: '만약 판매자에게 이미 돈을 지불했다면 주문을 취소하지 마세요.',
         remindmsg2: '상대방의 수금정보를 성실히 대조해 주십시오.이체할 때에는 당신의 제삼자계좌가 동결되지 않도록 어떤 정보도 기입하지 마십시오.',
         cancelorder: '주문취소',
-        confirmtext: '확인支付',
+        confirmtext: '확인',
         connect: '온라인 고객 서비스에 문의',
         tip:'질문이 있으시면 고객 서비스에 호소하십시오.',
         back: '뒤로가기',
@@ -692,5 +692,7 @@ export default {
         notify: "제시 하 다",
         vCode: "먼저 인증번호 받 으 세 요",
         vPhone: "핸드폰 번 호 를 먼저 입력 하 세 요.",
+        success: "거래 가 성공 하 다",
+        fail: "거래 실패",
     }
 }

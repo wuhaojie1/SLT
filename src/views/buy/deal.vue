@@ -53,7 +53,10 @@
                         </div>
                         <div class="center-con">
                             <div class="pay-num">≈
-                                <input type="text" :placeholder="$t('deal.buynum')" class="inputcon">
+                                <input type="text"
+                                       :placeholder="$t('deal.buynum')"
+                                       class="inputcon"
+                                       v-model="oriAmount">
                             </div>
                             <div class="pay-eth">SLTcoin</div>
                         </div>
@@ -96,12 +99,12 @@
                             </div>
                             <div class="text-con">
                                 <div class="pay-text">{{ $t('deal.goseal') }}</div>
-                                <div class="pay-mtype">ETH</div>
+                                <div class="pay-mtype">SLTCoin</div>
                             </div>
                         </div>
                         <div class="center-con">
                             <div class="pay-num">0.00</div>
-                            <div class="pay-eth">ETH</div>
+                            <div class="pay-eth">SLTCoin</div>
                         </div>
                         <div class="bottom-line"></div>
                     </div>
@@ -122,67 +125,17 @@
                             </div>
                             <div class="text-con">
                                 <div class="pay-text">{{ $t('deal.rewind') }}</div>
-                                <div class="pay-mtype">SLTcoin</div>
+                                <div class="pay-mtype">ETH</div>
                             </div>
                         </div>
                         <div class="center-con">
                             <div class="pay-num">≈
-                                <input type="text" :placeholder="$t('deal.buynum')" class="inputcon">
-                            </div>
-                            <div class="pay-eth">SLTcoin</div>
-                        </div>
-                        <div class="bottom-line"></div>
-                    </div>
-                </div>
-                <div class="tradecon">
-                    <div class="trade-left">
-                        <div class="letf-head">
-                            <div class="img-con">
-                                <img :src="SLT" class="ethicon" alt="">
-                            </div>
-                            <div class="text-con">
-                                <div class="pay-text">{{ $t('deal.rewind') }}</div>
-                                <div class="pay-mtype">SLTcoin</div>
-                            </div>
-                        </div>
-                        <div class="center-con">
-                            <div class="pay-num">
-                                <input type="text" v-model="minAmount"
-                                       :placeholder="$t('deal.buynum')"
-                                       class="inputcon">
-                            </div>
-                            <div class="pay-eth">SLTcoin</div>
-                        </div>
-                        <div class="bottom-line"></div>
-                    </div>
-
-                    <div class="trade-center">
-                        <!--                        <div class="trade-center-text">{{ $t('deal.havemoney') }}
-                                                    <div class="lookcharge">0.0000000</div>
-                                                </div>
-                                                <div class="exchange-con">
-                                                    <img :src="exchange" alt="">
-                                                </div>-->
-                    </div>
-
-                    <div class="trade-left">
-                        <div class="letf-head">
-                            <div class="img-con">
-                                <img :src="SLT" class="ethicon" alt="">
-                            </div>
-                            <div class="text-con">
-                                <div class="pay-text">{{ $t('deal.rewind') }}</div>
-                                <div class="pay-mtype">SLTcoin</div>
-                            </div>
-                        </div>
-                        <div class="center-con">
-                            <div class="pay-num">
                                 <input type="text"
                                        :placeholder="$t('deal.buynum')"
                                        class="inputcon"
-                                       v-model="maxAmount">
+                                       v-model="convertAmount">
                             </div>
-                            <div class="pay-eth">SLTcoin</div>
+                            <div class="pay-eth">ETH</div>
                         </div>
                         <div class="bottom-line"></div>
                     </div>
@@ -196,7 +149,7 @@
                         </div>
                         <div class="bottom-coin-right">
                             <img :src="SLTcoin" alt="" :style="{width:'12rem',height:'20rem'}">
-                            <div class="coin-name">SLT</div>
+                            <div class="coin-name">SLTcoin</div>
                         </div>
                     </div>
                 </div>
@@ -220,8 +173,10 @@ export default {
             exchange: `${require('../../static/img/buy/exchange.png')}`,
             buyit: true, //    false卖 true买
 
-            maxAmount: 10,
-            minAmount: 0.1,
+            // maxAmount: 10,
+            // minAmount: 0.1,
+            oriAmount: "",
+            convertAmount: "",
             // saleit: true
         }
     },
@@ -270,29 +225,31 @@ export default {
         getPostData() {
             let postData = {}
             // let convertRate = "";//兑换币种ETH比率
-            let convertSymbol = "ETH";//兑换币种ETH
-            let maxAmount = this.maxAmount;//SLT币种交易最大可用数量
-            let minAmount = this.minAmount;//SLT币种交易最小数量
-            // let oriAmount = "";//SLT币种总数量
-            let symbol = "";//BUY/SELL币种SLT
+            let convertAmount = this.convertAmount;
+            // let convertSymbol = "ETH";//兑换币种ETH
+            // let maxAmount = this.maxAmount;//SLT币种交易最大可用数量
+            // let minAmount = this.minAmount;//SLT币种交易最小数量
+            let oriAmount = this.oriAmount;//SLT币种总数量
+            // let symbol = "";//BUY/SELL币种SLT
             let transType = "";//交易类型【BUY, SELL】
 
 
             if (this.buyit) {
-                symbol = "BUY";
+                // symbol = "BUY";
                 transType = "BUY";
             } else {
-                symbol = "SELL";
+                // symbol = "SELL";
                 transType = "SELL";
             }
 
             postData = {
                 // convertRate,
-                convertSymbol,
-                maxAmount,
-                minAmount,
-                // oriAmount,
-                symbol,
+                // convertSymbol,
+                // maxAmount,
+                // minAmount,
+                oriAmount,
+                convertAmount,
+                // symbol,
                 transType,
             }
 
