@@ -100,19 +100,21 @@ export default {
                 name: item.name,
             })
         },
-         //充币记录
-        recharage(){
-            this.axios({
-                url:'user/wallet/rechargeInfo',
-                method:'get',
-                params:JSON.stringify({
-                    pageNum:1,
-                    pageSize:1
-                }) 
-            }).then(res=>{
+        //充币记录
+        async recharage(){ 
+            this.loading = true;
+            try {
+                let res = await this.axios({
+                    url:'user/wallet/rechargeInfo',
+                    method:'get',
+                    params:{
+                        pageNum:1,
+                        pageSize:1
+                    }
+                })
                 console.log(res,'充币记录');
-                if(res.errno == 0){
-                    this.inloglist = res.data
+                if(res.errorCode == 0){
+                    this.inloglist = JSON.parse(res.results).list
                 }else{
                     this.$notify({
                         title: this.$t('common.fail'),
@@ -121,26 +123,28 @@ export default {
                     })
                 }
                 this.loading = false
-            }).catch(e=>{
-                console.log(e);
-            })
+            } catch (error) {
+                console.log(error);
+            }
+            
         },
         //提币记录
-        withDraw(){
-            this.axios({
-                url:'user/wallet/drawList',
-                method:'post',
-                params:{
-                    userId:24
-                }
-            }).then(res=>{
+        async withDraw(){
+            try {
+                let res = await this.axios({
+                    url:'user/wallet/drawList',
+                    method:'post',
+                    params:{
+                        userId:24
+                    }
+                })
                 console.log(res,'提币记录');
                 if(res.errno == 0){
                     let temp = res.data.list.map(ele=>{
                         ele.time = ele.updateTime
-                        ele.title = ele.symbol
+                        ele.cointype = ele.symbol
                         ele.type = ele.bizNo
-                        ele.number = ele.amount
+                        ele.num = ele.amount
                         return ele
                     })
 
@@ -152,25 +156,31 @@ export default {
                         type: 'error'
                     })
                 }
-
-                this.loading = false
-            }).catch(e=>{
-                console.log(e);
-            })
+                this.loading = false;
+            } catch (error) {
+                console.log(error);
+            }
         },
         //OTC交易记录
-        OTCTrading(){
-            this.axios({
-                url:'otc/trans/listFreeBuySell',
-                method:'get',
-                params:{
-                    lastId:1,
-                    size:1
-                }
-            }).then(res=>{
+        async OTCTrading(){
+            try {
+                let res = await this.axios({
+                    url:'otc/trans/listFreeBuySell',
+                    method:'get',
+                    params:{
+                        lastId:1,
+                        size:1
+                    }
+                })
                 console.log(res,'OTC记录');
                 if(res.errorCode == 0){
-                    this.inloglist = res.results.items
+                    this.inloglist = res.results.items.map(ele=>{
+                        ele.time = ele.userId
+                        ele.cointype = ele.symbol
+                        ele.type = ele.transType
+                        ele.num = ele.oriAmount
+                        return ele
+                    })
                 }else{
                     this.$notify({
                         title: this.$t('common.fail'),
@@ -178,17 +188,22 @@ export default {
                         type: 'error'
                     })
                 }
+                
                 this.loading = false
-            }).catch(e=>{
-                console.log(e);
-            })
+                    
+                
+            } catch (error) {
+                console.log(error);
+            }
         },
         //位置购买记录
-        positionTrading(){
-            this.axios({
-                url:'wx/position/buyList',
-                method:'get'
-            }).then(res=>{
+        async positionTrading(){
+            try {
+                let res = await this.axios({
+                    url:'wx/position/buyList',
+                    method:'get'
+                })
+
                 console.log(res,'位置购买记录');
                 if(res.errno == 0){
                     this.inloglist = res.data
@@ -200,17 +215,18 @@ export default {
                     })
                 }
                 this.loading = false
-            }).catch(e=>{
-                console.log(e);
-            })
+            } catch (error) {
+                console.log(error);
+            }
         },
         //商品交易记录
-        goodsTrading(){
-            this.axios({
-                url:'wx/order/list',
-                method:'get'
-            }).then(res=>{
-                console.log(res,'商品记录');
+        async goodsTrading(){
+            try {
+                let res = await this.axios({
+                    url:'wx/order/list',
+                    method:'get'
+                })
+
                 if(res.errno == 0){
                     this.inloglist = res.data.list
                 }else{
@@ -221,9 +237,9 @@ export default {
                     })
                 }
                 this.loading = false
-            }).catch(e=>{
-                console.log(e);
-            })
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 }

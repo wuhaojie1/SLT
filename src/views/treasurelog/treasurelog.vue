@@ -8,12 +8,13 @@
                     재무 기록
                 </div>
                 <div class="tabbarlist">
-                    <div :class="currentindex==index ? 'active':'tabbar-item'"
-                         v-for="(item,index) in tabbarlist"
-                         :key="index"
-                         @click="changecurrent(index)">
-                         {{item}}
-                    </div>
+                    <template v-for="(item,index) in tabbarlist">
+                        <div :class="currentindex==index ? 'active':'tabbar-item'"
+                            :key="index"
+                            @click="changecurrent(index)">
+                            {{item}}
+                        </div>
+                    </template>   
                 </div>
             </div>
             <div class="logcon">
@@ -40,7 +41,7 @@
                     </div>
 
                 </div>
-                <div class="outlog tabBox" v-if="currentindex==1">
+                <div class="outlog tabBox" v-if="currentindex==1" v-loading="loading">
                     <div class="head">
                         <span class="head-text">동전 인출 기록</span>
                     </div>
@@ -52,8 +53,8 @@
                         <!-- <div class="item5">조작하다</div> -->
                     </div>
                     <template v-if="inloglist.length&&inloglist.length>0">
-                        <div v-for="item in inloglist"
-                            :key="item.index">
+                        <div v-for="(item,index) in inloglist"
+                            :key="index">
                             <coinlog :itemlog="item"></coinlog>
                         </div>
                     </template>
@@ -62,7 +63,7 @@
                         <div>{{ $t('common.noData') }}</div>
                     </div>
                 </div>
-                <div class="otclog tabBox" v-if="currentindex==2">
+                <div class="otclog tabBox" v-if="currentindex==2" v-loading="loading">
                     <div class="head">
                         <span class="head-text">OTC 거래 기록</span>
                     </div>
@@ -74,8 +75,8 @@
                         <!-- <div class="item5">조작하다</div> -->
                     </div>
                     <template v-if="inloglist.length&&inloglist.length>0">
-                        <div v-for="item in inloglist"
-                            :key="item.index">
+                        <div v-for="(item,index) in inloglist"
+                            :key="index">
                             <coinlog :itemlog="item"></coinlog>
                         </div>
                     </template>
@@ -84,7 +85,7 @@
                         <div>{{ $t('common.noData') }}</div>
                     </div>
                 </div>
-                <div class="locallog tabBox" v-if="currentindex==3">
+                <div class="locallog tabBox" v-if="currentindex==3" v-loading="loading">
                     <div class="head">
                         <span class="head-text">위치 구 매 기록</span>
                     </div>
@@ -98,7 +99,7 @@
                     </div>
                     <gllog></gllog>
                 </div>
-                <div class="goodslog tabBox" v-if="currentindex==4">
+                <div class="goodslog tabBox" v-if="currentindex==4" v-loading="loading">
                     <div class="head">
                         <span class="head-text">상점 구 매 기록</span>
                     </div>
@@ -131,24 +132,24 @@
                 tabbarlist:['동전 충전 기록','동전 인출 기록','OTC 거래 기록','위치 구 매 기록','상점 구 매 기록'],
                 currentindex:0,
                 inloglist:[
-                    {
-                        time:'2021-02-25',
-                        cointype:'SLT',
-                        type:'유형',
-                        num:'1000000'
-                    },
-                    {
-                        time:'2021-03-25',
-                        cointype:'SLT',
-                        type:'유형',
-                        num:'1000000'
-                    },
-                    {
-                        time:'2021-04-25',
-                        cointype:'SLT',
-                        type:'유형',
-                        num:'1000000'
-                    }
+                    // {
+                    //     time:'2021-02-25',
+                    //     cointype:'SLT',
+                    //     type:'유형',
+                    //     num:'1000000'
+                    // },
+                    // {
+                    //     time:'2021-03-25',
+                    //     cointype:'SLT',
+                    //     type:'유형',
+                    //     num:'1000000'
+                    // },
+                    // {
+                    //     time:'2021-04-25',
+                    //     cointype:'SLT',
+                    //     type:'유형',
+                    //     num:'1000000'
+                    // }
                 ],
                 loading:false
             }
@@ -159,7 +160,7 @@
         methods:{
             changecurrent(index){
                 this.currentindex = index
-                this.loading = true;
+                this.loading = true
                 switch (index) {
                     case 0:
                         this.recharage();
@@ -186,18 +187,20 @@
                 })
             },
             //充币记录
-            recharage(){
-                this.axios({
-                    url:'user/wallet/rechargeInfo',
-                    method:'get',
-                    params:JSON.stringify({
-                        pageNum:1,
-                        pageSize:1
-                    }) 
-                }).then(res=>{
+            async recharage(){ 
+                this.loading = true;
+                try {
+                    let res = await this.axios({
+                        url:'user/wallet/rechargeInfo',
+                        method:'get',
+                        params:{
+                            pageNum:1,
+                            pageSize:1
+                        }
+                    })
                     console.log(res,'充币记录');
-                    if(res.errno == 0){
-                        this.inloglist = res.data
+                    if(res.errorCode == 0){
+                        this.inloglist = JSON.parse(res.results).list
                     }else{
                         this.$notify({
                             title: this.$t('common.fail'),
@@ -206,19 +209,21 @@
                         })
                     }
                     this.loading = false
-                }).catch(e=>{
-                    console.log(e);
-                })
+                } catch (error) {
+                    console.log(error);
+                }
+                
             },
             //提币记录
-            withDraw(){
-                this.axios({
-                    url:'user/wallet/drawList',
-                    method:'post',
-                    params:{
-                        userId:24
-                    }
-                }).then(res=>{
+            async withDraw(){
+                try {
+                    let res = await this.axios({
+                        url:'user/wallet/drawList',
+                        method:'post',
+                        params:{
+                            userId:24
+                        }
+                    })
                     console.log(res,'提币记录');
                     if(res.errno == 0){
                         let temp = res.data.list.map(ele=>{
@@ -237,25 +242,31 @@
                             type: 'error'
                         })
                     }
-
-                    this.loading = false
-                }).catch(e=>{
-                    console.log(e);
-                })
+                    this.loading = false;
+                } catch (error) {
+                    console.log(error);
+                }
             },
             //OTC交易记录
-            OTCTrading(){
-                this.axios({
-                    url:'otc/trans/listFreeBuySell',
-                    method:'get',
-                    params:{
-                        lastId:1,
-                        size:1
-                    }
-                }).then(res=>{
+            async OTCTrading(){
+                try {
+                    let res = await this.axios({
+                        url:'otc/trans/listFreeBuySell',
+                        method:'get',
+                        params:{
+                            lastId:1,
+                            size:1
+                        }
+                    })
                     console.log(res,'OTC记录');
                     if(res.errorCode == 0){
-                        this.inloglist = res.results.items
+                        this.inloglist = res.results.items.map(ele=>{
+                            ele.time = ele.userId
+                            ele.cointype = ele.symbol
+                            ele.type = ele.transType
+                            ele.num = ele.oriAmount
+                            return ele
+                        })
                     }else{
                         this.$notify({
                             title: this.$t('common.fail'),
@@ -263,17 +274,22 @@
                             type: 'error'
                         })
                     }
+                   
                     this.loading = false
-                }).catch(e=>{
-                    console.log(e);
-                })
+                       
+                    
+                } catch (error) {
+                    console.log(error);
+                }
             },
             //位置购买记录
-            positionTrading(){
-                this.axios({
-                    url:'wx/position/buyList',
-                    method:'get'
-                }).then(res=>{
+            async positionTrading(){
+                try {
+                    let res = await this.axios({
+                        url:'wx/position/buyList',
+                        method:'get'
+                    })
+
                     console.log(res,'位置购买记录');
                     if(res.errno == 0){
                         this.inloglist = res.data
@@ -285,17 +301,18 @@
                         })
                     }
                     this.loading = false
-                }).catch(e=>{
-                    console.log(e);
-                })
+                } catch (error) {
+                    console.log(error);
+                }
             },
             //商品交易记录
-            goodsTrading(){
-                this.axios({
-                    url:'wx/order/list',
-                    method:'get'
-                }).then(res=>{
-                    console.log(res,'商品记录');
+            async goodsTrading(){
+                try {
+                    let res = await this.axios({
+                        url:'wx/order/list',
+                        method:'get'
+                    })
+
                     if(res.errno == 0){
                         this.inloglist = res.data.list
                     }else{
@@ -306,9 +323,9 @@
                         })
                     }
                     this.loading = false
-                }).catch(e=>{
-                    console.log(e);
-                })
+                } catch (error) {
+                    console.log(error);
+                }
             }
         }
     }
