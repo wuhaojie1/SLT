@@ -230,28 +230,28 @@ export default {
         checkForm(){
             for (const key in this.postData) {
                 if(key!="isDefault"&&key!="province"&&key!='city'&&key!='county'&&!this.postData[key].trim()){
-                    let str = ''
-                    switch (key) {
-                        case 'name':
-                            str = this.$t('userAdress.name')
-                            break;
-                        case 'address':
-                            str = this.$t('userAdress.Adressmsg')
-                            break;
-                        case 'addressDetail':
-                            str = this.$t('userAdress.msgdetail')
-                            break;
-                        case 'areaCode':
-                            str = this.$t('userAdress.mailnum')
-                            break;
-                        case 'tel':
-                            str = this.$t('userAdress.phonenum')
-                            break;
-                        default:
-                            break;
-                    }
+                    // let str = ''
+                    // switch (key) {
+                    //     case 'name':
+                    //         str = this.$t('userAdress.name')
+                    //         break;
+                    //     case 'address':
+                    //         str = this.$t('userAdress.Adressmsg')
+                    //         break;
+                    //     case 'addressDetail':
+                    //         str = this.$t('userAdress.msgdetail')
+                    //         break;
+                    //     case 'areaCode':
+                    //         str = this.$t('userAdress.mailnum')
+                    //         break;
+                    //     case 'tel':
+                    //         str = this.$t('userAdress.phonenum')
+                    //         break;
+                    //     default:
+                    //         break;
+                    // }
                     this.$notify({
-                        title:this.$t('userAdress.pleasein')+str
+                        title:this.$t('userAdress.pleasein')
                     })
                     return false;
                 }

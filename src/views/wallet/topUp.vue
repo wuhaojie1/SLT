@@ -88,7 +88,7 @@
                         <!--</div>-->
                     <!--</div>-->
                     <!--<div class="line"></div>-->
-                    <div class="tipText">
+                    <!-- <div class="tipText">
                         <ul>
                             <li>.{{ $t('wallet.chargeTipArray')[0] }} 0.001 SLT。</li>
                             <li>.{{ $t('wallet.chargeTipArray')[1] }}
@@ -97,7 +97,7 @@
                             <li>.{{ $t('wallet.chargeTipArray')[3] }}
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

@@ -123,12 +123,12 @@
                             </div>
                         </div>
                         <ul>
-                            <li>.{{$t('wallet.withdrawTipArray')[0]}} 0.001 SLT.</li>
+                            <li>.{{$t('wallet.withdrawTipArray')[0]}}</li>
                             <li>.{{$t('wallet.withdrawTipArray')[1]}}
                             </li>
                             <li>.{{$t('wallet.withdrawTipArray')[2]}}</li>
-                            <li>.{{$t('wallet.withdrawTipArray')[3]}}
-                            </li>
+                            <!-- <li>.{{$t('wallet.withdrawTipArray')[3]}}
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -285,14 +285,14 @@ import Bottom from "../../components/bottom/bottom";
                         this.$notify({
                             title:this.$t('common.warning'),
                             type: 'warning',
-                            message: '提现地址不能为空！'
+                            message: this.$t('wallet.tips')[0]
                         })
                     }
                 }else {
                     this.$notify({
                         title:this.$t('common.warning'),
                         type: 'warning',
-                        message: '提现金额不能为空！'
+                        message: this.$t('wallet.tips')[1]
                     })
                 }
             },
@@ -348,13 +348,13 @@ import Bottom from "../../components/bottom/bottom";
                         this.$notify({
                             title:this.$t('common.success'),
                             type: 'success',
-                            message: '提现申请发送成功！'
+                            message: this.$t('wallet.tips')[2]
                         })
                     }else {
                         this.$notify({
                             title:this.$t('common.error'),
                             type: 'error',
-                            message: '提现申请发送失败！'
+                            message: this.$t('wallet.tips')[3]
                         })
                     }
                 })

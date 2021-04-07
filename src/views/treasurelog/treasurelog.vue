@@ -36,7 +36,7 @@
                     </template>
                     <div class="empty" v-else>
                         <img width="80rem;height:80rem" src="../../static/img/treasurelog/empty.png" alt="">
-                        <div>暂无数据</div>
+                        <div>{{ $t('common.noData') }}</div>
                     </div>
 
                 </div>
@@ -59,7 +59,7 @@
                     </template>
                     <div class="empty" v-else>
                         <img width="80rem;height:80rem" src="../../static/img/treasurelog/empty.png" alt="">
-                        <div>暂无数据</div>
+                        <div>{{ $t('common.noData') }}</div>
                     </div>
                 </div>
                 <div class="otclog tabBox" v-if="currentindex==2">
@@ -81,7 +81,7 @@
                     </template>
                     <div class="empty" v-else>
                         <img width="80rem;height:80rem" src="../../static/img/treasurelog/empty.png" alt="">
-                        <div>暂无数据</div>
+                        <div>{{ $t('common.noData') }}</div>
                     </div>
                 </div>
                 <div class="locallog tabBox" v-if="currentindex==3">

@@ -139,7 +139,7 @@ export default {
             if (!this.realName) {
                 this.$notify({
                     type:'warning',
-                    message: this.$t('identifi.havname')
+                    message: this.$t('identifi.havename')
                 });
                 return false;
             }

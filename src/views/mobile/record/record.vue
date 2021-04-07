@@ -17,7 +17,7 @@
             </template>
             <div class="empty" v-else>
                 <img style="130rem;height:130rem" src="../../../static/img/treasurelog/empty.png" alt="">
-                <div>暂无数据</div>
+                <div>{{ $t('common.noData') }}</div>
             </div>
         </div>
     </div>

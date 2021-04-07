@@ -153,13 +153,13 @@
 <!--                        </div>-->
 <!--                    </div>-->
 
-                    <div class="tipText">
+                    <!-- <div class="tipText">
                         <ul>
                             <li>{{ $t('Mwithdraw.tipText2') }}</li>
                             <li>{{ $t('Mwithdraw.tipText3') }}</li>
                             <li>{{ $t('Mwithdraw.tipText4') }}</li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -300,7 +300,7 @@ export default {
                     this.$notify({
                         title:this.$t('common.warning'),
                         type: 'warning',
-                        message: '提现地址不能为空！'
+                        message: this.$t('Mwithdraw.tips')[0]
                     })
                 }
 
@@ -308,7 +308,7 @@ export default {
                 this.$notify({
                     title:this.$t('common.warning'),
                     type: 'warning',
-                    message: '提现金额不能为空！'
+                    message: this.$t('Mwithdraw.tips')[1]
                 })
             }
         },
@@ -381,13 +381,13 @@ export default {
                         this.$notify({
                             title:this.$t('common.success'),
                             type: 'success',
-                            message: '提现申请发送成功！'
+                            message: this.$t('Mwithdraw.tips')[2]
                         })
                     }else {
                     this.$notify({
                         title:this.$t('common.error'),
                         type: 'error',
-                        message: '提现申请发送失败！'
+                        message: this.$t('Mwithdraw.tips')[3]
                     })
                 }
             })
