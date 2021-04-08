@@ -29,7 +29,7 @@
                     <div class="line"></div>
                     <div class="item item2">
                         <div class="item_left">{{$t('shopcar.goodsall')}}</div>
-                        <div class="item_right">￥{{allmoney}}</div>
+                        <div class="item_right">￥{{allcart.checkedGoodsAmount}}</div>
                     </div>
                     <div class="item item3">
                         <div class="item_left">{{$t('shopcar.usemoney')}}</div>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="item item4">
                         <div class="item_left">{{$t('shopcar.allmoney')}}</div>
-                        <div class="item_right">￥{{allmoney}}</div>
+                        <div class="item_right">￥{{allcart.goodsAmount}}</div>
                     </div>
                     <div class="line"></div>
                     <div class="p p1">{{$t('shopcar.text')}}</div>
@@ -96,7 +96,8 @@
                 allchecked:false,
                 usermsg:{},
                 // allmoney:0
-                allgoodsnum:0
+                allgoodsnum:0,
+                allcart:{}
             }
         },
         watch: {
@@ -108,30 +109,30 @@
             //     }
             // }
         },
-        computed:{
-            allmoney:function () {
-                let productIds = this.goodsList.filter(function(element) {
-                    if (element.checked == true) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                });
-                let  allmoney = 0;
-                if (productIds.length <= 0) {
-                    return allmoney;
-                }
-                productIds = productIds.map(function(element) {
-                    if (element.checked == true) {
-                        return element.price*element.number;
-                    }
-                });
-                allmoney = productIds.reduce((prey,cur)=>{
-                    return prey + cur
-                })
-                return allmoney;
-            },
-        },
+        // computed:{
+        //     allmoney:function () {
+        //         let productIds = this.goodsList.filter(function(element) {
+        //             if (element.checked == true) {
+        //                 return true;
+        //             } else {
+        //                 return false;
+        //             }
+        //         });
+        //         let  allmoney = 0;
+        //         if (productIds.length <= 0) {
+        //             return allmoney;
+        //         }
+        //         productIds = productIds.map(function(element) {
+        //             if (element.checked == true) {
+        //                 return element.price*element.number;
+        //             }
+        //         });
+        //         allmoney = productIds.reduce((prey,cur)=>{
+        //             return prey + cur
+        //         })
+        //         return allmoney;
+        //     },
+        // },
         mounted() {
             // window.addEventListener('scroll', this.handleScroll, true);
             // this.myEcharts();
@@ -237,6 +238,7 @@
                    console.log(res);
                    this.goodsList = res.data.cartList;
                    console.log(this.goodsList)
+                   this.allcart = res.data.cartTotal;
                }).catch(err=>{
                    console.log(err);
                })
@@ -328,47 +330,98 @@
             //     return PostData;
             // },
             //购买选中的商品
+            // buygoods(){
+            //     let PostData = this.getbuyPostData();
+            //     this.axios({
+            //         url: 'wx/cart/fastadd',
+            //         method: 'post',
+            //         params: PostData
+            //     }).then(res => {
+            //         console.log(res);
+            //     }).catch(err => {
+            //         console.log(err);
+            //     })
+            // },
+            // getbuyPostData(){
+            //     let productmsg = this.goodsList.filter(function(element) {
+            //         if (element.checked == true) {
+            //             return true;
+            //         } else {
+            //             return false;
+            //         }
+            //     });
+            //     if (productmsg.length <= 0) {
+            //         return false;
+            //     }
+            //     productmsg = productmsg.map(function(element) {
+            //         if (element.checked == true) {
+            //             return {
+            //                 id:element.productId,
+            //                 num:element.number,
+            //                 goodsId:element.goodsList
+            //             };
+            //         }
+            //     });
+            //     let goodsId = productmsg[0].goodsId;
+            //     let selectedNum = productmsg[0].num;
+            //     let productId = productmsg[0].id;
+            //     let PostData={
+            //         goodsId: goodsId,
+            //         number: selectedNum,
+            //         productId: productId
+            //     }
+            //     return PostData;
+            // },
+            //购买选中的商品
+            // ordergoods(){
+            //     let PostData = this.getorderPostData();
+            //     this.axios({
+            //         url: 'wx/cart/fastadd',
+            //         method: 'post',
+            //         params: PostData
+            //     }).then(res => {
+            //         console.log(res);
+            //         this.buygoods()
+            //     }).catch(err => {
+            //         console.log(err);
+            //     })
+            // },
+            // getorderPostData(){
+            //     let goodsId = this.goodsid;
+            //     let selectedNum = 1;
+            //     let productId = this.goodsindex+1;
+            //     let PostData={
+            //         goodsId: goodsId,
+            //         number: selectedNum,
+            //         productId: productId
+            //     }
+            //     return PostData;
+            // },
             buygoods(){
-                let PostData = this.getbuyPostData();
+                // console.log('购买')
+                let PostData = this.getbuyPostData()
                 this.axios({
-                    url: 'wx/cart/fastadd',
-                    method: 'post',
-                    params: PostData
-                }).then(res => {
-                    console.log(res);
-                }).catch(err => {
-                    console.log(err);
+                    url:'wx/order/submit',
+                    method:'post',
+                    params:PostData
+                }).then(res=>{
+                    console.log(res)
+                }).catch(err=>{
+                    console.log(err)
                 })
             },
             getbuyPostData(){
-                let productmsg = this.goodsList.filter(function(element) {
-                    if (element.checked == true) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                });
-                if (productmsg.length <= 0) {
-                    return false;
+                let id = this.localStorage.get('adressid')
+                let cartId = this.localStorage.get('cartId');
+                let PostData = {
+                    cartId:cartId,
+                    addressId:id,
+                    couponId:'-1',
+                    message:'xxx',
+                    // grouponRulesId:'1',
+                    // grouponLinkId:'1'
                 }
-                productmsg = productmsg.map(function(element) {
-                    if (element.checked == true) {
-                        return {
-                            id:element.productId,
-                            num:element.number,
-                            goodsId:element.goodsList
-                        };
-                    }
-                });
-                let goodsId = productmsg[0].goodsId;
-                let selectedNum = productmsg[0].num;
-                let productId = productmsg[0].id;
-                let PostData={
-                    goodsId: goodsId,
-                    number: selectedNum,
-                    productId: productId
-                }
-                return PostData;
+                return PostData
             },
         }
     }
