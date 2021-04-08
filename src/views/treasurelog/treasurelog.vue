@@ -111,7 +111,16 @@
                         <div class="item5">단가</div>
                         <!-- <div class="item6">조작 하 다</div> -->
                     </div>
-                    <gllog></gllog>
+                    <template v-if="inloglist.length&&inloglist.length>0">
+                        <div v-for="(item,index) in inloglist"
+                            :key="index">
+                            <gllog :itemlog="item"></gllog>
+                        </div>
+                    </template>
+                    <div class="empty" v-else>
+                        <img width="80rem;height:80rem" src="../../static/img/treasurelog/empty.png" alt="">
+                        <div>{{ $t('common.noData') }}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -227,10 +236,10 @@
                     console.log(res,'提币记录');
                     if(res.errno == 0){
                         let temp = res.data.list.map(ele=>{
-                            ele.time = ele.updateTime
-                            ele.cointype = ele.symbol
-                            ele.type = ele.bizNo
-                            ele.num = ele.amount
+                            ele.item1 = ele.updateTime
+                            ele.item2 = ele.symbol
+                            ele.item3 = ele.bizNo
+                            ele.item4 = ele.amount
                             return ele
                         })
 
@@ -261,10 +270,10 @@
                     console.log(res,'OTC记录');
                     if(res.errorCode == 0){
                         this.inloglist = res.results.items.map(ele=>{
-                            ele.time = ele.userId
-                            ele.cointype = ele.symbol
-                            ele.type = ele.transType
-                            ele.num = ele.oriAmount
+                            ele.item1 = ele.updateTime
+                            ele.item2 = ele.symbol
+                            ele.item3 = ele.transType
+                            ele.item4 = ele.oriAmount
                             return ele
                         })
                     }else{
@@ -274,10 +283,7 @@
                             type: 'error'
                         })
                     }
-                   
-                    this.loading = false
-                       
-                    
+                    this.loading = false   
                 } catch (error) {
                     console.log(error);
                 }
@@ -313,8 +319,22 @@
                         method:'get'
                     })
 
+                    console.log(res,'商品交易记录');
                     if(res.errno == 0){
-                        this.inloglist = res.data.list
+                        let temp = [];
+                        res.data.list.forEach(item=>{
+                            item.goodsList.forEach(ele=>{
+                                temp.push({
+                                    ...ele,
+                                    item1:ele.addTime,
+                                    item2:ele.goodsName,
+                                    item3:ele.specifications.join('-'),
+                                    item4:ele.number,
+                                    item5:ele.price
+                                })
+                            })
+                        })
+                        this.inloglist = temp
                     }else{
                         this.$notify({
                             title: this.$t('common.fail'),

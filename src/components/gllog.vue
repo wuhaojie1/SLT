@@ -1,11 +1,11 @@
 <template>
     <div id="gllog">
         <div class="table-head">
-            <div class="item1">2021-02-25</div>
-            <div class="item2">안마 의자</div>
-            <div class="item3">유형</div>
-            <div class="item4">1</div>
-            <div class="item5">1000</div>
+            <div class="item1">{{itemlog.item1}}</div>
+            <div class="item2">{{itemlog.item2}}</div>
+            <div class="item3">{{itemlog.item3}}</div>
+            <div class="item4">{{itemlog.item4}}</div>
+            <div v-if="itemlog.item5" class="item5">{{itemlog.item5}}</div>
             <!-- <div class="item6">상세한상
                 <img class="img" src="../static/img/treasurelog/arrow-left.png" alt="">
             </div> -->
@@ -15,7 +15,13 @@
 
 <script>
     export default {
-        name: "gllog"
+        name: "gllog",
+        props:{
+            itemlog:{
+                type:Object,
+                default:()=>[]
+            }
+        }
     }
 </script>
 

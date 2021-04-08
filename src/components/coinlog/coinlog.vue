@@ -1,10 +1,11 @@
 <template>
     <div id="coinlog">
         <div class="table-head">
-            <div class="item1">{{itemlog.time}}</div>
-            <div class="item2">{{itemlog.cointype}}</div>
-            <div class="item3">{{itemlog.type}}</div>
-            <div class="item4">{{itemlog.num}}</div>
+            <div class="item1">{{itemlog.item1}}</div>
+            <div class="item2">{{itemlog.item2}}</div>
+            <div class="item3">{{itemlog.item3}}</div>
+            <div class="item4">{{itemlog.item4}}</div>
+            <div v-if="itemlog.item5" class="item5">{{itemlog.item5}}</div>
             <!-- <div class="item5">상세한상
                 <img class="img" src="../../static/img/treasurelog/arrow-left.png" alt="">
             </div> -->

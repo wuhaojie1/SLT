@@ -8,8 +8,8 @@
                     class="RecordDrop"></RecordDrop>
         <div class="tableBox" v-loading="loading">
             <template v-if="inloglist.length>0">
-                <template v-if="curType=='Mtopup'||curType=='Mwithdraw'">
-                <Topup class="tableItem" v-for="(item,index) in inloglist" :key="index" :recordItem="item"></Topup>
+                <template v-if="curType=='Mtopup'||curType=='Mwithdraw'||curType=='MOTC'">
+                    <Topup class="tableItem" v-for="(item,index) in inloglist" :key="index" :recordItem="item"></Topup>
                 </template>
                 <template v-else>
                     <PositionRecord class="tableItem" v-for="(item,index) in inloglist" :key="index" :recordItem="item"></PositionRecord>
@@ -133,21 +133,17 @@ export default {
             try {
                 let res = await this.axios({
                     url:'user/wallet/drawList',
-                    method:'post',
-                    params:{
-                        userId:24
-                    }
+                    method:'post'
                 })
                 console.log(res,'提币记录');
                 if(res.errno == 0){
                     let temp = res.data.list.map(ele=>{
                         ele.time = ele.updateTime
-                        ele.cointype = ele.symbol
+                        ele.title = ele.symbol
                         ele.type = ele.bizNo
-                        ele.num = ele.amount
+                        ele.number = ele.amount
                         return ele
                     })
-
                     this.inloglist = temp
                 }else{
                     this.$notify({
@@ -175,10 +171,10 @@ export default {
                 console.log(res,'OTC记录');
                 if(res.errorCode == 0){
                     this.inloglist = res.results.items.map(ele=>{
-                        ele.time = ele.userId
-                        ele.cointype = ele.symbol
+                        ele.time = ele.updateTime
+                        ele.title = ele.symbol
                         ele.type = ele.transType
-                        ele.num = ele.oriAmount
+                        ele.number = ele.oriAmount
                         return ele
                     })
                 }else{
@@ -226,9 +222,24 @@ export default {
                     url:'wx/order/list',
                     method:'get'
                 })
-
+                console.log(res,'商品交易记录');
                 if(res.errno == 0){
                     this.inloglist = res.data.list
+
+                    let temp = [];
+                    res.data.list.forEach(item=>{
+                        item.goodsList.forEach(ele=>{
+                            temp.push({
+                                ...ele,
+                                time:ele.item.addTime,
+                                title:ele.goodsName,
+                                type:ele.specifications.join('-'),
+                                number:ele.number,
+                                price:ele.price
+                            })
+                        })
+                    })
+                    this.inloglist = temp
                 }else{
                     this.$notify({
                         title: this.$t('common.fail'),
