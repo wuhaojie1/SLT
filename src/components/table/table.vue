@@ -9,9 +9,9 @@
                 <th>
                     <div class="number">{{ $t('otcTrade.tableHeader')[1] }}</div>
                 </th>
-                <th>
+<!--                <th>
                     <div class="quota">{{ $t('otcTrade.tableHeader')[2] }}</div>
-                </th>
+                </th>-->
 <!--                <th>
                     <div class="price">{{ $t('otcTrade.tableHeader')[3] }}</div>
                 </th>-->
@@ -44,11 +44,11 @@
                         <div class="text">{{item.number}}</div>
                     </div>
                 </th>
-                <th>
+<!--                <th>
                     <div class="quota">
                         <div class="text">{{item.quota}}</div>
                     </div>
-                </th>
+                </th>-->
 <!--                <th>
                     <div class="price">
                         <div class="text"
