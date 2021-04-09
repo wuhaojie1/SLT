@@ -195,7 +195,7 @@
                 }).catch(() => {
                     this.$message({
                         type: 'info',
-                        message: this.$t('goodsdetails.fail')
+                        message: this.$t('shopcar.cancle')
                     });
                 });
             },
@@ -218,8 +218,19 @@
                     params: PostData
                 }).then(res => {
                     console.log(res);
-                    this.localStorage.set('cartId', res.data);
-                    this.buygoods()
+                        this.$confirm(this.$t('goodsdetails.confirmbuy')+'?', this.$t('goodsdetails.notify'), {
+                            confirmButtonText: this.$t('goodsdetails.confirm'),
+                            cancelButtonText: this.$t('goodsdetails.cancle'),
+                            type: 'warning'
+                        }).then(() => {}).catch(()=>{
+                            this.localStorage.set('cartId', res.data);
+                            this.buygoods()
+                        }).catch(() => {
+                            this.$message({
+                                type: 'info',
+                                message: this.$t('shopcar.cancled')
+                            });
+                        });
                 }).catch(err => {
                     console.log(err);
                 })

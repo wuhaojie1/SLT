@@ -400,15 +400,26 @@
             buygoods(){
                 // console.log('购买')
                 let PostData = this.getbuyPostData()
-                this.axios({
-                    url:'wx/order/submit',
-                    method:'post',
-                    params:PostData
-                }).then(res=>{
-                    console.log(res)
-                }).catch(err=>{
-                    console.log(err)
-                })
+                this.$confirm(this.$t('shopcar.confirmbuy')+'?', this.$t('shopcar.notify'), {
+                    confirmButtonText: this.$t('shopcar.confirm'),
+                    cancelButtonText: this.$t('shopcar.cancle'),
+                    type: 'warning'
+                }).then(() => {
+                    this.axios({
+                        url:'wx/order/submit',
+                        method:'post',
+                        params:PostData
+                    }).then(res=>{
+                        console.log(res)
+                    }).catch(err=>{
+                        console.log(err)
+                    })
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: this.$t('shopcar.cancled')
+                    });
+                });
             },
             getbuyPostData(){
                 let id = this.localStorage.get('adressid')

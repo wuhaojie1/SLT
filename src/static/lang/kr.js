@@ -219,7 +219,9 @@ export default {
         confirm:'확정 하 다',
         cancle:'취소 하 다',
         succeed:'삭제 성공',
-        fail:'삭제 됨'
+        fail:'삭제 됨',
+        confirmbuy:'구 매 하 시 겠 습 니까?',
+        cancled:'취소 됨'
     },
     //商品详细
     goodsdetails:{
@@ -238,7 +240,9 @@ export default {
         cancle:'취소 하 다',
         comfirmtext:'카 트 가입 을 확정 하 다',
         succeed:'카 트 가입 성공',
-        fail:'취소 됨'
+        fail:'취소 됨',
+        confirmbuy:'구 매 하 시 겠 습 니까?',
+        cancled:'취소 됨'
     },
     //商城
     shop:{
