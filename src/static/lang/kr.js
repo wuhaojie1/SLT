@@ -94,7 +94,7 @@ export default {
         tredetype: '지불방식',
         moneycomes: '화폐원천',
         usermoney: '수수료료',
-        tableHeader:['코인 종류','수량','동결','사용가능','단가','총액','오프션'],
+        tableHeader:['코인 종류','수량','동결','수수료','단가','총액','오프션'],
         total:'내 자산',
         account:'내잔고'
 
@@ -458,7 +458,7 @@ export default {
         sell:'판매',
         title:'자유거래',
         subTitle:'',
-        tableHeader:['광고주','수량','한도','단가','지불방','거래','수수료'],
+        tableHeader:['광고주','수량','한도','수수료','지불방','거래','수수료'],
         auth:'실명인증이 필요합니다.',
         buyNumber: "수량에따라구매하다",
         buyPlaceholder: "구매수량을입력하세요",

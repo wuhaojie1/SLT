@@ -62,6 +62,7 @@
                 <div class="table">
                     <TableC :businessType="active"
                             :dataList="dataList"
+                            :feeAmount="feeAmount"
                             :auth="true"
                             @onClick="handleClickF"
                     ></TableC>
@@ -262,6 +263,7 @@ export default {
                 let payment = []
                 payment.push(item.convertSymbol)
                 let obj = {
+                    price: item.feeAmount,
                     number: item.oriAmount + " " + item.transType,
                     // quota: item.maxAmount + "-" + item.minAmount + " " + item.convertSymbol,
                     payment: payment,
