@@ -97,7 +97,16 @@
                         <div class="item5">단가</div>
                         <!-- <div class="item6">조작 하 다</div> -->
                     </div>
-                    <gllog></gllog>
+                    <template v-if="inloglist.length&&inloglist.length>0">
+                        <div v-for="(item,index) in inloglist"
+                            :key="index">
+                            <gllog :itemlog="item"></gllog>
+                        </div>
+                    </template>
+                    <div class="empty" v-else>
+                        <img width="80rem;height:80rem" src="../../static/img/treasurelog/empty.png" alt="">
+                        <div>{{ $t('common.noData') }}</div>
+                    </div>
                 </div>
                 <div class="goodslog tabBox" v-if="currentindex==4" v-loading="loading">
                     <div class="head">
@@ -298,7 +307,17 @@
 
                     console.log(res,'位置购买记录');
                     if(res.errno == 0){
-                        this.inloglist = res.data
+                        this.inloglist = res.data.map(ele=>{
+                            let obj = {
+                                ...ele,
+                                item1:ele.updateTime,
+                                item2:ele.scale,
+                                item3:ele.categoryName,
+                                item4:ele.amount,
+                                item5:ele.price
+                            }
+                            return obj
+                        })
                     }else{
                         this.$notify({
                             title: this.$t('common.fail'),

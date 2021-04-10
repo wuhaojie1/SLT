@@ -202,7 +202,16 @@ export default {
 
                 console.log(res,'位置购买记录');
                 if(res.errno == 0){
-                    this.inloglist = res.data
+                    this.inloglist = res.data.map(ele=>{
+                        return {
+                            ...ele,
+                            time:ele.updateTime,
+                            title:ele.scale,
+                            type:ele.categoryName,
+                            number:ele.amount,
+                            price:ele.price
+                        }
+                    })
                 }else{
                     this.$notify({
                         title: this.$t('common.fail'),

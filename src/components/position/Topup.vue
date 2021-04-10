@@ -8,7 +8,7 @@
                         {{ recordItem.title }}
                     </div>
                     <div class="detail">
-                        {{ $t('positionRecord.detail') }}
+                        <!-- {{ $t('positionRecord.detail') }} -->
                     </div>
                 </div>
                 <div class="content">
