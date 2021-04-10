@@ -4,14 +4,14 @@
             <div class="trade-org-img">
                 <div class="trade-org-text">xx</div>
             </div>
-            <div class="trade-org-name">xxxxx{{dealitem.name}})</div>
+            <div class="trade-org-name">{{dealitem.name}})</div>
         </div>
         <div class="num-con">
             <div class="num-con-left">{{this.$t('Mtrade.num')}}:{{dealitem.num}}SLT</div>
             <div class="num-con-right">{{this.$t('Mtrade.charge')}}</div>
         </div>
         <div class="limit-con">
-            <div class="limit-num">{{this.$t('Mtrade.limit')}}:{{dealitem.limit}}ETH</div>
+<!--            <div class="limit-num">{{this.$t('Mtrade.limit')}}:{{dealitem.limit}}ETH</div>-->
             <div class="charge-num" v-if="dealitem.buyitem">{{dealitem.limitnum}} ETH</div>
             <div class="charge-num-seal" v-else>{{dealitem.chargenum}} ETH</div>
         </div>
@@ -19,10 +19,10 @@
             <div class="coin-img-con">
                 <img class="coin-img" src="../../static/img/buy/ETH.png" alt="">
             </div>
-            <div class="buy-button" v-if="dealitem.buyitem">
+            <div class="buy-button" v-if="dealitem.buyitem" @click="handleClick(dealitem)">
                 {{this.$t('Mtrade.buy')}}SLT
             </div>
-            <div class="seal-button" v-else>
+            <div class="seal-button" v-else @click="handleClick(dealitem)">
                 {{this.$t('Mtrade.seal')}}SLT
             </div>
         </div>
@@ -36,6 +36,11 @@
             dealitem:{
                 type:Object,
                 default:()=>{}
+            }
+        },
+        methods: {
+            handleClick(data) {
+                this.$emit("handleClick",data)
             }
         }
     }
@@ -101,7 +106,7 @@
         .limit-con{
             margin-top: 25rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             .limit-num{
                 font-size: 28rem;
                 font-family: Source Han Sans CN;

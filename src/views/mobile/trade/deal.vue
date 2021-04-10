@@ -16,7 +16,11 @@
                     <div class="paycon">
                         <div class="paycon-left">
                             <div class="left-text1">{{this.$t('Mbuy.willpay')}}</div>
-                            <div class="left-text2">0.00</div>
+                            <div class="left-text2" >
+                                <input type="text"
+                                       :placeholder="0"
+                                       v-model="convertAmount">
+                            </div>
                         </div>
                         <div class="paycon-right">
                             <div class="right-img-con">
@@ -36,7 +40,11 @@
                     <div class="getcon">
                         <div class="paycon-left">
                             <div class="left-text1">{{this.$t('Mbuy.willgain')}}</div>
-                            <div class="left-text2">0.00</div>
+                            <div class="left-text2">
+                                <input type="text"
+                                       :placeholder="0"
+                                       v-model="oriAmount">
+                            </div>
                         </div>
                         <div class="paycon-right">
                             <div class="right-img-con">
@@ -55,17 +63,22 @@
                             <img class="arrow-down-img" src="" alt="">
                         </div>
                     </div>
-                    <div class="pay-button" @click="popup">{{this.$t('Mbuy.buy')}}SLT</div>
+                    <div class="pay-button" @click="fastPushBuySell">{{this.$t('Mbuy.buy')}}SLT</div>
                     <remindauth v-if="popout" @handleClick="handleClick"></remindauth>
                     <confirmorder v-if="false"></confirmorder>
                 </div>
+
                 <div class="seal" v-if="currentindex1==1">
                     <div class="value-text">1ETH{{this.$t('Mbuy.value')}}</div>
                     <div class="value-num">308,500.00SLT</div>
                     <div class="paycon">
                         <div class="paycon-left">
                             <div class="left-text1">{{this.$t('Mbuy.willseal')}}</div>
-                            <div class="left-text2">0.00</div>
+                            <div class="left-text2">
+                                <input type="text"
+                                       :placeholder="0"
+                                       v-model="oriAmount">
+                            </div>
                         </div>
                         <div class="paycon-right">
                             <div class="right-img-con">
@@ -85,7 +98,11 @@
                     <div class="getcon">
                         <div class="paycon-left">
                             <div class="left-text1">{{this.$t('Mbuy.willgain')}}</div>
-                            <div class="left-text2">0.00</div>
+                            <div class="left-text2">
+                                <input type="text"
+                                       :placeholder="0"
+                                       v-model="convertAmount">
+                            </div>
                         </div>
                         <div class="paycon-right">
                             <div class="right-img-con">
@@ -104,7 +121,7 @@
                             <img class="arrow-down-img" src="" alt="">
                         </div>
                     </div>
-                    <div class="pay-button" @click="popup">{{this.$t('Mbuy.seal')}}SLT</div>
+                    <div class="pay-button" @click="fastPushBuySell">{{this.$t('Mbuy.seal')}}SLT</div>
                     <remindauth v-if="popout" @handleClick="handleClick"></remindauth>
                 </div>
             </div>
@@ -122,7 +139,9 @@
             return{
                 tradetextarr:[this.$t('Mbuy.buy'),this.$t('Mbuy.seal')],
                 currentindex1:0,
-                popout:false
+                popout:false,
+                oriAmount: "",
+                convertAmount: "",
             }
         },
         methods:{
@@ -134,7 +153,75 @@
             },
             handleClick() {
                 this.popout = false
-            }
+            },
+            fastPushBuySell() {
+                // eslint-disable-next-line no-debugger
+                // debugger
+                let postData = this.getPostData()//otcAdPushReq
+                let data = {
+                    convertAmount: postData.convertAmount,
+                    oriAmount: postData.oriAmount,
+                    transType: postData.transType,
+                }
+                if (postData) {
+                    this.axios({
+                        url: 'otc/trans/fastPushBuySell',
+                        method: 'post',
+                        params: JSON.stringify(data),
+                    }).then((res) => {
+                        if (res.errorCode === 0) {
+                            this.$notify({
+                                title: this.$t('notifyText.notify'),
+                                message: this.$t('notifyText.success'),
+                                type: 'success',
+                                showClose: false
+                            });
+                        } else {
+                            // eslint-disable-next-line no-debugger
+                            // debugger
+                            this.$notify({
+                                title: this.$t('notifyText.notify'),
+                                message: this.$t('notifyText.fail'),
+                                type: 'warning',
+                                showClose: false
+                            });
+                        }
+                    })
+                }
+            },
+            getPostData() {
+                let postData = {}
+                // let convertRate = "";//兑换币种ETH比率
+                let convertAmount = this.convertAmount === "" ? 0 : this.convertAmount;
+                // let convertSymbol = "ETH";//兑换币种ETH
+                // let maxAmount = this.maxAmount;//SLT币种交易最大可用数量
+                // let minAmount = this.minAmount;//SLT币种交易最小数量
+                let oriAmount = this.oriAmount === "" ? 0 : this.oriAmount;//SLT币种总数量
+                // let symbol = "";//BUY/SELL币种SLT
+                let transType = "";//交易类型【BUY, SELL】
+
+
+                if (this.currentindex1===0) {
+                    // symbol = "BUY";
+                    transType = "BUY";
+                } else {
+                    // symbol = "SELL";
+                    transType = "SELL";
+                }
+
+                postData = {
+                    // convertRate,
+                    // convertSymbol,
+                    // maxAmount,
+                    // minAmount,
+                    oriAmount,
+                    convertAmount,
+                    // symbol,
+                    transType,
+                }
+
+                return postData
+            },
         }
     }
 </script>

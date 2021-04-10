@@ -3,9 +3,9 @@
         <table>
             <thead>
             <tr>
-<!--                <th>
+                <th>
                     <div class="rate">{{ $t('otcTrade.tableHeader')[0] }}</div>
-                </th>-->
+                </th>
                 <th>
                     <div class="number">{{ $t('otcTrade.tableHeader')[1] }}</div>
                 </th>
@@ -31,14 +31,14 @@
             <tbody>
             <tr v-for="(item, index) in dataList"
                 :key="index">
-<!--                <th>
+                <th>
                     <div class="tread">
-                        &lt;!&ndash; <div class="header-img">
+                        <!-- <div class="header-img">
                             <img src="" alt="" class="img">
-                        </div> &ndash;&gt;
+                        </div> -->
                         <div class="name">{{item.name}}</div>
                     </div>
-                </th>-->
+                </th>
                 <th>
                     <div class="number">
                         <div class="text">{{item.number}}</div>

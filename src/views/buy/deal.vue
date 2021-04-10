@@ -207,31 +207,6 @@ export default {
                 params: this.getPostData()
             })
         },
-
-        // fastPushBuySell() {
-        //     let postData = this.getPostData()
-        //     if (postData) {
-        //         this.axios({
-        //             url: 'otc/trans/fastPushBuySell',
-        //             method: 'post',
-        //             params: JSON.stringify(postData),
-        //         }).then((res) => {
-        //             let data = res.data
-        //             if (res.errno === 0) {
-        //                 console.log(data);
-        //             } else {
-        //                 // eslint-disable-next-line no-debugger
-        //                 // debugger
-        //                 this.$notify({
-        //                     title: this.$t('notifyText.notify'),
-        //                     message: res.errmsg,
-        //                     type: 'warning',
-        //                     showClose: false
-        //                 });
-        //             }
-        //         })
-        //     }
-        // },
         getPostData() {
             let postData = {}
             // let convertRate = "";//兑换币种ETH比率

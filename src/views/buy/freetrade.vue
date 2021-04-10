@@ -151,7 +151,7 @@ export default {
             ],
             coinListChoose: 1,
             dataList: [
-                {
+                /*{
                     name: 'trade center（1329|99%）',
                     number: '1.159935 SLT',
                     quota: '40,000.00-387,481.00 ETH',
@@ -164,7 +164,7 @@ export default {
                     quota: '40,000.00-387,481.00 ETH',
                     price: '334,260.75 ETH',
                     payment: ['SLT'],
-                },
+                },*/
             ],
             dialogData: {},
             amount: "",
@@ -173,7 +173,6 @@ export default {
     },
     created() {
         this.getListFreeBuySell()
-
     },
     watch: {
         active(v) {
@@ -263,6 +262,7 @@ export default {
                 let payment = []
                 payment.push(item.convertSymbol)
                 let obj = {
+                    name: item.userName,
                     price: item.feeAmount,
                     number: item.oriAmount + " " + item.transType,
                     // quota: item.maxAmount + "-" + item.minAmount + " " + item.convertSymbol,
@@ -334,7 +334,7 @@ export default {
                 });
             }
 
-        }
+        },
 
     }
 }
