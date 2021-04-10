@@ -255,6 +255,11 @@
                     params:PostData
                 }).then(res=>{
                     console.log(res)
+                    if(res.errno==0){
+                        this.$notify({
+                            title:'구 매 성공'
+                        })
+                    }
                 }).catch(err=>{
                     console.log(err)
                 })

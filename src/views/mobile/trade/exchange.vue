@@ -41,7 +41,7 @@
                 })
             },
             changeitem(item){
-                console.log(item)
+                // console.log(item)
                 this.chooseItem = item
             }
         }

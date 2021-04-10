@@ -52,10 +52,10 @@
                 uploadUrl: api.commApi,
                 applyStatus: 'NORMAL',
                 applyButton:{
-                    NORMAL: '认证',
-                    INIT: '请等待审核',
-                    PASS: '认证通过',
-                    REFUSE: '认证',
+                    NORMAL: this.$t('identifi.auth'),
+                    INIT: this.$t('identifi.wait'),
+                    PASS: this.$t('identifi.finish'),
+                    REFUSE: this.$t('identifi.fail'),
                 }
             }
         },
@@ -101,7 +101,7 @@
                     }else {
                         this.$notify({
                             type:'error',
-                            message: '申请认证失败'
+                            message: this.$t('identifi.failed')
                         });
                     }
                 }).catch(err=>{
@@ -112,28 +112,28 @@
                 if (!this.realName) {
                     this.$notify({
                         type:'warning',
-                        message: '真实姓名不能为空'
+                        message: this.$t('identifi.havename')
                     });
                     return false;
                 }
                 if (!this.idcard) {
                     this.$notify({
                         type:'warning',
-                        message: '身份证账号不能为空'
+                        message: this.$t('identifi.havenum')
                     });
                     return false;
                 }
                 if (!this.backURL) {
                     this.$notify({
                         type:'warning',
-                        message: '请上传身份证背面图片'
+                        message: this.$t('identifi.upback')
                     });
                     return false;
                 }
                 if (!this.faceURL) {
                     this.$notify({
                         type:'warning',
-                        message: '请上传身份证正面图片'
+                        message: this.$t('identifi.upface')
                     });
                     return false;
                 }
