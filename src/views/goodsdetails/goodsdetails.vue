@@ -57,7 +57,7 @@
                     </div>
                     <div class="look-all-type" @click="control">尺码表</div>
                 </div> -->
-                <div class="shopcar" @click="buygoods" >{{$t('goodsdetails.buygoods')}}</div>
+                <div class="shopcar" @click="ordergoods" >{{$t('goodsdetails.buygoods')}}</div>
                 <div class="shopcar" @click="addgoods" >{{$t('goodsdetails.shopcar')}}</div>
                 <!-- <div class="question">
                     <div class="online">
@@ -142,6 +142,15 @@
             // console.log(this.goodsid);
             // console.log(this.goodsindex)
         },
+        show(){
+            let goodsid = this.localStorage.get("goodsid");
+            let goodsindex = this.localStorage.get('goodsindex');
+            console.log(this.$route.params.item)
+            this.goodsid = goodsid;
+            // if()
+            this.goodsindex = goodsindex;
+            this.getGoodsDetail();
+        },
         methods:{
             control(){
                 this.showitem = !this.showitem;
@@ -186,7 +195,7 @@
                 }).catch(() => {
                     this.$message({
                         type: 'info',
-                        message: this.$t('goodsdetails.fail')
+                        message: this.$t('shopcar.cancle')
                     });
                 });
             },
@@ -201,19 +210,32 @@
                 }
                 return PostData
             },
-            buygoods(){
-                let PostData = this.getbuyPostData();
+            ordergoods(){
+                let PostData = this.getorderPostData();
                 this.axios({
                     url: 'wx/cart/fastadd',
                     method: 'post',
                     params: PostData
                 }).then(res => {
                     console.log(res);
+                        this.$confirm(this.$t('goodsdetails.confirmbuy')+'?', this.$t('goodsdetails.notify'), {
+                            confirmButtonText: this.$t('goodsdetails.confirm'),
+                            cancelButtonText: this.$t('goodsdetails.cancle'),
+                            type: 'warning'
+                        }).then(() => {}).catch(()=>{
+                            this.localStorage.set('cartId', res.data);
+                            this.buygoods()
+                        }).catch(() => {
+                            this.$message({
+                                type: 'info',
+                                message: this.$t('shopcar.cancled')
+                            });
+                        });
                 }).catch(err => {
                     console.log(err);
                 })
             },
-            getbuyPostData(){
+            getorderPostData(){
                 let goodsId = this.goodsid;
                 let selectedNum = 1;
                 let productId = this.goodsindex+1;
@@ -223,6 +245,31 @@
                     productId: productId
                 }
                 return PostData;
+            },
+            buygoods(){
+                // console.log('购买')
+                let PostData = this.getbuyPostData()
+                this.axios({
+                    url:'wx/order/submit',
+                    method:'post',
+                    params:PostData
+                }).then(res=>{
+                    console.log(res)
+                }).catch(err=>{
+                    console.log(err)
+                })
+            },
+            getbuyPostData(){
+                let id = this.localStorage.get('adressid')
+                let PostData = {
+                    cartId:'0',
+                    addressId:id,
+                    couponId:'-1',
+                    message:'xxx',
+                    // grouponRulesId:'1',
+                    // grouponLinkId:'1'
+                }
+                return PostData
             },
             getGoodsDetail(){
                 this.axios({

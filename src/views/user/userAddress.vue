@@ -171,6 +171,11 @@ export default {
                 let data = res.data
                 if (res.errno === 0) {
                     this.getDataList(data.list)
+                    for (let i = 0; i <data.list.length ; i++) {
+                        if(data.list[i].isDefault){
+                            this.localStorage.set('adressid', data.list[i].id)
+                        }
+                    }
                 }
             }).catch(err => {
                 console.log(err)

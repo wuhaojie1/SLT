@@ -94,7 +94,7 @@ export default {
         tredetype: '지불방식',
         moneycomes: '화폐원천',
         usermoney: '수수료료',
-        tableHeader:['코인 종류','수량','동결','사용가능','단가','총액','오프션'],
+        tableHeader:['코인 종류','수량','동결','수수료','단가','총액','오프션'],
         total:'내 자산',
         account:'내잔고'
 
@@ -219,7 +219,9 @@ export default {
         confirm:'확정 하 다',
         cancle:'취소 하 다',
         succeed:'삭제 성공',
-        fail:'삭제 됨'
+        fail:'삭제 됨',
+        confirmbuy:'구 매 하 시 겠 습 니까?',
+        cancled:'취소 됨'
     },
     //商品详细
     goodsdetails:{
@@ -238,7 +240,9 @@ export default {
         cancle:'취소 하 다',
         comfirmtext:'카 트 가입 을 확정 하 다',
         succeed:'카 트 가입 성공',
-        fail:'취소 됨'
+        fail:'취소 됨',
+        confirmbuy:'구 매 하 시 겠 습 니까?',
+        cancled:'취소 됨'
     },
     //商城
     shop:{
@@ -454,8 +458,19 @@ export default {
         sell:'판매',
         title:'자유거래',
         subTitle:'',
-        tableHeader:['광고주','수량','한도','단가','지불방','거래','수수료'],
-        auth:'실명인증이 필요합니다.'
+        tableHeader:['광고주','수량','한도','수수료','지불방','거래','수수료'],
+        auth:'실명인증이 필요합니다.',
+        buyNumber: "수량에따라구매하다",
+        buyPlaceholder: "구매수량을입력하세요",
+        all: "전부",
+        limit: "한정 하 다",
+        treadMoney: "거래 금액",
+        payMoney: "실제 지불",
+        openOrders: "오픈 시트",
+        acceptText: "주문 서 를 클릭 하면 귀하 가 아 시 는 것 을 의미 하고 수령 에 동의 합 니 다",
+        ad: "광고 서비스 프로 토 콜",
+        sellBtn: "매출 을 확인 하 다",
+        success: "성공 하 다",
     },
     //钱包 提币、입금wallet
     wallet:{

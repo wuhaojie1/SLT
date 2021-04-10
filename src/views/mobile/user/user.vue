@@ -9,16 +9,88 @@
                 <img style="width:24rem;height:14rem;" src="../../../static/img/user/arrowdown.png" alt="">
             </div>
             <div class="infoTitle">{{ $t('userInfo.basemsg') }}</div>
+<!--            <ul class="infoBox">-->
+<!--                <li v-for="(item,index) in list" :key="item.text" class="infoItem">-->
+<!--                    <div class="itemLeft">{{ item.text }}</div>-->
+<!--                    <div v-if="change" :style="'color:'+((index==2||index==5||index==6||index==7)?'#9AA5B5':'#444444')"-->
+<!--                         class="itemCenter">{{ item.val }}-->
+<!--                    </div>-->
+<!--                    <input v-else v-model="item.val" :style="'color:'+((index==2||index==5||index==6||index==7)?'#9AA5B5':'#444444')"-->
+<!--                         class="itemCenterinput" />-->
+<!--                    <img v-if="item.isArrow" class="itemRight" style="width:12rem;height:20rem;"-->
+<!--                         :src="require((index==6||index==7||index==5||index==2)?'../../../static/img/user/arrowgrey.png':'../../../static/img/user/arrowdart.png')"-->
+<!--                         alt="">-->
+<!--                </li>-->
+<!--            </ul>-->
             <ul class="infoBox">
-                <li v-for="(item,index) in list" :key="item.text" class="infoItem">
-                    <div class="itemLeft">{{ item.text }}</div>
-                    <div v-if="change" :style="'color:'+((index==2||index==5||index==6||index==7)?'#9AA5B5':'#444444')"
-                         class="itemCenter">{{ item.val }}
+                <li class="infoItem">
+                    <div class="itemLeft">{{$t('userInfo.phonenum')}}:</div>
+                    <div v-if="change"
+                         class="itemCenter">{{ usermsg.username }}
                     </div>
-                    <input v-else v-model="item.val" :style="'color:'+((index==2||index==5||index==6||index==7)?'#9AA5B5':'#444444')"
-                         class="itemCenterinput" />
-                    <img v-if="item.isArrow" class="itemRight" style="width:12rem;height:20rem;"
-                         :src="require((index==6||index==7||index==5)?'../../../static/img/user/arrowgrey.png':'../../../static/img/user/arrowdart.png')"
+                    <input v-else v-model="usermsg.username"
+                           class="itemCenterinput" />
+                    <img class="itemRight" style="width:12rem;height:20rem;"
+                         src="../../../static/img/user/arrowgrey.png"
+                         alt="">
+                </li>
+                <li class="infoItem">
+                    <div class="itemLeft">{{$t('userInfo.userID')}}</div>
+                    <div v-if="change"
+                         class="itemCenter">{{ usermsg.userId }}
+                    </div>
+                    <input v-else v-model="usermsg.userId"
+                           class="itemCenterinput" />
+                    <img class="itemRight" style="width:12rem;height:20rem;"
+                         src="../../../static/img/user/arrowgrey.png"
+                         alt="">
+                </li>
+                <li class="infoItem">
+                    <div class="itemLeft">{{$t('userInfo.truename')}}</div>
+                    <div v-if="change"
+                         class="itemCenter">{{usermsg.realName}}
+                    </div>
+                    <input v-else v-model="usermsg.realName"
+                           class="itemCenterinput" />
+                    <img class="itemRight" style="width:12rem;height:20rem;"
+                         src="../../../static/img/user/arrowgrey.png"
+                         alt="">
+                </li>
+                <li class="infoItem">
+                    <div class="itemLeft">{{$t('userInfo.sex')}}</div>
+                    <el-radio-group v-model="radio" :disabled=change class="itemCenter">
+                        <el-radio :label="1" v-model="radio" class="user-sex-item"><span
+                                :style="{marginLeft:'11rem'}">{{$t('userInfo.man')}}</span></el-radio>
+                        <el-radio :label="0" v-model="radio" class="user-sex-item"><span
+                                :style="{marginLeft:'11rem'}">{{$t('userInfo.weman')}}</span></el-radio>
+                        <el-radio :label="2" v-model="radio" class="user-sex-item"><span :style="{marginLeft:'11rem'}">{{$t('userInfo.secret')}}</span>
+                        </el-radio>
+                    </el-radio-group>
+<!--                    <div v-if="change"-->
+<!--                         class="itemCenter">{{ sex }}-->
+<!--                    </div>-->
+<!--                    <input v-else v-model="sex"-->
+<!--                           class="itemCenterinput" />-->
+                    <img class="itemRight" style="width:12rem;height:20rem;"
+                         src="../../../static/img/user/arrowgrey.png"
+                         alt="">
+                </li>
+                <li class="infoItem">
+                    <div class="itemLeft">{{$t('userInfo.birthday')}}</div>
+<!--                    <div v-if="change"-->
+<!--                         class="itemCenter">{{ birthday }}-->
+<!--                    </div>-->
+<!--                    <input v-else v-model="birthday"-->
+<!--                           class="itemCenterinput" />-->
+                    <el-date-picker
+                            class="itempicker"
+                            v-model="usermsg.birthday"
+                            type="date"
+                            placeholder="날짜를선택하다"
+                            :disabled=change>
+                    </el-date-picker>
+                    <img class="itemRight" style="width:12rem;height:20rem;"
+                         src="../../../static/img/user/arrowgrey.png"
                          alt="">
                 </li>
             </ul>
@@ -43,17 +115,18 @@ export default {
     data() {
         return {
             list: [
-                {text: this.$t('userInfo.userName'), val: '13028143776', isArrow: true},
-                {text: this.$t('userInfo.userID'), val: 'JCJDVJDS', isArrow: false},
-                {text: this.$t('userInfo.truename'), val: '*상**.', isArrow: false},
+                // {text: this.$t('userInfo.userName'), val: '13028143776', isArrow: true},
+                // {text: this.$t('userInfo.userID'), val: 'JCJDVJDS', isArrow: false},
+                // {text: this.$t('userInfo.truename'), val: '*상**.', isArrow: false},
                 // {text: this.$t('userInfo.sex'), val: this.$t('userInfo.weman'), isArrow: true},
                 // {text: this.$t('userInfo.birthday'), val: '1988.10.20', isArrow: true},
                 // {text:this.$t('userInfo.education'),val:this.$t('userInfo.pleaseSelect'),isArrow:true},
                 // {text:this.$t('userInfo.industry'),val:this.$t('userInfo.pleaseSelect'),isArrow:true},
-                {text: this.$t('userInfo.idnum'), val: this.$t('userInfo.pleaseInput'), isArrow: true},
-
+                // {text: this.$t('userInfo.idnum'), val: this.$t('userInfo.pleaseInput'), isArrow: true},
             ],
-            change:true
+            change:true,
+            usermsg: {},
+            radio:'2'
         }
     },
     mounted() {
@@ -61,13 +134,39 @@ export default {
     },
     methods: {
         save(){
-            this.change = !this.change
+            this.change = !this.change;
+            // if (!this.change){
+                this.updatamsg()
+            // }
         },
         clickCallback(item){
             // console.log(item)
             this.$router.push({
                 name: item.name,
             })
+        },
+        updatamsg(){
+            this.status0 = false;
+            if(this.status1){
+                let PostData = this.getnewmsgPostdata();
+                this.axios({
+                    url:'wx/user/update',
+                    method:'post',
+                    params:PostData
+                }).then(res=>{
+                    console.log(res);
+                    this.status0 = true
+                }).catch(err=>{
+                    console.log(err);
+                })
+            }
+            this.status1 = !this.status1
+        },
+        getnewmsgPostdata(){
+            this.usermsg.gender = this.radio;
+            console.log(this.usermsg.gender,this.radio,this.usermsg.birthday)
+            let PostData=this.usermsg;
+            return PostData;
         },
         getUserInfo() {
             this.axios({
@@ -76,9 +175,16 @@ export default {
                 // params: getData,
             }).then(res => {
                 console.log(res);
-                this.list[0].val = res.data.username;
-                this.list[1].val = res.data.userId;
-                this.list[2].val = res.data.realName;
+                let data = res.data
+                if (res.errno === 0) {
+                    this.usermsg.gender = data.gender;
+                    this.radio = this.usermsg.gender
+                    let usermsg = {
+                        ...data
+                    }
+                    this.usermsg = usermsg;
+                    this.localStorage.set('usermsg', usermsg)
+                }
             })
         }
     },
@@ -145,13 +251,23 @@ export default {
                     flex-grow: 1;
                     text-align: right;
                     /*width: 200rem;*/
+                    /*float:right;*/
+                    /*margin-left: 200rem;*/
+                }
+                .itempicker{
+                    margin-left: 155rem;
                 }
                 .itemCenterinput{
                     flex-grow: 1;
                     text-align: right;
-                    border: 1rem solid #DBDEE4;
+                    /*border: 1rem solid #DBDEE4;*/
                     height: 40rem;
-                    /*width: 200rem;*/
+                    width: 200rem;
+                    font-size: 28rem;
+                    font-family: Source Han Sans CN;
+                    font-weight: 400;
+                    color: #444444;
+                    /*margin-left: 350rem;*/
                 }
 
                 .itemRight {
@@ -161,7 +277,7 @@ export default {
 
             .infoItem:nth-child(5) {
                 padding-bottom: 60rem;
-                border-bottom: solid 15rem #F2F6FA;
+                /*border-bottom: solid 15rem #F2F6FA;*/
             }
 
             .infoItem:nth-child(6) {
