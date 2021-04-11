@@ -81,7 +81,7 @@ import Classify from "@/components/shoppingMall/classify";
 export default {
     name: "shoppingMall",
     components: {Classify, Bottom, ThemeStickyHeader},
-    mounted() {
+    created() {
         this.getCatalog();
     },
     data() {
@@ -208,15 +208,16 @@ export default {
                     // this.filterList =['books','tools','furniture']
                     this.titleItem.name = data.categoryList[0].name
                     this.getGoodsById(data.categoryList[0].id)
-                    console.log(this.filterList)
+                    // console.log(this.filterList)
 
                 }
             }).catch(err => {
                 console.log(err)
             })
         },
+
         getGoodsById(id) {
-            console.log(id)
+            // console.log(id)
             let getData = {
                 categoryId: id,
             }
@@ -227,7 +228,7 @@ export default {
             }).then((res) => {
                 // eslint-disable-next-line no-debugger
                 // debugger
-                console.log(res)
+                // console.log(res)
 
                 let data = res.data
                 if (res.errno === 0) {

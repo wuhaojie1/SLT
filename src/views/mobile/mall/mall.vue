@@ -82,6 +82,9 @@
                 ]
             }
         },
+        created(){
+            this.getCatalog();
+        },
         methods: {
             clickCallback(item){
                 // console.log(item)
@@ -93,7 +96,72 @@
                 this.$router.push({
                     name: name,
                 })
-            }
+            },
+            getCatalog() {
+                this.axios({
+                    url: 'wx/catalog/all',
+                    method: 'get',
+                    // params: JSON.stringify(postData),
+                }).then((res) => {
+                    // eslint-disable-next-line no-debugger
+                    // debugger
+                    // console.log(res)
+                    let data = res.data
+                    if (res.errno === 0) {
+                        this.filterList = data.categoryList;
+                        // this.filterList =['books','tools','furniture']
+                        // this.titleItem.name = data.categoryList[0].name
+                        this.getGoodsById(data.categoryList[0].id)
+                        // console.log(this.filterList)
+
+                    }
+                }).catch(err => {
+                    console.log(err)
+                })
+            },
+
+            getGoodsById(id) {
+                // console.log(id)
+                let getData = {
+                    categoryId: id,
+                }
+                this.axios({
+                    url: 'wx/goods/list',
+                    method: 'get',
+                    params: getData
+                }).then((res) => {
+                    // eslint-disable-next-line no-debugger
+                    // debugger
+                    // console.log(res)
+
+                    let data = res.data
+                    // console.log(res)
+                    if (res.errno.toString() === '0') {
+                        // console.log(data.total)
+                        this.goodsTotal = data.total;//user/userInfo
+                        let tempArray = [];
+                        // console.log(111111)
+                        console.log(data.list.length)
+                        data.list.forEach(el => {
+                            console.log(el)
+                        })
+                        // console.log(data.filterCategoryList)
+                        // tempArray.push(data.filterCategoryList)
+                        this.books = tempArray;
+                        // console.log(tempArray)
+
+                        // filterCategoryList: [{id: 1005007, name: "锅具", keywords: "", desc: "一口好锅，炖煮生活一日三餐", pid: 1005001,…},…]
+                        // limit: 10
+                        // list: []
+                        // page: 0
+                        // pages: 0
+                        // total: 0
+
+                    }
+                }).catch(err => {
+                    console.log(err)
+                })
+            },
         }
     }
 </script>

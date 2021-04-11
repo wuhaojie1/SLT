@@ -57,7 +57,7 @@ export default {
         }
     },
     mounted() {
-        console.log(this.$route.query);
+        // console.log(this.$route.query);
         if(this.$route.query.lan){
             this.lan = this.$route.query.lan;
         }else{
