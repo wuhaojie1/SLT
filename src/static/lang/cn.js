@@ -467,7 +467,18 @@ export default {
         title:'自选交易',
         subTitle:'',
         tableHeader:['广告方','数量','限额','单价','支付方式','交易','手续费'],
-        auth:'需实名认证'
+        auth:'需实名认证',
+        buyNumber: "수량에따라구매하다",
+        buyPlaceholder: "구매수량을입력하세요",
+        all: "전부",
+        limit: "한정 하 다",
+        treadMoney: "거래 금액",
+        payMoney: "실제 지불",
+        openOrders: "오픈 시트",
+        acceptText: "주문 서 를 클릭 하면 귀하 가 아 시 는 것 을 의미 하고 수령 에 동의 합 니 다",
+        ad: "광고 서비스 프로 토 콜",
+        sellBtn: "매출 을 확인 하 다",
+        success: "성공 하 다",
     },
     //钱包 提币、充币wallet
     wallet:{

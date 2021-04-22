@@ -24,7 +24,16 @@ const http = ({
                 method: method || 'post',
                 responseType: responseType || '',
             }).then((data) => {
-                resolve(data.data);
+                console.log(data.data)
+                if(data.data){
+                    if(data.data.errorCode===1000104||String(data.data.errorCode)==='1000104'){
+                        localStorage.set('isLogin', false)
+                    }else{
+                        resolve(data.data);
+                    }
+                    
+                }
+                
             }).catch((err) => {
                 reject(err);
             });

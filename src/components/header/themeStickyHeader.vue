@@ -32,8 +32,8 @@
                         <!--                        <img :src="ring" alt="" class="ring">-->
                         <!--                        <img :src="service" alt="" class="service">-->
                         <div class="goin" v-else>
-                            <div class="logintext" @click="topage('login')">{{ $t('header.loginText')[0] }}</div>
-                            <div class="regiesttext" @click="topage('regiest')">{{ $t('header.loginText')[1] }}</div>
+                            <div class="logintext" @click="topage('login')">{{ $t('header.loginText')[0] }} / {{$t('header.loginText')[1]}}</div>
+                            <!-- <div class="regiesttext" @click="topage('regiest')">{{ $t('header.loginText')[1] }}</div> -->
                         </div>
                     </div>
                     <!-- <div class="site-header-item" @click="selectLanguage()">
